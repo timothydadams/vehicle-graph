@@ -20,6 +20,13 @@ Supporting workspace records are:
 - [ambiguity log](ambiguity-log.md), which preserves unresolved questions
   without silently deciding them.
 
+## Local Evidence Convention
+
+The [EWD168F source catalog](../../sources/toyota/ewd168f/README.md) records the
+expected private local evidence paths. Working files in this directory may
+reference artifacts or derivatives under `.evidence/`, but ignored local files
+must not be treated as committed repository state or accepted factory knowledge.
+
 ## Next Work Sequence
 
 1. Preserve and identify evidence.

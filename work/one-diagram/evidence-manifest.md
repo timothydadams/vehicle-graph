@@ -4,8 +4,15 @@
 
 This pre-canonical manifest is derived from the
 [source inventory](source-inventory.md). Its entries identify proposed evidence;
-they are not accepted factory facts. No evidence asset paths are recorded
-because no such assets are currently present in the repository.
+they are not accepted factory facts. The committed
+[EWD168F source catalog](../../sources/toyota/ewd168f/README.md) records source
+identity and the convention for expected private local evidence paths.
+
+The expected PDF path is `.evidence/toyota/ewd168f/EWD168F.pdf`. That path is a
+local convention, not evidence that the PDF is present. No local artifact or
+working derivative has been verified at that path, and `.evidence/` is ignored
+by Git. Source identity, local evidence availability, working-derivative status,
+and acceptance of factory facts remain separate questions.
 
 The source inventory states that the reviewed material is adequate for boundary
 discovery, that several later pages are watermarked working scans, and that the
@@ -51,4 +58,5 @@ source still needs to be recorded.
 Before candidate claims are accepted, each manifest entry used as evidence must
 be tied to an adequately preserved capture of the physical source or have its
 working-derivative status recorded explicitly. The manifest must not imply that
-reviewed reference material has already been preserved in the repository.
+reviewed reference material has already been preserved in the repository or is
+available at an expected private local path.
