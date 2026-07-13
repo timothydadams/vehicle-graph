@@ -20,9 +20,8 @@ be interpreted without applying those definitions, and any future Except-Europe
 or Europe detailed transcription must cite the relevant source-language
 guidance recorded in [source-language.md](source-language.md).
 
-The previous detailed extraction commit was reverted. No detailed conductor
-transcription should be recreated as part of this policy task. Future detailed
-transcription may proceed when the
+The previous detailed extraction commit was reverted during the policy task.
+Detailed transcription may proceed only when the
 [hard gate](extraction-boundary.md#hard-gate) passes. Open soft ambiguities must
 be cited on affected entries; soft status does not authorize interpretation,
 completion, or silent resolution. Authorization is recorded in the
@@ -180,3 +179,228 @@ They are not currently repository evidence assets, and their relationship to the
 user's physical source still needs to be recorded. Any transcription from these
 captures remains a candidate until checked against adequately identified
 evidence, assigned provenance and applicability, and independently reviewed.
+
+## Except-Europe Detailed Candidate Transcription
+
+This transcription is limited to EWD168F printed page 191, PDF page 186
+(one-based; PDF index 185), **Headlight (Except Europe)** beginning at location
+`5-4`. It copies source-visible candidates and does not assert applicability to
+the identified target vehicle or acceptance as factory knowledge.
+
+Citation shorthand used below:
+
+- `P191`: EWD168F printed page 191, PDF page 186, location `5-4`.
+- `SL4`: printed page 4, example System Circuit.
+- `SL5`: printed page 5, System Circuit notation definitions.
+- `SL6`: printed page 6, System Circuit Connectors explanation.
+- `SL7`: printed page 7, abbreviations and terminal-code distinction.
+- `RB29`: printed page 29, Relay Block No. 1 layout support.
+
+Ambiguity shorthand expands as follows; every shorthand carries the listed
+provisional ambiguity IDs onto the candidate entry:
+
+- `APP`: `AMB-APP-001`, `AMB-APP-002`.
+- `JX`: `APP`, `AMB-CON-001`, `AMB-CON-003`.
+- `JX-JOIN`: `JX`, `AMB-CON-002`.
+- `C15`: `APP`, `AMB-CON-004`.
+- `JOIN`: `APP`, `AMB-CON-002`.
+- `GND`: `APP`, `AMB-GND-001`.
+- `BOUND`: `APP`, `AMB-BOUND-001`.
+- `BOUND-C15`: `BOUND`, `AMB-CON-004`.
+
+### 1. Visible Objects
+
+| Candidate ID | Exact Toyota label | Printed source code | Source location | Descriptive kind | Applicability | Primary evidence | Source-language citation(s) | Ambiguity IDs | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| OBJ-EX-HEAD-RELAY | HEADLIGHT RELAY | — | `P191-R1`, `5-4` | relay | Headlight (Except Europe) | `P191` | `SL4` (part depiction); `SL5` (Relay Block); `RB29` | `APP` | candidate |
+| OBJ-EX-FUSE-BLOCK-1 | FUSE BLOCK NO. 1 | — | `P191-R1`, `5-4` | fuse block | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and circuit depiction) | `APP` | candidate |
+| OBJ-EX-FUSE-HEAD-LH | 10A HEAD LH | — | `P191-R1`, `5-4` | fuse | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and circuit depiction) | `APP` | candidate |
+| OBJ-EX-FUSE-HEAD-RH | 10A HEAD RH | — | `P191-R1`, `5-4` | fuse | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and circuit depiction) | `APP` | candidate |
+| OBJ-EX-H5 | HEADLIGHT LH | H5 | `P191-R1`, `5-4` | part | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and pin-number depiction); `SL6` | `APP` | candidate |
+| OBJ-EX-H6 | HEADLIGHT RH | H6 | `P191-R1`, `5-4` | part | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and pin-number depiction); `SL6` | `APP` | candidate |
+| OBJ-EX-J3 | JUNCTION CONNECTOR NO. 3 | J3 | `P191-R2`, `5-4` | junction connector | Headlight (Except Europe) | `P191` | `SL5` (part and wire-color depiction); `SL6` (connector views) | `JX` | candidate |
+| OBJ-EX-C15-LIGHT | LIGHT CONTROL SW [COMB. SW] | C15 | `P191-R2`, `5-4` | printed switch function within part | Headlight (Except Europe) | `P191` | `SL5` (shared connector naming); `SL7` (terminal codes) | `C15` | candidate |
+| OBJ-EX-C15-DIMMER | DIMMER SW [COMB. SW] | C15 | `P191-R2`, `5-4` | printed switch function within part | Headlight (Except Europe) | `P191` | `SL5` (shared connector naming); `SL7` (terminal codes) | `C15` | candidate |
+| OBJ-EX-C13-HIGH | HIGH BEAM INDICATOR LIGHT [COMB. METER] | C13 | `P191-R2`, `5-4` | printed indicator function within part | Headlight (Except Europe) | `P191` | `SL5` (shared connector naming); `SL6`; `SL7` | `APP` | candidate |
+| OBJ-EX-J1 | JUNCTION CONNECTOR NO. 1 | J1 | `P191-R2`, `5-4` | junction connector | Headlight (Except Europe) | `P191` | `SL5` (part and wire-color depiction); `SL6` (connector views) | `JX` | candidate |
+| OBJ-EX-D10 | DIODE (for Rear Fog Light) | D10 | `P191-R2`, `5-4` | part | Headlight (Except Europe), boundary treatment unresolved | `P191` | `SL4`–`SL5` (part and circuit depiction) | `BOUND` | candidate |
+
+### 2. Terminals and Contacts
+
+Repeated J1 and J3 letters are recorded by their displayed page-191 positions;
+no broader grouped-letter meaning is assigned.
+
+| Candidate terminal ID | Owning object | Exact printed designation | Source location | Attached printed wire-color code | Primary evidence | Source-language citation(s) | Ambiguity IDs | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| TERM-EX-RELAY-1 | OBJ-EX-HEAD-RELAY | 1 | `P191-R1` | R | `P191` | `SL5` (wire color and Relay Block) | `APP` | candidate |
+| TERM-EX-RELAY-2 | OBJ-EX-HEAD-RELAY | 2 | `P191-R1` | R-G | `P191` | `SL5` (wire color and Relay Block) | `APP` | candidate |
+| TERM-EX-RELAY-3 | OBJ-EX-HEAD-RELAY | 3 | `P191-R1` | R-W | `P191` | `SL5` (wire color and Relay Block) | `APP` | candidate |
+| TERM-EX-RELAY-4 | OBJ-EX-HEAD-RELAY | 4 | `P191-R1` | R | `P191` | `SL5` (wire color and Relay Block) | `APP` | candidate |
+| TERM-EX-FB1-1 | OBJ-EX-FUSE-BLOCK-1 | 1 | `P191-R1` | R-G | `P191` | `SL5` (pin number and wire color) | `APP` | candidate |
+| TERM-EX-FB1-2 | OBJ-EX-FUSE-BLOCK-1 | 2 | `P191-R1` | R-B | `P191` | `SL5` (pin number and wire color) | `APP` | candidate |
+| TERM-EX-FB1-3 | OBJ-EX-FUSE-BLOCK-1 | 3 | `P191-R1` | R-L | `P191` | `SL5` (pin number and wire color) | `APP` | candidate |
+| TERM-EX-H5-1 | OBJ-EX-H5 | 1 | `P191-R1` | R-G | `P191` | `SL5` (pin number and wire color); `SL6` | `APP` | candidate |
+| TERM-EX-H5-2 | OBJ-EX-H5 | 2 | `P191-R1` | R-Y | `P191` | `SL5` (pin number and wire color); `SL6` | `APP` | candidate |
+| TERM-EX-H5-3 | OBJ-EX-H5 | 3 | `P191-R1` | R-L | `P191` | `SL5` (pin number and wire color); `SL6` | `APP` | candidate |
+| TERM-EX-H6-1 | OBJ-EX-H6 | 1 | `P191-R1` | R-G | `P191` | `SL5` (pin number and wire color); `SL6` | `APP` | candidate |
+| TERM-EX-H6-2 | OBJ-EX-H6 | 2 | `P191-R1` | R-Y | `P191` | `SL5` (pin number and wire color); `SL6` | `APP` | candidate |
+| TERM-EX-H6-3 | OBJ-EX-H6 | 3 | `P191-R1` | R-B | `P191` | `SL5` (pin number and wire color); `SL6` | `APP` | candidate |
+| TERM-EX-J3-H-TOP | OBJ-EX-J3 | H (top displayed position) | `P191-R2` | R-G | `P191` | `SL5` (wire color); `SL6` (connector views) | `JX` | candidate |
+| TERM-EX-J3-H-RIGHT | OBJ-EX-J3 | H (right displayed position) | `P191-R2` | R-G | `P191` | `SL5` (wire color); `SL6` (connector views) | `JX` | candidate |
+| TERM-EX-J3-H-BOTTOM | OBJ-EX-J3 | H (bottom displayed position) | `P191-R2` | R-G | `P191` | `SL5` (wire color); `SL6` (connector views) | `JX` | candidate |
+| TERM-EX-J3-G-TOP | OBJ-EX-J3 | G (top displayed position) | `P191-R2` | R-Y | `P191` | `SL5` (wire color); `SL6` (connector views) | `JX` | candidate |
+| TERM-EX-J3-G-RIGHT | OBJ-EX-J3 | G (right displayed position) | `P191-R2` | R-Y | `P191` | `SL5` (wire color); `SL6` (connector views) | `JX` | candidate |
+| TERM-EX-J3-G-BOTTOM | OBJ-EX-J3 | G (bottom displayed position) | `P191-R2` | R-Y | `P191` | `SL5` (wire color); `SL6` (connector views) | `JX` | candidate |
+| TERM-EX-C15L-T11 | OBJ-EX-C15-LIGHT | T / 11 | `P191-R2` | LG-R | `P191` | `SL5` (wire color and pin number); `SL7` (terminal code) | `C15` | candidate |
+| TERM-EX-C15L-EL10 | OBJ-EX-C15-LIGHT | EL / 10 | `P191-R2` | W-B | `P191` | `SL5` (wire color and pin number); `SL7` (terminal code) | `C15` | candidate |
+| TERM-EX-C15L-H4 | OBJ-EX-C15-LIGHT | H / 4 | `P191-R2` | R-W; R-B | `P191` | `SL5` (wire color and pin number); `SL7` (terminal code) | `BOUND-C15` | candidate |
+| TERM-EX-D10-1 | OBJ-EX-D10 | 1 | `P191-R2` | R-W | `P191` | `SL5` (pin number and wire color) | `BOUND` | candidate |
+| TERM-EX-D10-2 | OBJ-EX-D10 | 2 | `P191-R2` | R-B | `P191` | `SL5` (pin number and wire color) | `BOUND` | candidate |
+| TERM-EX-D10-3 | OBJ-EX-D10 | 3 | `P191-R2` | R-L | `P191` | `SL5` (pin number and wire color) | `BOUND` | candidate |
+| TERM-EX-C15D-HF12 | OBJ-EX-C15-DIMMER | HF / 12 | `P191-R2` | R-W | `P191` | `SL5` (wire color and pin number); `SL7` (terminal code) | `C15` | candidate |
+| TERM-EX-C15D-HL6 | OBJ-EX-C15-DIMMER | HL / 6 | `P191-R2` | R-G | `P191` | `SL5` (wire color and pin number); `SL7` (terminal code) | `C15` | candidate |
+| TERM-EX-C15D-HU5 | OBJ-EX-C15-DIMMER | HU / 5 | `P191-R2` | R-Y | `P191` | `SL5` (wire color and pin number); `SL7` (terminal code) | `C15` | candidate |
+| TERM-EX-C15D-ED13 | OBJ-EX-C15-DIMMER | ED / 13 | `P191-R2` | W-B | `P191` | `SL5` (wire color and pin number); `SL7` (terminal code) | `C15` | candidate |
+| TERM-EX-J1-A-LEFT | OBJ-EX-J1 | A (left displayed position) | `P191-R2` | W-B | `P191` | `SL5` (wire color); `SL6` (connector views) | `JX` | candidate |
+| TERM-EX-J1-A-RIGHT | OBJ-EX-J1 | A (right displayed position) | `P191-R2` | W-B | `P191` | `SL5` (wire color); `SL6` (connector views) | `JX` | candidate |
+| TERM-EX-J1-A-BOTTOM | OBJ-EX-J1 | A (bottom displayed position) | `P191-R2` | W-B | `P191` | `SL5` (wire color); `SL6` (connector views) | `JX` | candidate |
+| TERM-EX-J1-B-TOP | OBJ-EX-J1 | B (top displayed position) | `P191-R2` | W-B | `P191` | `SL5` (wire color); `SL6` (connector views) | `JX` | candidate |
+| TERM-EX-J1-B-BOTTOM | OBJ-EX-J1 | B (bottom displayed position) | `P191-R2` | W-B | `P191` | `SL5` (wire color); `SL6` (connector views) | `JX` | candidate |
+| TERM-EX-C13-10 | OBJ-EX-C13-HIGH | 10 | `P191-R2` | R-G | `P191` | `SL5` (pin number and wire color); `SL6` | `APP` | candidate |
+| TERM-EX-C13-13 | OBJ-EX-C13-HIGH | 13 | `P191-R2` | W-B | `P191` | `SL5` (pin number and wire color); `SL6` | `APP` | candidate |
+
+### 3. Conductor Segments
+
+`CONT-EX-B`, `CONT-EX-REAR-FOG`, `CONT-EX-TAILLIGHT`, `CONT-EX-BH`, and
+`CONT-EX-BI` are the continuation candidates recorded in section 8. Junction
+IDs are defined in section 7.
+
+| Candidate segment ID | Endpoint A | Endpoint B | Printed wire-color code | Branches | Continuation references | Applicability | Primary evidence | Source-language citation(s) | Ambiguity IDs | Confidence |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| SEG-EX-001 | CONT-EX-B | TERM-EX-RELAY-4 | R | JUNC-EX-B-4 | B | Headlight (Except Europe) | `P191`, `P191-R1` | `SL4`–`SL5` (wire color and joins) | `JOIN` | high |
+| SEG-EX-002 | CONT-EX-B | TERM-EX-RELAY-1 | R | JUNC-EX-B-1 | B | Headlight (Except Europe) | `P191`, `P191-R1` | `SL4`–`SL5` (wire color and joins) | `JOIN` | high |
+| SEG-EX-003 | TERM-EX-RELAY-2 | TERM-EX-FB1-1 | R-G | JUNC-EX-FB1-1 | — | Headlight (Except Europe) | `P191`, `P191-R1` | `SL5` (wire color and joins) | `JOIN` | high |
+| SEG-EX-004 | TERM-EX-FB1-3 | TERM-EX-H5-3 | R-L | — | — | Headlight (Except Europe) | `P191`, `P191-R1` | `SL5` (wire color) | `APP` | high |
+| SEG-EX-005 | TERM-EX-FB1-2 | TERM-EX-H6-3 | R-B | — | — | Headlight (Except Europe) | `P191`, `P191-R1` | `SL5` (wire color) | `APP` | high |
+| SEG-EX-006 | TERM-EX-H5-1 | TERM-EX-J3-H-TOP | R-G | JUNC-EX-J3-H | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX-JOIN` | high |
+| SEG-EX-007 | TERM-EX-H6-1 | TERM-EX-J3-H-RIGHT | R-G | JUNC-EX-J3-H | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX-JOIN` | high |
+| SEG-EX-008 | TERM-EX-J3-H-BOTTOM | JUNC-EX-RG | R-G | JUNC-EX-J3-H; JUNC-EX-RG | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL4`–`SL6` (wire color, joins, connector views) | `JX-JOIN` | high |
+| SEG-EX-009 | JUNC-EX-RG | TERM-EX-C15D-HL6 | R-G | JUNC-EX-RG | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL7` | `C15`; `AMB-CON-002` | high |
+| SEG-EX-010 | JUNC-EX-RG | TERM-EX-C13-10 | R-G | JUNC-EX-RG | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL6` | `JOIN` | high |
+| SEG-EX-011 | TERM-EX-H5-2 | TERM-EX-J3-G-TOP | R-Y | JUNC-EX-J3-G | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX-JOIN` | high |
+| SEG-EX-012 | TERM-EX-H6-2 | TERM-EX-J3-G-RIGHT | R-Y | JUNC-EX-J3-G | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX-JOIN` | high |
+| SEG-EX-013 | TERM-EX-J3-G-BOTTOM | TERM-EX-C15D-HU5 | R-Y | JUNC-EX-J3-G | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color); `SL6`; `SL7` | `JX-JOIN`; `AMB-CON-004` | high |
+| SEG-EX-014 | TERM-EX-RELAY-3 | JUNC-EX-RW-UPPER | R-W | JUNC-EX-RW-UPPER | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color and joins) | `JOIN` | high |
+| SEG-EX-015 | JUNC-EX-RW-UPPER | TERM-EX-D10-1 | R-W | JUNC-EX-RW-UPPER | — | Headlight (Except Europe), boundary treatment unresolved | `P191`, `P191-R2` | `SL5` (wire color and joins) | `BOUND`; `AMB-CON-002` | high |
+| SEG-EX-016 | JUNC-EX-RW-UPPER | TERM-EX-C15L-H4 | R-W | JUNC-EX-RW-UPPER; JUNC-EX-C15-H4 | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL7` | `BOUND-C15`; `AMB-CON-002` | high |
+| SEG-EX-017 | TERM-EX-D10-2 | TERM-EX-C15L-H4 | R-B | JUNC-EX-C15-H4 | — | Headlight (Except Europe), boundary treatment unresolved | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL7` | `BOUND-C15`; `AMB-CON-002` | high |
+| SEG-EX-018 | CONT-EX-REAR-FOG | TERM-EX-D10-3 | R-L | — | From Rear Fog Light SW (2-8) | boundary reference; Except-Europe circuit | `P191`, `P191-R2` | `SL5` (wire color and related system) | `BOUND` | high |
+| SEG-EX-019 | TERM-EX-C15L-H4 | TERM-EX-C15D-HF12 | R-W | JUNC-EX-C15-H4 | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and shared connector); `SL7` | `BOUND-C15`; `AMB-CON-002` | high |
+| SEG-EX-020 | CONT-EX-TAILLIGHT | TERM-EX-C15L-T11 | LG-R | — | From Taillight Relay (4-1) | boundary reference; Except-Europe circuit | `P191`, `P191-R2` | `SL5` (wire color and related system); `SL7` | `BOUND-C15` | high |
+| SEG-EX-021 | TERM-EX-C15L-EL10 | TERM-EX-J1-A-LEFT | W-B | JUNC-EX-J1-A | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and shared connector); `SL6`; `SL7` | `JX-JOIN`; `AMB-CON-004` | high |
+| SEG-EX-022 | TERM-EX-C15D-ED13 | TERM-EX-J1-A-RIGHT | W-B | JUNC-EX-J1-A | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and shared connector); `SL6`; `SL7` | `JX-JOIN`; `AMB-CON-004` | high |
+| SEG-EX-023 | TERM-EX-J1-A-BOTTOM | JUNC-EX-WB-LHD | W-B | JUNC-EX-J1-A; JUNC-EX-WB-LHD | — | Headlight (Except Europe) | `P191`, `P191-R2`–`R5` | `SL5` (wire color and joins); `SL6` | `JX-JOIN` | high |
+| SEG-EX-024 | JUNC-EX-WB-LHD | CONT-EX-BH | W-B | JUNC-EX-WB-LHD | BH | Headlight (Except Europe), LHD | `P191`, `P191-R5` | `SL5` (wire color and ground point); `SL7` (LHD) | `GND`; `AMB-CON-002` | high |
+| SEG-EX-025 | JUNC-EX-WB-LHD | JUNC-EX-WB-RHD | W-B | JUNC-EX-WB-LHD; JUNC-EX-WB-RHD | — | Headlight (Except Europe) | `P191`, `P191-R5` | `SL5` (wire color and joins) | `JOIN` | high |
+| SEG-EX-026 | JUNC-EX-WB-RHD | CONT-EX-BI | W-B | JUNC-EX-WB-RHD | BI | Headlight (Except Europe), RHD | `P191`, `P191-R5` | `SL5` (wire color and ground point); `SL7` (RHD) | `GND`; `AMB-CON-002` | high |
+| SEG-EX-027 | JUNC-EX-WB-RHD | TERM-EX-J1-B-BOTTOM | W-B | JUNC-EX-WB-RHD; JUNC-EX-J1-B | — | Headlight (Except Europe) | `P191`, `P191-R2`–`R5` | `SL5` (wire color and joins); `SL6` | `JX-JOIN` | high |
+| SEG-EX-028 | TERM-EX-J1-B-TOP | TERM-EX-C13-13 | W-B | JUNC-EX-J1-B | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL6` | `JX-JOIN` | high |
+
+### 4. Switch Contacts
+
+These tables copy the marks printed by Toyota. A dash joins terminals shown in
+continuity; `none depicted` means the source row contains no continuity mark.
+No operating behavior is assigned.
+
+| Function name | Printed terminals | Switch position | Depicted continuity | Primary evidence | Source-language citation(s) | Ambiguity IDs |
+| --- | --- | --- | --- | --- | --- | --- |
+| LIGHT CONTROL SW [COMB. SW] | T, EL, H | OFF | none depicted | `P191`, `P191-R2` | `SL7` (terminal-code distinction); source-depicted table on `P191` | `C15` |
+| LIGHT CONTROL SW [COMB. SW] | T, EL, H | TAIL | T—EL | `P191`, `P191-R2` | `SL7` (terminal-code distinction); source-depicted table on `P191` | `C15` |
+| LIGHT CONTROL SW [COMB. SW] | T, EL, H | HEAD | T—EL—H | `P191`, `P191-R2` | `SL7` (terminal-code distinction); source-depicted table on `P191` | `C15` |
+| DIMMER SW [COMB. SW] | HF, HL, HU, ED | FLASH | HF—HU—ED | `P191`, `P191-R2` | `SL7` (terminal-code distinction); source-depicted table on `P191` | `C15` |
+| DIMMER SW [COMB. SW] | HF, HL, HU, ED | LOW | HL—ED | `P191`, `P191-R2` | `SL7` (terminal-code distinction); source-depicted table on `P191` | `C15` |
+| DIMMER SW [COMB. SW] | HF, HL, HU, ED | HIGH | HU—ED | `P191`, `P191-R2` | `SL7` (terminal-code distinction); source-depicted table on `P191` | `C15` |
+
+### 5. Relay
+
+| Candidate | Printed terminals | Coil terminals | Contact terminals | Depicted normal contact state | Relay Block reference | Primary evidence | Relay-block notation citation | Ambiguity IDs |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| OBJ-EX-HEAD-RELAY | 1, 2, 3, 4 | 4—3 | 1—2 | open | circled `1`; Relay Block No. 1 | `P191`, `P191-R1`; `RB29` | `SL5` (circled numeral identifies Relay Block; `1` identifies Relay Block No. 1) | `APP` |
+
+The Relay Block reference is recorded separately from connector and junction
+identifiers. No energized state, polarity, or current direction is asserted.
+
+### 6. Fuse Table
+
+| Printed label | Printed rating | Endpoint A | Endpoint B | Applicability | Evidence citations | Ambiguity IDs |
+| --- | --- | --- | --- | --- | --- | --- |
+| HEAD LH | 10A | TERM-EX-FB1-1 | TERM-EX-FB1-3 | Headlight (Except Europe) | Primary: `P191`, `P191-R1`; source language: `SL4`–`SL5` (circuit and part depiction) | `APP` |
+| HEAD RH | 10A | TERM-EX-FB1-1 | TERM-EX-FB1-2 | Headlight (Except Europe) | Primary: `P191`, `P191-R1`; source language: `SL4`–`SL5` (circuit and part depiction) | `APP` |
+
+### 7. Junctions
+
+J1 and J3 grouped letters are copied as displayed. The other rows record
+source-visible black-dot joins; they do not add a derived electrical role.
+
+| Candidate junction ID | Printed object or displayed group | Visible connections | Evidence citations | Ambiguity IDs |
+| --- | --- | --- | --- | --- |
+| JUNC-EX-B-4 | B line, branch at relay terminal 4 conductor | CONT-EX-B; TERM-EX-RELAY-4 | Primary: `P191`, `P191-R1`; source language: `SL4`–`SL5` (wire depiction and joins) | `JOIN` |
+| JUNC-EX-B-1 | B line, branch at relay terminal 1 conductor | CONT-EX-B; TERM-EX-RELAY-1 | Primary: `P191`, `P191-R1`; source language: `SL4`–`SL5` (wire depiction and joins) | `JOIN` |
+| JUNC-EX-FB1-1 | Fuse Block No. 1 terminal 1 common printed line | TERM-EX-RELAY-2; both printed fuse terminal-1 sides | Primary: `P191`, `P191-R1`; source language: `SL4`–`SL5` (wire depiction and joins) | `JOIN` |
+| JUNC-EX-J3-H | J3 grouped letter H | TERM-EX-J3-H-TOP; TERM-EX-J3-H-RIGHT; TERM-EX-J3-H-BOTTOM | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX-JOIN` |
+| JUNC-EX-J3-G | J3 grouped letter G | TERM-EX-J3-G-TOP; TERM-EX-J3-G-RIGHT; TERM-EX-J3-G-BOTTOM | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX-JOIN` |
+| JUNC-EX-RG | black-dot join on R-G conductors | SEG-EX-008; SEG-EX-009; SEG-EX-010 | Primary: `P191`, `P191-R2`; source language: `SL4`–`SL5` (wire depiction and joins) | `JOIN` |
+| JUNC-EX-RW-UPPER | black-dot join on R-W conductors | SEG-EX-014; SEG-EX-015; SEG-EX-016 | Primary: `P191`, `P191-R2`; source language: `SL4`–`SL5` (wire depiction and joins) | `JOIN`; `AMB-BOUND-001` |
+| JUNC-EX-C15-H4 | black-dot join at C15 H / 4 | SEG-EX-016; SEG-EX-017; SEG-EX-019 | Primary: `P191`, `P191-R2`; source language: `SL4`–`SL5` (wire depiction and joins); `SL7` | `BOUND-C15`; `AMB-CON-002` |
+| JUNC-EX-J1-A | J1 grouped letter A | TERM-EX-J1-A-LEFT; TERM-EX-J1-A-RIGHT; TERM-EX-J1-A-BOTTOM | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX-JOIN` |
+| JUNC-EX-WB-LHD | black-dot join on W-B (LHD) conductors | SEG-EX-023; SEG-EX-024; SEG-EX-025 | Primary: `P191`, `P191-R5`; source language: `SL4`–`SL5` (wire depiction, joins, ground point); `SL7` | `GND`; `AMB-CON-002` |
+| JUNC-EX-WB-RHD | black-dot join on W-B (RHD) conductors | SEG-EX-025; SEG-EX-026; SEG-EX-027 | Primary: `P191`, `P191-R5`; source language: `SL4`–`SL5` (wire depiction, joins, ground point); `SL7` | `GND`; `AMB-CON-002` |
+| JUNC-EX-J1-B | J1 grouped letter B | TERM-EX-J1-B-BOTTOM; TERM-EX-J1-B-TOP | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX-JOIN` |
+
+### 8. Continuations
+
+| Candidate continuation ID | Exact printed identifier or label | Attached printed wire-color code | Source location | Source-described context | Evidence citations | Ambiguity IDs | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| CONT-EX-B | B | R at the two selected branches | `P191-R1`, top common line | page-spanning printed line identified `B` | Primary: `P191`; source language: `SL4`–`SL5` (wire-color and circuit-line depiction) | `APP` | candidate |
+| CONT-EX-REAR-FOG | From Rear Fog Light SW (2-8) | R-L | `P191-R2` | related-system reference | Primary: `P191`; source language: `SL5` (related system) | `BOUND` | candidate |
+| CONT-EX-TAILLIGHT | From Taillight Relay (4-1) | LG-R | `P191-R2` | related-system reference | Primary: `P191`; source language: `SL5` (related system) | `BOUND` | candidate |
+| CONT-EX-BH | BH | W-B (LHD) | `P191-R5` | printed ground-point identifier; legend: `Located on lower back panel inner` | Primary: `P191`; source language: `SL5` (ground-point notation); `SL7` (LHD) | `GND` | candidate |
+| CONT-EX-BI | BI | W-B (RHD) | `P191-R5` | printed ground-point identifier; legend: `Located on cross member frame` | Primary: `P191`; source language: `SL5` (ground-point notation); `SL7` (RHD) | `GND` | candidate |
+
+BH and BI remain open for confirmation and mapping to the relevant ground-point
+pages under `AMB-GND-001`.
+
+### 9. Related-System References
+
+| Printed label | Destination | Source location | Reason retained | Ambiguity IDs |
+| --- | --- | --- | --- | --- |
+| From Rear Fog Light SW (2-8) | location `2-8` | `P191-R2`, attached to D10 terminal 3 by R-L | visible reference leaving the selected boundary; referenced system is not imported | `BOUND` |
+| From Taillight Relay (4-1) | location `4-1` | `P191-R2`, attached to C15 T / 11 by LG-R | visible reference leaving the selected boundary; referenced system is not imported | `BOUND-C15` |
+
+Both references use `SL5` related-system notation and have primary evidence at
+`P191`. Headlight Cleaner, Winch, Back-Up Light, and the Europe headlight
+circuit are not extracted here.
+
+### 10. Extraction Summary
+
+| Candidate category | Count |
+| --- | ---: |
+| objects | 12 |
+| terminals | 36 |
+| conductors | 28 |
+| relays | 1 |
+| fuses | 2 |
+| junctions | 12 |
+| continuations | 5 |
+| related-system references | 2 |
+| applicable soft ambiguity IDs | 8 |
+
+The eight attached soft ambiguities are `AMB-APP-001`, `AMB-APP-002`,
+`AMB-GND-001`, `AMB-CON-001`, `AMB-CON-002`, `AMB-CON-003`, `AMB-CON-004`,
+and `AMB-BOUND-001`. `AMB-DEP-001` and `AMB-DEP-002` concern only the excluded
+Europe circuit and are not attached to this transcription.
+
+Self-review confirmed that each candidate is supported by printed page 191,
+uses the reviewed Toyota notation, cites primary and source-language evidence,
+preserves Except-Europe applicability and open uncertainty, and adds no current
+flow, switching polarity, diagnostic, failure-mode, or target-vehicle claim.
