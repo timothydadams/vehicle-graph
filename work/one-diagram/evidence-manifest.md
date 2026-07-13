@@ -9,10 +9,12 @@ they are not accepted factory facts. The committed
 identity and the convention for expected private local evidence paths.
 
 The expected PDF path is `.evidence/toyota/ewd168f/EWD168F.pdf`. That path is a
-local convention, not evidence that the PDF is present. No local artifact or
-working derivative has been verified at that path, and `.evidence/` is ignored
-by Git. Source identity, local evidence availability, working-derivative status,
-and acceptance of factory facts remain separate questions.
+local convention. A PDF at that path has now been fingerprinted, but it remains
+ignored, contributor-local material rather than committed repository state. No
+working-derivative path has been verified, and the PDF's relationship to the
+user's physical source still needs to be recorded. Source identity, local
+evidence availability, working-derivative status, and acceptance of factory
+facts remain separate questions.
 
 The source inventory states that the reviewed material is adequate for boundary
 discovery, that several later pages are watermarked working scans, and that the

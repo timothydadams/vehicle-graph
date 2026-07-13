@@ -15,8 +15,8 @@
   ],
   "expected_local_artifact": ".evidence/toyota/ewd168f/EWD168F.pdf",
   "artifact_type": "pdf",
-  "expected_page_count": null,
-  "sha256": null,
-  "fingerprint_status": "pending",
-  "notes": "Source-catalog record only. Local artifact availability has not been verified, and this record does not establish accepted factory facts."
+  "expected_page_count": 276,
+  "sha256": "44914602b067327a5ecf02bdc8667a31eac7de89915824f7744019f2249d7c48",
+  "fingerprint_status": "recorded",
+  "notes": "Source-catalog record only. The local PDF fingerprint and PDF page count have been recorded, but the artifact's relationship to the user's physical source has not. This record does not establish accepted factory facts."
 }

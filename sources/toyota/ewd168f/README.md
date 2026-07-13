@@ -30,6 +30,10 @@ expected location; it must not be read as confirmation that the PDF or any
 working image is present. The [page index](page-index.md) maps provisional
 evidence references to expected local forms under the same constraint.
 
+A recorded fingerprint identifies the local artifact that was reviewed. It does
+not commit that artifact, guarantee its presence in another checkout, or record
+its relationship to the user's physical source.
+
 Extracted claims must cite publication number `EWD168F` and the printed page,
 figure, table, or other source location. A machine-specific local file path is
 not sufficient provenance.
