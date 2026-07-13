@@ -69,6 +69,30 @@ publication defines it elsewhere.
 Source-language guidance is evidence for interpretation, but working notes
 about that guidance are not automatically canonical factory facts.
 
+### Hard and Soft Preconditions
+
+A source-language uncertainty blocks candidate extraction only when it prevents
+a faithful transcription of the selected boundary.
+
+Hard preconditions block extraction because their absence makes faithful
+transcription materially unreliable. Soft preconditions do not block direct
+transcription when the source marks, labels, and relationships can still be
+copied faithfully; they must remain explicit ambiguities attached to affected
+candidate claims.
+
+Classify an unresolved issue by asking:
+
+> Would this uncertainty force a choice between materially different source
+> transcriptions?
+
+If yes, it is a hard blocker for the affected boundary. If no, it is soft and
+must be preserved as ambiguity. Uncertainty about later schema design or
+engineering interpretation is not a hard blocker when the source can still be
+copied faithfully.
+
+Extraction must stop for unreadable or undefined source language, not merely
+for incomplete engineering understanding.
+
 ## Decision rule
 
 When faced with multiple valid designs, prefer the simpler one unless the

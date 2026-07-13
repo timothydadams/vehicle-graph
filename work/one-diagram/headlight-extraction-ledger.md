@@ -21,10 +21,12 @@ or Europe detailed transcription must cite the relevant source-language
 guidance recorded in [source-language.md](source-language.md).
 
 The previous detailed extraction commit was reverted. No detailed conductor
-transcription should be recreated as part of the source-language policy task.
-Future work remains blocked by the
-[source-language review checklist](source-language-review-checklist.md) and the
-[extraction gate](extraction-boundary.md#source-language-review-gate).
+transcription should be recreated as part of this policy task. Future detailed
+transcription may proceed when the
+[hard gate](extraction-boundary.md#hard-gate) passes. Open soft ambiguities must
+be cited on affected entries; soft status does not authorize interpretation,
+completion, or silent resolution. Authorization is recorded in the
+[source-language review checklist](source-language-review-checklist.md).
 
 ## Candidate object ledger
 

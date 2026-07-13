@@ -27,6 +27,8 @@ and are adequate for candidate conductor-level transcription. They are not
 repository evidence assets, and their relationship to the user's physical
 source still needs to be recorded. This capture-quality assessment does not
 authorize extraction before the source-language review gate is satisfied.
+Evidence sufficiency is evaluated for the selected claim or boundary; it does
+not require complete engineering understanding of every visible object.
 
 Printed pages 4–7 are mandatory source-language evidence for interpreting page
 191. They define the publication-specific notation and terminology that must be

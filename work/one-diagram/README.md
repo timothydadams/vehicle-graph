@@ -33,10 +33,12 @@ must not be treated as committed repository state or accepted factory knowledge.
 
 ## Extraction Gate
 
-Source-language review precedes candidate extraction. No detailed circuit
-transcription may begin until the source-language review checklist and the
-[extraction boundary gate](extraction-boundary.md#source-language-review-gate)
-are satisfied for the selected target.
+Source-language review precedes candidate extraction. The checklist separates
+hard blockers from soft ambiguities, and extraction authorization depends only
+on the hard preconditions for the selected boundary. Soft ambiguities do not
+block faithful transcription, but they must be attached to affected candidates
+and reviewed before canonical acceptance. See the
+[extraction boundary gate](extraction-boundary.md#source-language-review-gate).
 
 ## Next Work Sequence
 

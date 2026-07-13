@@ -21,20 +21,40 @@ the identified target vehicle is resolved.
 
 ## Source-Language Review Gate
 
-Detailed extraction is not authorized until:
+### Hard gate
 
-- the publication's required explanatory sections are identified;
-- the relevant source-language pages have been reviewed;
-- source-defined symbols and conventions needed by the boundary are recorded;
-- unresolved notation issues are entered in the
-  [ambiguity log](ambiguity-log.md); and
-- the [source-language review checklist](source-language-review-checklist.md) is
-  complete enough for the target boundary.
+Detailed extraction is blocked only by missing definitions or evidence that
+prevent faithful transcription of the selected boundary. The
+[source-language review checklist](source-language-review-checklist.md) records
+these hard preconditions. A hard blocker may apply to only part of the page; the
+boundary may be narrowed around it only without losing source meaning.
 
-For EWD168F, printed pages 4–7 are mandatory source-language dependencies for
-interpreting page 191. The publication-specific definitions are recorded in the
-[source-language record](source-language.md). The gate remains closed while an
-unknown convention could materially alter detailed transcription.
+For EWD168F page 191:
+
+- printed pages 4–7 must be reviewed;
+- the circled Relay Block notation must be understood;
+- wire-color and terminal-number conventions must be understood where used;
+- black-dot joins must be distinguishable from line crossings; and
+- contact-table and continuation notation must be readable wherever required to
+  distinguish the source-depicted relationships.
+
+### Soft gate
+
+Applicability, object semantics, extraction-boundary treatment, or future
+representation questions may remain open when the source can still be
+transcribed neutrally. Each soft ambiguity must remain in the
+[ambiguity log](ambiguity-log.md), be cited on affected candidates, and be
+reviewed before canonical acceptance.
+
+J1/J3 meaning beyond their visible grouped connections does not block
+transcription when those groups and connections can be copied exactly. C15
+representation questions do not block transcription of its printed tables.
+Applicability questions remain soft unless they affect which source variant is
+selected as the extraction boundary; the Except-Europe boundary itself is
+explicitly identified above without asserting target-vehicle applicability.
+
+The publication-specific definitions and classifications are recorded in the
+[source-language record](source-language.md).
 
 ## Primary Circuit Evidence
 

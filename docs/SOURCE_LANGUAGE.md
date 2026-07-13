@@ -45,6 +45,37 @@ publication defines it elsewhere. Generic engineering assumptions must not
 replace source-defined semantics, even when the generic interpretation appears
 familiar or likely.
 
+## Blocking and Non-Blocking Source-Language Uncertainty
+
+Source-language uncertainty concerns whether the publication's marks and
+conventions can be read and applied faithfully. Object or application
+uncertainty concerns broader meaning, scope, or later representation. The first
+may block transcription; the second does not automatically do so.
+
+Hard blockers include an unreadable symbol, an undefined convention needed to
+distinguish two possible connections, unknown terminal-numbering rules when
+mapping terminals, or inadequate evidence quality for the selected claim. A
+hard blocker applies only to the affected boundary. Extraction may proceed
+around it only when the boundary can be narrowed without losing source meaning.
+
+Soft ambiguities include unresolved target applicability, incomplete knowledge
+of an object's broader engineering role, uncertainty about future canonical
+representation, or an unknown meaning beyond a visible source label or
+relationship. A visible label or relationship may be transcribed neutrally
+while its broader meaning remains unresolved.
+
+Source-language review must enable faithful transcription; it does not require
+complete engineering interpretation. Ambiguity is acceptable in candidate
+extraction when it is recorded and cited on affected claims. Unsupported
+completion is not acceptable.
+
+Use this decision test:
+
+> Does the unresolved issue prevent faithful transcription?
+
+- **Yes:** stop or narrow the affected boundary.
+- **No:** record the ambiguity and continue.
+
 ## Unresolved Source Language
 
 Search the publication for an explicit definition before recording a symbol or

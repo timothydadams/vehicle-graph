@@ -2,30 +2,48 @@
 
 ## Status
 
-This checklist is pre-canonical working material. A checked item means the
-current repository material supports completion of that review step; it does
-not accept any extracted factory claim.
+This checklist is pre-canonical working material. A checked hard precondition
+means current repository material supports that review step; it does not accept
+any extracted factory claim. Soft ambiguities remain open and must be cited on
+affected candidates, but they do not deny extraction authorization.
+
+Selected authorization boundary: EWD168F printed page 191, Heavy-Duty Headlight
+(Except Europe), beginning at location `5-4`.
+
+## Hard Preconditions
 
 - [x] publication identity confirmed
-- [x] publication scope reviewed
-- [x] applicable-model statement reviewed
-- [x] target section located
-- [x] publication structure reviewed
-- [x] “how to use” section reviewed
-- [x] symbol and notation definitions reviewed
-- [x] abbreviations reviewed
-- [x] connector numbering reviewed
-- [x] relay-block notation reviewed
-- [x] junction notation reviewed
+- [x] local artifact verified for this review against the recorded fingerprint
+- [x] target page located
+- [x] extraction boundary identified
+- [x] required explanatory pages located
+- [x] pages 4–7 reviewed
 - [x] wire-color notation reviewed
-- [ ] continuation notation reviewed
-- [ ] state/contact table notation reviewed
-- [x] applicability qualifiers reviewed
-- [x] required source-language pages recorded
-- [x] unresolved notation questions added to ambiguity log
-- [x] extraction boundary updated
-- [ ] detailed candidate extraction authorized
+- [x] connector and terminal numbering reviewed
+- [x] relay-block notation reviewed
+- [x] join-versus-crossing notation reviewed for the selected boundary
+- [x] source-depicted contact continuity is legible for neutral transcription
+- [x] source quality adequate for the selected boundary
+- [x] no unresolved notation issue forces materially different transcription
 
-Detailed candidate extraction is not authorized. Continuation notation and
-state/contact-table notation remain incomplete for the target boundary, and the
-open J1/J3 grouped-letter questions may materially alter a transcription.
+## Soft Preconditions and Open Ambiguities
+
+- `AMB-APP-001`: Europe versus Except-Europe target applicability.
+- `AMB-APP-002`: August 1992 publication versus 1990 vehicle applicability.
+- `AMB-DEP-001`: optional Headlight Cleaner applicability and boundary handling.
+- `AMB-DEP-002`: Iceland/Denmark DRL applicability.
+- `AMB-GND-001`: continuation mapping beyond legible printed identifiers.
+- `AMB-CON-001`: J1/J3 meaning beyond visible grouped connections.
+- `AMB-CON-002`: conditionally hard only at a specific crossing whose join
+  status cannot be transcribed faithfully.
+- `AMB-CON-003`: J1/J3 correspondence review after visible transcription.
+- `AMB-CON-004`: future representation of the two printed C15 functions.
+- `AMB-BOUND-001`: final boundary treatment of D10 and related-system material.
+
+## Authorization
+
+Authorization depends only on the hard preconditions above. The listed soft
+ambiguities remain open and reviewable.
+
+- [x] Hard preconditions satisfied; candidate extraction authorized with listed
+  soft ambiguities attached.
