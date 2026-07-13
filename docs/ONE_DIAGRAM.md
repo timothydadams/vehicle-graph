@@ -4,7 +4,7 @@
 
 **One Diagram** is the first working milestone for Vehicle Graph.
 
-The milestone will preserve and model the factory headlight wiring information contained in the electric wiring diagram material included with Toyota repair manual EWD168F. The result will be one trustworthy, reproducible view for one explicitly stated vehicle application.
+The milestone will preserve and model the factory headlight wiring information contained in the electric wiring diagram material included with Toyota electrical wiring diagram publication number: EWD168F. The result will be one trustworthy, reproducible view for one explicitly stated vehicle application.
 
 This milestone is intentionally narrow. Its purpose is to test the repository's documentation, provenance, applicability, extraction, review, canonical-data, validation, and derived-view principles against real factory material before a broader model is designed.
 
