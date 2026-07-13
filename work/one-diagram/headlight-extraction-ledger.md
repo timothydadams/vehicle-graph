@@ -201,9 +201,7 @@ provisional ambiguity IDs onto the candidate entry:
 
 - `APP`: `AMB-APP-001`, `AMB-APP-002`.
 - `JX`: `APP`, `AMB-CON-001`, `AMB-CON-003`.
-- `JX-JOIN`: `JX`, `AMB-CON-002`.
 - `C15`: `APP`, `AMB-CON-004`.
-- `JOIN`: `APP`, `AMB-CON-002`.
 - `GND`: `APP`, `AMB-GND-001`.
 - `BOUND`: `APP`, `AMB-BOUND-001`.
 - `BOUND-C15`: `BOUND`, `AMB-CON-004`.
@@ -216,14 +214,18 @@ provisional ambiguity IDs onto the candidate entry:
 | OBJ-EX-FUSE-BLOCK-1 | FUSE BLOCK NO. 1 | — | `P191-R1`, `5-4` | fuse block | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and circuit depiction) | `APP` | candidate |
 | OBJ-EX-FUSE-HEAD-LH | 10A HEAD LH | — | `P191-R1`, `5-4` | fuse | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and circuit depiction) | `APP` | candidate |
 | OBJ-EX-FUSE-HEAD-RH | 10A HEAD RH | — | `P191-R1`, `5-4` | fuse | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and circuit depiction) | `APP` | candidate |
-| OBJ-EX-H5 | HEADLIGHT LH | H5 | `P191-R1`, `5-4` | part | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and pin-number depiction); `SL6` | `APP` | candidate |
-| OBJ-EX-H6 | HEADLIGHT RH | H6 | `P191-R1`, `5-4` | part | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and pin-number depiction); `SL6` | `APP` | candidate |
+| OBJ-EX-H5 | HEADLIGHT | H5 | `P191-R1`, `5-4` | part | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and pin-number depiction); `SL6` | `APP` | candidate |
+| OBJ-EX-H6 | HEADLIGHT | H6 | `P191-R1`, `5-4` | part | Headlight (Except Europe) | `P191` | `SL4`–`SL5` (part and pin-number depiction); `SL6` | `APP` | candidate |
 | OBJ-EX-J3 | JUNCTION CONNECTOR NO. 3 | J3 | `P191-R2`, `5-4` | junction connector | Headlight (Except Europe) | `P191` | `SL5` (part and wire-color depiction); `SL6` (connector views) | `JX` | candidate |
 | OBJ-EX-C15-LIGHT | LIGHT CONTROL SW [COMB. SW] | C15 | `P191-R2`, `5-4` | printed switch function within part | Headlight (Except Europe) | `P191` | `SL5` (shared connector naming); `SL7` (terminal codes) | `C15` | candidate |
 | OBJ-EX-C15-DIMMER | DIMMER SW [COMB. SW] | C15 | `P191-R2`, `5-4` | printed switch function within part | Headlight (Except Europe) | `P191` | `SL5` (shared connector naming); `SL7` (terminal codes) | `C15` | candidate |
 | OBJ-EX-C13-HIGH | HIGH BEAM INDICATOR LIGHT [COMB. METER] | C13 | `P191-R2`, `5-4` | printed indicator function within part | Headlight (Except Europe) | `P191` | `SL5` (shared connector naming); `SL6`; `SL7` | `APP` | candidate |
 | OBJ-EX-J1 | JUNCTION CONNECTOR NO. 1 | J1 | `P191-R2`, `5-4` | junction connector | Headlight (Except Europe) | `P191` | `SL5` (part and wire-color depiction); `SL6` (connector views) | `JX` | candidate |
 | OBJ-EX-D10 | DIODE (for Rear Fog Light) | D10 | `P191-R2`, `5-4` | part | Headlight (Except Europe), boundary treatment unresolved | `P191` | `SL4`–`SL5` (part and circuit depiction) | `BOUND` | candidate |
+
+Page 191 prints `LH` separately with H5 and `RH` separately with H6; these are
+preserved as printed qualifiers rather than folded into the exact `HEADLIGHT`
+label.
 
 ### 2. Terminals and Contacts
 
@@ -277,34 +279,34 @@ IDs are defined in section 7.
 
 | Candidate segment ID | Endpoint A | Endpoint B | Printed wire-color code | Branches | Continuation references | Applicability | Primary evidence | Source-language citation(s) | Ambiguity IDs | Confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SEG-EX-001 | CONT-EX-B | TERM-EX-RELAY-4 | R | JUNC-EX-B-4 | B | Headlight (Except Europe) | `P191`, `P191-R1` | `SL4`–`SL5` (wire color and joins) | `JOIN` | high |
-| SEG-EX-002 | CONT-EX-B | TERM-EX-RELAY-1 | R | JUNC-EX-B-1 | B | Headlight (Except Europe) | `P191`, `P191-R1` | `SL4`–`SL5` (wire color and joins) | `JOIN` | high |
-| SEG-EX-003 | TERM-EX-RELAY-2 | TERM-EX-FB1-1 | R-G | JUNC-EX-FB1-1 | — | Headlight (Except Europe) | `P191`, `P191-R1` | `SL5` (wire color and joins) | `JOIN` | high |
+| SEG-EX-001 | CONT-EX-B | TERM-EX-RELAY-4 | R | JUNC-EX-B-4 | B | Headlight (Except Europe) | `P191`, `P191-R1` | `SL4`–`SL5` (wire color and joins) | `APP` | high |
+| SEG-EX-002 | CONT-EX-B | TERM-EX-RELAY-1 | R | JUNC-EX-B-1 | B | Headlight (Except Europe) | `P191`, `P191-R1` | `SL4`–`SL5` (wire color and joins) | `APP` | high |
+| SEG-EX-003 | TERM-EX-RELAY-2 | TERM-EX-FB1-1 | R-G | JUNC-EX-FB1-1 | — | Headlight (Except Europe) | `P191`, `P191-R1` | `SL5` (wire color and joins) | `APP` | high |
 | SEG-EX-004 | TERM-EX-FB1-3 | TERM-EX-H5-3 | R-L | — | — | Headlight (Except Europe) | `P191`, `P191-R1` | `SL5` (wire color) | `APP` | high |
 | SEG-EX-005 | TERM-EX-FB1-2 | TERM-EX-H6-3 | R-B | — | — | Headlight (Except Europe) | `P191`, `P191-R1` | `SL5` (wire color) | `APP` | high |
-| SEG-EX-006 | TERM-EX-H5-1 | TERM-EX-J3-H-TOP | R-G | JUNC-EX-J3-H | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX-JOIN` | high |
-| SEG-EX-007 | TERM-EX-H6-1 | TERM-EX-J3-H-RIGHT | R-G | JUNC-EX-J3-H | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX-JOIN` | high |
-| SEG-EX-008 | TERM-EX-J3-H-BOTTOM | JUNC-EX-RG | R-G | JUNC-EX-J3-H; JUNC-EX-RG | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL4`–`SL6` (wire color, joins, connector views) | `JX-JOIN` | high |
-| SEG-EX-009 | JUNC-EX-RG | TERM-EX-C15D-HL6 | R-G | JUNC-EX-RG | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL7` | `C15`; `AMB-CON-002` | high |
-| SEG-EX-010 | JUNC-EX-RG | TERM-EX-C13-10 | R-G | JUNC-EX-RG | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL6` | `JOIN` | high |
-| SEG-EX-011 | TERM-EX-H5-2 | TERM-EX-J3-G-TOP | R-Y | JUNC-EX-J3-G | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX-JOIN` | high |
-| SEG-EX-012 | TERM-EX-H6-2 | TERM-EX-J3-G-RIGHT | R-Y | JUNC-EX-J3-G | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX-JOIN` | high |
-| SEG-EX-013 | TERM-EX-J3-G-BOTTOM | TERM-EX-C15D-HU5 | R-Y | JUNC-EX-J3-G | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color); `SL6`; `SL7` | `JX-JOIN`; `AMB-CON-004` | high |
-| SEG-EX-014 | TERM-EX-RELAY-3 | JUNC-EX-RW-UPPER | R-W | JUNC-EX-RW-UPPER | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color and joins) | `JOIN` | high |
-| SEG-EX-015 | JUNC-EX-RW-UPPER | TERM-EX-D10-1 | R-W | JUNC-EX-RW-UPPER | — | Headlight (Except Europe), boundary treatment unresolved | `P191`, `P191-R2` | `SL5` (wire color and joins) | `BOUND`; `AMB-CON-002` | high |
-| SEG-EX-016 | JUNC-EX-RW-UPPER | TERM-EX-C15L-H4 | R-W | JUNC-EX-RW-UPPER; JUNC-EX-C15-H4 | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL7` | `BOUND-C15`; `AMB-CON-002` | high |
-| SEG-EX-017 | TERM-EX-D10-2 | TERM-EX-C15L-H4 | R-B | JUNC-EX-C15-H4 | — | Headlight (Except Europe), boundary treatment unresolved | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL7` | `BOUND-C15`; `AMB-CON-002` | high |
+| SEG-EX-006 | TERM-EX-H5-1 | TERM-EX-J3-H-TOP | R-G | JUNC-EX-J3-H | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX` | high |
+| SEG-EX-007 | TERM-EX-H6-1 | TERM-EX-J3-H-RIGHT | R-G | JUNC-EX-J3-H | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX` | high |
+| SEG-EX-008 | TERM-EX-J3-H-BOTTOM | JUNC-EX-RG | R-G | JUNC-EX-J3-H; JUNC-EX-RG | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL4`–`SL6` (wire color, joins, connector views) | `JX` | high |
+| SEG-EX-009 | JUNC-EX-RG | TERM-EX-C15D-HL6 | R-G | JUNC-EX-RG | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL7` | `C15` | high |
+| SEG-EX-010 | JUNC-EX-RG | TERM-EX-C13-10 | R-G | JUNC-EX-RG | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL6` | `APP` | high |
+| SEG-EX-011 | TERM-EX-H5-2 | TERM-EX-J3-G-TOP | R-Y | JUNC-EX-J3-G | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX` | high |
+| SEG-EX-012 | TERM-EX-H6-2 | TERM-EX-J3-G-RIGHT | R-Y | JUNC-EX-J3-G | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color); `SL6` | `JX` | high |
+| SEG-EX-013 | TERM-EX-J3-G-BOTTOM | TERM-EX-C15D-HU5 | R-Y | JUNC-EX-J3-G | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color); `SL6`; `SL7` | `JX`; `AMB-CON-004` | high |
+| SEG-EX-014 | TERM-EX-RELAY-3 | JUNC-EX-RW-UPPER | R-W | JUNC-EX-RW-UPPER | — | Headlight (Except Europe) | `P191`, `P191-R1`–`R2` | `SL5` (wire color and joins) | `APP` | high |
+| SEG-EX-015 | JUNC-EX-RW-UPPER | TERM-EX-D10-1 | R-W | JUNC-EX-RW-UPPER | — | Headlight (Except Europe), boundary treatment unresolved | `P191`, `P191-R2` | `SL5` (wire color and joins) | `BOUND` | high |
+| SEG-EX-016 | JUNC-EX-RW-UPPER | TERM-EX-C15L-H4 | R-W | JUNC-EX-RW-UPPER; JUNC-EX-C15-H4 | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL7` | `BOUND-C15` | high |
+| SEG-EX-017 | TERM-EX-D10-2 | TERM-EX-C15L-H4 | R-B | JUNC-EX-C15-H4 | — | Headlight (Except Europe), boundary treatment unresolved | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL7` | `BOUND-C15` | high |
 | SEG-EX-018 | CONT-EX-REAR-FOG | TERM-EX-D10-3 | R-L | — | From Rear Fog Light SW (2-8) | boundary reference; Except-Europe circuit | `P191`, `P191-R2` | `SL5` (wire color and related system) | `BOUND` | high |
-| SEG-EX-019 | TERM-EX-C15L-H4 | TERM-EX-C15D-HF12 | R-W | JUNC-EX-C15-H4 | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and shared connector); `SL7` | `BOUND-C15`; `AMB-CON-002` | high |
+| SEG-EX-019 | TERM-EX-C15L-H4 | TERM-EX-C15D-HF12 | R-W | JUNC-EX-C15-H4 | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and shared connector); `SL7` | `BOUND-C15` | high |
 | SEG-EX-020 | CONT-EX-TAILLIGHT | TERM-EX-C15L-T11 | LG-R | — | From Taillight Relay (4-1) | boundary reference; Except-Europe circuit | `P191`, `P191-R2` | `SL5` (wire color and related system); `SL7` | `BOUND-C15` | high |
-| SEG-EX-021 | TERM-EX-C15L-EL10 | TERM-EX-J1-A-LEFT | W-B | JUNC-EX-J1-A | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and shared connector); `SL6`; `SL7` | `JX-JOIN`; `AMB-CON-004` | high |
-| SEG-EX-022 | TERM-EX-C15D-ED13 | TERM-EX-J1-A-RIGHT | W-B | JUNC-EX-J1-A | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and shared connector); `SL6`; `SL7` | `JX-JOIN`; `AMB-CON-004` | high |
-| SEG-EX-023 | TERM-EX-J1-A-BOTTOM | JUNC-EX-WB-LHD | W-B | JUNC-EX-J1-A; JUNC-EX-WB-LHD | — | Headlight (Except Europe) | `P191`, `P191-R2`–`R5` | `SL5` (wire color and joins); `SL6` | `JX-JOIN` | high |
-| SEG-EX-024 | JUNC-EX-WB-LHD | CONT-EX-BH | W-B | JUNC-EX-WB-LHD | BH | Headlight (Except Europe), LHD | `P191`, `P191-R5` | `SL5` (wire color and ground point); `SL7` (LHD) | `GND`; `AMB-CON-002` | high |
-| SEG-EX-025 | JUNC-EX-WB-LHD | JUNC-EX-WB-RHD | W-B | JUNC-EX-WB-LHD; JUNC-EX-WB-RHD | — | Headlight (Except Europe) | `P191`, `P191-R5` | `SL5` (wire color and joins) | `JOIN` | high |
-| SEG-EX-026 | JUNC-EX-WB-RHD | CONT-EX-BI | W-B | JUNC-EX-WB-RHD | BI | Headlight (Except Europe), RHD | `P191`, `P191-R5` | `SL5` (wire color and ground point); `SL7` (RHD) | `GND`; `AMB-CON-002` | high |
-| SEG-EX-027 | JUNC-EX-WB-RHD | TERM-EX-J1-B-BOTTOM | W-B | JUNC-EX-WB-RHD; JUNC-EX-J1-B | — | Headlight (Except Europe) | `P191`, `P191-R2`–`R5` | `SL5` (wire color and joins); `SL6` | `JX-JOIN` | high |
-| SEG-EX-028 | TERM-EX-J1-B-TOP | TERM-EX-C13-13 | W-B | JUNC-EX-J1-B | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL6` | `JX-JOIN` | high |
+| SEG-EX-021 | TERM-EX-C15L-EL10 | TERM-EX-J1-A-LEFT | W-B | JUNC-EX-J1-A | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and shared connector); `SL6`; `SL7` | `JX`; `AMB-CON-004` | high |
+| SEG-EX-022 | TERM-EX-C15D-ED13 | TERM-EX-J1-A-RIGHT | W-B | JUNC-EX-J1-A | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and shared connector); `SL6`; `SL7` | `JX`; `AMB-CON-004` | high |
+| SEG-EX-023 | TERM-EX-J1-A-BOTTOM | JUNC-EX-WB-LHD | W-B | JUNC-EX-J1-A; JUNC-EX-WB-LHD | — | Headlight (Except Europe) | `P191`, `P191-R2`–`R5` | `SL5` (wire color and joins); `SL6` | `JX` | high |
+| SEG-EX-024 | JUNC-EX-WB-LHD | CONT-EX-BH | W-B | JUNC-EX-WB-LHD | BH | Headlight (Except Europe), LHD | `P191`, `P191-R5` | `SL5` (wire color and ground point); `SL7` (LHD) | `GND` | high |
+| SEG-EX-025 | JUNC-EX-WB-LHD | JUNC-EX-WB-RHD | W-B | JUNC-EX-WB-LHD; JUNC-EX-WB-RHD | — | Headlight (Except Europe) | `P191`, `P191-R5` | `SL5` (wire color and joins) | `APP` | high |
+| SEG-EX-026 | JUNC-EX-WB-RHD | CONT-EX-BI | W-B | JUNC-EX-WB-RHD | BI | Headlight (Except Europe), RHD | `P191`, `P191-R5` | `SL5` (wire color and ground point); `SL7` (RHD) | `GND` | high |
+| SEG-EX-027 | JUNC-EX-WB-RHD | TERM-EX-J1-B-BOTTOM | W-B | JUNC-EX-WB-RHD; JUNC-EX-J1-B | — | Headlight (Except Europe) | `P191`, `P191-R2`–`R5` | `SL5` (wire color and joins); `SL6` | `JX` | high |
+| SEG-EX-028 | TERM-EX-J1-B-TOP | TERM-EX-C13-13 | W-B | JUNC-EX-J1-B | — | Headlight (Except Europe) | `P191`, `P191-R2` | `SL5` (wire color and joins); `SL6` | `JX` | high |
 
 ### 4. Switch Contacts
 
@@ -344,18 +346,18 @@ source-visible black-dot joins; they do not add a derived electrical role.
 
 | Candidate junction ID | Printed object or displayed group | Visible connections | Evidence citations | Ambiguity IDs |
 | --- | --- | --- | --- | --- |
-| JUNC-EX-B-4 | B line, branch at relay terminal 4 conductor | CONT-EX-B; TERM-EX-RELAY-4 | Primary: `P191`, `P191-R1`; source language: `SL4`–`SL5` (wire depiction and joins) | `JOIN` |
-| JUNC-EX-B-1 | B line, branch at relay terminal 1 conductor | CONT-EX-B; TERM-EX-RELAY-1 | Primary: `P191`, `P191-R1`; source language: `SL4`–`SL5` (wire depiction and joins) | `JOIN` |
-| JUNC-EX-FB1-1 | Fuse Block No. 1 terminal 1 common printed line | TERM-EX-RELAY-2; both printed fuse terminal-1 sides | Primary: `P191`, `P191-R1`; source language: `SL4`–`SL5` (wire depiction and joins) | `JOIN` |
-| JUNC-EX-J3-H | J3 grouped letter H | TERM-EX-J3-H-TOP; TERM-EX-J3-H-RIGHT; TERM-EX-J3-H-BOTTOM | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX-JOIN` |
-| JUNC-EX-J3-G | J3 grouped letter G | TERM-EX-J3-G-TOP; TERM-EX-J3-G-RIGHT; TERM-EX-J3-G-BOTTOM | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX-JOIN` |
-| JUNC-EX-RG | black-dot join on R-G conductors | SEG-EX-008; SEG-EX-009; SEG-EX-010 | Primary: `P191`, `P191-R2`; source language: `SL4`–`SL5` (wire depiction and joins) | `JOIN` |
-| JUNC-EX-RW-UPPER | black-dot join on R-W conductors | SEG-EX-014; SEG-EX-015; SEG-EX-016 | Primary: `P191`, `P191-R2`; source language: `SL4`–`SL5` (wire depiction and joins) | `JOIN`; `AMB-BOUND-001` |
-| JUNC-EX-C15-H4 | black-dot join at C15 H / 4 | SEG-EX-016; SEG-EX-017; SEG-EX-019 | Primary: `P191`, `P191-R2`; source language: `SL4`–`SL5` (wire depiction and joins); `SL7` | `BOUND-C15`; `AMB-CON-002` |
-| JUNC-EX-J1-A | J1 grouped letter A | TERM-EX-J1-A-LEFT; TERM-EX-J1-A-RIGHT; TERM-EX-J1-A-BOTTOM | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX-JOIN` |
-| JUNC-EX-WB-LHD | black-dot join on W-B (LHD) conductors | SEG-EX-023; SEG-EX-024; SEG-EX-025 | Primary: `P191`, `P191-R5`; source language: `SL4`–`SL5` (wire depiction, joins, ground point); `SL7` | `GND`; `AMB-CON-002` |
-| JUNC-EX-WB-RHD | black-dot join on W-B (RHD) conductors | SEG-EX-025; SEG-EX-026; SEG-EX-027 | Primary: `P191`, `P191-R5`; source language: `SL4`–`SL5` (wire depiction, joins, ground point); `SL7` | `GND`; `AMB-CON-002` |
-| JUNC-EX-J1-B | J1 grouped letter B | TERM-EX-J1-B-BOTTOM; TERM-EX-J1-B-TOP | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX-JOIN` |
+| JUNC-EX-B-4 | B line, branch at relay terminal 4 conductor | CONT-EX-B; TERM-EX-RELAY-4 | Primary: `P191`, `P191-R1`; source language: `SL4`–`SL5` (wire depiction and joins) | `APP` |
+| JUNC-EX-B-1 | B line, branch at relay terminal 1 conductor | CONT-EX-B; TERM-EX-RELAY-1 | Primary: `P191`, `P191-R1`; source language: `SL4`–`SL5` (wire depiction and joins) | `APP` |
+| JUNC-EX-FB1-1 | Fuse Block No. 1 terminal 1 common printed line | TERM-EX-RELAY-2; both printed fuse terminal-1 sides | Primary: `P191`, `P191-R1`; source language: `SL4`–`SL5` (wire depiction and joins) | `APP` |
+| JUNC-EX-J3-H | J3 grouped letter H | TERM-EX-J3-H-TOP; TERM-EX-J3-H-RIGHT; TERM-EX-J3-H-BOTTOM | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX` |
+| JUNC-EX-J3-G | J3 grouped letter G | TERM-EX-J3-G-TOP; TERM-EX-J3-G-RIGHT; TERM-EX-J3-G-BOTTOM | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX` |
+| JUNC-EX-RG | black-dot join on R-G conductors | SEG-EX-008; SEG-EX-009; SEG-EX-010 | Primary: `P191`, `P191-R2`; source language: `SL4`–`SL5` (wire depiction and joins) | `APP` |
+| JUNC-EX-RW-UPPER | black-dot join on R-W conductors | SEG-EX-014; SEG-EX-015; SEG-EX-016 | Primary: `P191`, `P191-R2`; source language: `SL4`–`SL5` (wire depiction and joins) | `APP`; `AMB-BOUND-001` |
+| JUNC-EX-C15-H4 | black-dot join at C15 H / 4 | SEG-EX-016; SEG-EX-017; SEG-EX-019 | Primary: `P191`, `P191-R2`; source language: `SL4`–`SL5` (wire depiction and joins); `SL7` | `BOUND-C15` |
+| JUNC-EX-J1-A | J1 grouped letter A | TERM-EX-J1-A-LEFT; TERM-EX-J1-A-RIGHT; TERM-EX-J1-A-BOTTOM | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX` |
+| JUNC-EX-WB-LHD | black-dot join on W-B (LHD) conductors | SEG-EX-023; SEG-EX-024; SEG-EX-025 | Primary: `P191`, `P191-R5`; source language: `SL4`–`SL5` (wire depiction, joins, ground point); `SL7` | `GND` |
+| JUNC-EX-WB-RHD | black-dot join on W-B (RHD) conductors | SEG-EX-025; SEG-EX-026; SEG-EX-027 | Primary: `P191`, `P191-R5`; source language: `SL4`–`SL5` (wire depiction, joins, ground point); `SL7` | `GND` |
+| JUNC-EX-J1-B | J1 grouped letter B | TERM-EX-J1-B-BOTTOM; TERM-EX-J1-B-TOP | Primary: `P191`, `P191-R2`; source language: `SL5`–`SL6` | `JX` |
 
 ### 8. Continuations
 
@@ -393,12 +395,14 @@ circuit are not extracted here.
 | junctions | 12 |
 | continuations | 5 |
 | related-system references | 2 |
-| applicable soft ambiguity IDs | 8 |
+| attached ambiguity IDs | 7 |
 
-The eight attached soft ambiguities are `AMB-APP-001`, `AMB-APP-002`,
-`AMB-GND-001`, `AMB-CON-001`, `AMB-CON-002`, `AMB-CON-003`, `AMB-CON-004`,
-and `AMB-BOUND-001`. `AMB-DEP-001` and `AMB-DEP-002` concern only the excluded
-Europe circuit and are not attached to this transcription.
+The seven attached ambiguities are `AMB-APP-001`, `AMB-APP-002`,
+`AMB-GND-001`, `AMB-CON-001`, `AMB-CON-003`, `AMB-CON-004`, and
+`AMB-BOUND-001`. `AMB-CON-002` does not attach to any selected candidate because
+the source-visible crossings, joins, branches, and continuations can be
+transcribed faithfully. `AMB-DEP-001` and `AMB-DEP-002` concern only the
+excluded Europe circuit and are not attached to this transcription.
 
 Self-review confirmed that each candidate is supported by printed page 191,
 uses the reviewed Toyota notation, cites primary and source-language evidence,
