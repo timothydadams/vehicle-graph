@@ -40,6 +40,20 @@ block faithful transcription, but they must be attached to affected candidates
 and reviewed before canonical acceptance. See the
 [extraction boundary gate](extraction-boundary.md#source-language-review-gate).
 
+## Candidate Evidence and Ambiguity
+
+One Diagram candidates separately record primary evidence, material
+interpretive dependencies, supporting evidence where relevant, and ambiguity
+IDs that directly affect the candidate. Primary evidence shows the claim;
+interpretive dependencies explain publication-specific notation needed to read
+it; supporting evidence supplies relevant context without becoming the source
+of the circuit claim.
+
+Shorthand may reduce repetition only when it expands transparently and does not
+attach unrelated ambiguity IDs or evidence references. An open ambiguity does
+not attach to a candidate unless resolving it could materially change that
+candidate.
+
 ## Next Work Sequence
 
 1. Preserve and identify evidence.

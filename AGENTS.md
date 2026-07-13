@@ -69,6 +69,41 @@ publication defines it elsewhere.
 Source-language guidance is evidence for interpretation, but working notes
 about that guidance are not automatically canonical factory facts.
 
+### Interpretive Dependencies
+
+Candidate claims must cite primary evidence separately from interpretive
+dependencies. Primary evidence is the source location that visibly states or
+depicts the candidate. An interpretive dependency is a source location within
+the same publication that defines how required notation, symbols, conventions,
+abbreviations, page structure, connector numbering, relay or junction notation,
+state tables, continuations, or applicability marks must be read.
+
+Attach only interpretive dependencies that materially support how the candidate
+is read. Do not cite every explanatory page merely because it was reviewed, and
+do not describe a source-language page as though it directly contains the
+engineering claim shown elsewhere. Omitting a necessary interpretive dependency
+is a review failure. Adding an irrelevant dependency is also a review failure
+because it obscures provenance.
+
+> Provenance must explain both where a candidate is shown and, when necessary,
+> how the publication tells us to read it.
+
+### Candidate-Specific Ambiguity Attachment
+
+Ambiguities attach at claim level. Attach an ambiguity only when resolving it
+could materially change that candidate's text, endpoints, applicability,
+boundary treatment, status, confidence, or interpretation. Broad propagation by
+category, page proximity, or generic shorthand is prohibited. An ambiguity may
+remain open without attaching to candidates it does not affect.
+
+Conditionally hard ambiguities attach only at source locations where the hard
+condition actually exists. If a crossing is clearly depicted, for example, an
+open ambiguity about other indeterminate crossings does not belong on that
+candidate.
+
+> An ambiguity belongs on a candidate only when resolving it could materially
+> change that candidate.
+
 ### Hard and Soft Preconditions
 
 A source-language uncertainty blocks candidate extraction only when it prevents

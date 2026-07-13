@@ -25,14 +25,21 @@ conversion and it is not an invitation to infer undocumented facts.
    being extracted and distinguish primary evidence, interpretive dependencies,
    related-system references, applicability support, and exclusions.
 6. **Candidate extraction.** Record the smallest independently meaningful
-   source claims with provenance and applicability. Keep transcription,
-   normalization, interpretation, and derivation distinct, and preserve
-   soft ambiguity explicitly on affected candidates. Candidate extraction may
-   begin once all hard preconditions for the selected boundary are satisfied.
+   source claims. Each candidate records primary evidence; material interpretive
+   dependencies when needed; supporting evidence when used; applicability;
+   ambiguity IDs that directly affect the claim; and status or confidence. Keep
+   transcription, normalization, interpretation, and derivation distinct.
+   Candidate extraction may begin once all hard preconditions for the selected
+   boundary are satisfied.
 7. **Independent review.** Check candidates against the complete evidence
-   boundary, the cited source-language guidance, and the stated applicability.
-   Verify that soft ambiguities were not silently resolved. A reviewer must
-   reject unsupported completion or interpretation.
+   boundary and stated applicability. Verify that each claimed interpretive
+   dependency actually defines a convention used by the candidate, no required
+   dependency is missing, and supporting evidence is not confused with primary
+   evidence. Verify that no ambiguity was attached merely by category or page
+   proximity, every attached ambiguity could materially change its candidate,
+   and conditionally hard ambiguities are attached only where their hard
+   condition exists. A reviewer must reject unsupported completion or
+   interpretation.
 8. **Canonical acceptance.** Accept reviewed claims through the repository's
    documented process and commit the reviewable change through Git. Only
    accepted knowledge may supply derived views.
@@ -58,6 +65,13 @@ Use this decision test:
 
 - **Yes:** stop or narrow the boundary.
 - **No:** record ambiguity and continue.
+
+For candidate-level ambiguity attachment, use a separate test:
+
+> Could resolving this ambiguity materially change this candidate?
+
+- **Yes:** attach it.
+- **No:** leave it in the ambiguity log but do not attach it here.
 
 For the initial milestone, follow this workflow only as far as needed to produce
 **One Diagram**. Automation may assist transcription or review, but generated

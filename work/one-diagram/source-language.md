@@ -80,6 +80,27 @@ Any candidate extracted from page 191 must cite the applicable explanatory page
 or pages as interpretive dependencies as well as citing the target circuit
 evidence.
 
+## Candidate-Level Interpretive Dependencies for Page 191
+
+Page 191 remains the primary evidence for circuit claims transcribed from the
+page. Candidate-level interpretive dependencies are selected according to the
+notation each candidate actually uses:
+
+- page 5 defines the wire-color convention, including base color and stripe;
+- page 5 defines Relay Block notation;
+- page 6 defines System Circuit Connector views where connector interpretation
+  is required; and
+- page 7 distinguishes titles inside components as terminal names or terminal
+  codes where those codes are transcribed.
+
+Page 29 is supporting physical and layout evidence for Relay Block No. 1. It is
+not the definition of Relay Block notation.
+
+Not every page-191 candidate requires pages 4–7. A directly visible object label
+does not acquire every explanatory page merely because those pages were reviewed
+before extraction. Dependencies must be as narrow as practical and must identify
+the convention materially used to read the candidate.
+
 ## Hard versus Soft Questions for Page 191
 
 Hard questions are those whose answers are needed to choose a faithful

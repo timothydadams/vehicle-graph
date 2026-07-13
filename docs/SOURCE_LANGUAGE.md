@@ -45,6 +45,34 @@ publication defines it elsewhere. Generic engineering assumptions must not
 replace source-defined semantics, even when the generic interpretation appears
 familiar or likely.
 
+## Recording Interpretive Dependencies
+
+A source-language page becomes a candidate-level interpretive dependency only
+when it defines notation or a convention materially required to read that
+candidate's primary evidence. Dependencies should be as narrow as practical and
+should identify the specific convention being applied.
+
+Do not attach an explanatory page when the candidate is a directly readable
+label or statement that does not use the page's convention. Copying every
+notation page onto every candidate is bad provenance: it hides which guidance
+actually supports the reading and can misrepresent explanatory material as the
+source of the engineering claim.
+
+For example, in an EWD-style publication:
+
+- a striped wire-color code may depend on the publication's color-code rule;
+- a circled relay-block number may depend on the relay-block legend;
+- a connector cavity mapping may depend on the connector numbering convention;
+- a title printed inside a component may depend on the publication's statement
+  that such titles are terminal names or codes; and
+- a plain component label needs no notation dependency merely because it appears
+  on the same diagram.
+
+These examples are publication-pattern examples, not Toyota-only rules. Each
+publication must supply its own definitions. Independent review checks that
+every recorded dependency is necessary and accurate and that no required
+dependency is missing.
+
 ## Blocking and Non-Blocking Source-Language Uncertainty
 
 Source-language uncertainty concerns whether the publication's marks and

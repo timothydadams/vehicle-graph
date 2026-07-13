@@ -26,6 +26,18 @@ Selected authorization boundary: EWD168F printed page 191, Heavy-Duty Headlight
 - [x] source quality adequate for the selected boundary
 - [x] no unresolved notation issue forces materially different transcription
 
+## Candidate Review Requirements
+
+- [x] candidate format distinguishes primary evidence from interpretive
+  dependencies
+- [x] interpretive dependencies are selected narrowly for conventions actually
+  used by each candidate
+- [x] ambiguity attachment is candidate-specific
+- [x] no conditionally hard ambiguity is broadly propagated
+
+These review requirements do not make open soft ambiguities block faithful
+transcription.
+
 ## Soft Preconditions and Open Ambiguities
 
 - `AMB-APP-001`: Europe versus Except-Europe target applicability.
@@ -46,4 +58,4 @@ Authorization depends only on the hard preconditions above. The listed soft
 ambiguities remain open and reviewable.
 
 - [x] Hard preconditions satisfied; candidate extraction authorized with listed
-  soft ambiguities attached.
+  soft ambiguities available for candidate-specific attachment.

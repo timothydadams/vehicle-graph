@@ -18,6 +18,30 @@ For a vehicle-specific observation, provenance should additionally identify the
 vehicle unambiguously, the observation method, the date, and supporting evidence
 such as measurements or photographs when appropriate and any tools or instruments used when they materially affect the observation.
 
+## Primary Evidence and Interpretive Dependencies
+
+Provenance distinguishes three evidence roles:
+
+- **Primary evidence** directly shows or states the candidate claim.
+- **Interpretive dependency** is a location within the same publication that
+  defines notation or a convention required to read the primary evidence
+  faithfully.
+- **Supporting evidence** corroborates identity, location, layout,
+  applicability, or another contextual point but is not required to decode the
+  primary depiction.
+
+A candidate may have one or more primary evidence references, zero or more
+interpretive dependencies, and zero or more supporting evidence references. The
+three roles must remain distinguishable even when they refer to pages in the
+same publication.
+
+Interpretive dependencies are attached only when they materially explain how a
+candidate is read. A notation page must not be cited as if it contains the
+engineering claim itself, and reviewing a page does not by itself make that
+page a dependency of every candidate. Provenance must explain both where a
+candidate is shown and, when necessary, how the publication tells us to read
+it.
+
 ## Authority and confidence
 
 Factory publications are authoritative descriptions, but sources may conflict,

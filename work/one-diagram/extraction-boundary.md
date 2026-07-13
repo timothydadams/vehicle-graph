@@ -56,6 +56,11 @@ explicitly identified above without asserting target-vehicle applicability.
 The publication-specific definitions and classifications are recorded in the
 [source-language record](source-language.md).
 
+Within the selected boundary, interpretive dependencies and ambiguity
+attachments are evaluated per candidate. A reviewed explanatory page is not a
+dependency of every candidate, and an open ambiguity does not attach where its
+resolution could not materially change the candidate.
+
 ## Primary Circuit Evidence
 
 - Page 191: Heavy-Duty System Circuits 5, limited to the electrically meaningful
