@@ -13,6 +13,19 @@ Pre-canonical working ledger for **One Diagram**. Every entry remains a candidat
   - Headlight (Except Europe), index location 5-4
   - Headlight (Europe), index location 5-6
 
+## Detailed Transcription Precondition
+
+EWD168F pages 4–7 are mandatory source-language dependencies. Page 191 may not
+be interpreted without applying those definitions, and any future Except-Europe
+or Europe detailed transcription must cite the relevant source-language
+guidance recorded in [source-language.md](source-language.md).
+
+The previous detailed extraction commit was reverted. No detailed conductor
+transcription should be recreated as part of the source-language policy task.
+Future work remains blocked by the
+[source-language review checklist](source-language-review-checklist.md) and the
+[extraction gate](extraction-boundary.md#source-language-review-gate).
+
 ## Candidate object ledger
 
 | Candidate ID | Source label | Code | Candidate kind | Evidence | State |

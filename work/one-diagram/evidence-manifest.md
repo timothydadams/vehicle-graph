@@ -25,7 +25,14 @@ confirmation.
 Overlapping high-resolution working captures of page 191 have now been reviewed
 and are adequate for candidate conductor-level transcription. They are not
 repository evidence assets, and their relationship to the user's physical
-source still needs to be recorded.
+source still needs to be recorded. This capture-quality assessment does not
+authorize extraction before the source-language review gate is satisfied.
+
+Printed pages 4–7 are mandatory source-language evidence for interpreting page
+191. They define the publication-specific notation and terminology that must be
+applied before any detailed candidate transcription. Their local-PDF status and
+their relationship to the user's physical source remain subject to the same
+distinctions recorded above.
 
 ## Manifest
 
@@ -35,10 +42,10 @@ source still needs to be recorded.
 | EWD168F-FOREWORD | EWD168F | unnumbered | front matter | Foreword and applicable models | identity and scope | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Preserve the complete applicable-model statement. |
 | EWD168F-P001 | EWD168F | 1 | front matter | Contents | navigation | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Confirms publication structure. |
 | EWD168F-P003 | EWD168F | 3 | A — Introduction | Section descriptions | source structure | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Relates manual sections to their roles. |
-| EWD168F-P004 | EWD168F | 4 | B — How to Use This Manual | Example system circuit | notation | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Interpret with page 5. |
-| EWD168F-P005 | EWD168F | 5 | B — How to Use This Manual | Circuit notation definitions | notation | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Interpret with page 4. |
-| EWD168F-P006 | EWD168F | 6 | B — How to Use This Manual | System Circuit Connectors explanation | connector interpretation | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Required to interpret connector views. |
-| EWD168F-P007 | EWD168F | 7 | C — Abbreviations | Abbreviations | terminology | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Preserve Toyota source terminology. |
+| EWD168F-P004 | EWD168F | 4 | B — How to Use This Manual | Example system circuit | mandatory source-language dependency | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Interpret page 191 using the definitions keyed to this example on page 5. |
+| EWD168F-P005 | EWD168F | 5 | B — How to Use This Manual | Circuit notation definitions | mandatory source-language dependency | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Defines circuit symbols and conventions, including Relay Block notation. |
+| EWD168F-P006 | EWD168F | 6 | B — How to Use This Manual | System Circuit Connectors explanation | mandatory source-language dependency | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Required to interpret connector views used with page 191. |
+| EWD168F-P007 | EWD168F | 7 | C — Abbreviations | Abbreviations | mandatory source-language dependency | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Required terminology dependency; preserve Toyota source wording. |
 | EWD168F-P026 | EWD168F | 26 | D — Relay Locations | Engine-compartment relay locations | location support | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Supporting location context. |
 | EWD168F-P027 | EWD168F | 27 | D — Relay Locations | Heavy-duty instrument-panel relay locations | location support | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Heavy-duty support. |
 | EWD168F-P028 | EWD168F | 28 | D — Relay Locations | Light-duty instrument-panel relay locations | comparison | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Comparison only; light-duty circuits remain excluded. |

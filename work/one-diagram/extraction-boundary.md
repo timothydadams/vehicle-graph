@@ -19,6 +19,23 @@ against preserved evidence.
 Both heavy-duty variants remain in the proposed boundary until applicability to
 the identified target vehicle is resolved.
 
+## Source-Language Review Gate
+
+Detailed extraction is not authorized until:
+
+- the publication's required explanatory sections are identified;
+- the relevant source-language pages have been reviewed;
+- source-defined symbols and conventions needed by the boundary are recorded;
+- unresolved notation issues are entered in the
+  [ambiguity log](ambiguity-log.md); and
+- the [source-language review checklist](source-language-review-checklist.md) is
+  complete enough for the target boundary.
+
+For EWD168F, printed pages 4–7 are mandatory source-language dependencies for
+interpreting page 191. The publication-specific definitions are recorded in the
+[source-language record](source-language.md). The gate remains closed while an
+unknown convention could materially alter detailed transcription.
+
 ## Primary Circuit Evidence
 
 - Page 191: Heavy-Duty System Circuits 5, limited to the electrically meaningful
@@ -29,13 +46,13 @@ share the spread.
 
 ## Notation Dependencies
 
-- Pages 4–5: example system circuit and circuit notation definitions.
-- Page 7: abbreviations and source terminology.
+- Pages 4–5: mandatory example system circuit and circuit notation definitions.
+- Page 7: mandatory abbreviations and source terminology.
 - Page 165: system-index and variant mapping context.
 
 ## Connector Dependencies
 
-- Page 6: explanation of System Circuit Connectors.
+- Page 6: mandatory explanation of System Circuit Connectors.
 - Page 188: connector detail for C13, C15, H5, and H6.
 - Page 189: junction detail for J1 and J3.
 - Page 190: same-group boundary context, retained until the connector inventory

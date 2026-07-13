@@ -3,38 +3,50 @@
 Extraction is an evidence-preserving engineering activity. It is not bulk text
 conversion and it is not an invitation to infer undocumented facts.
 
-## Proposed workflow
+## Ordered Workflow
 
-1. **Identify the source.** Record the publication, edition or revision, and the
-   specific location being examined.
-2. **Define the target application.** State the vehicle, configuration, and
-   other applicability constraints known before extraction.
-3. **Preserve evidence.** Retain enough source context for an independent
-   reviewer to locate and interpret the material.
-4. **Define the extraction boundary.** Identify exactly what portion of the
-source is being extracted during this review. Prefer small, coherent units over
-large sections.
-5. **Extract atomic facts.** Record the smallest independently meaningful claims rather
-than summarizing a larger section.
-6. **Attach provenance and applicability.** Neither is optional or deferred.
-7. **Distinguish transcription from interpretation.** Record ambiguity and
-   uncertainty; do not silently resolve them.
-8. **Review against the source.** A reviewer verifies the extracted facts against the source before they become
-accepted graph knowledge.
-9. **Resolve outstanding ambiguity.** Unresolved ambiguity is preserved explicitly rather than silently resolved.
-10. **Commit through Git.** The reviewable change becomes part of the system of
-   record.
-11. **Generate a derived view.** Tools consume accepted facts without modifying
-   them.
-12. **Validate the derived view.** Check the result against both the source and the
-    stated vehicle application.
+1. **Publication identity and scope review.** Identify the publication,
+   edition or revision, language, source artifact, and the specific material
+   being considered. Record limitations in the available evidence.
+2. **Applicability review.** Record the publication's stated scope and the
+   narrowest known vehicle, model, market, equipment, date, or other qualifiers.
+   Preserve unresolved applicability rather than broadening it.
+3. **Source-language review.** Identify and review the exact explanatory pages
+   or sections that define the notation, symbols, abbreviations, terminology,
+   connector and junction conventions, continuation rules, state/contact
+   tables, page organization, and applicability notation needed to interpret
+   the target source. Cite those dependencies in the working record.
+4. **Evidence inventory.** Inventory the primary material and every supporting
+   page needed to identify, interpret, and independently review it. Distinguish
+   preserved evidence from working derivatives and unavailable material.
+5. **Extraction-boundary definition.** State the smallest coherent source area
+   being extracted and distinguish primary evidence, interpretive dependencies,
+   related-system references, applicability support, and exclusions.
+6. **Candidate extraction.** Record the smallest independently meaningful
+   source claims with provenance and applicability. Keep transcription,
+   normalization, interpretation, and derivation distinct, and preserve
+   ambiguity explicitly.
+7. **Independent review.** Check candidates against the complete evidence
+   boundary, the cited source-language guidance, and the stated applicability.
+   A reviewer must reject unsupported completion or interpretation.
+8. **Canonical acceptance.** Accept reviewed claims through the repository's
+   documented process and commit the reviewable change through Git. Only
+   accepted knowledge may supply derived views.
+
+Candidate extraction must not begin until stages 1 through 5 are complete
+enough for the selected boundary. The source-language review must identify the
+exact explanatory pages or sections used to interpret the target material.
+
+A contributor must not infer the meaning of a source symbol merely from
+electrical convention when the publication defines it. If the publication's
+own guidance is incomplete or ambiguous, record that limitation explicitly
+before proceeding. Detailed extraction must stop when the unresolved meaning
+could materially alter the transcription.
 
 For the initial milestone, follow this workflow only as far as needed to produce
 **One Diagram**. Automation may assist transcription or review, but generated
-claims are not facts until supported by source evidence and accepted through the
-same process.
+claims are not facts until supported by evidence and accepted through the same
+process.
 
-Extraction favors fidelity over completeness.
-
-An incomplete but accurate graph is preferable to a complete graph containing
-unsupported assumptions.
+Extraction favors fidelity over completeness. An incomplete but accurate graph
+is preferable to a complete graph containing unsupported assumptions.

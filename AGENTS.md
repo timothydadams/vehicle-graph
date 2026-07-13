@@ -40,6 +40,35 @@ where precision matters, while clearly separating quotation, transcription,
 interpretation, and vehicle observation. Update or add an ADR when changing a
 project invariant or a consequential architectural decision.
 
+## Source-Language-First Extraction Rule
+
+Before detailed extraction from any factory publication, every contributor or
+agent MUST:
+
+- identify all sections within the same publication that define the notation,
+  symbols, abbreviations, terminology, connector numbering, relay and junction
+  conventions, continuation rules, page organization, state/contact tables,
+  applicability notation, and interpretation guidance used by the target
+  material;
+- review those explanatory sections before interpreting the target diagram,
+  table, figure, or procedure;
+- record the required explanatory sections in the working source inventory,
+  source-language record, or extraction boundary;
+- apply the publication's own definitions before applying generic domain
+  knowledge or contextual inference;
+- search the publication for an explicit definition before opening an
+  ambiguity about a symbol or convention;
+- preserve the distinction between source-defined meaning, normalized wording,
+  contributor interpretation, and derived conclusion; and
+- stop detailed extraction when a required notation or convention remains
+  unknown and could materially alter the transcription.
+
+No source symbol or convention may be interpreted from context when the same
+publication defines it elsewhere.
+
+Source-language guidance is evidence for interpretation, but working notes
+about that guidance are not automatically canonical factory facts.
+
 ## Decision rule
 
 When faced with multiple valid designs, prefer the simpler one unless the

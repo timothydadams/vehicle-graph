@@ -13,6 +13,10 @@ depends on the inventory and remains subject to evidence review.
 
 Supporting workspace records are:
 
+- [source-language record](source-language.md), which identifies the EWD168F
+  explanatory sections that govern interpretation;
+- [source-language review checklist](source-language-review-checklist.md), which
+  records completion of the required pre-extraction review gate;
 - [evidence manifest](evidence-manifest.md), which tracks the provisional
   evidence set and capture status;
 - [extraction boundary](extraction-boundary.md), which separates the proposed
@@ -27,11 +31,21 @@ expected private local evidence paths. Working files in this directory may
 reference artifacts or derivatives under `.evidence/`, but ignored local files
 must not be treated as committed repository state or accepted factory knowledge.
 
+## Extraction Gate
+
+Source-language review precedes candidate extraction. No detailed circuit
+transcription may begin until the source-language review checklist and the
+[extraction boundary gate](extraction-boundary.md#source-language-review-gate)
+are satisfied for the selected target.
+
 ## Next Work Sequence
 
 1. Preserve and identify evidence.
-2. Finalize the extraction boundary.
-3. Transcribe visible source claims.
-4. Review candidate claims against preserved evidence.
-5. Only then propose the minimum canonical schema required by the reviewed
+2. Review the publication's source language and complete the applicable
+   checklist items.
+3. Finalize the extraction boundary and satisfy its review gate.
+4. Transcribe visible source claims.
+5. Review candidate claims against preserved evidence and cited source-language
+   guidance.
+6. Only then propose the minimum canonical schema required by the reviewed
    source material.
