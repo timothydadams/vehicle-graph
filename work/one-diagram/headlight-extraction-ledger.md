@@ -111,13 +111,13 @@ These candidate modeling needs are forced by the reviewed source:
 
 1. Does the target vehicle use Europe or Except-Europe headlights?
 2. What are the exact wire-color codes on each segment?
-3. What terminal numbers are used at H5, H6, C15, C13, J1, and J3?
+3. Which J1 and J3 grouped-letter positions correspond to the visible page-191 circuit connections? H5, H6, C15, and C13 terminal numbers are now legible in the working captures.
 4. How should C15's separately named Light Control and Dimmer functions be represented?
 5. What exactly do J1's and J3's grouped letters mean electrically?
-6. Which ground-point codes terminate each variant?
+6. Do the candidate continuation identifiers transcribe as BH and BI for Except Europe and EA, EB, IE, and IF for Europe, and how do they map to the relevant ground or continuation pages?
 7. Which crossings are joins, crossovers, or continuations?
-8. Which headlight-cleaner reference is relevant to the Europe circuit?
-9. What market/equipment annotations qualify individual lines?
+8. For which equipment application does the visible `From Headlight Cleaner SW (5-1)` input apply, and how should that referenced input be represented?
+9. Which claims involving the visible D2 Daytime Running Light Relay are Iceland/Denmark-specific, and which Europe-circuit claims are common to other markets?
 10. Which facts are common to both variants and which are variant-specific?
 
 ## Page-191 transcription passes
@@ -157,6 +157,11 @@ Assign each candidate to:
 
 Check every entry against the preserved source region. Preserve illegibility and ambiguity instead of resolving them from electrical intuition.
 
-## Immediate evidence need
+## Page-191 evidence status
 
-Obtain overlapping high-resolution close-ups of page 191 covering the five proposed regions. The existing full-spread image is sufficient for boundary discovery, but not for trustworthy conductor-level extraction.
+Overlapping high-resolution working captures covering the five proposed regions
+have been reviewed and are adequate for candidate conductor-level transcription.
+They are not currently repository evidence assets, and their relationship to the
+user's physical source still needs to be recorded. Any transcription from these
+captures remains a candidate until checked against adequately identified
+evidence, assigned provenance and applicability, and independently reviewed.

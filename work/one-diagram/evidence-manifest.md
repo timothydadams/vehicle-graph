@@ -13,13 +13,18 @@ user's physical EWD168F is the preferred primary artifact. Except where noted,
 page-level capture quality and primary-versus-derivative status still require
 confirmation.
 
+Overlapping high-resolution working captures of page 191 have now been reviewed
+and are adequate for candidate conductor-level transcription. They are not
+repository evidence assets, and their relationship to the user's physical
+source still needs to be recorded.
+
 ## Manifest
 
 | Provisional evidence ID | Publication number | Printed page | Section | Description | Role in the extraction | Evidence availability | Capture quality | Primary or working-derivative status | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | EWD168F-COVER | EWD168F | cover | Publication identity | Publication cover | identity | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Use the physical artifact to preserve publication identity. |
-| EWD168F-FOREWORD | EWD168F | unnumbered | A — Introduction | Foreword and applicable models | identity and scope | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Preserve the complete applicable-model statement. |
-| EWD168F-P001 | EWD168F | 1 | A — Introduction | Contents | navigation | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Confirms publication structure. |
+| EWD168F-FOREWORD | EWD168F | unnumbered | front matter | Foreword and applicable models | identity and scope | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Preserve the complete applicable-model statement. |
+| EWD168F-P001 | EWD168F | 1 | front matter | Contents | navigation | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Confirms publication structure. |
 | EWD168F-P003 | EWD168F | 3 | A — Introduction | Section descriptions | source structure | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Relates manual sections to their roles. |
 | EWD168F-P004 | EWD168F | 4 | B — How to Use This Manual | Example system circuit | notation | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Interpret with page 5. |
 | EWD168F-P005 | EWD168F | 5 | B — How to Use This Manual | Circuit notation definitions | notation | Reviewed for inventory; no repository asset | Not recorded per item | Primary capture pending | Interpret with page 4. |
@@ -39,7 +44,7 @@ confirmation.
 | EWD168F-P188 | EWD168F | 188 | F — Electrical Wiring Diagram | System Circuit Connectors (5) | connector detail | Reviewed for inventory; no repository asset | Not recorded per item | Primary or working-derivative status unconfirmed | Includes C13, C15, H5, and H6 views. |
 | EWD168F-P189 | EWD168F | 189 | F — Electrical Wiring Diagram | System Circuit Connectors (5), continuation | junction detail | Reviewed for inventory; no repository asset | Not recorded per item | Primary or working-derivative status unconfirmed | Includes J1 and J3 views. |
 | EWD168F-P190 | EWD168F | 190 | F — Electrical Wiring Diagram | System Circuit Connectors (5), continuation | boundary context | Reviewed for inventory; no repository asset | Not recorded per item | Primary or working-derivative status unconfirmed | Retain until the connector inventory is complete. |
-| EWD168F-P191 | EWD168F | 191 | F — Electrical Wiring Diagram | Heavy-Duty System Circuits 5 | primary circuit spread | Working full-spread reference reviewed; no repository asset | Adequate for boundary discovery, not conductor transcription | Primary close-up captures pending; current status unconfirmed | Capture five overlapping high-resolution regions before conductor-level extraction. |
+| EWD168F-P191 | EWD168F | 191 | F — Electrical Wiring Diagram | Heavy-Duty System Circuits 5 | primary circuit spread | Overlapping high-resolution working captures reviewed; no repository asset | Adequate for candidate conductor-level transcription | Working captures; relationship to the user's physical source not yet recorded | Candidate transcription from these captures is not accepted factory knowledge. |
 
 ## Capture Constraint
 

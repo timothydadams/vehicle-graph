@@ -173,13 +173,21 @@ Physical location is separate knowledge from electrical connectivity.
 
 ## Evidence quality
 
-The material is adequate for inventory and boundary discovery. Several later pages are watermarked scans from a third-party copy, while the user's physical EWD168F remains the preferred primary artifact.
+The material is adequate for inventory and boundary discovery. Overlapping
+high-resolution working captures of page 191 have now been reviewed and are
+adequate for candidate conductor-level transcription. Several later pages are
+watermarked scans from a third-party copy, while the user's physical EWD168F
+remains the preferred primary artifact.
+
+The page-191 working captures are not currently repository evidence assets, and
+their relationship to the user's physical source still needs to be recorded.
+Candidate transcription from them is not accepted factory knowledge.
 
 Before accepting conductor-level facts:
 
 - preserve direct scans/photos tied to the physical source
 - catalog watermarked pages as working derivatives or secondary evidence
-- capture page 191 in higher-resolution overlapping regions
+- review candidate transcriptions against adequately identified evidence
 
 ## Include
 
@@ -202,9 +210,9 @@ Before accepting conductor-level facts:
 - service part numbers
 - inferred operating behavior
 
-## Required next capture
+## Page-191 working captures
 
-Capture page 191 as overlapping close-ups:
+The reviewed overlapping high-resolution captures cover:
 
 1. Except-Europe fuse/headlamp area
 2. Except-Europe switching and junction area
@@ -212,4 +220,6 @@ Capture page 191 as overlapping close-ups:
 4. Europe fuse/headlamp and high-beam-indicator area
 5. lower grounds and continuation references
 
-The current full-spread image is enough to define the boundary, but not enough for trustworthy conductor transcription.
+These working captures are adequate for candidate conductor-level transcription.
+They do not replace preserved evidence tied to the user's physical source, and
+claims transcribed from them remain candidates until reviewed and accepted.
