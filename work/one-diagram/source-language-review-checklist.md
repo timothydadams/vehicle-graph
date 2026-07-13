@@ -34,8 +34,17 @@ Selected authorization boundary: EWD168F printed page 191, Heavy-Duty Headlight
   used by each candidate
 - [x] ambiguity attachment is candidate-specific
 - [x] no conditionally hard ambiguity is broadly propagated
+- [ ] every attached ambiguity identifies the candidate field or assertion that
+  could change
+- [ ] semantic ambiguities are not propagated automatically to structural claims
+- [ ] grouped-meaning ambiguities are separated from positional-mapping
+  ambiguities
+- [ ] boundary ambiguities attach only where candidate treatment could change
+- [ ] no ambiguity is attached solely because of object association or page
+  proximity
 
-These review requirements do not make open soft ambiguities block faithful
+These are candidate-review checks, not hard preconditions for source
+transcription. They do not make open soft ambiguities block faithful
 transcription.
 
 ## Soft Preconditions and Open Ambiguities

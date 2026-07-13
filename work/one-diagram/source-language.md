@@ -101,6 +101,40 @@ does not acquire every explanatory page merely because those pages were reviewed
 before extraction. Dependencies must be as narrow as practical and must identify
 the convention materially used to read the candidate.
 
+## Page-191 Ambiguity Attachment Examples
+
+These examples guide future candidate review without changing current
+candidate attachments.
+
+### C15
+
+- `AMB-CON-004` may attach to C15 function-object claims and printed
+  function/contact-table claims.
+- It does not automatically attach to every C15 terminal or conductor.
+- Attach it to a terminal or conductor only if resolving the function
+  distinction could change that candidate's designation, endpoint, or
+  interpretation.
+
+### J1 and J3
+
+- `AMB-CON-001` concerns broader grouped-letter meaning. It may attach to
+  grouped-junction semantic claims, but it does not automatically attach to
+  every terminal position or conductor whose visible mapping is unchanged.
+- `AMB-CON-003` concerns positional correspondence. It may attach to terminal or
+  conductor mappings when resolving it could change the mapped position or
+  endpoint.
+
+### D10 and Boundary Material
+
+- `AMB-BOUND-001` attaches where final boundary treatment could change whether
+  a candidate is internal, excluded, or retained as a boundary reference.
+- It does not attach to unrelated headlight candidates.
+
+### AMB-CON-002
+
+- Attach it only at a specific indeterminate crossing or join.
+- Do not attach it to clear black-dot joins or visible grouped connections.
+
 ## Hard versus Soft Questions for Page 191
 
 Hard questions are those whose answers are needed to choose a faithful

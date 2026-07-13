@@ -73,6 +73,32 @@ publication must supply its own definitions. Independent review checks that
 every recorded dependency is necessary and accurate and that no required
 dependency is missing.
 
+## Semantic Ambiguity versus Transcription Ambiguity
+
+Semantic ambiguity concerns an object's broader meaning, classification, or
+later representation. Transcription ambiguity concerns what the source visibly
+says, labels, or connects. Semantic ambiguity normally remains attached to the
+semantic claim; transcription ambiguity attaches to the specific visible claim
+it could change. A semantic ambiguity propagates to a structural claim only
+when resolving it could materially change that claim.
+
+For publication-agnostic examples:
+
+- uncertainty about how a switch's multiple printed functions will later be
+  modeled may affect the function claims without affecting every visibly
+  labeled terminal or connected wire;
+- uncertainty about a grouped junction label's broader meaning may affect a
+  grouped-junction claim without changing each clearly visible position or
+  connection;
+- uncertainty about positional connector correspondence belongs on terminal or
+  conductor mappings when it could change their mapped position or endpoint;
+  and
+- uncertainty about a boundary reference belongs on candidates whose internal,
+  excluded, or boundary-reference treatment could change.
+
+Object association, shared-page location, and structural adjacency alone do not
+convert semantic uncertainty into transcription uncertainty.
+
 ## Blocking and Non-Blocking Source-Language Uncertainty
 
 Source-language uncertainty concerns whether the publication's marks and

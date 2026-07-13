@@ -59,7 +59,8 @@ The publication-specific definitions and classifications are recorded in the
 Within the selected boundary, interpretive dependencies and ambiguity
 attachments are evaluated per candidate. A reviewed explanatory page is not a
 dependency of every candidate, and an open ambiguity does not attach where its
-resolution could not materially change the candidate.
+resolution could not materially change the candidate. Attachments do not
+propagate through structural adjacency or a shared object.
 
 ## Primary Circuit Evidence
 

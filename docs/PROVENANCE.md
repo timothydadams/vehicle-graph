@@ -42,6 +42,10 @@ page a dependency of every candidate. Provenance must explain both where a
 candidate is shown and, when necessary, how the publication tells us to read
 it.
 
+Ambiguity attachment is part of claim provenance. Each attachment must identify
+the specific candidate assertion it affects and what could materially change if
+the ambiguity were resolved.
+
 ## Authority and confidence
 
 Factory publications are authoritative descriptions, but sources may conflict,

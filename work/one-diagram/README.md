@@ -54,6 +54,12 @@ attach unrelated ambiguity IDs or evidence references. An open ambiguity does
 not attach to a candidate unless resolving it could materially change that
 candidate.
 
+Future candidate review must apply the ambiguity-attachment tests before adding
+an ambiguity ID. Object-level ambiguity does not automatically flow to terminals
+or conductors, and group-level semantic ambiguity does not automatically flow to
+visible position mappings. Positional ambiguity may attach to endpoint claims
+where resolving the mapping could change the endpoint.
+
 ## Next Work Sequence
 
 1. Preserve and identify evidence.

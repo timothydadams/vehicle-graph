@@ -29,6 +29,7 @@ conversion and it is not an invitation to infer undocumented facts.
    dependencies when needed; supporting evidence when used; applicability;
    ambiguity IDs that directly affect the claim; and status or confidence. Keep
    transcription, normalization, interpretation, and derivation distinct.
+   Apply the ambiguity-attachment review sequence below before adding each ID.
    Candidate extraction may begin once all hard preconditions for the selected
    boundary are satisfied.
 7. **Independent review.** Check candidates against the complete evidence
@@ -38,8 +39,9 @@ conversion and it is not an invitation to infer undocumented facts.
    evidence. Verify that no ambiguity was attached merely by category or page
    proximity, every attached ambiguity could materially change its candidate,
    and conditionally hard ambiguities are attached only where their hard
-   condition exists. A reviewer must reject unsupported completion or
-   interpretation.
+   condition exists. Repeat the ambiguity-attachment review sequence and reject
+   any attachment that cannot identify a candidate field or assertion that
+   could change. A reviewer must reject unsupported completion or interpretation.
 8. **Canonical acceptance.** Accept reviewed claims through the repository's
    documented process and commit the reviewable change through Git. Only
    accepted knowledge may supply derived views.
@@ -72,6 +74,24 @@ For candidate-level ambiguity attachment, use a separate test:
 
 - **Yes:** attach it.
 - **No:** leave it in the ambiguity log but do not attach it here.
+
+## Ambiguity-Attachment Review Sequence
+
+For every proposed attachment:
+
+1. Identify the candidate claim.
+2. Identify the exact ambiguity.
+3. State which candidate field or assertion could change if the ambiguity were
+   resolved.
+4. Apply the relevant semantic, group-meaning, positional, boundary,
+   applicability, or transcription test.
+5. Attach the ambiguity only when a material change is possible.
+
+Use this concise decision test:
+
+> What exactly could change in this candidate if the ambiguity were resolved?
+
+If the answer is **nothing**, do not attach it.
 
 For the initial milestone, follow this workflow only as far as needed to produce
 **One Diagram**. Automation may assist transcription or review, but generated

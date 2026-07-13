@@ -104,6 +104,46 @@ candidate.
 > An ambiguity belongs on a candidate only when resolving it could materially
 > change that candidate.
 
+#### Ambiguity Attachment Application Tests
+
+Before attaching an ambiguity, apply the relevant tests:
+
+- **Test A — Semantic versus structural claim:** If the ambiguity concerns an
+  object's broader meaning, classification, or later modeling while the
+  candidate only records a visible terminal, label, wire, or endpoint, do not
+  attach it unless resolving the ambiguity could materially change that
+  structural claim.
+- **Test B — Group meaning versus visible correspondence:** Attach uncertainty
+  about a junction or connector group's broader meaning to the grouped-meaning
+  claim when appropriate. Do not propagate it to a clearly visible label,
+  position, terminal, or conductor whose correspondence would remain unchanged.
+- **Test C — Positional or endpoint uncertainty:** Attach the ambiguity when
+  resolving it could change which visible position, terminal, group, or endpoint
+  the candidate maps to; otherwise, do not attach it.
+- **Test D — Boundary ambiguity:** Attach the ambiguity when resolving it could
+  move the candidate into or out of the extraction boundary or change whether
+  it is an internal claim or boundary reference.
+- **Test E — Applicability ambiguity:** Attach the ambiguity when resolving it
+  could change the candidate's stated scope. Do not attach a later
+  vehicle-selection question to a candidate already scoped neutrally to an
+  explicit source variant unless that candidate asserts vehicle applicability.
+- **Test F — Legibility or transcription ambiguity:** Attach the ambiguity when
+  resolving it could change literal source text, wire color, terminal number,
+  join status, or recorded connection, and adjust status or confidence as
+  appropriate.
+
+Touching the same object, appearing on the same page, using the same connector,
+belonging to the same circuit, or being structurally adjacent is not sufficient
+reason for attachment.
+
+The following invariants apply:
+
+- Semantic ambiguity does not automatically propagate to structural claims.
+- Object association alone is not a sufficient attachment reason.
+- Endpoint uncertainty belongs on endpoint claims; modeling uncertainty belongs
+  on modeling claims.
+- Attach the narrowest ambiguity that can materially change the candidate.
+
 ### Hard and Soft Preconditions
 
 A source-language uncertainty blocks candidate extraction only when it prevents
