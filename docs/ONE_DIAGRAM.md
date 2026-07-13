@@ -4,7 +4,7 @@
 
 **One Diagram** is the first working milestone for Vehicle Graph.
 
-The milestone will preserve and model the factory headlight wiring information contained in the electric wiring diagram material included with Toyota repair manual RM183E. The result will be one trustworthy, reproducible view for one explicitly stated vehicle application.
+The milestone will preserve and model the factory headlight wiring information contained in the electric wiring diagram material included with Toyota repair manual EWD168F. The result will be one trustworthy, reproducible view for one explicitly stated vehicle application.
 
 This milestone is intentionally narrow. Its purpose is to test the repository's documentation, provenance, applicability, extraction, review, canonical-data, validation, and derived-view principles against real factory material before a broader model is designed.
 
@@ -14,7 +14,7 @@ The source material remains authoritative. Vehicle Graph will preserve structure
 
 The milestone should answer:
 
-> Can Vehicle Graph reproduce the electrically meaningful content of the applicable RM183E headlight wiring diagram from reviewed, traceable, repository-local facts without losing source meaning, applicability, ambiguity, or provenance?
+> Can Vehicle Graph reproduce the electrically meaningful content of the applicable EWD168F headlight wiring diagram from reviewed, traceable, repository-local facts without losing source meaning, applicability, ambiguity, or provenance?
 
 Everything added during this milestone must directly support answering that question.
 
@@ -22,7 +22,7 @@ Everything added during this milestone must directly support answering that ques
 
 The initial source artifact is the user's physical copy of:
 
-* Toyota repair manual identifier: **RM183E**
+* Toyota repair manual identifier: **EWD168F**
 * source area: the electric wiring diagram material included with the manual;
 * initial system: **headlights**.
 
@@ -45,7 +45,7 @@ Until the source has been inspected, the following remain unresolved:
 * the page or page range containing the headlight circuit;
 * whether the complete circuit appears on one page or multiple pages;
 * whether related pages, connector views, location diagrams, legends, or tables are required;
-* whether RM183E includes more than one applicable headlight circuit;
+* whether EWD168F includes more than one applicable headlight circuit;
 * whether light-duty and heavy-duty variants are distinguished;
 * the source-stated model, market, production-date, equipment, or other applicability limits.
 
@@ -57,7 +57,7 @@ The intended vehicle context is the identified 1990 Toyota Land Cruiser PZJ70 th
 
 Known vehicle details may guide source review, but they do not determine factory applicability by themselves. The source must first state or support the configuration to which each extracted fact applies.
 
-Before canonical factory facts are accepted, the milestone must document the narrowest source-supported application using whatever distinctions RM183E provides, which may include:
+Before canonical factory facts are accepted, the milestone must document the narrowest source-supported application using whatever distinctions EWD168F provides, which may include:
 
 * model or model code;
 * chassis series;
@@ -76,7 +76,7 @@ Vehicle-specific observations, confirmations, modifications, or deviations are o
 
 ## Extraction target
 
-The initial extraction target is the factory circuit Toyota identifies as the headlight or headlamp system within the RM183E electric wiring diagram material.
+The initial extraction target is the factory circuit Toyota identifies as the headlight or headlamp system within the EWD168F electric wiring diagram material.
 
 The extraction boundary will be finalized only after the relevant source pages have been located and reviewed.
 
@@ -131,7 +131,7 @@ Before scanning diagram pages:
 
 1. Photograph or scan the manual cover and publication-identification pages.
 2. Record the manual's printed publication identity.
-3. Locate the electric wiring diagram section and record its structural relationship to RM183E.
+3. Locate the electric wiring diagram section and record its structural relationship to EWD168F.
 4. Inspect the section index or contents pages.
 5. Identify every candidate page associated with the headlight circuit.
 6. Identify any legends, symbol keys, applicability tables, connector references, or continuation pages required to read the candidate diagram.
@@ -165,7 +165,7 @@ Processed images are aids to extraction and review. They do not replace the pres
 
 Before schema discovery begins, the repository should contain a reviewed source inventory describing:
 
-* the RM183E publication identity;
+* the EWD168F publication identity;
 * the electric wiring diagram section identity;
 * the candidate headlight pages;
 * each supporting page required for interpretation;
@@ -244,7 +244,7 @@ A derived renderer may trace or arrange accepted connections, but its output doe
 
 Every accepted factory fact must identify:
 
-* the RM183E source artifact;
+* the EWD168F source artifact;
 * the exact page, figure, table, legend, or equivalent source location;
 * the preserved evidence asset;
 * whether the claim was transcribed, normalized, or interpreted;
@@ -367,7 +367,7 @@ The diagram need not imitate the factory page layout. It must preserve the sourc
 
 **One Diagram** is complete when:
 
-1. RM183E and its included electric wiring diagram material are unambiguously identified.
+1. EWD168F and its included electric wiring diagram material are unambiguously identified.
 2. The headlight extraction boundary is documented and reviewed.
 3. Required source pages and supporting context are preserved.
 4. Source-stated and unresolved applicability are recorded.
@@ -385,7 +385,7 @@ The diagram need not imitate the factory page layout. It must preserve the sourc
 
 Completion does not require:
 
-* complete modeling of RM183E;
+* complete modeling of EWD168F;
 * complete modeling of the vehicle's lighting systems;
 * a universal electrical or automotive ontology;
 * a database;
@@ -398,7 +398,7 @@ Completion does not require:
 
 The milestone should pause and document the problem rather than silently proceeding when:
 
-* RM183E's publication identity cannot be established;
+* EWD168F's publication identity cannot be established;
 * the headlight diagram cannot be located completely;
 * required continuation or legend pages are missing;
 * multiple variants exist and the applicable one cannot be distinguished;
@@ -414,4 +414,4 @@ A stop condition is not failure. Explicitly preserving the limitation is more va
 
 After this document is accepted, the next task is source identification and inventory—not schema implementation.
 
-The first source-handling session should capture the RM183E publication-identification material, locate the electric wiring diagram contents and headlight section, and identify the complete candidate page set required for the extraction boundary.
+The first source-handling session should capture the EWD168F publication-identification material, locate the electric wiring diagram contents and headlight section, and identify the complete candidate page set required for the extraction boundary.
