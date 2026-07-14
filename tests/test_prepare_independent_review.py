@@ -93,6 +93,8 @@ class PrepareIndependentReviewTests(unittest.TestCase):
             "candidate_ledger": "work/one-diagram/candidate-ledger.md",
             "ambiguity_log": "work/one-diagram/ambiguity-log.md",
         }
+        evidence_content = "fixture evidence\n"
+        self.evidence_sha256 = hashlib.sha256(evidence_content.encode()).hexdigest()
         for path in artifacts.values():
             self.write(path)
         self.write(
@@ -101,7 +103,7 @@ class PrepareIndependentReviewTests(unittest.TestCase):
                 {
                     "publication_number": "FIXTURE-1",
                     "expected_local_artifact": "private/evidence.pdf",
-                    "sha256": "abc123",
+                    "sha256": self.evidence_sha256,
                     "fingerprint_status": "recorded",
                 },
                 indent=2,
@@ -112,7 +114,7 @@ class PrepareIndependentReviewTests(unittest.TestCase):
             "work/one-diagram/readiness.md",
             "# Readiness\n[x] candidate extraction authorized\n",
         )
-        self.write("private/evidence.pdf", "fixture evidence\n")
+        self.write("private/evidence.pdf", evidence_content)
         config = {
             "workspace_id": "one-diagram",
             "artifacts": artifacts,
@@ -148,6 +150,11 @@ class PrepareIndependentReviewTests(unittest.TestCase):
         result = self.run_command("one-diagram", "--check")
         self.assertIn("Independent review preparation (dry run)", result.stdout)
         self.assertIn("review_id: IR-001", result.stdout)
+        self.assertIn(
+            "review_preparation_configuration: work/one-diagram/review-preparation.json",
+            result.stdout,
+        )
+        self.assertIn(f"verified SHA-256 {self.evidence_sha256}", result.stdout)
         self.assertIn("stage_1_initial_materials:", result.stdout)
         self.assertFalse((self.root / "work/independent-review/IR-001").exists())
         self.assertEqual("", self.git("status", "--short"))
@@ -163,7 +170,11 @@ class PrepareIndependentReviewTests(unittest.TestCase):
         self.assertIn(commit, manifest)
         self.assertIn("Review revision: `R0`", manifest)
         self.assertIn("Package revision/status: `draft`", manifest)
-        self.assertIn("SHA-256 abc123", manifest)
+        self.assertIn(
+            "Review-preparation configuration: `work/one-diagram/review-preparation.json`",
+            manifest,
+        )
+        self.assertIn(f"SHA-256 {self.evidence_sha256} verified", manifest)
         self.assertIn("Stage 1 — Initial-Review Materials", manifest)
         self.assertIn("Stage 2 — Candidate Comparison Materials", manifest)
         self.assertIn("Stage 3 — Ambiguity and Rationale Materials", manifest)
@@ -199,6 +210,54 @@ class PrepareIndependentReviewTests(unittest.TestCase):
         self.assertIn("uncommitted changes", result.stderr)
         self.assertIn("candidate-ledger.md", result.stderr)
 
+    def test_refuses_dirty_review_preparation_configuration(self):
+        config_path = self.root / "work/one-diagram/review-preparation.json"
+        with config_path.open("a") as handle:
+            handle.write("\n")
+        result = self.run_command("one-diagram", "--check", expected=1)
+        self.assertIn("configuration has uncommitted changes", result.stderr)
+        self.assertIn("work/one-diagram/review-preparation.json", result.stderr)
+
+    def test_refuses_uncommitted_review_preparation_configuration_path(self):
+        original = self.root / "work/one-diagram/review-preparation.json"
+        config = json.loads(original.read_text())
+        config["workspace_id"] = "uncommitted-workspace"
+        self.write(
+            "work/uncommitted-workspace/review-preparation.json",
+            json.dumps(config, indent=2) + "\n",
+        )
+        result = self.run_command(
+            "work/uncommitted-workspace", "--check", expected=1
+        )
+        self.assertIn("configuration is not committed at HEAD", result.stderr)
+        self.assertIn(
+            "work/uncommitted-workspace/review-preparation.json", result.stderr
+        )
+
+    def test_refuses_private_source_fingerprint_mismatch(self):
+        metadata_path = self.root / "work/one-diagram/publication.json"
+        metadata = json.loads(metadata_path.read_text())
+        expected = "0" * 64
+        metadata["sha256"] = expected
+        metadata_path.write_text(json.dumps(metadata, indent=2) + "\n")
+        self.git("add", "work/one-diagram/publication.json")
+        self.git("commit", "-qm", "record mismatching fingerprint")
+        result = self.run_command("one-diagram", "--check", expected=1)
+        self.assertIn("private source fingerprint mismatch", result.stderr)
+        self.assertIn("private/evidence.pdf", result.stderr)
+        self.assertIn(f"Expected SHA-256: {expected}", result.stderr)
+        self.assertIn(f"Actual SHA-256: {self.evidence_sha256}", result.stderr)
+
+    def test_missing_recorded_fingerprint_is_reported(self):
+        metadata_path = self.root / "work/one-diagram/publication.json"
+        metadata = json.loads(metadata_path.read_text())
+        del metadata["sha256"]
+        metadata_path.write_text(json.dumps(metadata, indent=2) + "\n")
+        self.git("add", "work/one-diagram/publication.json")
+        self.git("commit", "-qm", "remove recorded fingerprint")
+        result = self.run_command("one-diagram", "--check")
+        self.assertIn("no recorded SHA-256; fingerprint not verified", result.stdout)
+
     def test_refuses_missing_required_artifact(self):
         (self.root / "work/one-diagram/evidence-inventory.md").unlink()
         result = self.run_command("one-diagram", "--check", expected=1)
@@ -223,6 +282,8 @@ class PrepareIndependentReviewTests(unittest.TestCase):
         config = json.loads(config_path.read_text())
         config["artifacts"]["candidate_ledger"] = "work/one-diagram/untracked-ledger.md"
         config_path.write_text(json.dumps(config, indent=2) + "\n")
+        self.git("add", "work/one-diagram/review-preparation.json")
+        self.git("commit", "-qm", "map an uncommitted candidate ledger")
         result = self.run_command("one-diagram", "--check", expected=1)
         self.assertIn("candidate ledger is not committed at HEAD", result.stderr)
 

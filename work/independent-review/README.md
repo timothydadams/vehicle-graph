@@ -54,10 +54,15 @@ scripts/prepare-independent-review one-diagram
 
 The command validates required and disclosed paths, the reusable templates, the
 workspace's explicit readiness signal, committed extraction inputs, local
-source-material availability, and target-package absence. It then populates
-mechanically known manifest fields and creates `REVIEW_TASK.md`. It never
-overwrites a package, commits files, invokes Codex, performs review, populates
-findings or reviewer declarations, or records canonical acceptance.
+source-material availability, a committed and clean review-preparation
+configuration, and target-package absence. When publication metadata records a
+SHA-256 for a configured local source, the command calculates and verifies the
+actual file hash; a mismatch stops preparation with both hashes and the artifact
+path. If no hash is recorded, preparation continues while reporting that the
+fingerprint was not verified. The command then populates mechanically known
+manifest fields and creates `REVIEW_TASK.md`. It never overwrites a package,
+commits files, invokes Codex, performs review, populates findings or reviewer
+declarations, or records canonical acceptance.
 
 One Diagram uses
 [`review-preparation.json`](../one-diagram/review-preparation.json) because its

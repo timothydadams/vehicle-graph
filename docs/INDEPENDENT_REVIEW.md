@@ -54,11 +54,15 @@ scripts/prepare-independent-review one-diagram
 
 The command discovers extraction artifacts from the workspace's small
 declarative mapping, validates required paths and the explicit readiness signal,
-refuses uncommitted extraction inputs or an existing target package, records the
-full candidate commit, assigns the next `IR-NNN` ID unless `--review-id` is
+refuses uncommitted extraction inputs, an uncommitted review-preparation
+configuration, or an existing target package, records the full candidate commit
+and configuration path, assigns the next `IR-NNN` ID unless `--review-id` is
 supplied, instantiates the reusable templates, and writes `REVIEW_TASK.md`.
-Generation is validated before output is written and completed through an
-atomic directory rename.
+When publication metadata records a SHA-256 for a configured local source, the
+command verifies the actual file before continuing and records the verified
+fingerprint. If no hash is recorded, preparation may continue but reports that
+the fingerprint was not verified. Generation is validated before output is
+written and completed through an atomic directory rename.
 
 The mapping may name exact sections when a working file combines neutral source
 material with candidate rationale. Such disclosure choices and unavoidable
