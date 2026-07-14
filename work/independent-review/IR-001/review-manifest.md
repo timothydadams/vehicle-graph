@@ -5,7 +5,7 @@
 - Review ID: `IR-001`
 - Extraction or milestone ID: `one-diagram`
 - Frozen candidate commit for this revision: `381c3e936108ee3d63920adbe3830595f667de4d`
-- Package revision/status: `draft`
+- Package revision/status: `review complete — changes required`
 - Prepared by: `Timothy Adams`
 - Prepared date: `2026-07-14`
 
@@ -94,18 +94,18 @@ Open only after recording possible discrepancies from candidate comparison:
 
 ## Access and Completeness Check
 
-- [ ] Reviewer confirmed every repository path resolves at the frozen commit.
-- [ ] Reviewer confirmed required private evidence is available.
-- [ ] Reviewer confirmed private evidence is bound to recorded identity/fingerprint.
-- [ ] Reviewer confirmed initial materials cover the complete boundary.
-- [ ] Reviewer confirmed delayed materials were not opened prematurely.
+- [x] Reviewer confirmed every repository path resolves at the frozen commit.
+- [x] Reviewer confirmed required private evidence is available.
+- [x] Reviewer confirmed private evidence is bound to recorded identity/fingerprint.
+- [x] Reviewer confirmed initial materials cover the complete primary boundary.
+- [x] Reviewer confirmed delayed materials were not opened prematurely.
 - [x] Preparer confirmed every repository-backed review input is committed and clean.
-- [ ] Package committed and ready to freeze for review.
+- [x] Package committed and ready to freeze for review.
 
 ## Disclosure Log
 
 | Stage | Completed at | Commit or saved-output reference | Materials newly disclosed | Notes or premature exposure |
 | --- | --- | --- | --- | --- |
-| Independent source account | `<timestamp>` | `<reference>` | Initial-review materials only | `<notes>` |
-| Candidate comparison | `<timestamp>` | `<reference>` | Candidate ledger | `<notes>` |
-| Ambiguity and rationale check | `<timestamp>` | `<reference>` | Ambiguity log and relevant rationale | `<notes>` |
+| Independent source account | `2026-07-14T16:33:37Z` | `independent-source-account.md` saved in review worktree | Initial-review materials only | No premature exposure. Printed page 165 is absent from the fingerprinted local PDF; recorded as an evidence limitation. |
+| Candidate comparison | `2026-07-14T16:36:14Z` | `findings.md` preliminary discrepancy register | Candidate ledger | No premature Stage 3 exposure. The ledger's embedded ambiguity IDs and extraction conclusions were unavoidable exposure disclosed by the manifest. |
+| Ambiguity and rationale check | `2026-07-14T16:38:27Z` | `findings.md` and `review-summary.md` | Ambiguity log and manifest-authorized delayed rationale sections | No premature exposure; five findings remain open. |
