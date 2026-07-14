@@ -32,7 +32,13 @@ conversion and it is not an invitation to infer undocumented facts.
    Apply the ambiguity-attachment review sequence below before adding each ID.
    Candidate extraction may begin once all hard preconditions for the selected
    boundary are satisfied.
-7. **Independent review.** Follow the detailed
+7. **Review preparation.** Validate and mechanically package the committed
+   extraction with `scripts/prepare-independent-review`. Record the frozen full
+   Git commit, instantiate the review outputs, and make staged disclosure
+   explicit. Preparation does not interpret evidence, change candidates, or
+   perform review. Use `--check` first to inspect the proposed package without
+   writing it.
+8. **Independent review.** Follow the detailed
    [independent-review methodology](INDEPENDENT_REVIEW.md). Check candidates
    against the complete evidence
    boundary and stated applicability. Verify that each claimed interpretive
@@ -44,7 +50,7 @@ conversion and it is not an invitation to infer undocumented facts.
    condition exists. Repeat the ambiguity-attachment review sequence and reject
    any attachment that cannot identify a candidate field or assertion that
    could change. A reviewer must reject unsupported completion or interpretation.
-8. **Canonical acceptance.** Accept reviewed claims through the repository's
+9. **Canonical acceptance.** Accept reviewed claims through the repository's
    documented process and commit the reviewable change through Git. Only
    accepted knowledge may supply derived views.
 

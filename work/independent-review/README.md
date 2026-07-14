@@ -26,19 +26,60 @@ findings.md
 review-summary.md
 finding-resolutions.md
 canonical-acceptance.md
+REVIEW_TASK.md
 ```
 
 Do not place current extraction conclusions in the reusable template. A real
-package may link to existing extraction artifacts; it need not copy them.
+package may link to existing extraction artifacts; it need not copy them. The
+six review records are instantiated from `template/`; the preparation command
+generates `REVIEW_TASK.md` from the frozen operational inputs.
 
-## Manual Workflow
+## Prepare a Package
 
-1. **Prepare.** Copy the template, assign a review ID, complete the manifest,
-   list every artifact, and divide materials into initial and delayed stages.
-   Confirm that private evidence is lawfully available to the reviewer and tied
-   to the recorded source identity or fingerprint.
-2. **Freeze.** Commit the complete candidate extraction, then record that full
-   commit hash in the package manifest. Commit the prepared manifest before the
+Candidate extraction must be clean and committed before preparation. Preview
+the discovered artifact mappings, frozen commit, allocated review ID, package
+path, and all three disclosure stages without writing anything:
+
+```shell
+scripts/prepare-independent-review one-diagram --check
+```
+
+An explicit ID may be previewed or created with `--review-id IR-001`. Otherwise
+the command deterministically allocates the next unused `IR-NNN` directory.
+Create the package only after checking the preview:
+
+```shell
+scripts/prepare-independent-review one-diagram
+```
+
+The command validates required and disclosed paths, the reusable templates, the
+workspace's explicit readiness signal, committed extraction inputs, local
+source-material availability, and target-package absence. It then populates
+mechanically known manifest fields and creates `REVIEW_TASK.md`. It never
+overwrites a package, commits files, invokes Codex, performs review, populates
+findings or reviewer declarations, or records canonical acceptance.
+
+One Diagram uses
+[`review-preparation.json`](../one-diagram/review-preparation.json) because its
+publication/applicability material and source-language record do not map safely
+to disclosure stages by filename alone. The configuration records only paths,
+an existing readiness signal, exact section disclosures, and unavoidable
+exposure. It does not duplicate evidence or extraction conclusions. A missing,
+ambiguous, unreadable, uncommitted, escaped, or structurally incomplete input
+causes an actionable failure rather than a guessed mapping.
+
+After package creation, review the generated manifest, commit the prepared
+package, and paste `REVIEW_TASK.md` into a fresh Codex session rooted at the
+repository. Package preparation itself is not independent review or acceptance.
+
+## Review Workflow
+
+1. **Prepare.** Run the preparation command against a clean, committed
+   extraction, inspect its staged-disclosure decisions, and confirm private
+   evidence is lawfully available to the reviewer and tied to the recorded
+   source identity or fingerprint.
+2. **Freeze.** The command records the complete candidate extraction's full
+   commit hash in the package manifest. Commit the prepared package before the
    review begins. Do not review a moving branch or uncommitted candidate state.
 3. **Launch fresh.** Start a fresh Codex session at the repository root. Provide
    only the repository path, review ID or manifest path, frozen commit, output
@@ -61,5 +102,5 @@ package may link to existing extraction artifacts; it need not copy them.
    `canonical-acceptance.md`, referencing the reviewed candidate and resolution
    commits. Review completion alone never canonicalizes knowledge.
 
-The initial capability is intentionally manual. It adds no agent service, CI
-gate, database, schema framework, or automatic acceptance mechanism.
+Preparation remains a local, contributor-invoked operation. It adds no agent
+service, CI gate, database, schema framework, or automatic acceptance mechanism.

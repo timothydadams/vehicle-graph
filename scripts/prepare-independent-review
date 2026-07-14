@@ -1,0 +1,578 @@
+#!/usr/bin/env python3
+"""Prepare a frozen independent-review package without performing review."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+from dataclasses import dataclass
+from datetime import date
+from pathlib import Path
+
+
+REVIEW_ID = re.compile(r"IR-(\d{3,})$")
+REQUIRED_TEMPLATES = (
+    "review-manifest.md",
+    "independent-source-account.md",
+    "findings.md",
+    "review-summary.md",
+    "finding-resolutions.md",
+    "canonical-acceptance.md",
+)
+ARTIFACT_NAMES = (
+    "publication_identity",
+    "applicability",
+    "evidence_inventory",
+    "source_language",
+    "extraction_boundary",
+    "candidate_ledger",
+    "ambiguity_log",
+)
+DISCOVERY_NAMES = {
+    "publication_identity": ("publication.md", "publication-identity.md"),
+    "applicability": ("applicability.md", "target-applicability.md"),
+    "evidence_inventory": ("evidence-inventory.md", "evidence-manifest.md"),
+    "source_language": ("source-language.md",),
+    "extraction_boundary": ("extraction-boundary.md",),
+    "candidate_ledger": ("candidate-ledger.md", "extraction-ledger.md"),
+    "ambiguity_log": ("ambiguity-log.md",),
+}
+GOVERNING_DOCS = (
+    "AGENTS.md",
+    "docs/PROVENANCE.md",
+    "docs/APPLICABILITY.md",
+    "docs/SOURCE_LANGUAGE.md",
+    "docs/EXTRACTION_WORKFLOW.md",
+    "docs/INDEPENDENT_REVIEW.md",
+)
+
+
+class PreparationError(Exception):
+    pass
+
+
+@dataclass(frozen=True)
+class Preparation:
+    root: Path
+    workspace_id: str
+    workspace: Path
+    config_path: Path
+    artifacts: dict[str, str]
+    initial_materials: list[str]
+    stage2_materials: list[str]
+    stage3_materials: list[str]
+    disclosure_notes: list[str]
+    source_materials: list[str]
+    source_descriptions: list[str]
+    commit: str
+    review_id: str
+    package_rel: str
+    preparer: str
+
+
+def git(root: Path, *args: str, check: bool = True) -> str:
+    result = subprocess.run(
+        ["git", *args], cwd=root, text=True, capture_output=True, check=False
+    )
+    if check and result.returncode:
+        detail = result.stderr.strip() or result.stdout.strip()
+        raise PreparationError(f"Git command failed: {detail}")
+    return result.stdout.strip()
+
+
+def repository_root() -> Path:
+    result = subprocess.run(
+        ["git", "rev-parse", "--show-toplevel"],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode:
+        raise PreparationError("Run this command from inside a Git repository.")
+    return Path(result.stdout.strip()).resolve()
+
+
+def safe_path(root: Path, value: str, *, label: str) -> Path:
+    candidate = (root / value).resolve()
+    try:
+        candidate.relative_to(root)
+    except ValueError as error:
+        raise PreparationError(
+            f"Cannot prepare review: {label} escapes the repository: {value}"
+        ) from error
+    return candidate
+
+
+def read_config(root: Path, selection: str) -> tuple[Path, Path, dict]:
+    aliases = {"one-diagram": "work/one-diagram"}
+    workspace_value = aliases.get(selection, selection)
+    workspace = safe_path(root, workspace_value, label="selected workspace")
+    if not workspace.is_dir():
+        raise PreparationError(
+            f"Cannot prepare review: workspace does not exist: {workspace_value}"
+        )
+    config_path = workspace / "review-preparation.json"
+    if not config_path.is_file():
+        raise PreparationError(
+            "Cannot prepare review: workspace review configuration is missing: "
+            f"{config_path.relative_to(root)}"
+        )
+    try:
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise PreparationError(
+            f"Cannot read workspace review configuration: {error}"
+        ) from error
+    configured_workspace = config.get("workspace_id")
+    if not isinstance(configured_workspace, str) or not configured_workspace:
+        raise PreparationError("Workspace configuration needs a non-empty workspace_id.")
+    return workspace, config_path, config
+
+
+def discover_artifacts(root: Path, workspace: Path, config: dict) -> dict[str, str]:
+    configured = config.get("artifacts", {})
+    if not isinstance(configured, dict):
+        raise PreparationError("Workspace configuration 'artifacts' must be an object.")
+    discovered: dict[str, str] = {}
+    for role in ARTIFACT_NAMES:
+        value = configured.get(role)
+        if value is None:
+            matches = [workspace / name for name in DISCOVERY_NAMES[role] if (workspace / name).is_file()]
+            if len(matches) != 1:
+                lines = [
+                    f"Cannot identify a unique {role.replace('_', ' ')} artifact.",
+                    "Found:",
+                ]
+                lines.extend(
+                    f"- {path.relative_to(root)}" for path in matches
+                )
+                lines.append(
+                    "Declare the intended artifact in the workspace review configuration."
+                )
+                raise PreparationError("\n".join(lines))
+            value = str(matches[0].relative_to(root))
+        if not isinstance(value, str) or not value:
+            raise PreparationError(f"Artifact mapping '{role}' must be a repository path.")
+        discovered[role] = value
+    return discovered
+
+
+def validate_file(root: Path, value: str, label: str) -> Path:
+    path = safe_path(root, value, label=label)
+    if not path.is_file():
+        raise PreparationError(f"Cannot prepare review: {label} is missing: {value}")
+    try:
+        with path.open("rb") as handle:
+            handle.read(1)
+    except OSError as error:
+        raise PreparationError(f"Cannot prepare review: cannot read {value}: {error}") from error
+    return path
+
+
+def validate_material_reference(root: Path, material: str) -> None:
+    path_value, separator, heading = material.partition("#")
+    if path_value == "review-manifest.md":
+        if separator:
+            raise PreparationError("Generated review-manifest.md cannot use a section selector.")
+        return
+    path = validate_file(root, path_value, "disclosure material")
+    if separator:
+        if not heading:
+            raise PreparationError(f"Disclosure section selector is empty: {material}")
+        headings = {
+            line.lstrip("#").strip()
+            for line in path.read_text(encoding="utf-8").splitlines()
+            if line.startswith("#")
+        }
+        if heading not in headings:
+            raise PreparationError(
+                f"Cannot prepare review: disclosure section does not exist: {material}"
+            )
+
+
+def validate_templates(root: Path) -> Path:
+    template = root / "work/independent-review/template"
+    for name in REQUIRED_TEMPLATES:
+        validate_file(root, str((template / name).relative_to(root)), f"template {name}")
+    return template
+
+
+def allocate_review_id(root: Path, explicit: str | None) -> str:
+    package_root = root / "work/independent-review"
+    malformed: list[str] = []
+    used: list[int] = []
+    if package_root.is_dir():
+        for path in package_root.iterdir():
+            if not path.is_dir() or path.name == "template" or path.name.startswith(".prepare-"):
+                continue
+            match = REVIEW_ID.fullmatch(path.name)
+            if not match:
+                malformed.append(path.name)
+            else:
+                used.append(int(match.group(1)))
+    if malformed:
+        raise PreparationError(
+            "Cannot allocate a review ID: malformed package directories found:\n"
+            + "\n".join(f"- {name}" for name in sorted(malformed))
+        )
+    if explicit is not None:
+        if not REVIEW_ID.fullmatch(explicit):
+            raise PreparationError("Review ID must use the form IR-001 (three or more digits).")
+        review_id = explicit
+    else:
+        review_id = f"IR-{(max(used, default=0) + 1):03d}"
+    target = package_root / review_id
+    if target.exists():
+        raise PreparationError(f"Cannot prepare review: target package already exists: {target.relative_to(root)}")
+    return review_id
+
+
+def list_strings(config: dict, name: str) -> list[str]:
+    value = config.get(name, [])
+    if not isinstance(value, list) or any(not isinstance(item, str) or not item for item in value):
+        raise PreparationError(f"Workspace configuration '{name}' must be a list of strings.")
+    return value
+
+
+def ensure_committed_snapshot(
+    root: Path, artifacts: dict[str, str], readiness_path: str
+) -> str:
+    commit = git(root, "rev-parse", "HEAD")
+    required = {**artifacts, "readiness_signal": readiness_path}
+    for role, value in required.items():
+        result = subprocess.run(
+            ["git", "cat-file", "-e", f"{commit}:{value}"],
+            cwd=root,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        if result.returncode:
+            raise PreparationError(
+                f"Cannot prepare review: {role.replace('_', ' ')} is not committed at HEAD: {value}"
+            )
+    paths = list(dict.fromkeys(required.values()))
+    dirty = git(root, "status", "--porcelain", "--", *paths)
+    if dirty:
+        changed = []
+        for line in dirty.splitlines():
+            changed.append(line[3:] if len(line) > 3 else line)
+        raise PreparationError(
+            "Cannot prepare review: required extraction files have uncommitted changes:\n"
+            + "\n".join(f"- {path}" for path in changed)
+            + "\nCommit or discard those changes, then run again."
+        )
+    return commit
+
+
+def validate_readiness(root: Path, config: dict) -> None:
+    readiness = config.get("readiness_signal")
+    if not isinstance(readiness, dict):
+        raise PreparationError("Workspace configuration needs a readiness_signal object.")
+    path_value = readiness.get("path")
+    required_text = readiness.get("required_text")
+    if not isinstance(path_value, str) or not isinstance(required_text, str):
+        raise PreparationError("Readiness signal needs string path and required_text values.")
+    path = validate_file(root, path_value, "readiness signal")
+    if required_text not in path.read_text(encoding="utf-8"):
+        raise PreparationError(
+            f"Cannot prepare review: readiness signal is absent from {path_value}.\n"
+            "Complete or explicitly authorize the extraction gate before preparing review."
+        )
+
+
+def describe_source_materials(
+    root: Path, artifacts: dict[str, str], source_materials: list[str]
+) -> list[str]:
+    metadata: dict = {}
+    identity_path = root / artifacts["publication_identity"]
+    if identity_path.suffix == ".json":
+        try:
+            loaded = json.loads(identity_path.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                metadata = loaded
+        except (OSError, json.JSONDecodeError):
+            pass
+    descriptions = []
+    expected = metadata.get("expected_local_artifact")
+    for value in source_materials:
+        if value == expected:
+            details = [
+                metadata.get("publication_number"),
+                f"SHA-256 {metadata.get('sha256')}" if metadata.get("sha256") else None,
+                f"fingerprint status: {metadata.get('fingerprint_status')}"
+                if metadata.get("fingerprint_status")
+                else None,
+                "private local artifact",
+            ]
+            descriptions.append(f"{value} ({'; '.join(item for item in details if item)})")
+        elif value == artifacts["publication_identity"]:
+            descriptions.append(f"{value} (committed publication identity and fingerprint record)")
+        else:
+            descriptions.append(f"{value} (source catalog or supporting source record)")
+    return descriptions
+
+
+def prepare(selection: str, explicit_id: str | None) -> Preparation:
+    root = repository_root()
+    workspace, config_path, config = read_config(root, selection)
+    artifacts = discover_artifacts(root, workspace, config)
+    for role, value in artifacts.items():
+        validate_file(root, value, role.replace("_", " "))
+    validate_templates(root)
+    validate_file(root, "prompts/independent-review.md", "reviewer prompt")
+    for value in GOVERNING_DOCS:
+        validate_file(root, value, "governing documentation")
+    validate_readiness(root, config)
+    source_materials = list_strings(config, "source_materials")
+    for value in source_materials:
+        validate_file(root, value, "source material")
+    commit = ensure_committed_snapshot(
+        root, artifacts, config["readiness_signal"]["path"]
+    )
+    review_id = allocate_review_id(root, explicit_id)
+    disclosure = config.get("disclosure", {})
+    if not isinstance(disclosure, dict):
+        raise PreparationError("Workspace configuration 'disclosure' must be an object.")
+    initial = list_strings(disclosure, "initial")
+    stage2 = list_strings(disclosure, "stage2")
+    stage3 = list_strings(disclosure, "stage3")
+    notes = list_strings(disclosure, "notes")
+    if not initial or not stage2 or not stage3:
+        raise PreparationError("Disclosure must declare non-empty initial, stage2, and stage3 lists.")
+    for material in initial + stage2 + stage3:
+        validate_material_reference(root, material)
+    preparer = git(root, "config", "user.name", check=False) or "<preparer identity>"
+    return Preparation(
+        root=root,
+        workspace_id=config["workspace_id"],
+        workspace=workspace,
+        config_path=config_path,
+        artifacts=artifacts,
+        initial_materials=initial,
+        stage2_materials=stage2,
+        stage3_materials=stage3,
+        disclosure_notes=notes,
+        source_materials=source_materials,
+        source_descriptions=describe_source_materials(root, artifacts, source_materials),
+        commit=commit,
+        review_id=review_id,
+        package_rel=f"work/independent-review/{review_id}",
+        preparer=preparer,
+    )
+
+
+def bullet(values: list[str]) -> str:
+    return "\n".join(f"- `{value}`" for value in values)
+
+
+def render_manifest(item: Preparation) -> str:
+    artifacts = item.artifacts
+    source_text = "; ".join(f"`{value}`" for value in item.source_descriptions)
+    notes = "\n".join(f"- {note}" for note in item.disclosure_notes) or "- None recorded."
+    return f"""# Independent Review Manifest: {item.review_id}
+
+## Identity and Freeze
+
+- Review ID: `{item.review_id}`
+- Extraction or milestone ID: `{item.workspace_id}`
+- Frozen candidate commit for this revision: `{item.commit}`
+- Package revision/status: `draft`
+- Prepared by: `{item.preparer}`
+- Prepared date: `{date.today().isoformat()}`
+
+The frozen commit identifies candidate content. Later review-output commits do
+not change that candidate snapshot. `draft` means prepared but not yet started;
+the package must be committed before review begins.
+
+## Review Revision
+
+- Original reviewed candidate commit: `{item.commit}`
+- Remediated candidate commit: `none for initial review`
+- Review revision: `R0`
+- Re-review basis: `initial review`
+- Source account reused: `no — initial review`
+
+## Extraction Inputs
+
+- Extraction boundary: `{artifacts['extraction_boundary']}`
+- Publication identity artifact: `{artifacts['publication_identity']}`
+- Applicability artifact: `{artifacts['applicability']}`
+- Evidence inventory: `{artifacts['evidence_inventory']}`
+- Source-language artifact: `{artifacts['source_language']}`
+- Primary source artifacts: {source_text}
+- Candidate ledger: `{artifacts['candidate_ledger']}`
+- Ambiguity log: `{artifacts['ambiguity_log']}`
+- Relevant working rationale, if any: `see Stage 3 materials and disclosure notes`
+
+## Stage 1 — Initial-Review Materials
+
+Open only these materials before saving the independent source account:
+
+{bullet(item.initial_materials)}
+
+## Stage 2 — Candidate Comparison Materials
+
+Open only after saving the independent source account:
+
+{bullet(item.stage2_materials)}
+
+## Stage 3 — Ambiguity and Rationale Materials
+
+Open only after recording possible discrepancies from candidate comparison:
+
+{bullet(item.stage3_materials)}
+
+## Disclosure Decisions and Unavoidable Exposure
+
+{notes}
+
+## Required Review Outputs
+
+- Independent source account: `independent-source-account.md`
+- Findings: `findings.md`
+- Review summary/disposition: `review-summary.md`
+- Finding resolutions: `finding-resolutions.md`
+- Canonical acceptance reference: `canonical-acceptance.md`
+
+## Access and Completeness Check
+
+- [ ] Reviewer confirmed every repository path resolves at the frozen commit.
+- [ ] Reviewer confirmed required private evidence is available.
+- [ ] Reviewer confirmed private evidence is bound to recorded identity/fingerprint.
+- [ ] Reviewer confirmed initial materials cover the complete boundary.
+- [ ] Reviewer confirmed delayed materials were not opened prematurely.
+- [x] Preparer confirmed candidate content has no uncommitted dependency.
+- [ ] Package committed and ready to freeze for review.
+
+## Disclosure Log
+
+| Stage | Completed at | Commit or saved-output reference | Materials newly disclosed | Notes or premature exposure |
+| --- | --- | --- | --- | --- |
+| Independent source account | `<timestamp>` | `<reference>` | Initial-review materials only | `<notes>` |
+| Candidate comparison | `<timestamp>` | `<reference>` | Candidate ledger | `<notes>` |
+| Ambiguity and rationale check | `<timestamp>` | `<reference>` | Ambiguity log and relevant rationale | `<notes>` |
+"""
+
+
+def replace_known_fields(name: str, text: str, item: Preparation) -> str:
+    text = text.replace("<review-id>", item.review_id)
+    replacements = {
+        "independent-source-account.md": [
+            ("- Frozen candidate commit: `<full-git-commit>`", f"- Frozen candidate commit: `{item.commit}`"),
+        ],
+        "review-summary.md": [
+            ("- Frozen candidate commit for this revision: `<full-git-commit>`", f"- Frozen candidate commit for this revision: `{item.commit}`"),
+            ("- Original reviewed candidate commit: `<full-git-commit>`", f"- Original reviewed candidate commit: `{item.commit}`"),
+            ("- Review revision: `<R0, R1, R2, ...>`", "- Review revision: `R0`"),
+            ("- Re-review basis: `<initial review or finding IDs, resolution commits, and scope>`", "- Re-review basis: `initial review`"),
+            ("- Source account reused: `yes | no — <reason; yes requires unchanged relevant evidence and extraction boundary>`", "- Source account reused: `no — initial review`"),
+        ],
+        "canonical-acceptance.md": [
+            ("- Original reviewed candidate commit: `<full-git-commit>`", f"- Original reviewed candidate commit: `{item.commit}`"),
+        ],
+    }
+    for old, new in replacements.get(name, []):
+        text = text.replace(old, new)
+    return text
+
+
+def render_task(item: Preparation) -> str:
+    return f"""# Fresh Independent Review Task: {item.review_id}
+
+Work from the repository root:
+
+`{item.root}`
+
+Independently review the frozen extraction identified below:
+
+- Review ID: `{item.review_id}`
+- Review manifest: `{item.package_rel}/review-manifest.md`
+- Frozen candidate commit: `{item.commit}`
+- Review output package: `{item.package_rel}/`
+- Governing reviewer prompt: `prompts/independent-review.md`
+
+Read and follow `AGENTS.md`, then use `prompts/independent-review.md` as the
+review task. Follow the manifest's staged disclosure exactly. Do not use
+extractor conclusions, suspected findings, engineering plausibility, or a
+desired graph shape as evidence. Do not modify extraction artifacts. Do not
+perform, imply, or record canonical acceptance.
+"""
+
+
+def create_package(item: Preparation) -> None:
+    package_root = item.root / "work/independent-review"
+    package_root.mkdir(parents=True, exist_ok=True)
+    target = item.root / item.package_rel
+    temporary = Path(tempfile.mkdtemp(prefix=".prepare-", dir=package_root))
+    try:
+        template = item.root / "work/independent-review/template"
+        for name in REQUIRED_TEMPLATES:
+            source = template / name
+            text = source.read_text(encoding="utf-8")
+            rendered = render_manifest(item) if name == "review-manifest.md" else replace_known_fields(name, text, item)
+            (temporary / name).write_text(rendered, encoding="utf-8")
+        (temporary / "REVIEW_TASK.md").write_text(render_task(item), encoding="utf-8")
+        if target.exists():
+            raise PreparationError(f"Cannot prepare review: target package already exists: {item.package_rel}")
+        os.replace(temporary, target)
+    except Exception:
+        shutil.rmtree(temporary, ignore_errors=True)
+        raise
+
+
+def print_plan(item: Preparation, *, dry_run: bool) -> None:
+    print("Independent review preparation" + (" (dry run)" if dry_run else ""))
+    print(f"workspace: {item.workspace_id} ({item.workspace.relative_to(item.root)})")
+    print(f"frozen_commit: {item.commit}")
+    print(f"review_id: {item.review_id}")
+    print(f"package: {item.package_rel}")
+    print("artifacts:")
+    for role in ARTIFACT_NAMES:
+        print(f"  {role}: {item.artifacts[role]}")
+    print("stage_1_initial_materials:")
+    for value in item.initial_materials:
+        print(f"  - {value}")
+    print("stage_2_candidate_materials:")
+    for value in item.stage2_materials:
+        print(f"  - {value}")
+    print("stage_3_ambiguity_and_rationale_materials:")
+    for value in item.stage3_materials:
+        print(f"  - {value}")
+    if item.disclosure_notes:
+        print("disclosure_notes:")
+        for value in item.disclosure_notes:
+            print(f"  - {value}")
+    print("filesystem_changes: none" if dry_run else "package_created: yes")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Validate and prepare a frozen independent-review package."
+    )
+    parser.add_argument("workspace", help="workspace ID (for example, one-diagram) or repository-relative path")
+    parser.add_argument("--review-id", help="explicit stable ID such as IR-001")
+    parser.add_argument("--check", "--dry-run", action="store_true", dest="check", help="validate and print the plan without writing")
+    args = parser.parse_args()
+    try:
+        item = prepare(args.workspace, args.review_id)
+        if not args.check:
+            create_package(item)
+        print_plan(item, dry_run=args.check)
+    except PreparationError as error:
+        print(str(error), file=sys.stderr)
+        return 1
+    except OSError as error:
+        print(f"Cannot prepare review: {error}", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -29,7 +29,7 @@ decisions, and working constraints.
     Pre-canonical inventories, candidates, boundaries, and unresolved questions
     for the current milestone.
 14. [Independent review working material](../work/independent-review/README.md) —
-    Reusable pre-canonical review-package convention and manual workflow.
+    Reusable pre-canonical review-package convention and preparation command.
 15. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
     intentionally deferred.
 

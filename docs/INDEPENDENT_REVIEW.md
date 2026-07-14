@@ -3,11 +3,13 @@
 ## Purpose
 
 Independent review evaluates the transformation from evidence into candidate
-claims. It sits after candidate extraction and before canonical acceptance:
+claims. Mechanical review preparation freezes and packages the extraction
+before review begins:
 
 ```text
 Source → source-language review → evidence inventory → extraction boundary
-       → candidate extraction → independent review → canonical acceptance
+       → candidate extraction → review preparation → independent review
+       → canonical acceptance
 ```
 
 The governing question is:
@@ -33,6 +35,37 @@ The rules in [PROVENANCE.md](PROVENANCE.md),
 [APPLICABILITY.md](APPLICABILITY.md), [SOURCE_LANGUAGE.md](SOURCE_LANGUAGE.md),
 and [EXTRACTION_WORKFLOW.md](EXTRACTION_WORKFLOW.md) govern the review. This
 document defines how a reviewer applies them independently.
+
+## Review Preparation
+
+Review preparation is a mechanical lifecycle stage, not another evidence
+interpretation stage. From the repository root, inspect the proposed package
+without writing files:
+
+```shell
+scripts/prepare-independent-review one-diagram --check
+```
+
+When the dry run is correct, create the package with:
+
+```shell
+scripts/prepare-independent-review one-diagram
+```
+
+The command discovers extraction artifacts from the workspace's small
+declarative mapping, validates required paths and the explicit readiness signal,
+refuses uncommitted extraction inputs or an existing target package, records the
+full candidate commit, assigns the next `IR-NNN` ID unless `--review-id` is
+supplied, instantiates the reusable templates, and writes `REVIEW_TASK.md`.
+Generation is validated before output is written and completed through an
+atomic directory rename.
+
+The mapping may name exact sections when a working file combines neutral source
+material with candidate rationale. Such disclosure choices and unavoidable
+exposure remain explicit repository decisions; the command does not infer or
+rewrite section boundaries. It does not assess semantic completeness, perform
+review, modify extraction conclusions, resolve ambiguity, or perform canonical
+acceptance. Commit the prepared package explicitly before launching review.
 
 ## Reviewer Independence
 
