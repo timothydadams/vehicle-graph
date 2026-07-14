@@ -193,7 +193,7 @@ class PrepareIndependentReviewTests(unittest.TestCase):
         manifest = (package / "review-manifest.md").read_text()
         self.assertIn(commit, manifest)
         self.assertIn("Review revision: `R0`", manifest)
-        self.assertIn("Package revision/status: `draft`", manifest)
+        self.assertIn("Package state: `draft`", manifest)
         self.assertIn(
             "Review-preparation configuration: `work/one-diagram/review-preparation.json`",
             manifest,
@@ -210,6 +210,9 @@ class PrepareIndependentReviewTests(unittest.TestCase):
         summary = (package / "review-summary.md").read_text()
         self.assertIn("Reviewer: `<name-or-process>`", source_account)
         self.assertIn("Human acceptor: `<name>`", acceptance)
+        self.assertIn("Reviewer: `<name-or-process>`", summary)
+        self.assertIn("Method validity: `valid | invalid — <reason>`", summary)
+        self.assertIn("Recorded at: `<timestamp>`", summary)
         self.assertIn("Disposition: `accepted |", summary)
         self.assertEqual(before, hashlib.sha256(extraction.read_bytes()).hexdigest())
 

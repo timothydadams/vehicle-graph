@@ -365,14 +365,26 @@ a new account.
 
 ## Review Dispositions
 
-The review summary uses one disposition:
+Package lifecycle state and review disposition are separate audit fields. The
+manifest's `Package state` uses only:
+
+- `draft`
+- `frozen`
+- `in_review`
+- `findings_issued`
+- `remediation`
+- `re_review`
+- `review_complete`
+- `closed`
+
+The review summary's `Disposition` uses only:
 
 - `accepted` — every in-scope candidate is acceptance-ready and no unresolved
   ambiguity materially limits the reviewed claims.
 - `accepted_with_unresolved_ambiguities` — candidates are faithful and
   review-complete, with properly recorded non-blocking ambiguities.
-- `changes_required` — one or more remediable findings prevent review
-  completion.
+- `changes_required` — one or more remediable findings prevent an
+  acceptance-ready result.
 - `blocked_by_source_language` — required publication language is unknown or
   unreadable and faithful transcription cannot proceed for the boundary.
 - `blocked_by_evidence` — required evidence is absent, inadequately identified,
@@ -380,16 +392,27 @@ The review summary uses one disposition:
 - `boundary_revision_required` — the frozen boundary is not coherent enough to
   review faithfully.
 
-`accepted` is a review disposition only. It does not mean canonical acceptance.
-A package may also record applicability findings, but narrowing applicability
-is ordinarily `changes_required`; if it makes the selected boundary incoherent,
-use `boundary_revision_required`.
+Never combine package state and review disposition into one free-text field.
+`review_complete` means the reviewer finished both review passes and ambiguity
+review, recorded method validity, issued a disposition, completed the reviewer
+declaration, and recorded the final timestamp. Findings may remain open.
+`review_complete` does not mean accepted, remediated, closed, or canonically
+accepted. Conversely, `accepted` is a review disposition only and does not mean
+canonical acceptance. A package may also record applicability findings, but
+narrowing applicability is ordinarily `changes_required`; if it makes the
+selected boundary incoherent, use `boundary_revision_required`.
 
 ## Invalid Review
 
 A candidate may fail a valid review. Separately, the review itself is invalid
-when the method cannot support its conclusion. Record the review as invalid and
-start a fresh or corrected review when the reviewer:
+when the method cannot support its conclusion. Every summary must explicitly
+record `Method validity: valid` or `Method validity: invalid — <reason>`;
+narrative compliance notes do not substitute for this field. An operative
+review disposition may be recorded only when method validity is `valid`.
+
+When validity is `invalid`, record the reason and explain whether a fresh or
+corrected review is required. Do not move the package to `review_complete` or
+invent a new disposition. A review is invalid when the reviewer:
 
 - relies on engineering expectation or plausibility as evidence;
 - inspects only the ledger without independently inspecting the frozen source
@@ -404,6 +427,21 @@ start a fresh or corrected review when the reviewer:
 
 Premature disclosure is not automatically fatal, but the summary must explain
 why independence remains adequate or require a fresh review.
+
+## Completing the Review Record
+
+After both review passes and ambiguity review, the reviewer:
+
+1. records reviewer identity in the independent source account and summary;
+2. records the review date and explicit method validity;
+3. records one established review disposition when validity is `valid`;
+4. completes the reviewer declaration and its final timestamp; and
+5. moves the manifest package state to `review_complete`.
+
+Run `scripts/check-independent-review <package-path>` to check these audit
+fields. This validation checks record completeness and vocabulary, not the
+substantive correctness of findings. Open findings and a `changes_required`
+disposition are compatible with `review_complete`.
 
 ## Relationship to Canonical Acceptance
 
@@ -427,9 +465,12 @@ An agent reviewer must:
 - follow staged disclosure and save the source account before opening delayed
   materials;
 - inspect source evidence directly rather than trusting summaries;
+- record explicit reviewer identity in both reviewer-owned outputs;
 - avoid modifying extraction, ambiguity, boundary, applicability, or
   source-language artifacts during the review run;
 - record structured findings and cite exact evidence;
+- record explicit method validity, disposition, reviewer declaration, and final
+  timestamp before marking the package `review_complete`;
 - distinguish incorrect, unsupported, and unresolved claims;
 - stop or narrow only where a hard precondition prevents faithful transcription;
   and

@@ -4,6 +4,7 @@
 
 - Review revision: `R0`
 - Frozen candidate commit: `381c3e936108ee3d63920adbe3830595f667de4d`
+- Reviewer: `Codex — fresh independent-review session`
 - Account saved: `2026-07-14T16:33:37Z`
 - Disclosure stage: Stage 1 initial-review materials only
 

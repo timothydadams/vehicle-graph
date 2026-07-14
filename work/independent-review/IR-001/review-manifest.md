@@ -5,13 +5,14 @@
 - Review ID: `IR-001`
 - Extraction or milestone ID: `one-diagram`
 - Frozen candidate commit for this revision: `381c3e936108ee3d63920adbe3830595f667de4d`
-- Package revision/status: `review complete — changes required`
+- Package state: `review_complete`
 - Prepared by: `Timothy Adams`
 - Prepared date: `2026-07-14`
 
-The frozen commit identifies candidate content. Later review-output commits do
-not change that candidate snapshot. `draft` means prepared but not yet started;
-the package must be committed before review begins.
+The frozen commit identifies the reviewed candidate snapshot. Later
+review-output commits do not change that snapshot. `review_complete` means the
+review method finished and issued a disposition; it does not mean findings are
+resolved or knowledge is canonically accepted.
 
 ## Review Revision
 

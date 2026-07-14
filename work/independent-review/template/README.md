@@ -7,4 +7,7 @@ review package.
 Complete `review-manifest.md` first. During review, write
 `independent-source-account.md` before opening materials listed as intentionally
 delayed. Findings, resolutions, and canonical acceptance remain separate
-records so review completion cannot be mistaken for acceptance.
+records so review completion cannot be mistaken for acceptance. Before setting
+the manifest package state to `review_complete`, complete every reviewer-owned
+field in the source account and summary and run
+`scripts/check-independent-review <package-path>`.

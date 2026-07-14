@@ -1,0 +1,187 @@
+#!/usr/bin/env python3
+"""Validate independent-review audit fields without judging findings."""
+
+from __future__ import annotations
+
+import argparse
+import re
+import sys
+from datetime import date, datetime
+from pathlib import Path
+
+
+PACKAGE_STATES = {
+    "draft",
+    "frozen",
+    "in_review",
+    "findings_issued",
+    "remediation",
+    "re_review",
+    "review_complete",
+    "closed",
+}
+REVIEW_DISPOSITIONS = {
+    "accepted",
+    "accepted_with_unresolved_ambiguities",
+    "changes_required",
+    "blocked_by_source_language",
+    "blocked_by_evidence",
+    "boundary_revision_required",
+}
+DECLARATION_TEXT = (
+    "I evaluated evidence-to-claim fidelity and did not use engineering "
+    "plausibility, extractor conclusions, or a desired graph shape as evidence. "
+    "This disposition is not canonical acceptance."
+)
+
+
+def field(text: str, label: str) -> str | None:
+    match = re.search(
+        rf"^- {re.escape(label)}:\s*`([^`]*)`\s*$", text, re.MULTILINE
+    )
+    return match.group(1).strip() if match else None
+
+
+def placeholder(value: str | None) -> bool:
+    return (
+        value is None
+        or not value.strip()
+        or "<" in value
+        or ">" in value
+        or "|" in value
+    )
+
+
+def readable(path: Path, errors: list[str]) -> str:
+    try:
+        return path.read_text(encoding="utf-8")
+    except OSError as error:
+        errors.append(f"cannot read {path.name}: {error}")
+        return ""
+
+
+def valid_date(value: str) -> bool:
+    try:
+        date.fromisoformat(value)
+    except ValueError:
+        return False
+    return True
+
+
+def valid_timestamp(value: str) -> bool:
+    try:
+        datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    return "T" in value
+
+
+def validate(package: Path) -> list[str]:
+    errors: list[str] = []
+    manifest = readable(package / "review-manifest.md", errors)
+    summary = readable(package / "review-summary.md", errors)
+    source_account = readable(package / "independent-source-account.md", errors)
+    if errors:
+        return errors
+
+    state = field(manifest, "Package state")
+    legacy_state = field(manifest, "Package revision/status")
+    if state is None and legacy_state is not None:
+        errors.append(
+            "manifest must use 'Package state'; lifecycle state and disposition "
+            "must not be combined"
+        )
+        state = legacy_state
+    if state not in PACKAGE_STATES:
+        errors.append(
+            f"invalid package state {state!r}; expected one established lifecycle value"
+        )
+    if state != "review_complete":
+        return errors
+
+    summary_fields = summary.split("\n## Reviewer Declaration\n", 1)[0]
+    summary_reviewer = field(summary_fields, "Reviewer")
+    source_reviewer = field(source_account, "Reviewer")
+    if placeholder(summary_reviewer):
+        errors.append("review summary needs a non-placeholder reviewer identity")
+    if placeholder(source_reviewer):
+        errors.append(
+            "independent source account needs a non-placeholder reviewer identity"
+        )
+    if (
+        not placeholder(summary_reviewer)
+        and not placeholder(source_reviewer)
+        and summary_reviewer != source_reviewer
+    ):
+        errors.append("reviewer identity differs between source account and summary")
+
+    review_date = field(summary_fields, "Review date")
+    if placeholder(review_date):
+        errors.append("review summary needs a review date")
+    elif not valid_date(review_date):
+        errors.append("review date must use YYYY-MM-DD")
+
+    validity = field(summary_fields, "Method validity")
+    if placeholder(validity):
+        errors.append("review summary needs explicit method validity")
+    elif validity != "valid" and not re.fullmatch(r"invalid — \S.*", validity):
+        errors.append("method validity must be 'valid' or 'invalid — <reason>'")
+    elif validity != "valid":
+        errors.append("an invalid review cannot have package state review_complete")
+
+    disposition = field(summary_fields, "Disposition")
+    if placeholder(disposition):
+        errors.append("review summary needs a disposition")
+    elif disposition not in REVIEW_DISPOSITIONS:
+        errors.append(
+            f"invalid review disposition {disposition!r}; expected one established disposition"
+        )
+
+    declaration_match = re.search(
+        r"^## Reviewer Declaration\s*$([\s\S]*)", summary, re.MULTILINE
+    )
+    if not declaration_match:
+        errors.append("review summary needs a completed Reviewer Declaration")
+        return errors
+
+    declaration = declaration_match.group(1)
+    normalized = " ".join(declaration.split())
+    if DECLARATION_TEXT not in normalized:
+        errors.append("Reviewer Declaration text is missing or incomplete")
+
+    declaration_reviewer = field(declaration, "Reviewer")
+    if placeholder(declaration_reviewer):
+        errors.append("Reviewer Declaration needs a non-placeholder reviewer identity")
+    elif not placeholder(summary_reviewer) and declaration_reviewer != summary_reviewer:
+        errors.append("Reviewer Declaration identity differs from summary reviewer")
+
+    recorded_at = field(declaration, "Recorded at")
+    if placeholder(recorded_at):
+        errors.append("Reviewer Declaration needs a recorded-at timestamp")
+    elif not valid_timestamp(recorded_at):
+        errors.append("Reviewer Declaration timestamp must be an ISO 8601 timestamp")
+
+    return errors
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Validate independent-review lifecycle and reviewer audit fields."
+    )
+    parser.add_argument("package", type=Path, help="path to one review package")
+    args = parser.parse_args()
+    package = args.package.resolve()
+    if not package.is_dir():
+        print(f"Independent review package does not exist: {package}", file=sys.stderr)
+        return 1
+    errors = validate(package)
+    if errors:
+        for error in errors:
+            print(f"error: {error}", file=sys.stderr)
+        return 1
+    print(f"Independent review package is valid: {package}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

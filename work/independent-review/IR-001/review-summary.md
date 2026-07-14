@@ -1,8 +1,11 @@
 # Independent Review Summary: IR-001
 
-## Disposition
-
-`changes_required`
+- Review ID: `IR-001`
+- Frozen candidate commit for this revision: `381c3e936108ee3d63920adbe3830595f667de4d`
+- Reviewer: `Codex — fresh independent-review session`
+- Review date: `2026-07-14`
+- Method validity: `valid`
+- Disposition: `changes_required`
 
 This is an independent-review recommendation for frozen candidate commit
 `381c3e936108ee3d63920adbe3830595f667de4d`. It is not canonical acceptance.
@@ -66,3 +69,12 @@ re-reviewed. The narrowest sufficient scopes are listed in
 
 No extraction artifact was modified, and no canonical acceptance was
 performed, implied, or recorded.
+
+## Reviewer Declaration
+
+I evaluated evidence-to-claim fidelity and did not use engineering plausibility,
+extractor conclusions, or a desired graph shape as evidence. This disposition
+is not canonical acceptance.
+
+- Reviewer: `Codex — fresh independent-review session`
+- Recorded at: `2026-07-14T16:38:27Z`

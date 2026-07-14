@@ -2,7 +2,8 @@
 
 Complete and save this account before opening the candidate ledger or other
 delayed material. Keep it concise; it is a comparison baseline, not a second
-candidate ledger.
+candidate ledger. Record reviewer identity before completing Stage 1; do not
+rely on narrative or Git author metadata.
 
 - Review ID: `<review-id>`
 - Frozen candidate commit: `<full-git-commit>`

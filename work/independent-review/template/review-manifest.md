@@ -5,12 +5,13 @@
 - Review ID: `<review-id>`
 - Extraction or milestone ID: `<id>`
 - Frozen candidate commit for this revision: `<full-git-commit>`
-- Package revision/status: `draft | frozen | in_review | findings_issued | remediation | re_review | review_complete | closed`
+- Package state: `draft | frozen | in_review | findings_issued | remediation | re_review | review_complete | closed`
 - Prepared by: `<name-or-process>`
 - Prepared date: `<YYYY-MM-DD>`
 
 The frozen commit identifies candidate content. Later review-output commits do
-not change that candidate snapshot.
+not change that candidate snapshot. Package state is a lifecycle value, not a
+review disposition; the two must not be combined.
 
 ## Review Revision
 
