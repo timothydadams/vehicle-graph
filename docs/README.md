@@ -18,15 +18,19 @@ decisions, and working constraints.
    language governs interpretation.
 8. [EXTRACTION_WORKFLOW.md](EXTRACTION_WORKFLOW.md) — The process for converting
    source material into accepted graph knowledge.
-9. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas
+9. [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) — How a fresh reviewer tests
+   the evidence-to-claim transformation before canonical acceptance.
+10. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas
    must satisfy.
-10. [NON_GOALS.md](NON_GOALS.md) — What the project intentionally avoids.
-11. [ONE_DIAGRAM.md](ONE_DIAGRAM.md) — Scope and completion criteria for the
+11. [NON_GOALS.md](NON_GOALS.md) — What the project intentionally avoids.
+12. [ONE_DIAGRAM.md](ONE_DIAGRAM.md) — Scope and completion criteria for the
     current milestone.
-12. [One Diagram working material](../work/one-diagram/README.md) —
+13. [One Diagram working material](../work/one-diagram/README.md) —
     Pre-canonical inventories, candidates, boundaries, and unresolved questions
     for the current milestone.
-13. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
+14. [Independent review working material](../work/independent-review/README.md) —
+    Reusable pre-canonical review-package convention and manual workflow.
+15. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
     intentionally deferred.
 
 ## Current Milestone
