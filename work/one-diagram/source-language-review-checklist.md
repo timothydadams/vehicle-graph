@@ -8,7 +8,7 @@ any extracted factory claim. Soft ambiguities remain open and must be cited on
 affected candidates, but they do not deny extraction authorization.
 
 Selected authorization boundary: EWD168F printed page 191, Heavy-Duty Headlight
-(Except Europe), beginning at location `5-4`.
+(Except Europe) and Headlight (Europe), locations `5-4` through `5-8`.
 
 ## Hard Preconditions
 

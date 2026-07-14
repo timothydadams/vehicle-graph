@@ -23,6 +23,9 @@ Supporting workspace records are:
   circuit boundary from its supporting dependencies and exclusions;
 - [ambiguity log](ambiguity-log.md), which preserves unresolved questions
   without silently deciding them.
+- [IR-001-F001 remediation record](remediation-IR-001-F001.md), which records
+  the prepared Europe candidate-extraction remediation and focused re-review
+  scope without changing the independent-review package.
 
 ## Local Evidence Convention
 
