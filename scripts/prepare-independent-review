@@ -53,6 +53,8 @@ GOVERNING_DOCS = (
     "docs/INDEPENDENT_REVIEW.md",
 )
 HASH_CHUNK_SIZE = 1024 * 1024
+REVIEWER_PROMPT = "prompts/independent-review.md"
+GENERATED_PACKAGE_REFERENCES = {*REQUIRED_TEMPLATES, "REVIEW_TASK.md"}
 
 
 class PreparationError(Exception):
@@ -265,19 +267,10 @@ def ensure_committed_configuration(root: Path, config_path: str) -> None:
         )
 
 
-def ensure_committed_snapshot(
-    root: Path,
-    artifacts: dict[str, str],
-    readiness_path: str,
-    config_path: str,
-) -> str:
+def ensure_committed_snapshot(root: Path, repository_inputs: set[str]) -> str:
     commit = git(root, "rev-parse", "HEAD")
-    required = {
-        "review_preparation_configuration": config_path,
-        **artifacts,
-        "readiness_signal": readiness_path,
-    }
-    for role, value in required.items():
+    paths = sorted(repository_inputs)
+    for value in paths:
         result = subprocess.run(
             ["git", "cat-file", "-e", f"{commit}:{value}"],
             cwd=root,
@@ -287,21 +280,78 @@ def ensure_committed_snapshot(
         )
         if result.returncode:
             raise PreparationError(
-                f"Cannot prepare review: {role.replace('_', ' ')} is not committed at HEAD: {value}"
+                "Cannot prepare review: required review input is not committed "
+                f"at HEAD:\n{value}"
             )
-    paths = list(dict.fromkeys(required.values()))
     dirty = git(root, "status", "--porcelain", "--", *paths)
     if dirty:
         changed = []
         for line in dirty.splitlines():
-            changed.append(line[3:] if len(line) > 3 else line)
+            changed.append(line[2:].lstrip() if len(line) > 2 else line)
         raise PreparationError(
-            "Cannot prepare review: required extraction or review-preparation "
-            "inputs have uncommitted changes:\n"
+            "Cannot prepare review: required review inputs have uncommitted changes:\n"
             + "\n".join(f"- {path}" for path in changed)
             + "\nCommit or discard those changes, then run again."
         )
     return commit
+
+
+def load_publication_metadata(root: Path, identity_path: str) -> dict:
+    path = root / identity_path
+    if path.suffix != ".json":
+        return {}
+    try:
+        loaded = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return loaded if isinstance(loaded, dict) else {}
+
+
+def fingerprint_bound_private_sources(
+    metadata: dict, source_materials: list[str]
+) -> set[str]:
+    expected = metadata.get("expected_local_artifact")
+    recorded_sha256 = metadata.get("sha256")
+    if (
+        isinstance(expected, str)
+        and expected in source_materials
+        and isinstance(recorded_sha256, str)
+        and recorded_sha256.strip()
+    ):
+        return {expected}
+    return set()
+
+
+def disclosure_path(reference: str) -> str | None:
+    path = reference.partition("#")[0]
+    if path in GENERATED_PACKAGE_REFERENCES:
+        return None
+    return path
+
+
+def build_repository_inputs(
+    *,
+    config_path: str,
+    artifacts: dict[str, str],
+    readiness_path: str,
+    source_materials: list[str],
+    disclosure_materials: list[str],
+    private_sources: set[str],
+) -> set[str]:
+    inputs = {
+        config_path,
+        readiness_path,
+        *artifacts.values(),
+        *GOVERNING_DOCS,
+        REVIEWER_PROMPT,
+        *(f"work/independent-review/template/{name}" for name in REQUIRED_TEMPLATES),
+    }
+    inputs.update(value for value in source_materials if value not in private_sources)
+    for reference in disclosure_materials:
+        path = disclosure_path(reference)
+        if path is not None and path not in private_sources:
+            inputs.add(path)
+    return inputs
 
 
 def validate_readiness(root: Path, config: dict) -> None:
@@ -329,17 +379,11 @@ def file_sha256(path: Path) -> str:
 
 
 def verify_and_describe_source_materials(
-    root: Path, artifacts: dict[str, str], source_materials: list[str]
+    root: Path,
+    artifacts: dict[str, str],
+    source_materials: list[str],
+    metadata: dict,
 ) -> tuple[list[str], list[str]]:
-    metadata: dict = {}
-    identity_path = root / artifacts["publication_identity"]
-    if identity_path.suffix == ".json":
-        try:
-            loaded = json.loads(identity_path.read_text(encoding="utf-8"))
-            if isinstance(loaded, dict):
-                metadata = loaded
-        except (OSError, json.JSONDecodeError):
-            pass
     descriptions: list[str] = []
     reports: list[str] = []
     expected = metadata.get("expected_local_artifact")
@@ -386,20 +430,13 @@ def prepare(selection: str, explicit_id: str | None) -> Preparation:
     for role, value in artifacts.items():
         validate_file(root, value, role.replace("_", " "))
     validate_templates(root)
-    validate_file(root, "prompts/independent-review.md", "reviewer prompt")
+    validate_file(root, REVIEWER_PROMPT, "reviewer prompt")
     for value in GOVERNING_DOCS:
         validate_file(root, value, "governing documentation")
     validate_readiness(root, config)
     source_materials = list_strings(config, "source_materials")
     for value in source_materials:
         validate_file(root, value, "source material")
-    commit = ensure_committed_snapshot(
-        root,
-        artifacts,
-        config["readiness_signal"]["path"],
-        config_relative,
-    )
-    review_id = allocate_review_id(root, explicit_id)
     disclosure = config.get("disclosure", {})
     if not isinstance(disclosure, dict):
         raise PreparationError("Workspace configuration 'disclosure' must be an object.")
@@ -409,10 +446,23 @@ def prepare(selection: str, explicit_id: str | None) -> Preparation:
     notes = list_strings(disclosure, "notes")
     if not initial or not stage2 or not stage3:
         raise PreparationError("Disclosure must declare non-empty initial, stage2, and stage3 lists.")
-    for material in initial + stage2 + stage3:
+    disclosure_materials = initial + stage2 + stage3
+    for material in disclosure_materials:
         validate_material_reference(root, material)
+    metadata = load_publication_metadata(root, artifacts["publication_identity"])
+    private_sources = fingerprint_bound_private_sources(metadata, source_materials)
+    repository_inputs = build_repository_inputs(
+        config_path=config_relative,
+        artifacts=artifacts,
+        readiness_path=config["readiness_signal"]["path"],
+        source_materials=source_materials,
+        disclosure_materials=disclosure_materials,
+        private_sources=private_sources,
+    )
+    commit = ensure_committed_snapshot(root, repository_inputs)
+    review_id = allocate_review_id(root, explicit_id)
     source_descriptions, fingerprint_reports = verify_and_describe_source_materials(
-        root, artifacts, source_materials
+        root, artifacts, source_materials, metadata
     )
     preparer = git(root, "config", "user.name", check=False) or "<preparer identity>"
     return Preparation(
@@ -516,7 +566,7 @@ Open only after recording possible discrepancies from candidate comparison:
 - [ ] Reviewer confirmed private evidence is bound to recorded identity/fingerprint.
 - [ ] Reviewer confirmed initial materials cover the complete boundary.
 - [ ] Reviewer confirmed delayed materials were not opened prematurely.
-- [x] Preparer confirmed extraction and review-preparation inputs have no uncommitted dependency.
+- [x] Preparer confirmed every repository-backed review input is committed and clean.
 - [ ] Package committed and ready to freeze for review.
 
 ## Disclosure Log

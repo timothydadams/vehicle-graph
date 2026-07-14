@@ -62,6 +62,7 @@ class PrepareIndependentReviewTests(unittest.TestCase):
         self.git("init", "-q")
         self.git("config", "user.name", "Fixture Preparer")
         self.git("config", "user.email", "fixture@example.test")
+        self.write(".gitignore", "private/\n")
         for path in (
             "AGENTS.md",
             "docs/PROVENANCE.md",
@@ -114,6 +115,9 @@ class PrepareIndependentReviewTests(unittest.TestCase):
             "work/one-diagram/readiness.md",
             "# Readiness\n[x] candidate extraction authorized\n",
         )
+        self.write("sources/catalog.md", "# Source Catalog\n")
+        self.write("work/one-diagram/rationale.md", "# Rationale\n")
+        self.write("work/one-diagram/sectioned.md", "# Neutral\nFixture section.\n")
         self.write("private/evidence.pdf", evidence_content)
         config = {
             "workspace_id": "one-diagram",
@@ -122,7 +126,7 @@ class PrepareIndependentReviewTests(unittest.TestCase):
                 "path": "work/one-diagram/readiness.md",
                 "required_text": "[x] candidate extraction authorized",
             },
-            "source_materials": ["private/evidence.pdf"],
+            "source_materials": ["private/evidence.pdf", "sources/catalog.md"],
             "disclosure": {
                 "initial": [
                     "review-manifest.md",
@@ -132,10 +136,14 @@ class PrepareIndependentReviewTests(unittest.TestCase):
                     "work/one-diagram/evidence-inventory.md",
                     "work/one-diagram/extraction-boundary.md",
                     "work/one-diagram/source-language.md",
+                    "work/one-diagram/sectioned.md#Neutral",
                     "private/evidence.pdf",
                 ],
                 "stage2": ["work/one-diagram/candidate-ledger.md"],
-                "stage3": ["work/one-diagram/ambiguity-log.md"],
+                "stage3": [
+                    "work/one-diagram/ambiguity-log.md",
+                    "work/one-diagram/rationale.md",
+                ],
                 "notes": ["Fixture disclosure decision."],
             },
         }
@@ -158,6 +166,22 @@ class PrepareIndependentReviewTests(unittest.TestCase):
         self.assertIn("stage_1_initial_materials:", result.stdout)
         self.assertFalse((self.root / "work/independent-review/IR-001").exists())
         self.assertEqual("", self.git("status", "--short"))
+
+    def test_fingerprinted_private_evidence_need_not_be_committed(self):
+        tracked = subprocess.run(
+            ["git", "ls-files", "--error-unmatch", "private/evidence.pdf"],
+            cwd=self.root,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        self.assertNotEqual(0, tracked.returncode)
+        result = self.run_command("one-diagram", "--check")
+        self.assertIn(f"verified SHA-256 {self.evidence_sha256}", result.stdout)
+
+    def test_generated_manifest_reference_is_not_a_repository_input(self):
+        result = self.run_command("one-diagram", "--check")
+        self.assertIn("filesystem_changes: none", result.stdout)
 
     def test_successful_creation_populates_mechanical_fields_only(self):
         extraction = self.root / "work/one-diagram/candidate-ledger.md"
@@ -210,6 +234,54 @@ class PrepareIndependentReviewTests(unittest.TestCase):
         self.assertIn("uncommitted changes", result.stderr)
         self.assertIn("candidate-ledger.md", result.stderr)
 
+    def test_refuses_dirty_disclosure_only_repository_file(self):
+        with (self.root / "work/one-diagram/rationale.md").open("a") as handle:
+            handle.write("dirty\n")
+        result = self.run_command("one-diagram", "--check", expected=1)
+        self.assertIn("required review inputs have uncommitted changes", result.stderr)
+        self.assertIn("work/one-diagram/rationale.md", result.stderr)
+
+    def test_refuses_uncommitted_disclosure_only_repository_file(self):
+        self.write("work/one-diagram/uncommitted-rationale.md")
+        config_path = self.root / "work/one-diagram/review-preparation.json"
+        config = json.loads(config_path.read_text())
+        config["disclosure"]["stage3"].append(
+            "work/one-diagram/uncommitted-rationale.md"
+        )
+        config_path.write_text(json.dumps(config, indent=2) + "\n")
+        self.git("add", "work/one-diagram/review-preparation.json")
+        self.git("commit", "-qm", "reference uncommitted rationale")
+        result = self.run_command("one-diagram", "--check", expected=1)
+        self.assertIn("required review input is not committed at HEAD", result.stderr)
+        self.assertIn("work/one-diagram/uncommitted-rationale.md", result.stderr)
+
+    def test_refuses_dirty_repository_backed_source_material(self):
+        with (self.root / "sources/catalog.md").open("a") as handle:
+            handle.write("dirty\n")
+        result = self.run_command("one-diagram", "--check", expected=1)
+        self.assertIn("required review inputs have uncommitted changes", result.stderr)
+        self.assertIn("sources/catalog.md", result.stderr)
+
+    def test_refuses_uncommitted_repository_backed_source_material(self):
+        self.write("sources/uncommitted-catalog.md")
+        config_path = self.root / "work/one-diagram/review-preparation.json"
+        config = json.loads(config_path.read_text())
+        config["source_materials"].append("sources/uncommitted-catalog.md")
+        config_path.write_text(json.dumps(config, indent=2) + "\n")
+        self.git("add", "work/one-diagram/review-preparation.json")
+        self.git("commit", "-qm", "reference uncommitted source catalog")
+        result = self.run_command("one-diagram", "--check", expected=1)
+        self.assertIn("required review input is not committed at HEAD", result.stderr)
+        self.assertIn("sources/uncommitted-catalog.md", result.stderr)
+
+    def test_section_qualified_disclosure_freezes_underlying_file(self):
+        with (self.root / "work/one-diagram/sectioned.md").open("a") as handle:
+            handle.write("dirty\n")
+        result = self.run_command("one-diagram", "--check", expected=1)
+        self.assertIn("required review inputs have uncommitted changes", result.stderr)
+        self.assertIn("work/one-diagram/sectioned.md", result.stderr)
+        self.assertNotIn("sectioned.md#Neutral", result.stderr)
+
     def test_refuses_dirty_review_preparation_configuration(self):
         config_path = self.root / "work/one-diagram/review-preparation.json"
         with config_path.open("a") as handle:
@@ -254,6 +326,7 @@ class PrepareIndependentReviewTests(unittest.TestCase):
         del metadata["sha256"]
         metadata_path.write_text(json.dumps(metadata, indent=2) + "\n")
         self.git("add", "work/one-diagram/publication.json")
+        self.git("add", "-f", "private/evidence.pdf")
         self.git("commit", "-qm", "remove recorded fingerprint")
         result = self.run_command("one-diagram", "--check")
         self.assertIn("no recorded SHA-256; fingerprint not verified", result.stdout)
@@ -285,7 +358,8 @@ class PrepareIndependentReviewTests(unittest.TestCase):
         self.git("add", "work/one-diagram/review-preparation.json")
         self.git("commit", "-qm", "map an uncommitted candidate ledger")
         result = self.run_command("one-diagram", "--check", expected=1)
-        self.assertIn("candidate ledger is not committed at HEAD", result.stderr)
+        self.assertIn("required review input is not committed at HEAD", result.stderr)
+        self.assertIn("work/one-diagram/untracked-ledger.md", result.stderr)
 
 
 if __name__ == "__main__":
