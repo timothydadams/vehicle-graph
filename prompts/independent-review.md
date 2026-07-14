@@ -11,9 +11,13 @@ Inputs supplied with this prompt:
 - frozen candidate commit; and
 - review output path.
 
-Follow the repository's `AGENTS.md` and prescribed documentation order. Read
+Follow the repository's `AGENTS.md` and read the repository-wide governing
+documentation identified by the review manifest. Read
 `docs/INDEPENDENT_REVIEW.md` completely and treat it as the governing review
-method. Work only on the identified package and frozen commit.
+method. During Stage 1, do not follow links into milestone- or
+extraction-specific working material unless the exact artifact or section is
+listed under the manifest's initial-review materials. Work only on the
+identified package and frozen commit.
 
 Do not modify candidate extraction, ambiguity, applicability, evidence,
 boundary, or source-language artifacts. Do not use electrical plausibility,

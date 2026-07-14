@@ -112,6 +112,14 @@ the package from extractor assumptions.
 
 ## Staged Disclosure
 
+The general reading sequence in [docs/README.md](README.md) remains the normal
+orientation path outside an active staged review. During an active review, the
+reviewer reads repository-wide governing documentation but does not follow
+index links into milestone- or extraction-specific working material unless the
+manifest lists the exact artifact or section for the current disclosure stage.
+For extraction-specific material, the review manifest controls disclosure even
+when a broader repository index links to that material.
+
 ### Stage 1 — Independent source account
 
 Initially disclose only:
@@ -229,6 +237,16 @@ Classify a finding at the earliest failed workflow layer. A downstream symptom
 does not become a candidate-only defect when its cause is a defective evidence
 inventory, source-language record, boundary, or applicability decision.
 
+`findings.md` is primarily for defects, blockers, disputed determinations, and
+review-significant decisions. The reviewer does not ordinarily create one
+finding for every successful candidate. Acceptance-ready candidates may be
+listed in the review summary or a referenced inventory, and properly unresolved
+claims may be listed there, through ambiguity-log references, or in a referenced
+inventory. An individual `acceptance_ready_candidate` or
+`properly_unresolved_claim` finding is optional and is used only when preserving
+that verification decision is materially useful. Review output must not
+duplicate the candidate ledger merely to record successful review.
+
 | Finding class | Meaning and example | Required remediation | Scope and re-review |
 | --- | --- | --- | --- |
 | `candidate_defect` | A candidate misquotes, omits, combines, fragments, or mislabels otherwise adequate evidence; for example, a transcribed terminal differs from a legible label. | Correct the candidate and preserve the review finding and resolution. | Candidate-level plus directly dependent candidates. |
@@ -293,9 +311,13 @@ scope. Use the narrowest sufficient re-review:
   boundary, followed by candidate review for affected material.
 
 Any change to the frozen candidate commit must be identified as a new review
-revision. Do not silently continue against moving candidate content. A focused
-re-review may reference the earlier source account if its evidence and boundary
-remain unchanged; otherwise write a new account.
+revision. The package manifest and review summary must distinguish the original
+reviewed candidate commit, the remediated candidate commit frozen for re-review,
+the review revision, and the basis and scope of that re-review. Do not silently
+continue against moving candidate content. A focused re-review may reuse the
+earlier source account only when the relevant evidence and extraction boundary
+remain unchanged; record `yes` or `no` and an explicit reason. Otherwise write
+a new account.
 
 ## Review Dispositions
 

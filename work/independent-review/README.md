@@ -51,9 +51,12 @@ package may link to existing extraction artifacts; it need not copy them.
 5. **Remediate.** The extractor or another designated contributor resolves
    findings in separate commits and records each resolution in
    `finding-resolutions.md`.
-6. **Re-review.** The reviewer checks the frozen resolution commit using the
-   scope required by each finding and records verification. Boundary, evidence,
-   source-language, or applicability changes may require broader re-review.
+6. **Re-review.** Freeze the remediated candidate commit and record a new review
+   revision, its basis, and whether the source account is reused. Reuse requires
+   an explicit reason and unchanged relevant evidence and extraction boundary.
+   The reviewer checks that frozen commit using the scope required by each
+   finding and records verification. Boundary, evidence, source-language, or
+   applicability changes may require broader re-review.
 7. **Accept or defer.** A human records the canonical acceptance decision in
    `canonical-acceptance.md`, referencing the reviewed candidate and resolution
    commits. Review completion alone never canonicalizes knowledge.

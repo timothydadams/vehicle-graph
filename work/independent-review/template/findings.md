@@ -11,6 +11,12 @@ Allowed classes are `candidate_defect`, `missing_ambiguity`,
 `applicability_defect`, `unsupported_interpretation_or_derivation`,
 `acceptance_ready_candidate`, and `properly_unresolved_claim`.
 
+This file is primarily for defects, blockers, disputed determinations, and
+review-significant decisions. Do not create one finding per successful
+candidate or duplicate the candidate ledger. Positive findings are optional;
+normally list acceptance-ready candidates and properly unresolved claims in the
+review summary, ambiguity-log references, or a referenced inventory.
+
 ## <review-id>-F001
 
 - Review ID: `<review-id>`

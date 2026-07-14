@@ -10,6 +10,8 @@ The independent reviewer verifies the result at the required scope.
 - Resolution description: `<exact change, deferral, or reason not changed>`
 - Files or candidates changed: `<paths and stable IDs>`
 - Resolution commit: `<full-git-commit>`
+- Remediated candidate commit frozen for re-review: `<full-git-commit>`
+- Review revision: `<R1, R2, ...>`
 - Re-review scope requested: `<scope from finding>`
 - Reviewer: `<name-or-process>`
 - Reviewer verification: `pending | verified | rejected`

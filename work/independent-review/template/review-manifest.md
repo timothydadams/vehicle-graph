@@ -4,13 +4,21 @@
 
 - Review ID: `<review-id>`
 - Extraction or milestone ID: `<id>`
-- Frozen candidate commit: `<full-git-commit>`
+- Frozen candidate commit for this revision: `<full-git-commit>`
 - Package revision/status: `draft | frozen | in_review | findings_issued | remediation | re_review | review_complete | closed`
 - Prepared by: `<name-or-process>`
 - Prepared date: `<YYYY-MM-DD>`
 
 The frozen commit identifies candidate content. Later review-output commits do
 not change that candidate snapshot.
+
+## Review Revision
+
+- Original reviewed candidate commit: `<full-git-commit>`
+- Remediated candidate commit: `<full-git-commit or none for initial review>`
+- Review revision: `<R0 for initial review, then R1, R2, ...>`
+- Re-review basis: `<initial review or finding IDs, resolution commits, and required scope>`
+- Source account reused: `yes | no — <reason; yes requires unchanged relevant evidence and extraction boundary>`
 
 ## Extraction Inputs
 

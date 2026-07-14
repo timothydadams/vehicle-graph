@@ -5,8 +5,9 @@ review disposition does not populate or imply this decision.
 
 - Review ID: `<review-id>`
 - Review disposition: `<disposition and review-summary commit>`
-- Reviewed candidate commit: `<full-git-commit>`
-- Final remediation commit: `<full-git-commit or none>`
+- Original reviewed candidate commit: `<full-git-commit>`
+- Final remediated candidate commit: `<full-git-commit or none>`
+- Final verified review revision: `<R0, R1, R2, ...>`
 - Canonical change commit: `<full-git-commit or not accepted>`
 - Decision: `accepted | partially_accepted | deferred | rejected | pending`
 - Accepted scope: `<candidate IDs and applicability, or none>`
