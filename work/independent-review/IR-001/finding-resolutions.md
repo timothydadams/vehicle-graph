@@ -1,19 +1,22 @@
-# Independent Review Finding Resolutions: IR-001
+# Finding Resolutions: IR-001
 
-Resolution is performed by the extractor or another designated contributor.
-The independent reviewer verifies the result at the required scope.
+## Review identity
 
-## IR-001-F001
+- Review revision: `R0`
+- Frozen candidate commit: `381c3e936108ee3d63920adbe3830595f667de4d`
+- Resolution status: no remediation submitted; all findings remain open
 
-- Finding ID: `IR-001-F001`
-- Resolved by: `<name-or-process>`
-- Resolution description: `<exact change, deferral, or reason not changed>`
-- Files or candidates changed: `<paths and stable IDs>`
-- Resolution commit: `<full-git-commit>`
-- Remediated candidate commit frozen for re-review: `<full-git-commit>`
-- Review revision: `<R1, R2, ...>`
-- Re-review scope requested: `<scope from finding>`
-- Reviewer: `<name-or-process>`
-- Reviewer verification: `pending | verified | rejected`
-- Verification date: `<YYYY-MM-DD or pending>`
-- Verification evidence/result: `<what was checked and outcome>`
+Independent review does not modify extraction artifacts. Resolution commits
+and focused re-review results belong here only after a designated contributor
+remediates the frozen candidate inputs and a new review revision identifies the
+remediated commit.
+
+| Finding ID | Resolution status | Resolution commit | Required re-review |
+| --- | --- | --- | --- |
+| `IR-001-F001` | open | none | Complete-boundary source-to-candidate pass, then all Europe candidates |
+| `IR-001-F002` | open | none | Affected object classifications and dependent claims |
+| `IR-001-F003` | open | none | Every `AMB-CON-004` attachment |
+| `IR-001-F004` | open | none | Every `AMB-GND-001` attachment and any ground mapping |
+| `IR-001-F005` | open | none | Evidence inventory and all page-165-dependent assertions |
+
+No finding is reviewer-verified as resolved in revision `R0`.

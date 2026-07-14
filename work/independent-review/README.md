@@ -95,20 +95,30 @@ repository. Package preparation itself is not independent review or acceptance.
    only the repository path, review ID or manifest path, frozen commit, output
    path, and [reviewer prompt](../../prompts/independent-review.md). Do not pass
    extractor conclusions or suspected findings.
-4. **Review.** The reviewer opens initial-stage material, writes and saves the
+4. **Review.** The reviewer opens initial-stage material, records reviewer
+   identity, writes and saves the
    independent source account, then opens the candidate ledger, and only later
    opens the ambiguity log and relevant rationale. The reviewer writes findings
    and a review summary without changing extraction artifacts.
-5. **Remediate.** The extractor or another designated contributor resolves
+5. **Complete the review record.** After both review passes and ambiguity
+   review, the reviewer records explicit method validity and one review
+   disposition, completes the reviewer declaration and final timestamp, and
+   moves the manifest's package state to `review_complete`. Run
+   `scripts/check-independent-review work/independent-review/<review-id>`.
+   Findings may remain open; `review_complete` does not mean accepted,
+   remediated, closed, or canonically accepted. Open findings block acceptance
+   readiness or require remediation, not review completion; canonical
+   acceptance remains a separate human decision.
+6. **Remediate.** The extractor or another designated contributor resolves
    findings in separate commits and records each resolution in
    `finding-resolutions.md`.
-6. **Re-review.** Freeze the remediated candidate commit and record a new review
+7. **Re-review.** Freeze the remediated candidate commit and record a new review
    revision, its basis, and whether the source account is reused. Reuse requires
    an explicit reason and unchanged relevant evidence and extraction boundary.
    The reviewer checks that frozen commit using the scope required by each
    finding and records verification. Boundary, evidence, source-language, or
    applicability changes may require broader re-review.
-7. **Accept or defer.** A human records the canonical acceptance decision in
+8. **Accept or defer.** A human records the canonical acceptance decision in
    `canonical-acceptance.md`, referencing the reviewed candidate and resolution
    commits. Review completion alone never canonicalizes knowledge.
 

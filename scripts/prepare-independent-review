@@ -500,7 +500,7 @@ def render_manifest(item: Preparation) -> str:
 - Review ID: `{item.review_id}`
 - Extraction or milestone ID: `{item.workspace_id}`
 - Frozen candidate commit for this revision: `{item.commit}`
-- Package revision/status: `draft`
+- Package state: `draft`
 - Prepared by: `{item.preparer}`
 - Prepared date: `{date.today().isoformat()}`
 

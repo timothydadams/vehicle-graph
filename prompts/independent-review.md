@@ -29,14 +29,24 @@ Follow staged disclosure exactly:
 1. Open only the manifest's initial-review materials.
 2. Inspect the complete source boundary and its publication-specific
    source-language material.
-3. Write and save `independent-source-account.md` before opening delayed
-   materials.
+3. Record reviewer identity, then write and save
+   `independent-source-account.md` before opening delayed materials.
 4. Open the candidate ledger and perform both source-to-candidate and
    candidate-to-source review.
 5. Record possible discrepancies before opening the ambiguity log or relevant
    extractor rationale.
 6. Review ambiguity completeness and candidate-specific attachments.
 7. Write stable, structured findings and the review summary.
+8. Explicitly record reviewer identity, method validity, one review disposition
+   when the method is valid, the completed reviewer declaration, and its final
+   timestamp. Then set the manifest package state to `review_complete` and run
+   the repository's independent-review check.
+
+Use lifecycle terminology consistently. Open findings do not make a valid
+review incomplete. When the method is finished, use package state
+`review_complete` and the applicable disposition; describe findings as
+preventing acceptance readiness, requiring remediation, or blocking canonical
+acceptance, not as preventing review completion.
 
 Distinguish an incorrect claim, an unsupported interpretation, and a properly
 unresolved claim. Search the publication for its own definition before treating

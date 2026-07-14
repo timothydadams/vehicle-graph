@@ -7,6 +7,11 @@
 - Method validity: `valid | invalid — <reason>`
 - Disposition: `accepted | accepted_with_unresolved_ambiguities | changes_required | blocked_by_source_language | blocked_by_evidence | boundary_revision_required`
 
+Complete each field explicitly. Narrative compliance notes do not replace the
+method-validity field. An invalid review cannot issue an operative disposition
+or move the package to `review_complete`; explain below whether a fresh or
+corrected review is required.
+
 ## Review Revision
 
 - Original reviewed candidate commit: `<full-git-commit>`
@@ -24,6 +29,10 @@
 - Staged disclosure followed: `yes | no — <effect>`
 
 ## Result
+
+Do not say that open findings prevent review completion. State whether they
+prevent an acceptance-ready result, require remediation, or block canonical
+acceptance.
 
 - Blocking findings: `<IDs or none>`
 - Non-blocking findings: `<IDs or none>`
