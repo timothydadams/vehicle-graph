@@ -42,6 +42,12 @@ Follow staged disclosure exactly:
    timestamp. Then set the manifest package state to `review_complete` and run
    the repository's independent-review check.
 
+Use lifecycle terminology consistently. Open findings do not make a valid
+review incomplete. When the method is finished, use package state
+`review_complete` and the applicable disposition; describe findings as
+preventing acceptance readiness, requiring remediation, or blocking canonical
+acceptance, not as preventing review completion.
+
 Distinguish an incorrect claim, an unsupported interpretation, and a properly
 unresolved claim. Search the publication for its own definition before treating
 a required symbol or convention as unknown. If uncertainty forces a choice

@@ -402,6 +402,12 @@ canonical acceptance. A package may also record applicability findings, but
 narrowing applicability is ordinarily `changes_required`; if it makes the
 selected boundary incoherent, use `boundary_revision_required`.
 
+Open findings do not prevent review completion. They prevent an
+acceptance-ready disposition, finding resolution, or canonical acceptance. A
+valid completed review with unresolved blocking findings uses package state
+`review_complete` and disposition `changes_required` or another applicable
+blocking disposition.
+
 ## Invalid Review
 
 A candidate may fail a valid review. Separately, the review itself is invalid
@@ -442,6 +448,20 @@ Run `scripts/check-independent-review <package-path>` to check these audit
 fields. This validation checks record completeness and vocabulary, not the
 substantive correctness of findings. Open findings and a `changes_required`
 disposition are compatible with `review_complete`.
+
+Use these terms distinctly:
+
+- **Review completion** means the required review passes and ambiguity review
+  are finished and method validity, disposition, reviewer declaration, and the
+  final timestamp are recorded.
+- **Acceptance readiness** means the reviewed candidates have no unresolved
+  review-blocking findings and may be considered for human canonical
+  acceptance.
+- **Finding resolution** means required remediation was performed and verified
+  in a later review revision.
+- **Canonical acceptance** is a separate human-controlled repository decision.
+
+These terms must not be used interchangeably.
 
 ## Relationship to Canonical Acceptance
 

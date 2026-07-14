@@ -30,6 +30,10 @@ corrected review is required.
 
 ## Result
 
+Do not say that open findings prevent review completion. State whether they
+prevent an acceptance-ready result, require remediation, or block canonical
+acceptance.
+
 - Blocking findings: `<IDs or none>`
 - Non-blocking findings: `<IDs or none>`
 - Acceptance-ready candidates: `<IDs, range, or referenced inventory; individual findings are not required>`

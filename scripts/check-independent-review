@@ -33,6 +33,23 @@ DECLARATION_TEXT = (
     "plausibility, extractor conclusions, or a desired graph shape as evidence. "
     "This disposition is not canonical acceptance."
 )
+FINDINGS_PREVENT_COMPLETION = (
+    re.compile(
+        r"\b(?:open\s+)?(?:findings?|remediation)\b[^.\n:]{0,80}"
+        r"\bprevent(?:s|ed)?\s+review\s+completion\b",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"\breview\s+cannot\s+be\s+complete\s+because\b[^.\n]{0,100}"
+        r"\b(?:findings?|remediation)\b",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"\breview\s+is\s+incomplete\s+because\b[^.\n]{0,100}"
+        r"\b(?:findings?|remediation)\b",
+        re.IGNORECASE,
+    ),
+)
 
 
 def field(text: str, label: str) -> str | None:
@@ -98,6 +115,14 @@ def validate(package: Path) -> list[str]:
         )
     if state != "review_complete":
         return errors
+
+    if any(pattern.search(summary) for pattern in FINDINGS_PREVENT_COMPLETION):
+        errors.append(
+            "review summary says findings or pending remediation prevent review "
+            "completion; use "
+            "'prevent an acceptance-ready result' or equivalent lifecycle-accurate "
+            "wording"
+        )
 
     summary_fields = summary.split("\n## Reviewer Declaration\n", 1)[0]
     summary_reviewer = field(summary_fields, "Reviewer")

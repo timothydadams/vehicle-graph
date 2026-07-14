@@ -12,7 +12,8 @@ This is an independent-review recommendation for frozen candidate commit
 
 ## Result
 
-Five open findings prevent review completion:
+Five open findings require remediation before the candidates can receive an
+acceptance-ready disposition:
 
 1. the Europe half of the frozen extraction boundary has no detailed candidate
    transcription;

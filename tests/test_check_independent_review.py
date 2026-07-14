@@ -51,6 +51,16 @@ class CheckIndependentReviewTests(unittest.TestCase):
         self.assertEqual(1, count)
         path.write_text(changed, encoding="utf-8")
 
+    def add_result_narrative(self, text):
+        self.replace("review-summary.md", "## Result\n\n", f"## Result\n\n{text}\n\n")
+
+    def set_package_state(self, state):
+        self.replace(
+            "review-manifest.md",
+            "Package state: `review_complete`",
+            f"Package state: `{state}`",
+        )
+
     def test_ir_001_completed_artifacts_pass(self):
         result = self.run_check()
         self.assertIn("Independent review package is valid", result.stdout)
@@ -120,6 +130,56 @@ class CheckIndependentReviewTests(unittest.TestCase):
             "Disposition: `changes_required`",
             (self.package / "review-summary.md").read_text(encoding="utf-8"),
         )
+        self.run_check()
+
+    def test_findings_prevent_review_completion_fails(self):
+        self.add_result_narrative("Five findings prevent review completion.")
+        result = self.run_check(expected=1)
+        self.assertIn("prevent review completion", result.stderr)
+        self.assertIn("acceptance-ready result", result.stderr)
+
+    def test_open_findings_prevent_review_completion_fails(self):
+        self.add_result_narrative("Open findings prevent review completion.")
+        self.assertIn(
+            "prevent review completion",
+            self.run_check(expected=1).stderr,
+        )
+
+    def test_findings_completion_check_is_case_insensitive(self):
+        self.add_result_narrative("OPEN FINDINGS PREVENT REVIEW COMPLETION.")
+        self.assertIn(
+            "prevent review completion",
+            self.run_check(expected=1).stderr,
+        )
+
+    def test_review_cannot_be_complete_because_findings_fails(self):
+        self.add_result_narrative(
+            "The review cannot be complete because open findings remain."
+        )
+        self.assertIn(
+            "pending remediation prevent review completion",
+            self.run_check(expected=1).stderr,
+        )
+
+    def test_findings_may_prevent_acceptance_ready_result(self):
+        self.add_result_narrative("Findings prevent an acceptance-ready result.")
+        self.run_check()
+
+    def test_findings_may_prevent_canonical_acceptance(self):
+        self.add_result_narrative("Findings prevent canonical acceptance.")
+        self.run_check()
+
+    def test_methodological_incompleteness_is_allowed_before_completion(self):
+        self.set_package_state("in_review")
+        self.add_result_narrative(
+            "The review is incomplete because the source-to-candidate pass was not "
+            "performed."
+        )
+        self.run_check()
+
+    def test_findings_prose_check_runs_only_for_review_complete(self):
+        self.set_package_state("findings_issued")
+        self.add_result_narrative("Open findings prevent review completion.")
         self.run_check()
 
     def test_package_state_rejects_review_disposition_vocabulary(self):

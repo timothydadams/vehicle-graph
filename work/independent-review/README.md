@@ -106,7 +106,9 @@ repository. Package preparation itself is not independent review or acceptance.
    moves the manifest's package state to `review_complete`. Run
    `scripts/check-independent-review work/independent-review/<review-id>`.
    Findings may remain open; `review_complete` does not mean accepted,
-   remediated, closed, or canonically accepted.
+   remediated, closed, or canonically accepted. Open findings block acceptance
+   readiness or require remediation, not review completion; canonical
+   acceptance remains a separate human decision.
 6. **Remediate.** The extractor or another designated contributor resolves
    findings in separate commits and records each resolution in
    `finding-resolutions.md`.
