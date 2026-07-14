@@ -32,7 +32,9 @@ conversion and it is not an invitation to infer undocumented facts.
    Apply the ambiguity-attachment review sequence below before adding each ID.
    Candidate extraction may begin once all hard preconditions for the selected
    boundary are satisfied.
-7. **Independent review.** Check candidates against the complete evidence
+7. **Independent review.** Follow the detailed
+   [independent-review methodology](INDEPENDENT_REVIEW.md). Check candidates
+   against the complete evidence
    boundary and stated applicability. Verify that each claimed interpretive
    dependency actually defines a convention used by the candidate, no required
    dependency is missing, and supporting evidence is not confused with primary
