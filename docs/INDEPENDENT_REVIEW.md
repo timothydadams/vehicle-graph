@@ -54,11 +54,22 @@ scripts/prepare-independent-review one-diagram
 
 The command discovers extraction artifacts from the workspace's small
 declarative mapping, validates required paths and the explicit readiness signal,
-refuses uncommitted extraction inputs or an existing target package, records the
-full candidate commit, assigns the next `IR-NNN` ID unless `--review-id` is
-supplied, instantiates the reusable templates, and writes `REVIEW_TASK.md`.
-Generation is validated before output is written and completed through an
-atomic directory rename.
+and freezes the complete repository-backed input set at one commit. That set
+includes the extraction artifacts, review-preparation configuration, readiness
+signal, repository source and disclosure materials, governing documentation,
+reviewer prompt, and package templates. Section-qualified disclosures freeze
+their underlying files. The command refuses any uncommitted input or existing
+target package, records the full commit and configuration path, assigns the next
+`IR-NNN` ID unless `--review-id` is supplied, instantiates the templates, and
+writes `REVIEW_TASK.md`.
+
+Private evidence remains outside Git only when publication metadata identifies
+it as a configured local source and records the SHA-256 that binds it. The
+command verifies the actual file before continuing and records the verified
+fingerprint. Without that binding, a source material is treated as a repository
+input and must be committed; if it has no recorded hash, preparation reports
+that its fingerprint was not verified. Generation is validated before output
+is written and completed through an atomic directory rename.
 
 The mapping may name exact sections when a working file combines neutral source
 material with candidate rationale. Such disclosure choices and unavoidable

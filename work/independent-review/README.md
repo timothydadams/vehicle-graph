@@ -52,12 +52,22 @@ Create the package only after checking the preview:
 scripts/prepare-independent-review one-diagram
 ```
 
-The command validates required and disclosed paths, the reusable templates, the
-workspace's explicit readiness signal, committed extraction inputs, local
-source-material availability, and target-package absence. It then populates
-mechanically known manifest fields and creates `REVIEW_TASK.md`. It never
-overwrites a package, commits files, invokes Codex, performs review, populates
-findings or reviewer declarations, or records canonical acceptance.
+The command freezes one deduplicated repository-input set containing the mapped
+extraction artifacts, review-preparation configuration, readiness signal,
+repository-backed source and disclosure materials, governing documentation,
+reviewer prompt, and package templates. A section-qualified disclosure freezes
+the underlying file, while generated package-local references are excluded.
+Every repository input must exist at `HEAD` and be clean.
+
+Private evidence remains outside Git only when publication metadata identifies
+it as a configured local source and supplies its SHA-256. The command calculates
+and verifies that hash; a mismatch stops preparation with both hashes and the
+artifact path. An unbound source is treated as a repository input, and a
+committed source without a recorded hash is reported as not fingerprint-
+verified. The command then populates mechanically known manifest fields and
+creates `REVIEW_TASK.md`. It never overwrites a package, commits files, invokes
+Codex, performs review, populates findings or reviewer declarations, or records
+canonical acceptance.
 
 One Diagram uses
 [`review-preparation.json`](../one-diagram/review-preparation.json) because its
