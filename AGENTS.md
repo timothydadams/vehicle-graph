@@ -69,6 +69,32 @@ publication defines it elsewhere.
 Source-language guidance is evidence for interpretation, but working notes
 about that guidance are not automatically canonical factory facts.
 
+### Translated Sources
+
+When working from a non-English factory publication, every contributor or agent
+MUST:
+
+- preserve original-language source text where it is captured;
+- keep source transcription, literal translation, and normalized engineering
+  wording distinct;
+- preserve source-local identifiers, page and grid references, qualifiers, and
+  applicability marks exactly;
+- avoid claiming human language-fidelity review unless a qualified human
+  reviewer performed it;
+- avoid using matching terms or identifiers from another publication to
+  establish cross-publication entity identity or applicability;
+- cite the original publication location as primary evidence for downstream
+  factory claims; and
+- treat rendered English Markdown, HTML, or PDF editions as derived views, not
+  factory-authored or canonical records.
+
+A reviewed translation may serve as a reviewed translation aid or supporting
+review artifact according to its actual role. Interpretive dependencies remain
+source-language locations within the original publication. Contributors and
+agents must not collapse these roles. A reviewed translation is never an
+independent factory source and does not replace normal extraction, review, or
+acceptance. See [TRANSLATION_WORKFLOW.md](docs/TRANSLATION_WORKFLOW.md).
+
 ### Interpretive Dependencies
 
 Candidate claims must cite primary evidence separately from interpretive

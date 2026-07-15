@@ -16,21 +16,23 @@ decisions, and working constraints.
    are represented.
 7. [SOURCE_LANGUAGE.md](SOURCE_LANGUAGE.md) — How a publication's own technical
    language governs interpretation.
-8. [EXTRACTION_WORKFLOW.md](EXTRACTION_WORKFLOW.md) — The process for converting
+8. [TRANSLATION_WORKFLOW.md](TRANSLATION_WORKFLOW.md) — How non-English source
+   material becomes a reviewed English interpretive representation.
+9. [EXTRACTION_WORKFLOW.md](EXTRACTION_WORKFLOW.md) — The process for converting
    source material into accepted graph knowledge.
-9. [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) — How a fresh reviewer tests
+10. [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) — How a fresh reviewer tests
    the evidence-to-claim transformation before canonical acceptance.
-10. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas
+11. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas
    must satisfy.
-11. [NON_GOALS.md](NON_GOALS.md) — What the project intentionally avoids.
-12. [ONE_DIAGRAM.md](ONE_DIAGRAM.md) — Scope and completion criteria for the
+12. [NON_GOALS.md](NON_GOALS.md) — What the project intentionally avoids.
+13. [ONE_DIAGRAM.md](ONE_DIAGRAM.md) — Scope and completion criteria for the
     current milestone.
-13. [One Diagram working material](../work/one-diagram/README.md) —
+14. [One Diagram working material](../work/one-diagram/README.md) —
     Pre-canonical inventories, candidates, boundaries, and unresolved questions
     for the current milestone.
-14. [Independent review working material](../work/independent-review/README.md) —
+15. [Independent review working material](../work/independent-review/README.md) —
     Reusable pre-canonical review-package convention and preparation command.
-15. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
+16. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
     intentionally deferred.
 
 ## Current Milestone

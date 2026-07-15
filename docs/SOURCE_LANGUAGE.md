@@ -146,6 +146,24 @@ Working notes about source-language guidance remain pre-canonical unless they
 pass the repository's acceptance process. The guidance may be evidence for an
 interpretation without making the working note an accepted factory fact.
 
+## Non-English Publications
+
+For a non-English publication, the original wording, layout, notation, and
+qualifiers remain authoritative source evidence. A reviewed translation must
+preserve publication-defined symbols, source-local identifiers, applicability
+marks, and distinctions. Normalized English wording may accompany source
+wording and literal translation, but it must not erase or silently replace
+them.
+
+A parallel English factory publication may support terminology normalization
+only when its separate identity, applicability, location, and evidentiary role
+are explicit. It cannot establish what the original-language publication says
+or that similarly labeled objects are identical across publications.
+Translation uncertainty concerns the source reading or English rendering;
+engineering-modeling uncertainty concerns later representation or conclusions.
+Keep them distinct. The complete staged process is defined in the
+[reviewed source translation workflow](TRANSLATION_WORKFLOW.md).
+
 ## Use Across Publications
 
 The rule applies to each publication on its own terms. Different publishers,

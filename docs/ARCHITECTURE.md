@@ -26,6 +26,13 @@ Vehicle Graph is file-first and repository-centered.
 These are conceptual knowledge boundaries, not a proposed directory layout,
 schema, or software architecture.
 
+Reviewed translation is specialized source processing between source evidence
+and extraction, not a sixth knowledge layer. It produces a derived interpretive
+representation that remains subordinate to the original-language publication.
+The original publication remains primary evidence; translation acceptance does
+not establish a factory fact. Any English Markdown, HTML, or PDF edition
+rendered from accepted translation material is a derived view.
+
 ## Canonical state
 
 JSON is the canonical representation of structured knowledge. Git stores its
