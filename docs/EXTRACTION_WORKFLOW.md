@@ -69,6 +69,20 @@ A hard blocker may affect only part of a page, circuit, table, or procedure.
 Extraction may proceed around it only if the boundary can be narrowed without
 losing source meaning.
 
+## Extraction Through a Reviewed Translation
+
+When extraction relies on an accepted translation, the original-language
+publication remains primary evidence. The reviewed translation may be cited as
+an interpretive dependency when it materially supports how that evidence is
+read, but translated wording is not an independent factory statement and must
+not become the sole provenance for a candidate.
+
+Translation acceptance and graph-candidate acceptance are separate review
+gates. An accepted translation may support candidate extraction, but each graph
+candidate still follows this workflow, cites the original source location, and
+requires independent review and canonical acceptance. See the
+[reviewed source translation workflow](TRANSLATION_WORKFLOW.md).
+
 Use this decision test:
 
 > Does the unresolved issue prevent faithful transcription?
