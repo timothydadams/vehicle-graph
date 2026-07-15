@@ -1,8 +1,9 @@
 # Japanese Land Cruiser 70 EWD Provisional Page Index
 
-This source-catalog index is a provisional navigation record for Toyota
-publication `6742601`. It does not assert that the ignored local PDF is present,
-and its entries do not constitute accepted translation or engineering facts.
+This source-catalog index is a provisional navigation record for the Toyota
+publication identified by source-labeled part number `6742601`. It does not
+assert that the ignored local PDF is present, and its entries do not constitute
+accepted translation or engineering facts.
 
 PDF page numbers and printed page numbers are different coordinate systems.
 Printed page numbers may restart by chapter. Source references should therefore
@@ -11,12 +12,15 @@ may also be recorded as a local navigation aid.
 
 The mapping remains provisional until checked against the local artifact at
 `.evidence/toyota/land-cruiser-70-jdm-1993-05/original.pdf`. Exact mappings must
-not be guessed.
+not be guessed. Richer translation-derived indexes belong to later, separately
+reviewable work.
 
 ## Confirmed Printed Pages
 
-The following descriptions and printed-page identities come only from the
-reviewed sample pages. Their PDF page numbers have not been mapped.
+The following provisional English descriptions were prepared from sample pages
+reviewed during feature planning. They are source-navigation aids, not accepted
+translation records or engineering facts. Their PDF page numbers have not been
+mapped.
 
 | Printed page | PDF page | Description | Status |
 | --- | ---: | --- | --- |

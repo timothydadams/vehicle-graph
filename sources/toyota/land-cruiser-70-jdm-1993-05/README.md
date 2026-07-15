@@ -1,8 +1,9 @@
 # Japanese Land Cruiser 70 EWD Source Catalog
 
-This directory contains committed source-catalog records only. It catalogs
-Toyota publication `6742601`, `トヨタ ランドクルーザー70 配線図集`; it does not
-contain the publication itself, a translation, or accepted factory knowledge.
+This directory contains committed source-catalog records only. It catalogs the
+Toyota factory publication `トヨタ ランドクルーザー70 配線図集`, identified by
+source-labeled part number `6742601` (`品番 6742601`); it does not contain the
+publication itself, a translation, or accepted factory knowledge.
 
 The actual factory PDF is intentionally not committed. A contributor with a
 lawfully obtained copy should place it at:
@@ -34,15 +35,17 @@ A recorded fingerprint identifies the local artifact that was reviewed. It
 does not distribute or embed the source or guarantee the artifact's presence in
 another checkout.
 
-Source claims must cite publication number `6742601` and the printed page,
-figure, table, or other publication location. A local file path alone is
-insufficient provenance.
+Source claims must cite the source identity, including part number `6742601`,
+and the printed page, figure, table, or other publication location. The source
+label `品番` is preserved here without assigning a stronger identifier type. A
+local file path alone is insufficient provenance.
 
 This catalog does not establish applicability to a 1990 PZJ70. The source is a
-January 1995 publication stated to apply to `KZJ7#`, `PZJ7#`, and `HZJ7#`
-production from May 1993. The publication date and production-applicability
-start are separate facts; this is not a 1993 publication. Translation and graph
-extraction belong to later, separately reviewable work.
+January 1995 Japanese-language publication stated to apply to `KZJ7#`, `PZJ7#`,
+and `HZJ7#` production from May 1993. The publication date and
+production-applicability start are separate facts; this is not a 1993
+publication. Translation and graph extraction belong to later, separately
+reviewable work.
 
 ## Fingerprinting the Local Artifact
 
