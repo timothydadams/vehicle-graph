@@ -29,10 +29,18 @@ original publication.
 
 Translation occurs as specialized source processing before normal graph
 extraction. A graph claim extracted through a reviewed translation must cite the
-original publication location as primary evidence. The reviewed translation
-may also be cited as an interpretive dependency or supporting review artifact,
-according to the role it actually performs, but it must never be the claim's
-sole provenance.
+original publication location as primary evidence. Explanatory locations within
+that publication remain interpretive dependencies when they define source
+language materially required to read the primary evidence. The reviewed
+translation may be cited separately as a **reviewed translation aid** or
+supporting review artifact according to its actual role, but it must never be
+the claim's sole provenance.
+
+A reviewed translation aid is a repository-created, reviewed English
+representation used to support accessibility, review, or downstream extraction.
+It does not define the publication's source language, independently state a
+factory claim, establish factory authorship or source meaning, prove entity
+identity, or transfer applicability.
 
 Translation work must keep these transformations distinct:
 
@@ -92,8 +100,8 @@ reviewers qualified to make them.
 
 This separation adds review work, but it keeps the original publication
 auditable, prevents translated wording from acquiring unsupported authority,
-and permits downstream extraction to reuse an accepted interpretive aid without
-bypassing normal candidate review and canonical acceptance.
+and permits downstream extraction to reuse an accepted reviewed translation aid
+without bypassing normal candidate review and canonical acceptance.
 
 ## Scope Limits
 

@@ -53,7 +53,8 @@ for review and possible later extraction; it does not accept graph knowledge.
     authorized.
 13. **Optional downstream graph extraction.** Apply the normal extraction and
     independent-review workflow, with the original publication as primary
-    evidence and the reviewed translation in its actual supporting role.
+    evidence, applicable same-publication explanatory pages as interpretive
+    dependencies, and the accepted translation as a reviewed translation aid.
 
 ## Required Distinctions
 
@@ -67,17 +68,21 @@ for review and possible later extraction; it does not accept graph knowledge.
   not directly stated by the source and is labeled as interpretation.
 - **Derived conclusion** is reasoned from one or more source-supported claims;
   it is neither transcription nor translation.
-- **Parallel-factory terminology evidence** is material from another identified
-  factory publication used to support a terminology choice. It does not become
-  evidence for the translated publication's engineering claim or applicability.
 - **Primary evidence** is the original publication location that visibly states
   or depicts the translated content and any downstream factory claim.
-- **Interpretive dependency** defines source language or supplies reviewed
-  translation needed to read primary evidence; it does not independently state
-  the downstream claim.
+- **Interpretive dependency** is a source location within the original
+  publication that defines notation, terminology, layout, or another convention
+  materially required to read the primary evidence.
+- **Reviewed translation aid** is a repository-created, reviewed English
+  representation used to support accessibility, review, or downstream
+  extraction. It does not define the publication's source language and does not
+  independently state a factory claim.
 - **Supporting evidence** establishes identity, context, applicability, layout,
   or review rationale without directly stating the translated engineering
   content.
+- **Parallel-factory terminology evidence** is material from another identified
+  factory publication used to support a terminology choice. It does not become
+  evidence for the translated publication's engineering claim or applicability.
 
 These roles are assigned per use. A relevant artifact does not acquire a
 stronger evidentiary role merely because it is useful during review.
@@ -129,9 +134,10 @@ and fingerprint bind the work to the reviewed evidence.
 A translation must retain the source location and the transformation and review
 history needed to reconstruct how its wording arose. A translation record must
 never become the sole provenance for a factory engineering claim. Downstream
-claims cite the original publication as primary evidence and may cite the
-reviewed translation as an interpretive dependency or supporting review
-artifact only when that role is accurate.
+claims cite the original publication location as primary evidence, applicable
+explanatory locations within that publication as interpretive dependencies, the
+accepted translation separately as a reviewed translation aid, and other
+material as supporting evidence only when that role is accurate.
 
 ## Ambiguity and Blocking
 

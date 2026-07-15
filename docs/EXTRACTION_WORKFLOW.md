@@ -72,10 +72,12 @@ losing source meaning.
 ## Extraction Through a Reviewed Translation
 
 When extraction relies on an accepted translation, the original-language
-publication remains primary evidence. The reviewed translation may be cited as
-an interpretive dependency when it materially supports how that evidence is
-read, but translated wording is not an independent factory statement and must
-not become the sole provenance for a candidate.
+publication remains primary evidence. Source-language locations within that
+publication may be interpretive dependencies when they define conventions
+materially required to read the primary evidence. The accepted translation may
+be cited separately as a reviewed translation aid, but translated wording is
+not an independent factory statement and must not become the sole provenance
+for a candidate.
 
 Translation acceptance and graph-candidate acceptance are separate review
 gates. An accepted translation may support candidate extraction, but each graph

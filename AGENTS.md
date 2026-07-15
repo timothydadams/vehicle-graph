@@ -88,10 +88,12 @@ MUST:
 - treat rendered English Markdown, HTML, or PDF editions as derived views, not
   factory-authored or canonical records.
 
-A reviewed translation may serve as an interpretive dependency or supporting
-review artifact according to its actual role. It is never an independent
-factory source and does not replace normal extraction, review, or acceptance.
-See [TRANSLATION_WORKFLOW.md](docs/TRANSLATION_WORKFLOW.md).
+A reviewed translation may serve as a reviewed translation aid or supporting
+review artifact according to its actual role. Interpretive dependencies remain
+source-language locations within the original publication. Contributors and
+agents must not collapse these roles. A reviewed translation is never an
+independent factory source and does not replace normal extraction, review, or
+acceptance. See [TRANSLATION_WORKFLOW.md](docs/TRANSLATION_WORKFLOW.md).
 
 ### Interpretive Dependencies
 
