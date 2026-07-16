@@ -11,9 +11,12 @@ and `HZJ7#`. Publication date and production-applicability start are distinct.
 The destination or market designation remains unestablished, and the catalog
 does not establish applicability to a 1990 PZJ70.
 
-The local source fingerprint and exact PDF-to-printed-page mappings are still
-pending in the current catalog. Private artifact presence is contributor-local
-and cannot be inferred from the committed `.evidence/` convention.
+The ignored local artifact was verified and the pilot evidence boundary frozen
+on 2026-07-16. Its SHA-256 is
+`1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6`;
+it contains 90 PDF pages and is 101456077 bytes. These values identify the
+reviewed local input without distributing it. Source-language review remains
+pending, so mapping does not authorize translation.
 
 ## Supporting Records
 
@@ -33,18 +36,19 @@ and cannot be inferred from the committed `.evidence/` convention.
 - [Review checklist](review-checklist.md) separates language-fidelity review
   from engineering-terminology review.
 - [Pilot page inventory](pilot-page-inventory.md) prioritizes representative
-  target pages without guessing locations.
+  target pages using verified locations and stable IDs.
+- [Pilot capture manifest](pilot-capture-manifest.md) freezes the concise local
+  inspection checklist for future review sessions.
 
 ## Intended Work Sequence
 
-1. Verify source identity and the local artifact.
-2. Review publication-specific source language.
-3. Finalize the pilot boundary.
-4. Inventory pilot targets and same-publication interpretive dependencies.
+1. Re-verify the frozen artifact fingerprint before local review.
+2. Review publication-specific source language for the mapped dependencies.
+3. Narrow a target if an applicable hard blocker remains.
+4. Preserve the frozen targets and dependency attachments during review.
 5. Record terminology proposals and candidate-specific ambiguities.
 6. Complete language-fidelity and engineering-review preparation.
-7. Only then propose the minimum translation-record shape in separately
-   authorized work.
+7. Only then create real translation records in separately authorized work.
 
 The minimum record shape is now implemented in
 [`schemas/translation-record.schema.json`](../../../schemas/translation-record.schema.json),

@@ -15,8 +15,11 @@
   "production_applicability_start": "May 1993",
   "expected_local_artifact": ".evidence/toyota/land-cruiser-70-jdm-1993-05/original.pdf",
   "artifact_type": "pdf",
-  "expected_page_count": null,
-  "sha256": null,
-  "fingerprint_status": "pending",
-  "notes": "Source-catalog record only. This is a January 1995 Japanese-language publication stated to apply to KZJ7#, PZJ7#, and HZJ7# production from May 1993. It does not establish a destination or market designation, does not establish applicability to a 1990 PZJ70, and does not contain accepted translation or graph knowledge."
+  "expected_page_count": 90,
+  "artifact_size_bytes": 101456077,
+  "sha256": "1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6",
+  "fingerprint_status": "verified",
+  "fingerprint_verified_on": "2026-07-16",
+  "fingerprint_process": "python3 scripts/fingerprint-source.py for SHA-256 and byte size; pdfinfo for page count and PDF validation",
+  "notes": "Source-catalog record only. The ignored local artifact at the expected path was verified on 2026-07-16; the fingerprint identifies that reviewed artifact without distributing it. This is a January 1995 Japanese-language publication stated to apply to KZJ7#, PZJ7#, and HZJ7# production from May 1993. It does not establish a destination or market designation, does not establish applicability to a 1990 PZJ70, and does not contain accepted translation or graph knowledge."
 }

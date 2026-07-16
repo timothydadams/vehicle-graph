@@ -61,7 +61,7 @@ GitHub PR numbers. Milestone names are the durable references.
 | --- | --- | --- | --- |
 | Foundation | Complete | Architecture, source catalog, and workspace | Preserve governing boundaries |
 | Record model | Complete | Translation record schema, supplemental validator, synthetic fixtures, and tests merged in PR #7 | Prepare and freeze pilot evidence |
-| Pilot evidence preparation | Ready | Provisional inventory exists | Fingerprint, map, select, and freeze the pilot evidence boundary |
+| Pilot evidence preparation | In progress | Artifact verified; mappings, targets, dependencies, and capture manifest prepared | Review and merge the Milestone 5 implementation PR |
 | Source-language review | Planned | Review gate prepared | Review applicable conventions |
 | Pilot translation | Planned | Pilot boundary proposed | Create representative records |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
@@ -108,12 +108,16 @@ source page was translated in this milestone.
 
 ### Milestone 5 — Pilot evidence preparation and page mapping ([issue](https://github.com/timothydadams/vehicle-graph/issues/9))
 
-Status: Ready.
+Status: In progress. Implementation is under review in the Milestone 5 PR.
 
 Record the source fingerprint and page count; verify PDF-to-printed-page
 mapping; select pilot targets, their interpretive dependencies, one prose-heavy
 page, and one circuit page; and freeze the evidence boundary. This milestone
 requires local access to the gitignored PDF.
+
+The implementation verifies and freezes the evidence boundary. Milestone 5 is
+not complete until that PR merges. Milestone 6 remains planned and depends on
+the merged, fingerprint-bound source-language review inventory.
 
 ### Milestone 6 — Pilot source-language review ([issue](https://github.com/timothydadams/vehicle-graph/issues/10))
 
