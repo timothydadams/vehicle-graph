@@ -108,7 +108,8 @@ source page was translated in this milestone.
 
 ### Milestone 5 — Pilot evidence preparation and page mapping ([issue](https://github.com/timothydadams/vehicle-graph/issues/9))
 
-Status: In progress. Implementation is under review in the Milestone 5 PR.
+Status: In progress. Implementation is under review in
+[PR #23](https://github.com/timothydadams/vehicle-graph/pull/23).
 
 Record the source fingerprint and page count; verify PDF-to-printed-page
 mapping; select pilot targets, their interpretive dependencies, one prose-heavy
