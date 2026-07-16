@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "synthetic-publication:printed-1",
+  "source_publication_id": "synthetic-publication",
+  "source_language": "ja",
+  "target_language": "en",
+  "record_type": "page",
+  "page_type": "prose",
+  "record_status": "working",
+  "primary_evidence": {
+    "source_publication_id": "synthetic-publication",
+    "artifact_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "source_location": {"printed_page": "1"},
+    "source_location_review_status": "unreviewed"
+  },
+  "coverage": {
+    "kind": "complete_bounded",
+    "boundary_description": "Synthetic heading region only.",
+    "translated_region_ids": ["region-heading"],
+    "excluded_regions": [],
+    "unreadable_regions": [],
+    "omitted_content": []
+  },
+  "content_units": [{
+    "unit_id": "heading-1",
+    "content_kind": "heading",
+    "source_region_id": "region-heading",
+    "source_transcription": {"status": "exact", "text": "試験用見出し"},
+    "literal_translation": {"status": "present", "text": "Test-use heading"},
+    "reviews": {
+      "proposal": {"status": "proposed", "review_scope": "Heading proposal.", "process_description": "Synthetic fixture authoring."},
+      "source_reading": {"status": "machine_cross_checked", "review_scope": "Visible source text.", "process_description": "Automated comparison only; not human verification."},
+      "literal_translation": {"status": "unreviewed", "review_scope": "Literal English wording.", "process_description": "No language-fidelity review performed."},
+      "engineering_terminology": {"status": "unreviewed", "review_scope": "No normalized wording proposed.", "process_description": "Not reviewed."}
+    }
+  }],
+  "reviews": {
+    "proposal": {"status": "proposed", "review_scope": "Bounded record.", "process_description": "Synthetic fixture authoring."},
+    "source_reading": {"status": "machine_cross_checked", "review_scope": "Bounded source reading.", "process_description": "Automated comparison only."},
+    "literal_translation": {"status": "unreviewed", "review_scope": "Bounded literal translation.", "process_description": "Not reviewed."},
+    "engineering_terminology": {"status": "unreviewed", "review_scope": "Bounded normalization.", "process_description": "Not reviewed."}
+  }
+}

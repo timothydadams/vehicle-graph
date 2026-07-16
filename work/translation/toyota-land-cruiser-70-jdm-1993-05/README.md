@@ -46,5 +46,13 @@ and cannot be inferred from the committed `.evidence/` convention.
 7. Only then propose the minimum translation-record shape in separately
    authorized work.
 
+The minimum record shape is now implemented in
+[`schemas/translation-record.schema.json`](../../../schemas/translation-record.schema.json),
+but this workspace still contains no Toyota translation record. When the
+source-language gates and boundary are ready in a later PR, canonical page
+records will belong under
+`translations/toyota/land-cruiser-70-jdm-1993-05/pages/`. This implementation
+does not complete the workflow or authorize translating the pilot pages.
+
 The governing workflow is [Reviewed Source Translation](../../../docs/TRANSLATION_WORKFLOW.md),
 and source identity remains anchored in the [source catalog](../../../sources/toyota/land-cruiser-70-jdm-1993-05/README.md).
