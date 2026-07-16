@@ -35,6 +35,12 @@ decisions, and working constraints.
 16. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
     intentionally deferred.
 
+## Planning and Status
+
+- [Reviewed source translation roadmap](roadmaps/reviewed-source-translation.md)
+  — Evolving milestone plan and work-tracking links for the reviewed translation
+  feature. Governing ADRs and workflows take precedence.
+
 ## Current Milestone
 
 Current milestone: One Diagram
