@@ -173,3 +173,48 @@ multilingual service, a hosted application, translation implementation, or
 direct graph extraction within the translation step. It does not alter the One
 Diagram boundary. Publication metadata and source-catalog setup for the pilot
 belong to later work.
+
+## Implemented Translation Records
+
+Canonical structured translations use page-or-bounded-region JSON records
+validated by [`translation-record.schema.json`](../schemas/translation-record.schema.json).
+Each record preserves ordered content units, original-publication primary
+evidence, explicit coverage, and separate proposal, source-reading,
+literal-translation, and engineering-terminology review states. The descriptive
+record disposition applies only to the stated translation boundary: it does not
+imply human language verification, accept a graph candidate or factory fact, or
+make the translation an interpretive dependency.
+
+The disposition vocabulary is descriptive. `working` is incomplete authoring;
+`review_ready` declares a bounded record ready for its stated reviews;
+`provisionally_accepted` accepts it only for the recorded `acceptance_scope`;
+`fully_reviewed` requires corroborated record proposal, human verification of
+the record source reading and literal translation, engineering review at record
+level, and the corresponding unit reviews where applicable;
+and `blocked` or `changes_required` prevents acceptance. A soft ambiguity may
+remain when it is explicitly attached to the content it can change. A hard
+source-language blocker prevents acceptance of its affected boundary. Neither
+disposition accepts graph knowledge. `provisionally_accepted` does not imply a
+particular review status; `fully_reviewed` is valid only when the four review
+objects independently record the required evidence.
+
+Coverage region IDs reconcile exactly with content units: every translated
+region has represented content, every unit belongs to a translated region, and
+translated, excluded, unreadable, and omitted categories are mutually
+exclusive. Completed transcription, literal-translation, and normalized-wording
+states require substantive text. Partially or fully unreadable transcription
+requires an explicit reason; fully unreadable transcription contains no text.
+Non-present literal translations likewise require a reason and contain no
+translation text. `provisionally_accepted` remains limited-purpose and may have
+incomplete reviews; `fully_reviewed` cannot. Neither status accepts graph facts.
+
+Committed records will live under `translations/<publisher>/<publication>/pages/`.
+No real pilot record exists yet. Future English Markdown, HTML, and PDF editions
+will be generated derived views of accepted JSON records, not editable or
+factory-authored sources.
+
+Run `python3 scripts/validate-translation-records.py <record.json> [...]` to
+validate records. JSON Schema handles the stable shape and vocabularies; the
+validator additionally checks source-coordinate presence, human-review
+qualification, dependency targets, duplicate unit IDs, region coverage,
+state-dependent text, and fully reviewed prerequisites.

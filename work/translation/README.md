@@ -16,8 +16,11 @@ original-language publication.
 
 Language-fidelity review and engineering-terminology review are separate gates.
 Translation acceptance accepts neither graph candidates nor factory facts.
-Translation-record implementation, schemas, renderers, and generated English
-views remain deferred until explicitly authorized.
+Translation-record implementation is now defined by
+[`schemas/translation-record.schema.json`](../../schemas/translation-record.schema.json).
+JSON records are canonical and will live under
+`translations/<publisher>/<publication>/pages/`; renderers and generated English
+views remain deferred.
 
 ## Relationship to Other Material
 
@@ -36,8 +39,9 @@ optional graph extraction
 The source catalog identifies the publication and private evidence convention.
 A document workspace then records its pilot boundary, source-language gate,
 evidence needs, provisional terminology, ambiguities, and review preparation.
-Future translation records may be proposed only after that preparation. Any
-future English Markdown, HTML, or PDF is a derived view. Optional graph
+Translation records may be proposed only after that preparation. Validate a
+record with `python3 scripts/validate-translation-records.py <record.json>`.
+Any future English Markdown, HTML, or PDF is a derived view. Optional graph
 extraction remains a separate workflow with independent review and canonical
 acceptance.
 

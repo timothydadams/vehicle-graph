@@ -1,7 +1,8 @@
 # Schema Principles
 
-This document defines constraints for a future schema; it does not define a
-schema now.
+This document defines constraints for repository schemas. The first implemented
+schema covers reviewed translation records only; graph identifiers and graph
+relationship taxonomy remain deferred.
 
 ## Principles
 
@@ -31,8 +32,15 @@ system.
 
 ## Deferred decisions
 
-Identifiers, file layout, field names, graph relationship vocabulary, JSON
-Schema usage, validation tooling, and versioning mechanics are intentionally
-undecided until representative source material is examined.
-Canonical identifiers and relationship taxonomy remain intentionally undecided
-until multiple representative diagrams have been modeled.
+Graph identifiers and relationship taxonomy remain intentionally undecided
+until multiple representative diagrams have been modeled. Translation records
+use JSON Schema plus narrow supplemental validation because their pilot page
+types and provenance requirements have now been examined. That decision does
+not pre-commit the graph schema to the same field names or file layout.
+
+Supplemental translation validation binds coverage regions to content units,
+enforces substantive text for completed states and explicit reasons for
+unreadable or non-present states, and verifies the independent review evidence
+required by `fully_reviewed`. `provisionally_accepted` remains a limited-purpose
+disposition with explicit scope, not a synonym for completed review. Neither
+disposition implies graph acceptance.

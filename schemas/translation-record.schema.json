@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vehicle-graph.example/schemas/translation-record.schema.json",
+  "title": "Reviewed translation record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "record_id", "source_publication_id", "source_language", "target_language", "record_type", "record_status", "primary_evidence", "coverage", "content_units", "reviews"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "record_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]+$"},
+    "source_publication_id": {"type": "string", "minLength": 1},
+    "source_language": {"type": "string", "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)*$"},
+    "target_language": {"type": "string", "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)*$"},
+    "record_type": {"enum": ["page", "bounded_region"]},
+    "page_type": {"enum": ["title_applicability", "organization", "prose", "index", "table", "harness_layout", "circuit_diagram", "other"]},
+    "record_status": {"enum": ["working", "review_ready", "provisionally_accepted", "fully_reviewed", "blocked", "changes_required"]},
+    "acceptance_scope": {"type": "string", "minLength": 1},
+    "primary_evidence": {"$ref": "#/$defs/primaryEvidence"},
+    "coverage": {"$ref": "#/$defs/coverage"},
+    "content_units": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/contentUnit"}},
+    "page_ambiguity_references": {"type": "array", "items": {"$ref": "#/$defs/reference"}, "uniqueItems": true},
+    "interpretive_dependencies": {"type": "array", "items": {"$ref": "#/$defs/interpretiveDependency"}},
+    "supporting_evidence": {"type": "array", "items": {"$ref": "#/$defs/supportingEvidence"}},
+    "reviews": {"$ref": "#/$defs/reviews"},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "sourceLocation": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "pdf_page": {"type": "integer", "minimum": 1},
+        "printed_page": {"type": "string", "minLength": 1},
+        "section": {"type": "string", "minLength": 1},
+        "figure": {"type": "string", "minLength": 1},
+        "table": {"type": "string", "minLength": 1},
+        "region_id": {"type": "string", "minLength": 1},
+        "source_region": {
+          "type": "object", "additionalProperties": false,
+          "required": ["coordinate_system", "x", "y", "width", "height"],
+          "properties": {
+            "coordinate_system": {"enum": ["points", "pixels", "normalized"]},
+            "x": {"type": "number", "minimum": 0}, "y": {"type": "number", "minimum": 0},
+            "width": {"type": "number", "exclusiveMinimum": 0}, "height": {"type": "number", "exclusiveMinimum": 0}
+          }
+        }
+      }
+    },
+    "primaryEvidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_publication_id", "artifact_fingerprint", "source_location", "source_location_review_status"],
+      "properties": {
+        "source_publication_id": {"type": "string", "minLength": 1},
+        "artifact_fingerprint": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "source_location": {"$ref": "#/$defs/sourceLocation"},
+        "source_location_review_status": {"enum": ["unreviewed", "machine_cross_checked", "human_verified", "changes_required"]}
+      }
+    },
+    "coverageItem": {
+      "type": "object", "additionalProperties": false, "required": ["region_id", "reason"],
+      "properties": {"region_id": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1}}
+    },
+    "coverage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "boundary_description", "translated_region_ids", "excluded_regions", "unreadable_regions", "omitted_content"],
+      "properties": {
+        "kind": {"enum": ["complete_bounded", "partial_bounded", "selected_regions"]},
+        "boundary_description": {"type": "string", "minLength": 1},
+        "translated_region_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "excluded_regions": {"type": "array", "items": {"$ref": "#/$defs/coverageItem"}},
+        "unreadable_regions": {"type": "array", "items": {"$ref": "#/$defs/coverageItem"}},
+        "omitted_content": {"type": "array", "items": {"$ref": "#/$defs/coverageItem"}}
+      }
+    },
+    "reference": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]+$"},
+    "sourceTranscription": {
+      "type": "object", "additionalProperties": false, "required": ["status"],
+      "properties": {
+        "status": {"enum": ["exact", "partially_unreadable", "unreadable"]},
+        "text": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1},
+        "preserved_qualifiers": {"type": "array", "items": {"type": "string"}},
+        "layout_notes": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "literalTranslation": {
+      "type": "object", "additionalProperties": false, "required": ["status"],
+      "properties": {"status": {"enum": ["present", "pending", "blocked", "not_applicable"]}, "text": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1}}
+    },
+    "normalizedWording": {
+      "type": "object", "additionalProperties": false, "required": ["status"],
+      "properties": {"status": {"enum": ["proposed", "rejected"]}, "text": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1}}
+    },
+    "sourceLocalField": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "value"],
+      "properties": {
+        "kind": {"enum": ["connector_number", "component_identifier", "grid_reference", "engine_qualifier", "model_qualifier", "option_qualifier", "location_qualifier", "printed_cross_reference", "table_row", "table_column", "other"]},
+        "value": {"type": "string", "minLength": 1}, "label": {"type": "string", "minLength": 1}
+      }
+    },
+    "terminologyReference": {
+      "type": "object", "additionalProperties": false, "required": ["terminology_id", "proposal_used", "normalization_depends_on_parallel_evidence"],
+      "properties": {"terminology_id": {"$ref": "#/$defs/reference"}, "proposal_used": {"type": "boolean"}, "parallel_factory_evidence_ids": {"type": "array", "items": {"$ref": "#/$defs/reference"}, "uniqueItems": true}, "normalization_depends_on_parallel_evidence": {"type": "boolean"}}
+    },
+    "unitReviews": {
+      "type": "object", "additionalProperties": false,
+      "required": ["proposal", "source_reading", "literal_translation", "engineering_terminology"],
+      "properties": {
+        "proposal": {"$ref": "#/$defs/proposalReview"},
+        "source_reading": {"$ref": "#/$defs/languageReview"},
+        "literal_translation": {"$ref": "#/$defs/languageReview"},
+        "engineering_terminology": {"$ref": "#/$defs/engineeringReview"}
+      }
+    },
+    "reviewBase": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "review_scope", "process_description"],
+      "properties": {
+        "status": {"type": "string"}, "reviewer_role": {"type": "string"}, "reviewer_id": {"type": "string"},
+        "reviewer_qualification": {"type": "string"}, "reviewed_at": {"type": "string", "format": "date-time"},
+        "review_scope": {"type": "string", "minLength": 1}, "notes": {"type": "array", "items": {"type": "string"}},
+        "process_description": {"type": "string", "minLength": 1}
+      }
+    },
+    "proposalReview": {"allOf": [{"$ref": "#/$defs/reviewBase"}, {"properties": {"status": {"enum": ["unreviewed", "proposed", "corroborated", "rejected"]}}}]},
+    "languageReview": {"allOf": [{"$ref": "#/$defs/reviewBase"}, {"properties": {"status": {"enum": ["unreviewed", "machine_cross_checked", "human_language_verified", "changes_required"]}}}]},
+    "engineeringReview": {"allOf": [{"$ref": "#/$defs/reviewBase"}, {"properties": {"status": {"enum": ["unreviewed", "engineering_reviewed", "changes_required"]}}}]},
+    "contentUnit": {
+      "type": "object", "additionalProperties": false,
+      "required": ["unit_id", "content_kind", "source_region_id", "source_transcription", "literal_translation", "reviews"],
+      "properties": {
+        "unit_id": {"$ref": "#/$defs/reference"},
+        "content_kind": {"enum": ["heading", "prose", "note", "table_heading", "table_cell", "component_index_entry", "diagram_label", "legend_entry", "applicability_statement", "cross_reference", "identifier"]},
+        "source_region_id": {"type": "string", "minLength": 1},
+        "source_transcription": {"$ref": "#/$defs/sourceTranscription"},
+        "literal_translation": {"$ref": "#/$defs/literalTranslation"},
+        "normalized_engineering_wording": {"$ref": "#/$defs/normalizedWording"},
+        "source_local_fields": {"type": "array", "items": {"$ref": "#/$defs/sourceLocalField"}},
+        "terminology_references": {"type": "array", "items": {"$ref": "#/$defs/terminologyReference"}},
+        "ambiguity_references": {"type": "array", "items": {"$ref": "#/$defs/reference"}, "uniqueItems": true},
+        "contributor_interpretation": {"type": "string", "minLength": 1},
+        "derived_conclusion": {"type": "string", "minLength": 1},
+        "notes": {"type": "array", "items": {"type": "string"}},
+        "reviews": {"$ref": "#/$defs/unitReviews"}
+      }
+    },
+    "interpretiveDependency": {
+      "type": "object", "additionalProperties": false,
+      "required": ["dependency_id", "source_publication_id", "source_location", "role", "material_convention", "affected_content_unit_ids"],
+      "properties": {"dependency_id": {"$ref": "#/$defs/reference"}, "source_publication_id": {"type": "string", "minLength": 1}, "source_location": {"$ref": "#/$defs/sourceLocation"}, "role": {"const": "same_publication_interpretive_dependency"}, "material_convention": {"type": "string", "minLength": 1}, "affected_content_unit_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/reference"}, "uniqueItems": true}}
+    },
+    "supportingEvidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evidence_id", "source_id", "role", "source_location"],
+      "properties": {"evidence_id": {"$ref": "#/$defs/reference"}, "source_id": {"type": "string", "minLength": 1}, "role": {"enum": ["terminology_normalization", "applicability_context", "review_rationale", "publication_identity"]}, "source_location": {"$ref": "#/$defs/sourceLocation"}, "notes": {"type": "array", "items": {"type": "string"}}}
+    },
+    "reviews": {"$ref": "#/$defs/unitReviews"}
+  }
+}

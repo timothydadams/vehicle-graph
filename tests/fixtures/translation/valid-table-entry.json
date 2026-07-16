@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0", "record_id": "synthetic-publication:printed-2", "source_publication_id": "synthetic-publication", "source_language": "ja", "target_language": "en", "record_type": "bounded_region", "page_type": "table", "record_status": "review_ready",
+  "primary_evidence": {"source_publication_id": "synthetic-publication", "artifact_fingerprint": "sha256:1111111111111111111111111111111111111111111111111111111111111111", "source_location": {"printed_page": "2", "table": "synthetic-component-index"}, "source_location_review_status": "human_verified"},
+  "coverage": {"kind": "selected_regions", "boundary_description": "One synthetic table row and its headings.", "translated_region_ids": ["row-1"], "excluded_regions": [{"region_id": "other-rows", "reason": "Outside the synthetic fixture boundary."}], "unreadable_regions": [], "omitted_content": []},
+  "content_units": [{
+    "unit_id": "component-row-1", "content_kind": "component_index_entry", "source_region_id": "row-1",
+    "source_transcription": {"status": "exact", "text": "試験部品"}, "literal_translation": {"status": "present", "text": "test component"},
+    "normalized_engineering_wording": {"status": "proposed", "text": "Test Component"},
+    "source_local_fields": [{"kind": "component_identifier", "value": "SYN-01"}, {"kind": "grid_reference", "value": "A-1"}],
+    "terminology_references": [{"terminology_id": "TR-TERM-SYN-001", "proposal_used": true, "parallel_factory_evidence_ids": ["SUP-TERM-001"], "normalization_depends_on_parallel_evidence": true}],
+    "ambiguity_references": ["TR-AMB-SYN-001"],
+    "reviews": {
+      "proposal": {"status": "proposed", "review_scope": "Normalized row wording.", "process_description": "Synthetic proposal."},
+      "source_reading": {"status": "unreviewed", "review_scope": "Row transcription.", "process_description": "Not reviewed."},
+      "literal_translation": {"status": "unreviewed", "review_scope": "Row literal translation.", "process_description": "Not reviewed."},
+      "engineering_terminology": {"status": "unreviewed", "review_scope": "Row normalization.", "process_description": "Not reviewed."}
+    }
+  }],
+  "supporting_evidence": [{"evidence_id": "SUP-TERM-001", "source_id": "synthetic-parallel-publication", "role": "terminology_normalization", "source_location": {"section": "Synthetic terminology list"}}],
+  "reviews": {
+    "proposal": {"status": "proposed", "review_scope": "Selected table region.", "process_description": "Synthetic proposal."},
+    "source_reading": {"status": "unreviewed", "review_scope": "Selected table region.", "process_description": "Not reviewed."},
+    "literal_translation": {"status": "unreviewed", "review_scope": "Selected table region.", "process_description": "Not reviewed."},
+    "engineering_terminology": {"status": "unreviewed", "review_scope": "Selected table region.", "process_description": "Not reviewed."}
+  }
+}
