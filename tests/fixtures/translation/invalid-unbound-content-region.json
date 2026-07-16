@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "synthetic-publication:unbound-region",
+  "source_publication_id": "synthetic-publication",
+  "source_language": "ja",
+  "target_language": "en",
+  "record_type": "bounded_region",
+  "record_status": "working",
+  "primary_evidence": {
+    "source_publication_id": "synthetic-publication",
+    "artifact_fingerprint": "sha256:7777777777777777777777777777777777777777777777777777777777777777",
+    "source_location": {"printed_page": "7"},
+    "source_location_review_status": "unreviewed"
+  },
+  "coverage": {
+    "kind": "selected_regions",
+    "boundary_description": "Synthetic broken region binding.",
+    "translated_region_ids": ["declared-region"],
+    "excluded_regions": [],
+    "unreadable_regions": [],
+    "omitted_content": []
+  },
+  "content_units": [{
+    "unit_id": "unit-unbound",
+    "content_kind": "prose",
+    "source_region_id": "different-region",
+    "source_transcription": {"status": "exact", "text": "試験"},
+    "literal_translation": {"status": "present", "text": "test"},
+    "reviews": {
+      "proposal": {"status": "proposed", "review_scope": "Unit.", "process_description": "Synthetic."},
+      "source_reading": {"status": "unreviewed", "review_scope": "Unit.", "process_description": "Not reviewed."},
+      "literal_translation": {"status": "unreviewed", "review_scope": "Unit.", "process_description": "Not reviewed."},
+      "engineering_terminology": {"status": "unreviewed", "review_scope": "Unit.", "process_description": "Not reviewed."}
+    }
+  }],
+  "reviews": {
+    "proposal": {"status": "proposed", "review_scope": "Record.", "process_description": "Synthetic."},
+    "source_reading": {"status": "unreviewed", "review_scope": "Record.", "process_description": "Not reviewed."},
+    "literal_translation": {"status": "unreviewed", "review_scope": "Record.", "process_description": "Not reviewed."},
+    "engineering_terminology": {"status": "unreviewed", "review_scope": "Record.", "process_description": "Not reviewed."}
+  }
+}

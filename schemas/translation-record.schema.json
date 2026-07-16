@@ -76,13 +76,14 @@
       "type": "object", "additionalProperties": false, "required": ["status"],
       "properties": {
         "status": {"enum": ["exact", "partially_unreadable", "unreadable"]},
-        "text": {"type": "string"}, "preserved_qualifiers": {"type": "array", "items": {"type": "string"}},
+        "text": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1},
+        "preserved_qualifiers": {"type": "array", "items": {"type": "string"}},
         "layout_notes": {"type": "array", "items": {"type": "string"}}
       }
     },
     "literalTranslation": {
       "type": "object", "additionalProperties": false, "required": ["status"],
-      "properties": {"status": {"enum": ["present", "pending", "blocked", "not_applicable"]}, "text": {"type": "string"}, "reason": {"type": "string", "minLength": 1}}
+      "properties": {"status": {"enum": ["present", "pending", "blocked", "not_applicable"]}, "text": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1}}
     },
     "normalizedWording": {
       "type": "object", "additionalProperties": false, "required": ["status"],
