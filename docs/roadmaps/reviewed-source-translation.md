@@ -39,7 +39,8 @@ The [translation workflow](../TRANSLATION_WORKFLOW.md),
   Translation acceptance does not accept graph facts.
 - Matching identifiers across publications do not establish entity equivalence
   or transfer applicability without explicit evidence.
-- Publication `6742601` does not establish applicability to a 1990 PZJ70.
+- The publication identified by source-labeled part number `6742601` does not
+  establish applicability to a 1990 PZJ70.
 - Private factory evidence remains gitignored.
 - JSON is canonical for implemented translation records. Rendered Markdown,
   HTML, indexes, and PDFs are derived views.
