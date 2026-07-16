@@ -59,8 +59,8 @@ GitHub PR numbers. Milestone names are the durable references.
 | Phase | Status | Completed work | Next action |
 | --- | --- | --- | --- |
 | Foundation | Complete | Architecture, source catalog, and workspace | Preserve governing boundaries |
-| Record model | Next | Requirements established | Define schema and validation |
-| Pilot evidence preparation | Planned | Provisional inventory exists | Fingerprint, map, select, and freeze |
+| Record model | Complete | Translation record schema, supplemental validator, synthetic fixtures, and tests merged in PR #7 | Prepare and freeze pilot evidence |
+| Pilot evidence preparation | Ready | Provisional inventory exists | Fingerprint, map, select, and freeze the pilot evidence boundary |
 | Source-language review | Planned | Review gate prepared | Review applicable conventions |
 | Pilot translation | Planned | Pilot boundary proposed | Create representative records |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
@@ -93,18 +93,21 @@ gate, terminology ledger, ambiguity log, page inventory, and review preparation.
 See the [pilot workspace](../../work/translation/toyota-land-cruiser-70-jdm-1993-05/README.md)
 and [PR #6](https://github.com/timothydadams/vehicle-graph/pull/6).
 
-## 6. Planned Milestones
-
 ### Milestone 4 — Translation record schema and validation ([issue](https://github.com/timothydadams/vehicle-graph/issues/8))
 
-Deliver a page-level translation-record schema; an optional minimal document
-manifest; primary-evidence representation; ordered content units; distinct
-transcription, literal translation, and normalized wording; coverage and
-omissions; separate review dimensions; ambiguity and terminology references;
-interpretive-dependency and supporting-evidence roles; a validator; synthetic
-fixtures; and tests. Real Toyota page translation is explicitly excluded.
+Completed by [PR #7](https://github.com/timothydadams/vehicle-graph/pull/7).
+The repository now has a canonical JSON schema for page- or bounded-region
+translation records, a supplemental provenance and consistency validator,
+synthetic valid and invalid fixtures, and tests. Validation includes
+coverage-to-content reconciliation, substantive text-state checks, independent
+review dimensions, and enforceable `fully_reviewed` semantics. No real Toyota
+source page was translated in this milestone.
+
+## 6. Planned Milestones
 
 ### Milestone 5 — Pilot evidence preparation and page mapping ([issue](https://github.com/timothydadams/vehicle-graph/issues/9))
+
+Status: Ready.
 
 Record the source fingerprint and page count; verify PDF-to-printed-page
 mapping; select pilot targets, their interpretive dependencies, one prose-heavy
