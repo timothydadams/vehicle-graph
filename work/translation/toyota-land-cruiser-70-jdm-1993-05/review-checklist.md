@@ -7,7 +7,8 @@ an implementation schema. Each checked item must later identify the reviewed
 boundary, reviewer, evidence, and unresolved ambiguities.
 
 Evidence mapping is complete for `PILOT-TGT-001` through `PILOT-TGT-008` and
-`PILOT-DEP-001` through `PILOT-DEP-006`. Before review, re-run the fingerprint
+the five active dependencies `PILOT-DEP-002` through `PILOT-DEP-006`. The
+missing dependency ID is deliberate. Before review, re-run the fingerprint
 commands in [pilot-capture-manifest.md](pilot-capture-manifest.md). Mapping is
 not language-fidelity review, and no item below is complete merely because its
 page was located.

@@ -15,7 +15,6 @@ content and records no accepted translation.
 | `PILOT-TGT-006` | 19 | `2-7` | primary target | Inspected directly; no committed capture | verified | language review pending | `PILOT-TGT-006` | Instrument-panel layout with `1HZ, 1PZ` qualifier. |
 | `PILOT-TGT-007` | 6 | `1-3` | primary target | Inspected directly; no committed capture | verified | language review pending | `PILOT-TGT-007` | Prose-heavy explanatory page. |
 | `PILOT-TGT-008` | 40 | `3-2` | primary target | Inspected directly; no committed capture | verified | language review pending | `PILOT-TGT-008` | Provisional power-system circuit description; `1HZ, 1PZ`. |
-| `PILOT-DEP-001` | 5 | `1-2`, full page | interpretive dependency | Inspected directly; no committed capture | verified | source-language review pending | `PILOT-TGT-002`, `PILOT-TGT-007` | Organization and abbreviations. |
 | `PILOT-DEP-002` | 6 | `1-3`, full page | interpretive dependency | Inspected directly; no committed capture | verified | source-language review pending | `PILOT-TGT-004`, `PILOT-TGT-005`, `PILOT-TGT-006` | Harness-layout conventions. |
 | `PILOT-DEP-003` | 7 | `1-4`, right-side region | interpretive dependency | Inspected directly; no committed capture | verified | source-language review pending | `PILOT-TGT-008` | Power/ground presentation. |
 | `PILOT-DEP-004` | 8 | `1-5`, full page | interpretive dependency | Inspected directly; no committed capture | verified | source-language review pending | `PILOT-TGT-008` | System-circuit conventions. |
@@ -31,3 +30,7 @@ content and records no accepted translation.
 No local screenshots are asserted. Future review derivatives, if made, must
 remain ignored, identify the governing artifact fingerprint, and preserve the
 PDF/printed-page distinction.
+
+Five interpretive dependencies are active. `PILOT-DEP-001` is intentionally
+absent after its circular and unsupported attachments were removed; stable IDs
+were not renumbered.

@@ -26,7 +26,6 @@ translation, or factory-authored English.
 | `PILOT-TGT-006` | 19 | `2-7` | target | yes | yes, including color fidelity | source-language review pending |
 | `PILOT-TGT-007` | 6 | `1-3` | target | yes | yes, for future review package only | source-language review pending |
 | `PILOT-TGT-008` | 40 | `3-2` | target | yes | yes, at connector-label legibility | source-language review pending |
-| `PILOT-DEP-001` | 5 | `1-2`, full page | dependency | yes | shared with target capture | source-language review pending |
 | `PILOT-DEP-002` | 6 | `1-3`, full page | dependency | yes | shared with target capture | source-language review pending |
 | `PILOT-DEP-003` | 7 | `1-4`, right-side region | dependency | yes | yes, bounded region | source-language review pending |
 | `PILOT-DEP-004` | 8 | `1-5`, full page | dependency | yes | yes | source-language review pending |
@@ -57,3 +56,7 @@ git check-ignore -v \
 
 The capture and evidence manifests must be updated together if the boundary or
 artifact fingerprint changes.
+
+The checklist has five active interpretive dependencies. The missing
+`PILOT-DEP-001` is deliberate; page 5 remains captured as `PILOT-TGT-002`, not
+as a dependency.

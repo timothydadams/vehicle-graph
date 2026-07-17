@@ -32,9 +32,16 @@ translation until applicable source-language review gates are complete.
 ## Included Interpretive Dependencies
 
 The dependency inventory is defined in
-[pilot-page-inventory.md](pilot-page-inventory.md): `PILOT-DEP-001` through
-`PILOT-DEP-006`, on PDF pages 5 through 10. Pages 5 and 6 have dual primary and
-dependency roles. Each dependency remains attached only to the listed targets.
+[pilot-page-inventory.md](pilot-page-inventory.md). Five dependencies remain:
+`PILOT-DEP-002` through `PILOT-DEP-006`, on PDF pages 6 through 10. The stable-ID
+gap is deliberate. PDF page 5 is only primary evidence for `PILOT-TGT-002`, not
+an interpretive dependency.
+
+PDF page 6 has dual primary-target and interpretive-dependency roles for
+different pilot boundaries. `PILOT-TGT-007` translates the full page as its own
+primary evidence; `PILOT-DEP-002` records that page's conventions only for the
+separate harness-layout targets `PILOT-TGT-004`, `PILOT-TGT-005`, and
+`PILOT-TGT-006`. Neither role makes page 6 a dependency of itself.
 
 ## Supporting Navigation
 
