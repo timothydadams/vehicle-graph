@@ -1,86 +1,78 @@
-# Translation Pilot Boundary
+# Frozen Translation Pilot Boundary
 
-## Status and Purpose
+## Governing Artifact
 
-This pre-canonical boundary defines the smallest current pilot that exercises
-representative publication content. It does not authorize or claim complete
-translation of the manual. Provisional English descriptions in the
-[page index](../../../sources/toyota/land-cruiser-70-jdm-1993-05/page-index.md)
-are navigation aids, not accepted translations.
+Boundary version: `2026-07-16`.
 
-## Primary Translation Targets
+- Source publication: `toyota-land-cruiser-70-jdm-1993-05`
+- Source-labeled identifier: `品番 6742601`
+- Verified ignored path: `.evidence/toyota/land-cruiser-70-jdm-1993-05/original.pdf`
+- SHA-256: `1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6`
+- Size: `101456077` bytes
+- PDF page count: `90`
 
-The proposed pilot covers these page categories:
+This fingerprint, rather than the path alone, governs the reproducible boundary.
+The Japanese publication remains primary evidence. English descriptions below
+are provisional navigation descriptions, and the boundary is not cleared for
+translation until applicable source-language review gates are complete.
 
-- title and applicability page;
-- manual-organization or chapter-overview page;
-- component-name index page, currently located at printed page `5-2`;
-- harness-layout component index, currently located at printed page `2-6`;
-- engine harness layout for `1HZ, 1PZ`, currently located at printed page `2-3`;
-- one instrument-panel harness layout;
-- one prose-heavy explanatory page; and
-- one system circuit diagram, selected only after its necessary interpretation
-  dependencies have been identified.
+## Included Primary Targets
 
-Printed and PDF pages that are not already confirmed by the source catalog
-remain unmapped. Selection of one page in a category does not bring adjacent
-pages or the full chapter into scope.
+| Target ID | PDF page | Printed page | Scope | Provisional navigation description |
+| --- | ---: | --- | --- | --- |
+| `PILOT-TGT-001` | 2 | none visible | full page | title, identity, and applicability page |
+| `PILOT-TGT-002` | 5 | `1-2` | full page | manual organization and abbreviations |
+| `PILOT-TGT-003` | 80 | `5-2` | full page | component-name index |
+| `PILOT-TGT-004` | 18 | `2-6` | full page | instrument-panel harness component list (`1HZ, 1PZ`) |
+| `PILOT-TGT-005` | 15 | `2-3` | full page | engine harness layout (`1HZ, 1PZ`) |
+| `PILOT-TGT-006` | 19 | `2-7` | full page | instrument-panel harness layout (`1HZ, 1PZ`) |
+| `PILOT-TGT-007` | 6 | `1-3` | full page | prose-heavy harness-layout explanation |
+| `PILOT-TGT-008` | 40 | `3-2` | full page | power system circuit (`1HZ, 1PZ`) |
 
-## Same-Publication Interpretive Dependencies
+## Included Interpretive Dependencies
 
-Before translating a target that uses them, locate and review the original
-publication's own explanations of chapter organization, printed pagination,
-table reading order, grid references, connector and component identifiers,
-harness legends, abbreviations, diagram notation, continuations,
-state/contact tables, cross-references, and applicability marks. Only a
-location that materially defines how a particular target is read becomes that
-target's interpretive dependency.
+The dependency inventory is defined in
+[pilot-page-inventory.md](pilot-page-inventory.md). Five dependencies remain:
+`PILOT-DEP-002` through `PILOT-DEP-006`, on PDF pages 6 through 10. The stable-ID
+gap is deliberate. PDF page 5 is only primary evidence for `PILOT-TGT-002`, not
+an interpretive dependency.
 
-These explanatory locations are not yet mapped. A repository-created English
-translation is a reviewed translation aid, never an interpretive dependency.
+PDF page 6 has dual primary-target and interpretive-dependency roles for
+different pilot boundaries. `PILOT-TGT-007` translates the full page as its own
+primary evidence; `PILOT-DEP-002` records that page's conventions only for the
+separate harness-layout targets `PILOT-TGT-004`, `PILOT-TGT-005`, and
+`PILOT-TGT-006`. Neither role makes page 6 a dependency of itself.
 
-## Supporting Evidence
+## Supporting Navigation
 
-An independently identified parallel English Toyota publication, such as
-EWD168F, may later support a normalized Toyota English terminology proposal.
-It cannot establish what publication `6742601` says, transfer applicability,
-or prove that similarly labeled connectors or components are identical.
+PDF pages 3 (publication/replacement history), 4 / printed `1-1` (chapter 1
+contents), 12 and 13 / printed `2-1` (two distinct PDF coordinates bearing the
+same printed identifier), 39 / printed `3-1` (chapter 3 contents), and 79 /
+printed `5-1` (adjacent index context) are included only for navigation.
 
-## Preconditions
+## Excluded Publication Content
 
-Use the translation hard-blocker test:
-
-> Does the unresolved issue prevent faithful transcription or translation of
-> the selected boundary?
-
-If yes, stop or narrow the affected boundary without losing source meaning. If
-no, preserve the issue as a soft ambiguity and continue without inventing
-completion.
-
-Hard preconditions include a verified and legible local target, complete source
-transcription for the selected content, and review of any source-defined
-convention needed to choose between materially different readings. Soft
-preconditions include terminology normalization, destination/market identity,
-later modeling choices, and target-vehicle applicability when they do not
-change a neutral source transcription.
+All other pages and all regions outside the specifically bounded dependency
+region on printed `1-4` and `1-7` are excluded. The boundary also excludes
+source images, OCR output, full-manual indexing or translation, accepted
+translation JSON, terminology promotion, rendered English manuals, graph
+extraction, EWD168F connector equivalence, and applicability to a 1990 PZJ70.
 
 ## Unresolved Mappings
 
-Only printed pages `2-3`, `2-6`, and `5-2` are currently recorded. Their PDF
-pages are unmapped. The title/applicability, manual-organization,
-instrument-panel layout, explanatory, and system-circuit targets have no
-confirmed printed or PDF page recorded here. No location will be assigned until
-verified against the local artifact.
+There are no unresolved PDF mappings for selected targets or dependencies.
+The artifact contains repeated printed page `2-1` at PDF pages 12 and 13; both
+coordinates are preserved and neither was guessed away.
 
-## Exclusions
+## Hard Blockers and Soft Uncertainties
 
-The pilot explicitly excludes:
+Hard blockers are the pending source-language reviews of identity/applicability
+wording, organization and abbreviations, harness and grid conventions, table
+fields, circuit notation, wire-color notation, connector/terminal depiction,
+and junction/continuation conventions where used. No human language verification
+is claimed.
 
-- bulk translation or complete-manual coverage;
-- a complete English PDF or layout-faithful reconstruction;
-- graph extraction or graph entities;
-- connector equivalence with EWD168F;
-- applicability to a 1990 PZJ70;
-- automated approval;
-- schemas, canonical translation JSON, glossary databases, scripts, OCR output,
-  tests, renderers, services, or dependencies.
+Soft uncertainties include normalized English terminology, destination/market,
+the semantic role of harness color unless it changes transcription, and later
+vehicle selection. Scan legibility remains candidate-specific: it becomes hard
+only for a region where materially different transcriptions remain possible.

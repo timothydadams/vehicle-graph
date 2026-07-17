@@ -9,22 +9,22 @@ source location and review notes.
 
 | Review item | Status | Source location | Hard / soft / N/A | Notes |
 | --- | --- | --- | --- | --- |
-| Title and identifier reading | partial | Title/applicability page; printed/PDF pending | hard | Catalog preserves `トヨタ ランドクルーザー70 配線図集` and `品番 6742601`; verify against local artifact. |
-| Publication date | partial | Title/applicability page; printed/PDF pending | hard | Catalog records January 1995; page wording still requires review. |
-| Production applicability wording | partial | Title/applicability page; printed/PDF pending | hard | Catalog records production from May 1993; transcribe exact wording before translation. |
-| Model-family notation | partial | Title/applicability page; printed/PDF pending | hard | Catalog records `KZJ7#`, `PZJ7#`, and `HZJ7#`; preserve `#`. |
-| Chapter organization | pending | Manual-organization page; printed/PDF pending | hard where page role matters | Identify all page categories and explanatory sections used by the pilot. |
-| Printed page numbering | pending | `2-3`, `2-6`, `5-2`; definition location pending | hard for citation | Determine restart and cross-reference conventions without guessing PDF mappings. |
-| Component-index table headings | pending | `2-6` and `5-2` | hard for those tables | Verify complete headings, spans, and reading order. |
-| Grid-reference convention | pending | `2-3`; explanation location pending | hard where used | Review before translating grid-linked layout content. |
-| Connector/local identifier convention | pending | Reviewed index samples; exact location pending | hard where used | Preserve identifier text, spacing, and numbering exactly. |
-| Harness legend convention | pending | Legend location pending | hard for harness targets | Determine symbols and any role of color. |
+| Title and identifier reading | located | PDF 2; no printed page visible | hard | `品番 6742601` and Japanese title are visible; exact language review remains pending. |
+| Publication date | located | PDF 2; no printed page visible | hard | January 1995 statement is visible; wording review remains pending. |
+| Production applicability wording | located | PDF 2; no printed page visible | hard | `1993-5～` and related prose are visible; transcribe exactly before translation. |
+| Model-family notation | located | PDF 2; no printed page visible | hard | `KZJ7#`, `PZJ7#`, and `HZJ7#` are visible; preserve `#`. |
+| Chapter organization | located | PDF 5 / printed `1-2`; PDF 4 / `1-1` supports navigation | hard where page role matters | Five-part organization located; Japanese review pending. |
+| Printed page numbering | observed | Pilot mappings; repeated `2-1` at PDF 12 and 13 | hard for citation | Numbering restarts by chapter and printed identifiers are not unique PDF coordinates. |
+| Component-index table headings | located | PDF 18 / `2-6`; PDF 80 / `5-2`; dependency PDF 10 / `1-7` | hard for those tables | Complete reading-order review pending. |
+| Grid-reference convention | located | PDF 6 / `1-3`; targets PDF 15 / `2-3`, PDF 19 / `2-7` | hard where used | Explanatory location mapped; review pending. |
+| Connector/local identifier convention | located | PDF 6 / `1-3`, PDF 8 / `1-5`, PDF 9 / `1-6` | hard where used | Definition locations mapped; preserve identifier text, spacing, and numbering exactly during review. |
+| Harness legend convention | located | PDF 6 / `1-3` | hard for harness targets | Layout explanatory page mapped; color is visible on targets but its semantic role remains unreviewed. |
 | Parenthetical qualifier handling | pending | Reviewed sample; exact location pending | hard when meaning changes | Preserve qualifiers such as `（リヤ用）` in transcription and literal translation. |
-| Abbreviations | pending | Definition locations pending | hard where used | Inventory publication definitions before interpreting abbreviations. |
-| Diagram notation | pending | Explanation locations pending | hard for circuit target | Review symbols, joins, component boundaries, and identifier conventions. |
-| Continuation notation | pending | Explanation locations pending | hard where used | Do not infer destinations from generic convention. |
-| State/contact tables | pending | Selected circuit and definition locations pending | hard if selected circuit uses them; otherwise N/A | Decide applicability only after circuit selection. |
-| Cross-reference convention | pending | Explanation locations pending | hard where needed | Preserve publication-local references and boundary treatment. |
+| Abbreviations | located | PDF 5 / `1-2` | hard where used | Abbreviation table located; meanings remain unreviewed. |
+| Diagram notation | located | PDF 7-9 / printed `1-4`-`1-6` | hard for circuit target | Applicable explanations mapped; review symbols, joins, component boundaries, and identifiers. |
+| Continuation notation | pending | PDF 8 / `1-5` and selected circuit PDF 40 / `3-2` | hard where used | No page-to-page continuation was observed for the selected circuit; convention review still required for any continuation marks. |
+| State/contact tables | not observed on selected circuit | PDF 40 / `3-2`; explanation PDF 8 / `1-5` | N/A unless review finds a state/contact encoding | No separate state/contact table was visually observed; confirm during source-language review. |
+| Cross-reference convention | located | PDF 5-10 / `1-2`-`1-7` | hard where needed | Explanatory pages contain publication-local references; exact convention review pending. |
 | Unreadable text handling | pending | Applies per selected source region | hard only when readings materially differ | Mark unreadable text; never invent completion. |
 | Completeness of source transcription | pending | Each selected target region | hard | Include all in-boundary text, identifiers, qualifiers, and table cells. |
 | Literal versus normalized wording | pending | Each terminology-bearing target | hard review distinction | Keep source transcription, literal translation, and normalized engineering wording separate. |
