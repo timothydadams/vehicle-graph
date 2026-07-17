@@ -2,9 +2,9 @@
 
 ## Status
 
-This checklist prepares review; it does not record a completed review or define
-an implementation schema. Each checked item must later identify the reviewed
-boundary, reviewer, evidence, and unresolved ambiguities.
+This checklist records the Milestone 6 machine-assisted review status. It does
+not define an implementation schema, accept a translation, or claim human
+Japanese-language verification.
 
 Evidence mapping is complete for `PILOT-TGT-001` through `PILOT-TGT-008` and
 the five active dependencies `PILOT-DEP-002` through `PILOT-DEP-006`. The
@@ -13,21 +13,17 @@ commands in [pilot-capture-manifest.md](pilot-capture-manifest.md). Mapping is
 not language-fidelity review, and no item below is complete merely because its
 page was located.
 
-## Language-Fidelity Review
+## Source-Language Fidelity (machine-assisted)
 
-- [ ] Source transcription is complete for the selected boundary.
-- [ ] Source-local identifiers, printed pages, grid references, and qualifiers
-  are preserved exactly.
-- [ ] No table heading, row, cell, footnote, or applicability mark is omitted.
-- [ ] No negation or limiting expression is lost.
-- [ ] Missing or unreadable content is marked; no completion is invented.
-- [ ] Literal translation remains faithful to the visible Japanese and source
-  structure.
-- [ ] Ambiguities are attached only to the content they could materially change.
-- [ ] The reviewer's Japanese-language qualification and review scope are
+- [x] Every frozen target and active dependency was directly inspected.
+- [x] Identifiers, printed pages, grids, punctuation, and qualifiers have
+  explicit preservation rules.
+- [x] Legibility was assessed without inventing unreadable content.
+- [x] Candidate-specific ambiguities and one blocked full-page prose target are
   recorded.
-- [ ] Machine cross-checking, if used, is described as assistance and not
-  mislabeled as human language verification.
+- [x] Machine assistance is described and is not mislabeled as human review.
+- [ ] Full transcription and literal translation (Milestone 7 work).
+- [ ] Qualified human Japanese-language fidelity review.
 
 ## Engineering-Terminology Review
 
@@ -46,17 +42,25 @@ page was located.
 - [ ] The engineering reviewer's role and review scope are recorded separately
   from language-fidelity review.
 
+Milestone 6 did not perform engineering-terminology acceptance. Provisional
+glosses remain distinct from normalized wording.
+
+## Applicability, Graph, and Independent Review
+
+- [x] Source model families, production start, and publication date remain
+  distinct.
+- [x] Destination, 1990 PZJ70 applicability, and EWD168F identity are not
+  inferred.
+- [ ] Target-vehicle selection remains future work.
+- [ ] No graph extraction was performed.
+- [ ] No independent translation review or translation acceptance occurred.
+
 ## Overall Pilot Disposition
 
-Record one descriptive disposition with its exact boundary and unresolved
-issues:
-
-- ready for translation-record proposal;
-- ready with documented soft ambiguities;
-- changes required;
-- blocked by source language;
-- blocked by evidence; or
-- boundary revision required.
+All eight exact dispositions are recorded in
+[pilot-review-matrix.md](pilot-review-matrix.md): three
+`cleared_for_pilot_translation`, four `cleared_with_recorded_ambiguity`, and one
+`blocked_pending_human_language_review`. No boundary revision is proposed.
 
 An overall disposition does not accept translation wording, graph candidates,
 or factory facts. Translation acceptance and graph acceptance remain separate.

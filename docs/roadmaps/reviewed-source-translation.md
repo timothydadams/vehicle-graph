@@ -61,9 +61,9 @@ GitHub PR numbers. Milestone names are the durable references.
 | --- | --- | --- | --- |
 | Foundation | Complete | Architecture, source catalog, and workspace | Preserve governing boundaries |
 | Record model | Complete | Translation record schema, supplemental validator, synthetic fixtures, and tests merged in PR #7 | Prepare and freeze pilot evidence |
-| Pilot evidence preparation | In progress | Artifact verified; mappings, targets, dependencies, and capture manifest prepared | Review and merge the Milestone 5 implementation PR |
-| Source-language review | Planned | Review gate prepared | Review applicable conventions |
-| Pilot translation | Planned | Pilot boundary proposed | Create representative records |
+| Pilot evidence preparation | Complete | Artifact and frozen mappings merged in PR #23 | Preserve frozen evidence boundary |
+| Source-language review | In progress | All targets and dependencies reviewed; dispositions recorded | Review and merge the source-language review PR |
+| Pilot translation | Planned | Three targets cleared; four cleared with soft ambiguity; one blocked | After merge, begin only cleared boundaries |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
 | Terminology promotion | Planned | Provisional ledger seeded | Promote proven recurring terms |
 | Publishing | Planned | Derived-view role defined | Build renderer, indexes, and companion PDF |
@@ -104,29 +104,28 @@ coverage-to-content reconciliation, substantive text-state checks, independent
 review dimensions, and enforceable `fully_reviewed` semantics. No real Toyota
 source page was translated in this milestone.
 
-## 6. Planned Milestones
-
 ### Milestone 5 — Pilot evidence preparation and page mapping ([issue](https://github.com/timothydadams/vehicle-graph/issues/9))
 
-Status: In progress. Implementation is under review in
-[PR #23](https://github.com/timothydadams/vehicle-graph/pull/23).
+Complete, merged in [PR #23](https://github.com/timothydadams/vehicle-graph/pull/23).
+The artifact fingerprint, mappings, targets, dependencies, and evidence
+boundary are frozen.
 
-Record the source fingerprint and page count; verify PDF-to-printed-page
-mapping; select pilot targets, their interpretive dependencies, one prose-heavy
-page, and one circuit page; and freeze the evidence boundary. This milestone
-requires local access to the gitignored PDF.
-
-The implementation verifies and freezes the evidence boundary. Milestone 5 is
-not complete until that PR merges. Milestone 6 remains planned and depends on
-the merged, fingerprint-bound source-language review inventory.
+## 6. Planned Milestones
 
 ### Milestone 6 — Pilot source-language review ([issue](https://github.com/timothydadams/vehicle-graph/issues/10))
+
+Status: In progress. The machine-assisted review package assigns every frozen
+target a disposition and reviews all five active dependencies. The next action
+is to review and merge the source-language review PR; completion is not claimed
+before merge.
 
 Review the publication conventions required by the pilot: chapter organization,
 pagination, table reading, identifiers, grid references, legends, color
 meaning, abbreviations, diagram and continuation notation, state/contact tables
 where applicable, qualifiers, and applicability marks. The outcome must be
-clearance, boundary narrowing, or documented blockage.
+clearance, boundary narrowing, or documented blockage. Milestone 7 may begin
+after merge only for boundaries cleared by the review matrix; the prose-heavy
+target remains blocked pending human language review.
 
 ### Milestone 7 — Pilot translation records ([issue](https://github.com/timothydadams/vehicle-graph/issues/11))
 

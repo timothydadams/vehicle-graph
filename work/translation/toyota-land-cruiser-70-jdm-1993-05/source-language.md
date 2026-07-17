@@ -2,11 +2,25 @@
 
 ## Status
 
-This is a pre-canonical inventory of language and document conventions that
-must be reviewed before translation. It is neither a glossary nor a translation
-record. Japanese text, layout, and publication-defined conventions remain
-authoritative. Exact locations stay pending unless already verified in the
-source catalog.
+This pre-canonical record now includes the 2026-07-17 machine-assisted review.
+It is neither a glossary nor a translation record and does not claim human
+Japanese-language verification. Japanese text, layout, and publication-defined
+conventions remain authoritative.
+
+## Reviewed publication rules
+
+| Observed source convention | Provisional interpretation | Downstream handling rule | Remaining ambiguity |
+| --- | --- | --- | --- |
+| Five numbered chapters are described on PDF 5 / `1-2`. | Organization, harness/relay location, system circuits, common connectors, and index have distinct roles. | Preserve chapter role and source heading; do not treat navigation prose as target evidence. | English chapter-name normalization (`TR-AMB-001`). |
+| Printed numbers restart; PDF 12 and 13 both show `2-1`. | Printed page is publication-local, not a unique artifact coordinate. | Cite publication, PDF page, and printed page together. | None when both coordinates are kept. |
+| PDF 10 / `1-7` defines connector-number and component-name index modes. | Rows associate component name, connector No., system-circuit pages, and harness-layout pages. | Read horizontally within each independent panel; preserve commas, case, and blanks; do not infer ditto meaning for blanks. | No explicit blank-cell rule found. |
+| PDF 6 / `1-3` defines grid lookup, connector/ground symbols, connector shape/cavity, and label association. | Number/letter intersection locates the callout; shape and cavity numbers are source content. | Preserve grid, symbol, case, terminal position, and connector number independently. | Normalized names remain terminology work. |
+| Harness legends on PDF 15 / `2-3` and PDF 19 / `2-7` pair a harness symbol/name with a color swatch. | Color identifies the named harness in those layouts. | Apply only to those targets; do not generalize color semantics to other page types. | `TR-AMB-008` resolved narrowly. |
+| PDF 8 / `1-5` says a two-color wire label gives base color first and stripe second. | `青－白` is blue base with white stripe. | Preserve Japanese color words and separator before any normalization. | No shield/twist special mark occurs on the selected circuit. |
+| PDF 8 / `1-5` defines upper circuit/lower connector presentation, connector/terminal numbers, joins, internal circuits, and operating conditions. | Diagram layout and labels jointly identify connections. | Attach only conventions actually present on PDF 40 / `3-2`. | None material for that target. |
+| PDF 9 / `1-6` distinguishes J/B/R/B internal depiction and block-side/harness-side or female/male connector shapes. | Shape viewpoint and terminal number are material. | Preserve the depicted side and terminal position; do not infer cross-publication equivalence. | None material for the selected R/B use. |
+| Parentheses immediately follow headings or component names throughout the targets. | They locally qualify engine, side, door/body, production date, or usage. | Keep source transcription, literal attachment, and normalized word order distinct. | `TR-AMB-006` for `（リヤ用）`; term-specific `TR-AMB-009`. |
+| PDF 40 / `3-2` is a complete single-page circuit with a production legend, but no continuation, separate contact table, switch-state legend, or operating prose. | Those absent categories are not required for this target. | Record inspected absence; do not generalize to the publication. | None material; absence is high-confidence. |
 
 | Category | Known observation | Source location or mapping status | Why it matters | Review status | Pilot classification |
 | --- | --- | --- | --- | --- | --- |
@@ -26,5 +40,6 @@ source catalog.
 | Source-defined notation | Explanatory pages for the selected harness and circuit are inventoried; state/contact-table applicability remains to be reviewed. | PDF 6-9 / `1-3`-`1-6`. | Publication definitions precede generic engineering assumptions. | Inventory complete for the frozen boundary; meanings pending review. | Hard for any target that uses an unresolved definition. |
 | Labels embedded in illustrations | Both harness layouts and the selected circuit visibly contain embedded labels and source-local identifiers. | PDF 15 / `2-3`, PDF 19 / `2-7`, PDF 40 / `3-2`. | Reading order, association, and layout may carry meaning beyond isolated text. | Presence verified; association rules pending review. | Hard where association is ambiguous; otherwise preserve layout context. |
 
-No detailed translation may proceed for a target while an unknown convention
-could force materially different source transcriptions or translations.
+Detailed translation may proceed only for the boundaries cleared in
+[pilot-review-matrix.md](pilot-review-matrix.md). `PILOT-TGT-007` remains
+blocked pending human language review of its sustained prose.

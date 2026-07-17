@@ -15,8 +15,11 @@ The ignored local artifact was verified and the pilot evidence boundary frozen
 on 2026-07-16. Its SHA-256 is
 `1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6`;
 it contains 90 PDF pages and is 101456077 bytes. These values identify the
-reviewed local input without distributing it. Source-language review remains
-pending, so mapping does not authorize translation.
+reviewed local input without distributing it. Milestone 6 machine-assisted
+source-language review was completed on 2026-07-17. It does not claim human
+Japanese-language verification or translation acceptance. Three targets are
+cleared for Milestone 7 proposals, four are cleared with recorded soft
+ambiguity, and the prose-heavy target remains blocked pending human review.
 
 ## Supporting Records
 
@@ -26,6 +29,12 @@ pending, so mapping does not authorize translation.
   language and layout conventions that require review.
 - [Source-language review checklist](source-language-review-checklist.md)
   provides the pre-translation gate.
+- [Source-language review results](source-language-review-results.md) records
+  the method, dependency findings, and per-target dispositions.
+- [Pilot review matrix](pilot-review-matrix.md) is the compact Milestone 7
+  handoff.
+- [Boundary review disposition](boundary-review-disposition.md) records that
+  no amendment to the frozen boundary is proposed.
 - [Evidence manifest](evidence-manifest.md) separates target pages,
   same-publication interpretive dependencies, supporting evidence, and local
   derivatives.
