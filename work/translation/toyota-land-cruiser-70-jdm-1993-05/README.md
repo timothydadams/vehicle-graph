@@ -15,11 +15,13 @@ The ignored local artifact was verified and the pilot evidence boundary frozen
 on 2026-07-16. Its SHA-256 is
 `1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6`;
 it contains 90 PDF pages and is 101456077 bytes. These values identify the
-reviewed local input without distributing it. Milestone 6 machine-assisted
-source-language review was completed on 2026-07-17. It does not claim human
-Japanese-language verification or translation acceptance. Three targets are
-cleared for Milestone 7 proposals, four are cleared with recorded soft
-ambiguity, and the prose-heavy target remains blocked pending human review.
+reviewed local input without distributing it. The Milestone 6 machine-assisted
+review package was completed on 2026-07-17 and is pending review and merge in
+PR #24; the milestone remains in progress until that merge. The package does
+not claim human Japanese-language verification or translation acceptance.
+Three targets are cleared for Milestone 7 proposals, four are cleared with
+recorded soft ambiguity, and the prose-heavy target remains blocked pending
+qualified human language review.
 
 ## Supporting Records
 
