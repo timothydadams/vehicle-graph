@@ -22,6 +22,10 @@ JSON records are canonical and will live under
 `translations/<publisher>/<publication>/pages/`; renderers and generated English
 views remain deferred.
 
+The first review-ready production records now cover the three Milestone 7
+targets cleared without material ambiguity. They remain proposals pending
+independent language-fidelity and engineering-terminology review.
+
 ## Relationship to Other Material
 
 ```text
@@ -29,7 +33,7 @@ source catalog
     ↓
 translation workspace
     ↓
-future translation records
+translation records
     ↓
 future rendered English views
     ↓
