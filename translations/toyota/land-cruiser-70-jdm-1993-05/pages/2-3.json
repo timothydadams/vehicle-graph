@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "toyota-land-cruiser-70-jdm-1993-05:2-3",
+  "source_publication_id": "toyota-land-cruiser-70-jdm-1993-05",
+  "source_language": "ja",
+  "target_language": "en",
+  "record_type": "page",
+  "page_type": "harness_layout",
+  "record_status": "review_ready",
+  "primary_evidence": {
+    "source_publication_id": "toyota-land-cruiser-70-jdm-1993-05",
+    "artifact_fingerprint": "sha256:1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6",
+    "source_location": {"pdf_page": 15, "printed_page": "2-3", "region_id": "PILOT-TGT-005"},
+    "source_location_review_status": "machine_cross_checked"
+  },
+  "coverage": {
+    "kind": "complete_bounded",
+    "boundary_description": "The complete frozen page PILOT-TGT-005, including its heading, grid, connector and ground callouts, harness drawing, target-local harness legend, production qualifiers, and publication footer.",
+    "translated_region_ids": ["page-heading", "harness-legend", "layout-identifiers", "publication-marks"],
+    "excluded_regions": [],
+    "unreadable_regions": [],
+    "omitted_content": []
+  },
+  "content_units": [
+    {
+      "unit_id": "tgt005-heading",
+      "content_kind": "heading",
+      "source_region_id": "page-heading",
+      "source_transcription": {"status": "exact", "text": "エンジン(1HZ,1PZ)", "preserved_qualifiers": ["(1HZ,1PZ)"], "layout_notes": ["Centered page heading; printed page 2-3 appears at upper right."]},
+      "literal_translation": {"status": "present", "text": "Engine (1HZ, 1PZ)"},
+      "source_local_fields": [{"kind": "engine_qualifier", "value": "1HZ,1PZ"}],
+      "notes": ["No normalized engineering wording is proposed because no reviewed Toyota terminology evidence is attached."],
+      "reviews": {
+        "proposal": {"status": "proposed", "review_scope": "Heading transcription and provisional literal reading.", "process_description": "Direct high-resolution visual inspection of the frozen artifact."},
+        "source_reading": {"status": "machine_cross_checked", "review_scope": "Visible heading and qualifier.", "process_description": "Machine-assisted visual inspection; not human Japanese-language verification."},
+        "literal_translation": {"status": "unreviewed", "review_scope": "Provisional literal English.", "process_description": "Contributor proposal pending qualified language review."},
+        "engineering_terminology": {"status": "unreviewed", "review_scope": "No normalized heading proposed.", "process_description": "No terminology acceptance performed."}
+      }
+    },
+    {
+      "unit_id": "tgt005-harness-legend",
+      "content_kind": "legend_entry",
+      "source_region_id": "harness-legend",
+      "source_transcription": {"status": "exact", "text": "A エンジンルームNO.2ワイヤ\nB エンジンルームNO.3ワイヤ\nC エンジンワイヤ\nD エンジンNO.4ワイヤ\nE エンジンNO.2ワイヤ\nF エンジンNO.3ワイヤ\nG トランスミッションワイヤ\nH カウルワイヤ\nI カウルNO.2ワイヤ\nf ウインチNO.1ワイヤ\ng ウインチNO.2ワイヤ\ni ヒュージブルリンクワイヤ\nℓ ヒュージブルリンクワイヤ（グロープラグ）", "layout_notes": ["Each source-local letter is paired with the stated harness name and a color swatch; color meaning is target-local under the resolved TR-AMB-008."]},
+      "literal_translation": {"status": "present", "text": "A Engine compartment No. 2 wire\nB Engine compartment No. 3 wire\nC Engine wire\nD Engine No. 4 wire\nE Engine No. 2 wire\nF Engine No. 3 wire\nG Transmission wire\nH Cowl wire\nI Cowl No. 2 wire\nf Winch No. 1 wire\ng Winch No. 2 wire\ni Fusible-link wire\nℓ Fusible-link wire (glow plug)"},
+      "source_local_fields": [{"kind": "component_identifier", "value": "A,B,C,D,E,F,G,H,I,f,g,i,ℓ", "label": "harness legend keys"}],
+      "notes": ["English is a provisional literal reading. Toyota-normalized harness names are deliberately not proposed."],
+      "reviews": {
+        "proposal": {"status": "proposed", "review_scope": "Legend transcription and literal readings.", "process_description": "Direct high-resolution visual inspection of each legend row."},
+        "source_reading": {"status": "machine_cross_checked", "review_scope": "Legend keys, Japanese labels, punctuation, and parenthetical.", "process_description": "Machine-assisted visual inspection; not human Japanese-language verification."},
+        "literal_translation": {"status": "unreviewed", "review_scope": "Provisional literal legend wording.", "process_description": "Contributor proposal pending qualified language review."},
+        "engineering_terminology": {"status": "unreviewed", "review_scope": "No normalized legend wording proposed.", "process_description": "No parallel Toyota terminology evidence was used."}
+      }
+    },
+    {
+      "unit_id": "tgt005-layout-identifiers",
+      "content_kind": "identifier",
+      "source_region_id": "layout-identifiers",
+      "source_transcription": {"status": "exact", "text": "1 2 3 4 5 6 / A B C D; ('95.1~); (~'95.1)", "layout_notes": ["The page is a graphical harness layout. Connector and ground callouts, connector shapes, cavity numbers, leader lines, harness colors, and the engine-bay drawing are preserved as source structure rather than converted into English prose.", "Source-local connector identifiers retain printed case and include upper- and lower-case prefixes.", "The grid uses numeric columns 1-6 and alphabetic rows A-D."]},
+      "literal_translation": {"status": "not_applicable", "reason": "Grid coordinates, connector identifiers, cavity numbers, leader lines, shapes, colors, and date marks are source-local notation rather than Japanese prose."},
+      "source_local_fields": [{"kind": "grid_reference", "value": "columns 1-6; rows A-D"}, {"kind": "other", "value": "('95.1~); (~'95.1)", "label": "production qualifiers"}],
+      "reviews": {
+        "proposal": {"status": "proposed", "review_scope": "Source-local diagram notation coverage.", "process_description": "Direct visual reconciliation against the complete page."},
+        "source_reading": {"status": "machine_cross_checked", "review_scope": "Grid, diagram notation, and production qualifiers.", "process_description": "Machine-assisted visual inspection under PILOT-DEP-002; not human verification."},
+        "literal_translation": {"status": "unreviewed", "review_scope": "Not-applicable disposition for nonlinguistic notation.", "process_description": "Disposition awaits independent review."},
+        "engineering_terminology": {"status": "unreviewed", "review_scope": "No normalized diagram prose proposed.", "process_description": "Not reviewed."}
+      }
+    },
+    {
+      "unit_id": "tgt005-publication-marks",
+      "content_kind": "identifier",
+      "source_region_id": "publication-marks",
+      "source_transcription": {"status": "exact", "text": "2-3\n('95/01 品番6742601)"},
+      "literal_translation": {"status": "present", "text": "2-3\n('95/01 item number 6742601)"},
+      "source_local_fields": [{"kind": "printed_cross_reference", "value": "2-3"}, {"kind": "component_identifier", "value": "6742601", "label": "品番"}],
+      "notes": ["The non-factory donor watermark visible in the scanned artifact is capture context, not translated factory content."],
+      "reviews": {
+        "proposal": {"status": "proposed", "review_scope": "Printed page, publication date mark, and source-labeled identifier.", "process_description": "Direct visual inspection."},
+        "source_reading": {"status": "machine_cross_checked", "review_scope": "Publication marks.", "process_description": "Machine-assisted visual inspection; not human verification."},
+        "literal_translation": {"status": "unreviewed", "review_scope": "Provisional literal identifier label.", "process_description": "Pending language review."},
+        "engineering_terminology": {"status": "unreviewed", "review_scope": "No normalized identifier label proposed.", "process_description": "Not reviewed."}
+      }
+    }
+  ],
+  "interpretive_dependencies": [{
+    "dependency_id": "PILOT-DEP-002",
+    "source_publication_id": "toyota-land-cruiser-70-jdm-1993-05",
+    "source_location": {"pdf_page": 6, "printed_page": "1-3", "region_id": "PILOT-DEP-002"},
+    "role": "same_publication_interpretive_dependency",
+    "material_convention": "Harness-layout grid lookup, connector and ground symbols, connector shape and cavity depiction, and callout association conventions.",
+    "affected_content_unit_ids": ["tgt005-harness-legend", "tgt005-layout-identifiers"]
+  }],
+  "reviews": {
+    "proposal": {"status": "proposed", "review_scope": "Complete frozen PILOT-TGT-005 page record.", "process_description": "Milestone 7 proposal reconciled to the frozen evidence manifest and review matrix."},
+    "source_reading": {"status": "machine_cross_checked", "review_scope": "Complete page source reading and structural coverage.", "process_description": "Machine-assisted high-resolution inspection; no human Japanese-language verification claimed."},
+    "literal_translation": {"status": "unreviewed", "review_scope": "All provisional literal English on the page.", "process_description": "Awaiting qualified language-fidelity review."},
+    "engineering_terminology": {"status": "unreviewed", "review_scope": "Engineering normalization for the page.", "process_description": "No normalization accepted or reviewed."}
+  },
+  "notes": ["This review-ready translation record is a derived interpretive representation, not factory knowledge or a claim of Toyota-authored English.", "Translation acceptance and graph acceptance have not occurred."]
+}

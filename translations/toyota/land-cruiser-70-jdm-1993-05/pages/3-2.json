@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "toyota-land-cruiser-70-jdm-1993-05:3-2",
+  "source_publication_id": "toyota-land-cruiser-70-jdm-1993-05",
+  "source_language": "ja",
+  "target_language": "en",
+  "record_type": "page",
+  "page_type": "circuit_diagram",
+  "record_status": "review_ready",
+  "primary_evidence": {
+    "source_publication_id": "toyota-land-cruiser-70-jdm-1993-05",
+    "artifact_fingerprint": "sha256:1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6",
+    "source_location": {"pdf_page": 40, "printed_page": "3-2", "region_id": "PILOT-TGT-008"},
+    "source_location_review_status": "machine_cross_checked"
+  },
+  "coverage": {
+    "kind": "complete_bounded",
+    "boundary_description": "The complete frozen page PILOT-TGT-008, including title and applicability, production legend, circuit labels, wire-color labels, source-local identifiers and terminal numbers, connector depictions, and publication marks.",
+    "translated_region_ids": ["page-heading", "production-legend", "circuit-labels", "wire-colors", "diagram-notation", "publication-marks"],
+    "excluded_regions": [],
+    "unreadable_regions": [],
+    "omitted_content": []
+  },
+  "content_units": [
+    {
+      "unit_id": "tgt008-heading",
+      "content_kind": "heading",
+      "source_region_id": "page-heading",
+      "source_transcription": {"status": "exact", "text": "電源(1HZ,1PZ)", "preserved_qualifiers": ["(1HZ,1PZ)"], "layout_notes": ["Centered title; printed page 3-2 is at upper left."]},
+      "literal_translation": {"status": "present", "text": "Power source (1HZ, 1PZ)"},
+      "source_local_fields": [{"kind": "engine_qualifier", "value": "1HZ,1PZ"}],
+      "notes": ["No normalized engineering title is proposed because reviewed Toyota terminology evidence is not attached."],
+      "reviews": {
+        "proposal": {"status": "proposed", "review_scope": "Title transcription and literal reading.", "process_description": "Direct high-resolution visual inspection."},
+        "source_reading": {"status": "machine_cross_checked", "review_scope": "Visible title and engine qualifiers.", "process_description": "Machine-assisted inspection; not human Japanese-language verification."},
+        "literal_translation": {"status": "unreviewed", "review_scope": "Provisional literal English.", "process_description": "Pending qualified language review."},
+        "engineering_terminology": {"status": "unreviewed", "review_scope": "No normalized title proposed.", "process_description": "No terminology acceptance performed."}
+      }
+    },
+    {
+      "unit_id": "tgt008-production-legend",
+      "content_kind": "legend_entry",
+      "source_region_id": "production-legend",
+      "source_transcription": {"status": "exact", "text": "○: ～'95.1\n□: '95.1～"},
+      "literal_translation": {"status": "present", "text": "○: through January 1995\n□: January 1995 onward"},
+      "source_local_fields": [{"kind": "other", "value": "○: ～'95.1; □: '95.1～", "label": "production legend"}],
+      "reviews": {
+        "proposal": {"status": "proposed", "review_scope": "Production legend transcription and literal reading.", "process_description": "Direct visual inspection."},
+        "source_reading": {"status": "machine_cross_checked", "review_scope": "Legend symbols and date strings.", "process_description": "Machine-assisted inspection; not human verification."},
+        "literal_translation": {"status": "unreviewed", "review_scope": "Provisional date-range wording.", "process_description": "Pending language review."},
+        "engineering_terminology": {"status": "unreviewed", "review_scope": "No normalized wording proposed.", "process_description": "Not reviewed."}
+      }
+    },
+    {
+      "unit_id": "tgt008-circuit-labels",
+      "content_kind": "diagram_label",
+      "source_region_id": "circuit-labels",
+      "source_transcription": {"status": "exact", "text": "ヒーターリレー（フロント用）\nテールランプリレー\nヘッドランプリレー\nイグニッションスイッチ\nオルタネーター\nバッテリーNO.2\nバッテリーNO.1\n10A エアコン\n20A テールランプ\n10A ヘッドランプRH\n10A ヘッドランプLH\n15A ハザード, ホーン\n30A ドア\n30A ヒーター\n10A ラジオ\n10A エレクトロニクス+B\n10A ルームランプ\n10A ストップランプ\n15A ライター\n15A エンジン\n20A ワイパー\n10A ターン\n15A フューエルヒーター\n15A デフォッガー\n30A デフ\n30A パワー\n7.5A スターター\n7.5A チャージ\nチャージ\nオルタネーションメーター", "preserved_qualifiers": ["（フロント用）", "RH", "LH", "+B"], "layout_notes": ["Labels remain associated with their depicted relay, switch, alternator, battery, fuse, or meter location; grouping here does not assert a graph fact."]},
+      "literal_translation": {"status": "present", "text": "Heater relay (for front)\nTail-lamp relay\nHeadlamp relay\nIgnition switch\nAlternator\nBattery No. 2\nBattery No. 1\n10 A air conditioner\n20 A tail lamp\n10 A headlamp RH\n10 A headlamp LH\n15 A hazard, horn\n30 A door\n30 A heater\n10 A radio\n10 A electronics +B\n10 A room lamp\n10 A stop lamp\n15 A lighter\n15 A engine\n20 A wiper\n10 A turn\n15 A fuel heater\n15 A defogger\n30 A differential\n30 A power\n7.5 A starter\n7.5 A charge\nCharge\nAlternation meter"},
+      "notes": ["These are provisional literal readings, not normalized Toyota terminology. In particular, エレクトロニクス+B, デフ, パワー, チャージ, and オルタネーションメーター remain intentionally unnormalized."],
+      "reviews": {
+        "proposal": {"status": "proposed", "review_scope": "Visible circuit-label transcription and provisional literal readings.", "process_description": "Direct high-resolution visual inspection of the full circuit page."},
+        "source_reading": {"status": "machine_cross_checked", "review_scope": "Japanese labels, ratings, punctuation, and qualifiers.", "process_description": "Machine-assisted visual inspection; not human Japanese-language verification."},
+        "literal_translation": {"status": "unreviewed", "review_scope": "Provisional literal circuit-label English.", "process_description": "Pending qualified language review."},
+        "engineering_terminology": {"status": "unreviewed", "review_scope": "No normalized component or fuse terminology proposed.", "process_description": "Uncertain terms remain literal; no Toyota terminology was invented."}
+      }
+    },
+    {
+      "unit_id": "tgt008-wire-colors",
+      "content_kind": "diagram_label",
+      "source_region_id": "wire-colors",
+      "source_transcription": {"status": "exact", "text": "赤\n黒\n白\n青\n緑\n黄\n灰色\n黒色\n青色\n赤-青\n青-白\n青-赤\n黒-黄\n黒-白\n白-青", "layout_notes": ["For two-color labels, the publication defines the first color as the base and the second as the stripe."]},
+      "literal_translation": {"status": "present", "text": "red\nblack\nwhite\nblue\ngreen\nyellow\ngray color\nblack color\nblue color\nred-blue\nblue-white\nblue-red\nblack-yellow\nblack-white\nwhite-blue"},
+      "reviews": {
+        "proposal": {"status": "proposed", "review_scope": "Wire-color label transcription and literal readings.", "process_description": "Direct visual inspection using the publication's wire-color rule."},
+        "source_reading": {"status": "machine_cross_checked", "review_scope": "Visible single- and two-color labels.", "process_description": "Machine-assisted inspection under PILOT-DEP-004; not human verification."},
+        "literal_translation": {"status": "unreviewed", "review_scope": "Literal color words.", "process_description": "Pending language review."},
+        "engineering_terminology": {"status": "unreviewed", "review_scope": "No abbreviated or normalized color codes proposed.", "process_description": "Not reviewed."}
+      }
+    },
+    {
+      "unit_id": "tgt008-diagram-notation",
+      "content_kind": "identifier",
+      "source_region_id": "diagram-notation",
+      "source_transcription": {"status": "exact", "text": "F/B NO.1\nR/B NO.1\nFL HEAD 0.5G\nFL GLOW 2.0L\nFL AM1 1.25B\nACC\nAM1\nIG\nST1\nB\nS\nL\nA i1\nB E1\nC E2\nD F1\nE H70\nF H71\nG H37\nH H41\nI H43\nJ H127", "layout_notes": ["Relay contacts and coils, fuse symbols and terminals, joins, connector/terminal references, connector shapes and cavities, ground symbols, battery and alternator connections, and conductor paths remain graphical source notation.", "No continuation, separate contact/state table, switch-state legend, or operating-condition prose is present on this target."]},
+      "literal_translation": {"status": "not_applicable", "reason": "Block abbreviations, terminal labels, connector identifiers, fuse-link identifiers, symbols, conductor paths, and cavity diagrams are source-local engineering notation."},
+      "source_local_fields": [{"kind": "component_identifier", "value": "F/B NO.1; R/B NO.1"}, {"kind": "connector_number", "value": "i1,E1,E2,F1,H70,H71,H37,H41,H43,H127"}, {"kind": "other", "value": "ACC,AM1,IG,ST1,B,S,L", "label": "source-local terminal labels"}],
+      "reviews": {
+        "proposal": {"status": "proposed", "review_scope": "Diagram notation and source-local identifier coverage.", "process_description": "Direct visual reconciliation against the complete page."},
+        "source_reading": {"status": "machine_cross_checked", "review_scope": "Block, terminal, connector, join, contact, fuse, and cavity notation.", "process_description": "Machine-assisted inspection under PILOT-DEP-003 through PILOT-DEP-005; not human verification."},
+        "literal_translation": {"status": "unreviewed", "review_scope": "Not-applicable disposition for nonlinguistic notation.", "process_description": "Disposition awaits independent review."},
+        "engineering_terminology": {"status": "unreviewed", "review_scope": "No normalized diagram notation proposed.", "process_description": "Not reviewed."}
+      }
+    },
+    {
+      "unit_id": "tgt008-publication-marks",
+      "content_kind": "identifier",
+      "source_region_id": "publication-marks",
+      "source_transcription": {"status": "exact", "text": "3-2\n('95/01 品番6742601)"},
+      "literal_translation": {"status": "present", "text": "3-2\n('95/01 item number 6742601)"},
+      "source_local_fields": [{"kind": "printed_cross_reference", "value": "3-2"}, {"kind": "component_identifier", "value": "6742601", "label": "品番"}],
+      "notes": ["The non-factory donor watermark visible in the scanned artifact is capture context, not translated factory content."],
+      "reviews": {
+        "proposal": {"status": "proposed", "review_scope": "Printed page, publication date mark, and source-labeled identifier.", "process_description": "Direct visual inspection."},
+        "source_reading": {"status": "machine_cross_checked", "review_scope": "Publication marks.", "process_description": "Machine-assisted inspection; not human verification."},
+        "literal_translation": {"status": "unreviewed", "review_scope": "Provisional literal identifier label.", "process_description": "Pending language review."},
+        "engineering_terminology": {"status": "unreviewed", "review_scope": "No normalized identifier label proposed.", "process_description": "Not reviewed."}
+      }
+    }
+  ],
+  "interpretive_dependencies": [
+    {"dependency_id": "PILOT-DEP-003", "source_publication_id": "toyota-land-cruiser-70-jdm-1993-05", "source_location": {"pdf_page": 7, "printed_page": "1-4", "region_id": "PILOT-DEP-003"}, "role": "same_publication_interpretive_dependency", "material_convention": "Power and ground presentation conventions used on the circuit page.", "affected_content_unit_ids": ["tgt008-diagram-notation"]},
+    {"dependency_id": "PILOT-DEP-004", "source_publication_id": "toyota-land-cruiser-70-jdm-1993-05", "source_location": {"pdf_page": 8, "printed_page": "1-5", "region_id": "PILOT-DEP-004"}, "role": "same_publication_interpretive_dependency", "material_convention": "System-circuit layout, connector and terminal numbers, joins, internal circuits, operating-condition presentation, and two-color wire-label order.", "affected_content_unit_ids": ["tgt008-wire-colors", "tgt008-diagram-notation"]},
+    {"dependency_id": "PILOT-DEP-005", "source_publication_id": "toyota-land-cruiser-70-jdm-1993-05", "source_location": {"pdf_page": 9, "printed_page": "1-6", "region_id": "PILOT-DEP-005"}, "role": "same_publication_interpretive_dependency", "material_convention": "Junction/relay block internal depiction and block-side, harness-side, female, and male connector-shape conventions.", "affected_content_unit_ids": ["tgt008-diagram-notation"]}
+  ],
+  "reviews": {
+    "proposal": {"status": "proposed", "review_scope": "Complete frozen PILOT-TGT-008 page record.", "process_description": "Milestone 7 proposal reconciled to the frozen evidence manifest, dependency review, and ambiguity log."},
+    "source_reading": {"status": "machine_cross_checked", "review_scope": "Complete page source reading and structural coverage.", "process_description": "Machine-assisted high-resolution inspection; no human Japanese-language verification claimed."},
+    "literal_translation": {"status": "unreviewed", "review_scope": "All provisional literal English on the page.", "process_description": "Awaiting qualified language-fidelity review."},
+    "engineering_terminology": {"status": "unreviewed", "review_scope": "Engineering normalization for the page.", "process_description": "No normalization accepted or reviewed."}
+  },
+  "notes": ["This review-ready translation record is a derived interpretive representation, not factory knowledge or a claim of Toyota-authored English.", "Translation acceptance and graph acceptance have not occurred."]
+}
