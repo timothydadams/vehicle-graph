@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / "tests/fixtures/translation"
+PILOT_RECORDS = ROOT / "translations/toyota/land-cruiser-70-jdm-1993-05/pages"
 COMMAND = ROOT / "scripts/validate-translation-records.py"
 SCHEMA = ROOT / "schemas/translation-record.schema.json"
 SPEC = importlib.util.spec_from_file_location("translation_validator", COMMAND)
@@ -32,6 +33,28 @@ class TranslationSchemaTests(unittest.TestCase):
         for name in ("valid-minimal.json", "valid-table-entry.json", "valid-interpretive-dependency.json"):
             with self.subTest(name=name):
                 self.assertEqual([], VALIDATOR.validate(FIXTURES / name, self.schema))
+
+    def test_cleared_pilot_records_validate_and_preserve_frozen_bindings(self):
+        expected = {
+            "2-3.json": ("PILOT-TGT-005", 15, {"PILOT-DEP-002"}),
+            "2-7.json": ("PILOT-TGT-006", 19, {"PILOT-DEP-002"}),
+            "3-2.json": ("PILOT-TGT-008", 40, {"PILOT-DEP-003", "PILOT-DEP-004", "PILOT-DEP-005"}),
+        }
+        self.assertEqual(set(expected), {path.name for path in PILOT_RECORDS.glob("*.json")})
+        for name, (target, pdf_page, dependencies) in expected.items():
+            with self.subTest(name=name):
+                path = PILOT_RECORDS / name
+                record = json.loads(path.read_text(encoding="utf-8"))
+                location = record["primary_evidence"]["source_location"]
+                self.assertEqual([], VALIDATOR.validate(path, self.schema))
+                self.assertEqual("complete_bounded", record["coverage"]["kind"])
+                self.assertEqual(target, location["region_id"])
+                self.assertEqual(pdf_page, location["pdf_page"])
+                self.assertEqual(dependencies, {item["dependency_id"] for item in record["interpretive_dependencies"]})
+                self.assertNotIn("PILOT-TGT-007", json.dumps(record, ensure_ascii=False))
+                for unit in record["content_units"]:
+                    self.assertIn("source_transcription", unit)
+                    self.assertIn("literal_translation", unit)
 
     def test_invalid_fixtures_fail_for_intended_reason(self):
         expected = {"invalid-missing-primary-evidence.json": "primary_evidence", "invalid-collapsed-review-status.json": "source_reading", "invalid-translation-dependency.json": "cannot be an interpretive dependency", "invalid-human-verification.json": "human verification requires", "invalid-complete-with-omission.json": "must be empty for complete_bounded", "invalid-unbound-content-region.json": "is not listed in coverage.translated_region_ids"}

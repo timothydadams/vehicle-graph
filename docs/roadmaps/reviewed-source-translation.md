@@ -62,8 +62,8 @@ GitHub PR numbers. Milestone names are the durable references.
 | Foundation | Complete | Architecture, source catalog, and workspace | Preserve governing boundaries |
 | Record model | Complete | Translation record schema, supplemental validator, synthetic fixtures, and tests merged in PR #7 | Prepare and freeze pilot evidence |
 | Pilot evidence preparation | Complete | Artifact and frozen mappings merged in PR #23 | Preserve frozen evidence boundary |
-| Source-language review | In progress | All targets and dependencies reviewed; dispositions recorded | Review and merge the source-language review PR |
-| Pilot translation | Planned | Three targets cleared; four cleared with soft ambiguity; one blocked | After merge, begin only cleared boundaries |
+| Source-language review | Complete | All targets and dependencies reviewed; dispositions merged in PR #24 | Preserve the reviewed boundary and dispositions |
+| Pilot translation | In progress | Review-ready records created for the three targets cleared without material ambiguity | Independently review the pilot records |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
 | Terminology promotion | Planned | Provisional ledger seeded | Promote proven recurring terms |
 | Publishing | Planned | Derived-view role defined | Build renderer, indexes, and companion PDF |
@@ -114,10 +114,9 @@ boundary are frozen.
 
 ### Milestone 6 — Pilot source-language review ([issue](https://github.com/timothydadams/vehicle-graph/issues/10))
 
-Status: In progress. The machine-assisted review package assigns every frozen
-target a disposition and reviews all five active dependencies. The next action
-is to review and merge the source-language review PR; completion is not claimed
-before merge.
+Status: Complete. The machine-assisted review package assigns every frozen
+target a disposition, reviews all five active dependencies, and was merged in
+PR #24.
 
 Review the publication conventions required by the pilot: chapter organization,
 pagination, table reading, identifiers, grid references, legends, color

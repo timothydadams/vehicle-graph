@@ -3,7 +3,9 @@
 This directory prepares a small, representative translation pilot for the
 Japanese Toyota Land Cruiser 70 electrical wiring diagram identified by the
 source-labeled part number `6742601` (`品番 6742601`). It contains no accepted
-translation records or factory knowledge.
+translation records or factory knowledge. The first review-ready canonical
+records now live under
+[`translations/toyota/land-cruiser-70-jdm-1993-05/`](../../../translations/toyota/land-cruiser-70-jdm-1993-05/README.md).
 
 The catalog describes a Japanese-language publication dated **January 1995**
 whose stated production applicability begins **May 1993** for `KZJ7#`, `PZJ7#`,
@@ -16,9 +18,8 @@ on 2026-07-16. Its SHA-256 is
 `1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6`;
 it contains 90 PDF pages and is 101456077 bytes. These values identify the
 reviewed local input without distributing it. The Milestone 6 machine-assisted
-review package was completed on 2026-07-17 and is pending review and merge in
-PR #24; the milestone remains in progress until that merge. The package does
-not claim human Japanese-language verification or translation acceptance.
+review package was completed on 2026-07-17 and merged in PR #24. The package
+does not claim human Japanese-language verification or translation acceptance.
 Three targets are cleared for Milestone 7 proposals, four are cleared with
 recorded soft ambiguity, and the prose-heavy target remains blocked pending
 qualified human language review.
@@ -50,6 +51,8 @@ qualified human language review.
   target pages using verified locations and stable IDs.
 - [Pilot capture manifest](pilot-capture-manifest.md) freezes the concise local
   inspection checklist for future review sessions.
+- [Pilot translation lessons](pilot-translation-lessons.md) records where the
+  current schema felt natural or awkward without redesigning it.
 
 ## Intended Work Sequence
 
@@ -63,11 +66,11 @@ qualified human language review.
 
 The minimum record shape is now implemented in
 [`schemas/translation-record.schema.json`](../../../schemas/translation-record.schema.json),
-but this workspace still contains no Toyota translation record. When the
-source-language gates and boundary are ready in a later PR, canonical page
-records will belong under
-`translations/toyota/land-cruiser-70-jdm-1993-05/pages/`. This implementation
-does not complete the workflow or authorize translating the pilot pages.
+and the three targets cleared without material ambiguity now have review-ready
+canonical records under
+`translations/toyota/land-cruiser-70-jdm-1993-05/pages/`. They remain proposals
+pending the workflow's separate language-fidelity and engineering-terminology
+reviews.
 
 The governing workflow is [Reviewed Source Translation](../../../docs/TRANSLATION_WORKFLOW.md),
 and source identity remains anchored in the [source catalog](../../../sources/toyota/land-cruiser-70-jdm-1993-05/README.md).
