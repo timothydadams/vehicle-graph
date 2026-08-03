@@ -142,11 +142,14 @@ before translation expands.
 
 This milestone is a successful architectural discovery from Milestone 7, not a
 correction to it. It changes no schema, translation record, validator, or graph
-model. Its six investigations cover the canonical page model, linguistic versus
-structural ownership, identifier taxonomy, page-to-translation relationships,
-support across publication types, and the downstream graph-extraction contract.
-Further production-page translation and batch campaigns are gated on its design
-recommendation; independent review of the existing pilot records may continue.
+model. Its seven investigations will define proposed semantic layers and
+artifact ownership, a source page-object taxonomy, page decomposition and
+hierarchy, identifier taxonomy, page-object or region bindings to translation,
+coverage across publication families, and the downstream graph-extraction
+contract. These are investigations and design recommendations, not authorization
+for a schema or implementation decision. Further production-page translation
+and batch campaigns are gated on their completion; independent review of the
+existing pilot records may continue.
 
 ### Milestone 8 — Independent-review preparation ([issue](https://github.com/timothydadams/vehicle-graph/issues/12))
 
