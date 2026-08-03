@@ -12,6 +12,8 @@ A reviewed translation is a **derived interpretive representation**. It is not
 factory-authored English material, an independent factory source, or a
 replacement for the original publication. Translation prepares source material
 for review and possible later extraction; it does not accept graph knowledge.
+The ownership and promotion boundaries around this workflow are defined in
+[Translation Semantic Layers and Artifact Ownership](TRANSLATION_SEMANTIC_LAYERS.md).
 
 ## Translation Stages
 
@@ -208,8 +210,9 @@ Non-present literal translations likewise require a reason and contain no
 translation text. `provisionally_accepted` remains limited-purpose and may have
 incomplete reviews; `fully_reviewed` cannot. Neither status accepts graph facts.
 
-Committed records will live under `translations/<publisher>/<publication>/pages/`.
-No real pilot record exists yet. Future English Markdown, HTML, and PDF editions
+Committed records live under `translations/<publisher>/<publication>/pages/`.
+The three Milestone 7 pilot records are review-ready, not accepted translations
+or graph facts. Future English Markdown, HTML, and PDF editions
 will be generated derived views of accepted JSON records, not editable or
 factory-authored sources.
 

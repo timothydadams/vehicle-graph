@@ -64,7 +64,7 @@ GitHub PR numbers. Milestone names are the durable references.
 | Pilot evidence preparation | Complete | Artifact and frozen mappings merged in PR #23 | Preserve frozen evidence boundary |
 | Source-language review | Complete | All targets and dependencies reviewed; dispositions merged in PR #24 | Preserve the reviewed boundary and dispositions |
 | Pilot translation | Complete | Three review-ready records merged in PR #25; schema, provenance, review separation, and dependency handling validated | Independently review the pilot records |
-| Page decomposition architecture | Planned | Milestone 7 revealed a need for language-independent source-page structure | Complete the investigation in Epic #26 before expanding production translation |
+| Page decomposition architecture | In progress | Milestone 7 revealed a need for language-independent source-page structure; Issue #28 is under review | Complete Epic #26 investigations before expanding production translation |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
 | Terminology promotion | Planned | Provisional ledger seeded | Promote proven recurring terms |
 | Publishing | Planned | Derived-view role defined | Build renderer, indexes, and companion PDF |
@@ -150,6 +150,13 @@ contract. These are investigations and design recommendations, not authorization
 for a schema or implementation decision. Further production-page translation
 and batch campaigns are gated on their completion; independent review of the
 existing pilot records may continue.
+
+Issue [#28](https://github.com/timothydadams/vehicle-graph/issues/28) is in
+progress. Its implementation defines semantic layers and artifact ownership in
+[Translation Semantic Layers and Artifact Ownership](../TRANSLATION_SEMANTIC_LAYERS.md).
+The draft PR is tracked in GitHub while review is open; #28 remains incomplete
+until merge. Issues #27, #29, #30, #31, #32, and #34 remain separate, open
+investigations.
 
 ### Milestone 8 — Independent-review preparation ([issue](https://github.com/timothydadams/vehicle-graph/issues/12))
 

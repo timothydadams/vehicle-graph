@@ -33,6 +33,11 @@ The original publication remains primary evidence; translation acceptance does
 not establish a factory fact. Any English Markdown, HTML, or PDF edition
 rendered from accepted translation material is a derived view.
 
+The finer ownership boundaries within that path are defined in
+[Translation Semantic Layers and Artifact Ownership](TRANSLATION_SEMANTIC_LAYERS.md).
+They are a semantic contract, not a claim that every layer has a separate
+implemented schema.
+
 ## Canonical state
 
 JSON is the canonical representation of structured knowledge. Git stores its
