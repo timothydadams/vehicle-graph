@@ -257,7 +257,10 @@ identity; and establish no cross-page or cross-publication equivalence.
 
 Candidate inputs are publication ID, artifact fingerprint, PDF page, printed
 page, page or boundary identity, and a locally assigned occurrence ID. This
-document selects no syntax or namespace; Issue #29 owns identifier taxonomy.
+document selects no syntax or namespace; the
+[Publication Identifier Taxonomy](PUBLICATION_IDENTIFIER_TAXONOMY.md) defines
+conceptual roles, scopes, stability, and collision rules while likewise
+deferring syntax and schema.
 
 ## Completeness and omission handling
 
@@ -441,7 +444,9 @@ continuation. All three pilots require both aspects. This is the recommendation.
 - Issue #28 defines semantic layers below linguistic and engineering meaning.
 - Issue #34 defines the candidate object vocabulary; this document defines
   composition without redesigning it.
-- Issue #29 owns identifier classes, namespaces, and syntax.
+- Issue #29 owns identifier roles, scopes, preservation, stability, and
+  collision handling; see the
+  [Publication Identifier Taxonomy](PUBLICATION_IDENTIFIER_TAXONOMY.md).
 - Issue #30 owns translation bindings to page objects or regions.
 - Issue #31 evaluates the model across publication families.
 - Issue #32 owns the downstream contract into graph extraction.
