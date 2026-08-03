@@ -389,7 +389,7 @@ composition includes:
 - relay and fuse symbols visibly contained in those blocks;
 - ignition-switch, battery, alternator, and combination-meter depictions;
 - combination-meter and charge-indicator labels;
-- wire-color labels, circuit paths, junction dots, terminal marks, connector
+- wire-color labels, circuit-path depictions, junction dots, terminal marks, connector
   depictions, cavities, and source-local identifiers;
 - aligned lower connector strip; and
 - factory marks plus the visible non-factory watermark.
@@ -440,6 +440,13 @@ attachment, grouping, overlap, alignment, reference, sequence, and
 continuation. All three pilots require both aspects. This is the recommendation.
 
 ## Relationship to sibling issues and existing work
+
+The [Page-to-Translation Binding Model](PAGE_TRANSLATION_BINDING_MODEL.md)
+consumes the occurrence and region identities proposed here. It permits
+occurrence, source-supported composite, explicit occurrence-set, and bounded
+region targets while leaving decomposition valid when no translation exists.
+Binding lifecycle does not redefine the structural relationships in this
+document.
 
 - Issue #28 defines semantic layers below linguistic and engineering meaning.
 - Issue #34 defines the candidate object vocabulary; this document defines

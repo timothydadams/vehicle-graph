@@ -204,7 +204,7 @@ history remain recoverable.
 - **Owns:** candidate visible-region and object identity; page layout and
   hierarchy; text occurrences; graphical symbols; visible label attachment;
   legend keys; page-grid coordinates; connector depictions and identifiers;
-  terminal marks and cavity numbers; wire-color labels; conductor paths;
+  terminal marks and cavity numbers; wire-color labels; path depictions;
   junction dots; leader lines; visible grouping; and exact case, punctuation,
   placement, and source-local marks. A line or dot is a depiction here, not yet
   accepted electrical connectivity.
@@ -404,7 +404,7 @@ history remain recoverable.
 | Legend keys and page-grid coordinates | Source-visible structure | Neither is automatically an entity ID or topology |
 | Connector depictions and identifiers | Source-visible structure | Identifier classes are deferred to Issue #29 |
 | Terminal labels and cavity numbers | Source-visible structure | Preserve marks before endpoint claims |
-| Wire-color labels and conductor paths | Source-visible structure | Words may be translated; a path is not automatically an edge |
+| Wire-color labels and path depictions | Source-visible structure | Words may be translated; a path depiction is not automatically an edge |
 | Inferred electrical connectivity | Graph extraction | Accepted only after independent review and acceptance |
 | Applicability qualifiers | Layer where stated | Every later claim must retain source scope without widening it |
 | Candidate entities and relationships | Graph extraction | Intermediate shape is deferred |
@@ -564,13 +564,19 @@ or production-date constraints.
 
 The preserved `コンビネーションメーター` remains alongside provisional
 “Combination meter”; the English does not replace the Japanese or establish a
-canonical component identity. Conductor paths and junction dots support
-candidate connectivity claims but are not accepted graph relationships by
-themselves. A rendered English circuit page remains a derived view.
+canonical component identity. Circuit-path depictions and junction dots may
+support candidate connectivity claims but are not accepted graph relationships
+by themselves. A rendered English circuit page remains a derived view.
 `complete_bounded` means the declared translation boundary is reconciled, not
 that every graphic object was decomposed or that graph coverage is complete.
 
 ## Relationship to current translation records
+
+The downstream relationship between linguistic subjects and source-visible
+structure is refined in the
+[Page-to-Translation Binding Model](PAGE_TRANSLATION_BINDING_MODEL.md). Binding
+direction expresses dependency on publication representation and does not
+transfer structural ownership or promote engineering meaning.
 
 The Milestone 7 records remain valid, unchanged, canonical for their current
 reviewed-translation artifact role, and review-ready derived interpretive

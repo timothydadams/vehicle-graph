@@ -760,7 +760,8 @@ automatically sufficient for another publication family.
   electrical join, splice entity, or graph branching.
 - **May reference:** intersecting visible path portions.
 - **Must not imply:** accepted connectivity.
-- **Pilot examples:** filled junction dots along the circuit paths on `3-2`.
+- **Pilot examples:** filled junction dots along the circuit-path depictions on
+  `3-2`.
 - **Open questions:** how a dot differs from a splice symbol under each
   publication's definitions.
 
@@ -1031,10 +1032,10 @@ The circuit-path depictions, path portions, junction dots, symbols, terminal
 marks, and symbol boundaries can all be recorded as source-visible structure.
 Later extraction may propose connectivity claims from this evidence, but no
 claim is accepted merely because the page visibly connects lines. This taxonomy
-does not assert that a circuit path is one wire or conductor entity, that a dot
-is accepted electrical connectivity, that a terminal mark is an endpoint, or
-that a labeled block is a physical assembly. The circle/square production
-legend, its entries, and matching page marks are visible correspondences;
+does not assert that a circuit-path depiction is one wire or conductor entity,
+that a dot is accepted electrical connectivity, that a terminal mark is an
+endpoint, or that a labeled block is a physical assembly. The circle/square
+production legend, its entries, and matching page marks are visible correspondences;
 applicability conclusions remain downstream.
 
 ## Required distinctions
@@ -1081,6 +1082,11 @@ design questions with its own evidence and review; it does not declare a
 canonical artifact.
 
 ## Boundaries with sibling issues
+
+Issue #30's [Page-to-Translation Binding Model](PAGE_TRANSLATION_BINDING_MODEL.md)
+references occurrences of the candidate classes defined here. A binding to a
+text label does not become a binding to the depicted object it visibly labels,
+and nonlinguistic page objects remain valid without bindings.
 
 - Issue [#28](https://github.com/timothydadams/vehicle-graph/issues/28)
   defines semantic ownership and constrains this taxonomy to Source-visible

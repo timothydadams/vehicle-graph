@@ -343,7 +343,8 @@ Issue #30 must bind translation to stable occurrences or regions without using
 displayed values as unique keys: source identifiers remain verbatim, repeated
 values remain distinguishable, one translation may relate to several
 occurrences, and translated wording never becomes the identifier. No binding
-model or migration is defined here.
+model or migration is defined here. The resulting conceptual design is in the
+[Page-to-Translation Binding Model](PAGE_TRANSLATION_BINDING_MODEL.md).
 
 Issue #32 will define graph-extraction contracts. Here, source identifiers
 remain evidence, structural IDs locate source objects, candidate entity IDs

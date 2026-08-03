@@ -39,6 +39,12 @@ structural associations, source-evidence bindings, and preserved text
 occurrences that do not require translation. Linguistic interpretations may
 bind to those occurrences, but do not create them.
 
+The conceptual relationship is defined in the
+[Page-to-Translation Binding Model](PAGE_TRANSLATION_BINDING_MODEL.md):
+linguistic artifacts point to stable source-visible occurrences or declared
+regions through separately reviewable bindings. Inverse navigation may be
+indexed, but publication structure never depends on translation.
+
 Publication representation does not own accepted engineering identity, graph
 topology, canonical component relationships, normalized terminology,
 translation acceptance, or publication rendering as evidence. A precisely
