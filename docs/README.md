@@ -32,19 +32,22 @@ decisions, and working constraints.
 12. [PAGE_DECOMPOSITION.md](PAGE_DECOMPOSITION.md) — Candidate composition model
     for source-visible occurrences and material visible associations within a
     reviewable page boundary.
-13. [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) — How a fresh reviewer tests
+13. [PUBLICATION_IDENTIFIER_TAXONOMY.md](PUBLICATION_IDENTIFIER_TAXONOMY.md) —
+    Roles, scope, preservation, stability, and collision rules for source
+    identifiers and downstream identities.
+14. [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) — How a fresh reviewer tests
     the evidence-to-claim transformation before canonical acceptance.
-14. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas
+15. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas
     must satisfy.
-15. [NON_GOALS.md](NON_GOALS.md) — What the project intentionally avoids.
-16. [ONE_DIAGRAM.md](ONE_DIAGRAM.md) — Scope and completion criteria for the
+16. [NON_GOALS.md](NON_GOALS.md) — What the project intentionally avoids.
+17. [ONE_DIAGRAM.md](ONE_DIAGRAM.md) — Scope and completion criteria for the
     current milestone.
-17. [One Diagram working material](../work/one-diagram/README.md) —
+18. [One Diagram working material](../work/one-diagram/README.md) —
     Pre-canonical inventories, candidates, boundaries, and unresolved questions
     for the current milestone.
-18. [Independent review working material](../work/independent-review/README.md) —
+19. [Independent review working material](../work/independent-review/README.md) —
     Reusable pre-canonical review-package convention and preparation command.
-19. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
+20. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
     intentionally deferred.
 
 Publication representation provides the language-independent foundation that

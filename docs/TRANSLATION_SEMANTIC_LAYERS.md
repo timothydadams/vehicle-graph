@@ -583,7 +583,9 @@ future page-object model.
 
 - #34 defines primitive source-visible page objects.
 - #27 defines page regions, hierarchy, and decomposition.
-- #29 defines identifier classes and namespaces.
+- #29 defines identifier roles, scopes, preservation, stability, and collision
+  handling in the
+  [Publication Identifier Taxonomy](PUBLICATION_IDENTIFIER_TAXONOMY.md).
 - #30 defines structural bindings between source objects or regions and
   translation records.
 - #31 tests the model across publication families.

@@ -1090,8 +1090,10 @@ canonical artifact.
 - Issue [#27](https://github.com/timothydadams/vehicle-graph/issues/27) will
   define regions, hierarchy, overlap, reading order, and decomposition using
   the vocabulary; this document does not begin that work.
-- Issue [#29](https://github.com/timothydadams/vehicle-graph/issues/29) will
-  classify identifiers, values, labels, references, scope, and namespaces.
+- Issue [#29](https://github.com/timothydadams/vehicle-graph/issues/29) defines
+  identifier occurrences, values, classes, references, targets, scope, and
+  identity boundaries in the
+  [Publication Identifier Taxonomy](PUBLICATION_IDENTIFIER_TAXONOMY.md).
 - Issue [#30](https://github.com/timothydadams/vehicle-graph/issues/30) will
   define how translation records bind to page objects or regions.
 - Issue [#31](https://github.com/timothydadams/vehicle-graph/issues/31) will

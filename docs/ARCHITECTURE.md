@@ -101,6 +101,12 @@ It recommends a containment hierarchy for page organization plus explicit
 non-hierarchical structural relationships for visible associations. The model
 is conceptual: it defines no canonical artifact or engineering topology.
 
+The [Publication Identifier Taxonomy](PUBLICATION_IDENTIFIER_TAXONOMY.md)
+separates source-visible occurrences and values, repository-assigned structural
+identity, candidate engineering identity, and accepted graph identity. Matching
+spelling never promotes identity or equivalence, and exact source form remains
+preserved.
+
 ## Architectural principles
 
 - **Language-independent foundation.** A publication can be structurally
