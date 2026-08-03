@@ -118,13 +118,25 @@ identity by itself.
 A **structural occurrence identity** is a stable repository identity for one
 source-visible occurrence or decomposition object. It must be scoped to the
 verified artifact and page or boundary; remain independent of translated and
-normalized wording, engineering entity identity, and graph identity;
-distinguish same-valued occurrences; and survive ordinary review corrections
-while the underlying occurrence remains the same.
+normalized wording, identifier value, identifier class, engineering entity
+identity, and graph identity; distinguish same-valued occurrences; and survive
+ordinary review corrections while the underlying occurrence remains the same.
 
 Publication identity, artifact fingerprint, PDF page, printed page, boundary,
 and a locally assigned occurrence component are conceptual inputs. This
 document selects no syntax, namespace, mandatory components, or schema.
+Printed page labels, identifier values, translated wording, and normalized
+wording must not be the sole durable identity basis. Identifier class must not
+determine durable identity.
+
+Identifier class may support description, indexing, validation, review,
+collision analysis, a human-readable alias, or diagnostic output, but it must
+not determine the durable structural identity of an occurrence that is expected
+to survive class correction. Two occurrences require distinct structural IDs
+whether they display the same value or have different classes. Correcting a
+grid marker that was classified as a legend key preserves its structural ID
+when the visible occurrence remains the same; the class correction remains
+versioned and reviewable.
 
 ### Engineering and graph identity
 
@@ -142,42 +154,51 @@ or alias only through an explicit, evidenced extraction claim.
 
 These are concepts, not fields or a closed vocabulary.
 
-| Category | Meaning and default scope | Must remain distinct from |
-| --- | --- | --- |
-| Publication identifier | Factory-visible designation for a publication or edition | Repository publication key, fingerprint, abstract-work identity |
-| Publication part or document number | Factory-visible number such as the value following `品番` | Component part identity unless explicitly assigned that role |
-| Artifact fingerprint | Repository-recorded digest of exact evidence bytes | Factory-visible identifier or abstract publication identity |
-| PDF page identity | Page position in one exact artifact | Printed page and page-content identity |
-| Printed page identifier | Factory-visible label such as `2-3` | Globally unique page or PDF-page identity |
-| Section or chapter reference | Publication navigation designation | Engineering system identity |
-| Grid row marker | `A` within one page grid | Legend key `A` or repository coordinate |
-| Grid column marker | `1` within one page grid | Terminal or cavity `1` |
-| Combined grid coordinate | Publication-defined combination such as `A-9` | Occurrence identity or global location |
-| Legend key | Key interpreted through one legend | Grid coordinate, harness entity, graph ID |
-| Production-legend key | Mark such as `○` or `□` referring to a visible convention | Resolved applicability by itself |
-| Connector identifier or reference | Source-visible connector designation | Physical connector identity |
-| Inter-harness connector identifier | Publication-defined inter-harness designation | Cross-publication equivalence |
-| Component reference | Designation associated with a component presentation | Canonical component identity |
-| Harness reference | Designation associated with a harness presentation | Physical harness identity or applicability |
-| Block designation | `R/B NO.1` or `F/B NO.1` | Accepted block entity identity |
-| Terminal identifier | Mark associated with a depicted terminal/contact context | Occurrence ID or accepted terminal identity |
-| Connector-cavity identifier | Mark for a depicted connector position | Terminal identity, occupancy, endpoint identity |
-| Fuse or relay designation | Source-visible rating/name/number | Accepted fuse or relay identity |
-| Wire-color label | Source notation such as `青-白` | Wire identity, conductor identity, graph edge |
-| Continuation reference | Marker pointing beyond local extent | Resolved continuity or topology |
-| Cross-page reference | Visible page, grid, figure, or table reference | Cross-page engineering identity |
-| Callout-local identifier | Designation meaningful within one callout | Page- or publication-unique identity |
-| Structural occurrence identity | Repository identity for one visible occurrence | Source identifier, entity, graph identity |
-| Candidate engineering entity identity | Provisional downstream identity | Source occurrence and accepted identity |
-| Accepted graph identity | Governed canonical repository identity | Factory designation or candidate identity |
+| Category | Primary semantic owner | Meaning and default scope | Must remain distinct from |
+| --- | --- | --- | --- |
+| Publication identifier | Source-visible structure / publication representation | Factory-visible designation for a publication or edition | Repository publication key, fingerprint, abstract-work identity |
+| Publication part or document number | Source-visible structure / publication representation | Factory-visible number such as the value following `品番` | Component part identity unless explicitly assigned that role |
+| Artifact fingerprint | Factory evidence inventory | Repository-recorded digest of exact evidence bytes | Factory-visible identifier or abstract publication identity |
+| PDF page identity | Factory evidence inventory | Page position in one exact artifact | Printed page and page-content identity |
+| Printed page identifier | Source-visible structure / publication representation | Factory-visible label such as `2-3` | Globally unique page or PDF-page identity |
+| Section or chapter reference | Source-visible structure / publication representation | Publication navigation designation | Engineering system identity |
+| Grid row marker | Source-visible structure / publication representation | `A` within one page grid | Legend key `A` or repository coordinate |
+| Grid column marker | Source-visible structure / publication representation | `1` within one page grid | Terminal or cavity `1` |
+| Combined grid coordinate | Source-visible structure / publication representation | Publication-defined combination such as `A-9` | Occurrence identity or global location |
+| Legend key | Source-visible structure / publication representation | Key interpreted through one legend | Grid coordinate, harness entity, graph ID |
+| Production-legend key | Source-visible structure / publication representation | Mark such as `○` or `□` referring to a visible convention | Resolved applicability by itself |
+| Connector identifier or reference | Source-visible structure / publication representation | Source-visible connector designation | Physical connector identity |
+| Inter-harness connector identifier | Source-visible structure / publication representation | Publication-defined inter-harness designation | Cross-publication equivalence |
+| Component reference | Source-visible structure / publication representation | Designation associated with a component presentation | Canonical component identity |
+| Harness reference | Source-visible structure / publication representation | Designation associated with a harness presentation | Physical harness identity or applicability |
+| Block designation | Source-visible structure / publication representation | `R/B NO.1` or `F/B NO.1` | Accepted block entity identity |
+| Terminal identifier | Source-visible structure / publication representation | Mark associated with a depicted terminal/contact context | Occurrence ID or accepted terminal identity |
+| Connector-cavity identifier | Source-visible structure / publication representation | Mark for a depicted connector position | Terminal identity, occupancy, endpoint identity |
+| Fuse or relay designation | Source-visible structure / publication representation | Source-visible rating/name/number | Accepted fuse or relay identity |
+| Wire-color label | Source-visible structure / publication representation | Source notation such as `青-白` | Wire identity, conductor identity, graph edge |
+| Continuation reference | Source-visible structure / publication representation | Marker pointing beyond local extent | Resolved continuity or topology |
+| Cross-page reference | Source-visible structure / publication representation | Visible page, grid, figure, or table reference | Cross-page engineering identity |
+| Callout-local identifier | Source-visible structure / publication representation | Designation meaningful within one callout | Page- or publication-unique identity |
+| Structural occurrence identity | Page decomposition | Repository identity for one visible occurrence | Source identifier, entity, graph identity |
+| Candidate engineering entity identity | Graph extraction | Provisional downstream identity | Source occurrence and accepted identity |
+| Accepted graph identity | Accepted graph knowledge | Governed canonical repository identity | Factory designation or candidate identity |
 
 Issue #31 must test which categories generalize to other publication families.
+
+Semantic ownership identifies the layer responsible for the represented
+concept; it does not replace evidentiary authority. The factory publication is
+evidence for a printed value. Source-visible structure owns the reviewed
+occurrence and proposed source-role classification. Page decomposition owns the
+repository-assigned structural occurrence identity. Graph extraction owns a
+candidate engineering identity, and accepted graph knowledge owns a governed
+graph identity after acceptance. These are conceptual responsibilities, not
+file, object, field, or storage ownership.
 
 ## Semantic-layer ownership audit
 
 | Concept | Example | Owner | Scope | Authority and stability | May reference | Must not imply |
 | --- | --- | --- | --- | --- | --- | --- |
-| Printed publication identifier | `6742601` after `品番` | Factory evidence for visibility; source structure for occurrence | Publication/artifact location | Source form preserved; corrections reviewed | Publication context | Repository or component identity |
+| Printed publication identifier | `6742601` after `品番` | Source-visible structure / publication representation | Publication/artifact location | Factory evidence is authoritative for the visible value; source form is preserved and corrections are reviewed | Publication context | Repository or component identity |
 | Artifact fingerprint | `sha256:…` | Factory-evidence inventory | Exact bytes | Stable only for those bytes | Artifact and pages | Abstract-publication identity |
 | Page-grid coordinate | row `A`, column `1` | Source-visible structure | One page grid | Reviewed structural interpretation; marks preserved | Grid location | Legend, terminal, global coordinate |
 | Legend key | `A`, `k`, `q` | Source-visible structure | One legend/convention | Exact form preserved | Entry and matching page marks | Harness identity or applicability |
@@ -203,10 +224,11 @@ review history. Unreadable characters remain explicit rather than conveniently
 normalized.
 
 Keep structural occurrence identity stable when translation or normalization
-changes, classification is refined, reviewed geometry is adjusted, or
-ambiguity status changes without changing the occurrence. Explicit
-supersession may be required when an occurrence is split or merged, page
-mapping or artifact changes, or the occurrence was identified incorrectly.
+changes, classification is corrected or refined, reviewed geometry is adjusted,
+or ambiguity status changes without changing the occurrence. Identifier class
+may change as a versioned review correction without changing the structural ID.
+Explicit supersession may be required when an occurrence is split or merged,
+page mapping or artifact changes, or the occurrence was identified incorrectly.
 Migration mechanics remain deferred.
 
 Candidate engineering identity may change during review without rewriting
@@ -347,9 +369,11 @@ started.
   structural review identity, candidate identity, and accepted identity.
 - **Opaque IDs only — rejected.** Opaque structural identity is useful but
   cannot replace preserved source designation.
-- **Composite scoped identity — recommended conceptually.** Publication,
-  artifact, page/boundary, occurrence, and relevant class context prevent
-  collision; exact syntax remains open.
+- **Scoped occurrence identity — recommended conceptually.** Use verified
+  publication, artifact, and page-or-boundary context plus a locally assigned
+  stable occurrence component. Identifier value and class may support indexing,
+  review, aliases, and diagnostics, but do not determine durable occurrence
+  identity. Exact syntax and mandatory components remain open.
 - **Delay until schema — rejected.** Issues #30 and #32 need ownership and scope
   boundaries before binding and extraction design, though syntax stays deferred.
 
@@ -380,7 +404,10 @@ Adopt source-visible occurrence plus exact value, reviewed class and narrowest
 supported scope, separate reference and target, artifact-bound structural
 occurrence identity, and strictly downstream engineering and graph identity.
 Preserve collisions instead of merging them. Require explicit evidence and
-review for every scope expansion or equivalence claim.
+review for every scope expansion or equivalence claim. Durable structural
+identity follows the occurrence and its verified evidence context, not mutable
+identifier class or displayed value; classification corrections therefore do
+not replace the occurrence identity.
 
 No invariant changes, so no immediate ADR is needed. Keep the design
 provisional and defer a focused ADR until Issues #30-#32 establish the binding
