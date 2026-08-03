@@ -3,6 +3,13 @@
 Extraction is an evidence-preserving engineering activity. It is not bulk text
 conversion and it is not an invitation to infer undocumented facts.
 
+Graph extraction may consume several reviewed inputs in their actual roles:
+factory evidence, source-visible publication representation, linguistic
+interpretation, engineering normalization, applicability evidence, and
+same-publication interpretive dependencies. Translation is optional and is
+never the sole route from a publication to candidate graph knowledge. See
+[Publication representation](ARCHITECTURE.md#publication-representation).
+
 ## Ordered Workflow
 
 1. **Publication identity and scope review.** Identify the publication,
@@ -69,9 +76,9 @@ A hard blocker may affect only part of a page, circuit, table, or procedure.
 Extraction may proceed around it only if the boundary can be narrowed without
 losing source meaning.
 
-## Extraction Through a Reviewed Translation
+## Extraction With Optional Linguistic Interpretation
 
-When extraction relies on an accepted translation, the original-language
+When extraction uses an accepted translation, the original-language
 publication remains primary evidence. Source-language locations within that
 publication may be interpretive dependencies when they define conventions
 materially required to read the primary evidence. The accepted translation may
@@ -85,6 +92,13 @@ candidate still follows this workflow, cites the original source location, and
 requires independent review and canonical acceptance. See the
 [reviewed source translation workflow](TRANSLATION_WORKFLOW.md) and the
 [translation semantic-layer contract](TRANSLATION_SEMANTIC_LAYERS.md).
+
+Extraction may also proceed from primary evidence and reviewed source-visible
+structure without translation when the candidate can be faithfully supported.
+Linguistic interpretation or engineering normalization is required only where
+the candidate depends on meaning those inputs establish. No source-visible
+object or structural association is promoted directly into an engineering
+entity, topology claim, or accepted fact.
 
 Use this decision test:
 

@@ -8,7 +8,8 @@ decisions, and working constraints.
 
 1. [VISION.md](VISION.md) — Why the project exists.
 2. [ARCHITECTURE.md](ARCHITECTURE.md) — How engineering knowledge flows through
-   the repository.
+   the repository, including publication representation as the shared,
+   language-independent foundation for downstream interpretation and use.
 3. [adr/](../adr/) — The accepted architectural decisions that govern the project.
 4. [AGENTS.md](../AGENTS.md) — Rules for humans and AI contributors.
 5. [PROVENANCE.md](PROVENANCE.md) — How engineering facts become trustworthy.
@@ -22,7 +23,8 @@ decisions, and working constraints.
    source material into accepted graph knowledge.
 10. [TRANSLATION_SEMANTIC_LAYERS.md](TRANSLATION_SEMANTIC_LAYERS.md) — Semantic
     ownership, dependency, authority-level, mutability, and promotion boundaries
-    from factory evidence through translation, graph acceptance, and publishing.
+    from factory evidence through source-visible structure, linguistic
+    interpretation, graph acceptance, and publishing.
 11. [SOURCE_PAGE_OBJECT_TAXONOMY.md](SOURCE_PAGE_OBJECT_TAXONOMY.md) —
     Pilot-grounded, language-independent candidate vocabulary for page-scoped
     source-visible objects, without engineering or graph promotion; broader
@@ -41,6 +43,12 @@ decisions, and working constraints.
     Reusable pre-canonical review-package convention and preparation command.
 18. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
     intentionally deferred.
+
+Publication representation provides the language-independent foundation that
+translation and extraction can consume now and that search, accessibility,
+rendering, and revision comparison may consume in future work. Listing a
+consumer here describes an architectural relationship, not an implemented
+feature.
 
 ## Planning and Status
 

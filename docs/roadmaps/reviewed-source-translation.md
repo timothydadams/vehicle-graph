@@ -22,6 +22,13 @@ The reviewed source translation feature aims to produce:
 The Japanese publication remains primary evidence. Generated English output is
 repository-created derived material and is not Toyota-authored.
 
+Reviewed-source translation depends on the shared, language-independent
+[publication-representation architecture](../ARCHITECTURE.md#publication-representation).
+Publication representation is not owned by translation: it also supports graph
+extraction directly and may support structured search, accessibility,
+rendering, publishing, and revision comparison through later, separately
+authorized work.
+
 ## 2. Governing Constraints
 
 The [translation workflow](../TRANSLATION_WORKFLOW.md),
@@ -64,7 +71,7 @@ GitHub PR numbers. Milestone names are the durable references.
 | Pilot evidence preparation | Complete | Artifact and frozen mappings merged in PR #23 | Preserve frozen evidence boundary |
 | Source-language review | Complete | All targets and dependencies reviewed; dispositions merged in PR #24 | Preserve the reviewed boundary and dispositions |
 | Pilot translation | Complete | Three review-ready records merged in PR #25; schema, provenance, review separation, and dependency handling validated | Independently review the pilot records |
-| Page decomposition architecture | In progress | Semantic-layer boundaries from Issue #28 are merged; the pilot-grounded candidate source-page vocabulary from Issue #34 is under review | Validate candidate concepts across publication families and complete Epic #26 before expanding production translation |
+| Publication representation architecture | In progress | Semantic-layer and artifact ownership from Issue #28 and the pilot-grounded candidate source-page vocabulary from Issue #34 are complete | Design page decomposition in Issue #27, then complete the remaining Epic #26 investigations before expanding production translation |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
 | Terminology promotion | Planned | Provisional ledger seeded | Promote proven recurring terms |
 | Publishing | Planned | Derived-view role defined | Build renderer, indexes, and companion PDF |
@@ -131,18 +138,19 @@ normalize Toyota terminology, or extract graph facts.
 
 ## 6. Planned Milestones
 
-### Milestone 7A — Page decomposition architecture ([epic](https://github.com/timothydadams/vehicle-graph/issues/26))
+### Milestone 7A — Publication representation architecture ([epic](https://github.com/timothydadams/vehicle-graph/issues/26))
 
-Investigate an intermediate, language-independent representation of the source
+Investigate a shared, language-independent representation of the source
 publication's visual and semantic page structure. Review of the three pilot
 records demonstrated that linguistic fidelity and provenance are practical,
 while headings, legends, blocks, connector illustrations, harness drawings,
 tables, identifiers, and graphical notation need clearer structural ownership
 before translation expands.
 
-This milestone is a successful architectural discovery from Milestone 7, not a
-correction to it. It changes no schema, translation record, validator, or graph
-model. Its seven investigations will define proposed semantic layers and
+This milestone is a successful architectural discovery from the One Diagram
+vertical slice and Milestone 7 translation pilot, not a correction to either.
+It changes no schema, translation record, validator, or graph model. Its seven
+investigations will define proposed semantic layers and
 artifact ownership, a source page-object taxonomy, page decomposition and
 hierarchy, identifier taxonomy, page-object or region bindings to translation,
 coverage across publication families, and the downstream graph-extraction
@@ -154,12 +162,18 @@ existing pilot records may continue.
 Issue [#28](https://github.com/timothydadams/vehicle-graph/issues/28) defined
 semantic layers and artifact ownership in
 [Translation Semantic Layers and Artifact Ownership](../TRANSLATION_SEMANTIC_LAYERS.md).
-Issue [#34](https://github.com/timothydadams/vehicle-graph/issues/34) is in
-progress and defines the pilot-grounded, page-scoped candidate vocabulary in
+Issue [#34](https://github.com/timothydadams/vehicle-graph/issues/34) defined the
+pilot-grounded, page-scoped candidate vocabulary in
 the [Source Page Object Taxonomy](../SOURCE_PAGE_OBJECT_TAXONOMY.md); it remains
-incomplete until its implementation merges. Broader publication-family
-validation belongs to Issue #31. Issues #27, #29, #30, #31, and #32 remain
-separate, open investigations.
+subject to broader publication-family validation in Issue #31. Both completed
+investigations establish publication representation below translation. The
+current next work is Issue #27's page-decomposition design. Issues #27, #29,
+#30, #31, and #32 remain separate, open investigations.
+
+Completing publication representation will unblock production translation and
+translation binding, and will establish shared inputs for structured search,
+future publishing, and graph extraction. This roadmap does not claim that all
+of those consumers will be implemented on `feature/translation`.
 
 ### Milestone 8 — Independent-review preparation ([issue](https://github.com/timothydadams/vehicle-graph/issues/12))
 
@@ -229,7 +243,7 @@ remains independent.
 - Fingerprint and map the local PDF before reproducible page work.
 - Review required source-language conventions before translating affected
   pages.
-- Complete the page decomposition architecture investigation before expanding
+- Complete the publication representation architecture investigation before expanding
   production translation beyond the current pilot records.
 - Require successful pilot review before full-publication scaling.
 - Promote terminology only after repeated real usage demonstrates the need.
