@@ -9,8 +9,9 @@ implementation decision.
 **Page decomposition** is a reviewable structural representation of
 source-visible object occurrences and material visible associations on a
 verified publication page or declared page boundary. Every represented
-occurrence and association remains locatable in controlling factory evidence.
-The representation does not require translation or engineering interpretation.
+occurrence and association remains locatable in the controlling source evidence
+and bound to the verified source artifact. The representation does not require
+translation or engineering interpretation.
 
 Page decomposition belongs to the language-independent publication-
 representation capability described in [Architecture](ARCHITECTURE.md). It is
@@ -45,7 +46,8 @@ connection.
 ## Terminology
 
 - **Page surface:** one verified PDF page as presented by a specific source
-  artifact, including factory content and visible non-factory capture marks.
+  artifact, including factory-authored publication content, visible non-factory
+  capture content, and visible content whose authorship remains uncertain.
 - **Decomposition boundary:** the complete page surface or an explicitly
   declared, locatable subset against which coverage is assessed.
 - **Region:** a locatable organizational area for navigation, review, and
@@ -89,6 +91,14 @@ the controlling page, locating its reviewed boundary, inventorying represented
 content, and accounting for visible content outside or unresolved within that
 boundary. Foldouts and page spreads require evidence not present in the pilot
 and remain deferred.
+
+The verified source artifact controls what is visible and where it is located.
+The source publication remains factory evidence for content established as
+factory-authored, while a donor watermark, scan or handling mark, or other
+capture content is artifact-surface evidence without factory authorship.
+Authorship and source role are classified separately from location; precise
+decomposition does not grant factory authorship, and uncertain authorship
+remains explicit.
 
 ### Page and region composition
 
@@ -283,10 +293,20 @@ extent, containment, attachment, grouping, reading order, cross-reference, and
 boundary completeness. A page summary must not erase local ambiguity.
 Downstream layers preserve unresolved structural uncertainty where material.
 
-Decomposition stops or narrows only where undefined or unreadable source
-language forces a choice between materially different structural
-transcriptions of the boundary. Uncertainty about later engineering meaning is
-not itself a structural blocker.
+Decomposition stops or narrows the affected object, association, region, or
+boundary when ambiguous, unreadable, clipped, damaged, or otherwise
+insufficient source evidence prevents choosing among materially different
+structural representations. Such evidence problems include unclear linework,
+symbols, cavity marks, leader endpoints, overlaps, path continuity, or region
+boundaries. Source-language uncertainty is a structural blocker only when it
+materially changes the decomposition.
+
+An unreadable label may remain a locatable unreadable text occurrence when its
+existence, extent, and structural associations remain supportable. Uncertainty
+confined to later linguistic meaning, engineering interpretation, identity,
+applicability, or graph topology is not by itself a structural blocker and
+belongs to its downstream layer. Graph-extraction uncertainty likewise does
+not retroactively make the source structure unreadable.
 
 ## Reviewability and reversible traceability
 
