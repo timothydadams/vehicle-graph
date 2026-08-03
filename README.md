@@ -7,6 +7,21 @@ The project transforms service documentation into canonical JSON while
 preserving provenance, applicability, and the distinction between factory
 knowledge and vehicle-specific observations.
 
+## Publication Representation
+
+Vehicle Graph does not promote an undifferentiated PDF directly into graph
+facts. It first preserves a language-independent representation of what the
+publication visibly contains and how that content is organized. Translation is
+one optional consumer of that shared foundation; it does not own page
+decomposition.
+
+The intended path is: publication evidence → source-visible representation →
+optional linguistic interpretation → engineering interpretation → candidate
+claims → accepted graph knowledge. Each transition remains reviewable and does
+not imply automatic promotion. See the [architecture overview](docs/ARCHITECTURE.md),
+[semantic-layer contract](docs/TRANSLATION_SEMANTIC_LAYERS.md), and
+[source page-object taxonomy](docs/SOURCE_PAGE_OBJECT_TAXONOMY.md).
+
 ## Current Status
 
 🚧 Documentation complete

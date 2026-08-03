@@ -14,6 +14,11 @@ replacement for the original publication. Translation prepares source material
 for review and possible later extraction; it does not accept graph knowledge.
 The ownership and promotion boundaries around this workflow are defined in
 [Translation Semantic Layers and Artifact Ownership](TRANSLATION_SEMANTIC_LAYERS.md).
+This workflow depends on the shared, language-independent
+[publication representation](ARCHITECTURE.md#publication-representation).
+Translation may bind to source-visible page objects and structure, but it does
+not create or own page decomposition. A non-English publication can therefore
+be structurally decomposed before its language is interpreted.
 
 ## Translation Stages
 
@@ -54,9 +59,12 @@ The ownership and promotion boundaries around this workflow are defined in
     PDF views from accepted translation records when implementation is later
     authorized.
 13. **Optional downstream graph extraction.** Apply the normal extraction and
-    independent-review workflow, with the original publication as primary
-    evidence, applicable same-publication explanatory pages as interpretive
-    dependencies, and the accepted translation as a reviewed translation aid.
+    independent-review workflow using the reviewed inputs relevant to each
+    candidate. These may include original factory evidence, source-visible
+    structure, linguistic interpretation, engineering normalization,
+    applicability evidence, and same-publication interpretive dependencies.
+    An accepted translation remains a reviewed translation aid, not a required
+    or sole extraction input.
 
 ## Required Distinctions
 

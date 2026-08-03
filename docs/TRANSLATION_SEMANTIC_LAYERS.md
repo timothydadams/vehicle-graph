@@ -3,9 +3,12 @@
 ## Purpose and scope
 
 This document defines the semantic boundaries between original-language
-factory evidence, reviewed translation work, graph knowledge, and generated
-English outputs. It assigns ownership, authority, provenance, transformations,
-review gates, and uncertainty to each layer.
+factory evidence, source-visible publication representation, reviewable
+linguistic interpretation, graph knowledge, and generated English outputs. It
+assigns ownership, authority, provenance, transformations, review gates, and
+uncertainty to each layer. The existing name reflects the translation pilot
+that produced the investigation; the linguistic responsibility is broader than
+source-to-English translation.
 
 The layers are a semantic contract, not a proposed directory layout, JSON
 schema, state machine, or implementation plan. Existing artifacts may carry
@@ -25,7 +28,7 @@ remain valid and unchanged.
         v
 2. Source-visible structure
         v
-3. Linguistic translation
+3. Linguistic interpretation / translation
         v
 4. Engineering normalization
         v
@@ -53,7 +56,7 @@ provenance to other layers:
 Factory evidence ───────────────────────────────────────────────┐
         │                                                       │
         ▼                                                       │
-Source-visible structure ─────────► Linguistic translation      │
+Source-visible structure ─────────► Linguistic interpretation   │
         │                              │                        │
         ├──────────────────────────────┼──► Engineering         │
         │                              │    normalization       │
@@ -83,6 +86,21 @@ representation without increasing its evidentiary authority. Translation is
 therefore neither the sole input to graph extraction nor a substitute for
 primary evidence, and publishing may consume more than accepted graph facts
 when the upstream review state is disclosed.
+
+Source-visible structure is the semantic layer of the broader
+[publication-representation capability](ARCHITECTURE.md#publication-representation).
+It exists for English and non-English publications alike. A publication does
+not need to be translated before it can be structurally decomposed, and a text
+occurrence or visible association remains valid structure when its meaning is
+unknown. Linguistic interpretation augments that structure rather than creating
+it. Some downstream engineering classification may still require a supported
+source-language reading or translation.
+
+An agent may understand Japanese directly, but that transient capability does
+not remove the need to preserve explicit transcription, provenance,
+uncertainty, review scope, and durable linguistic artifacts. Multilingual
+interpretation can assist review; it is not repository evidence or a substitute
+for qualified language-fidelity review.
 
 ## Semantic invariants
 
@@ -128,7 +146,7 @@ a canonical representation.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Factory evidence | Publication artifact, page image, fingerprint, publication and page coordinates | Preserved evidence plus committed identity and inventory | Primary factory evidence: authoritative for what the identified publication visibly contains | Immutable artifact after fingerprinting; identity corrections are versioned | Artifact and source-location verification | Publication metadata and capture context | Translation, engineering identity, or topology |
 | Source-visible structure | Regions, text objects, symbols, labels, layout, paths, depicted joins, and source-local notation | Candidate decomposition; implementation undecided | Direct derived observation tied to primary evidence | Versioned and reviewable | Location and publication-convention review | Factory evidence and material interpretive dependencies | Factory authorship, canonical entities, inferred connectivity, or identifier equivalence |
-| Linguistic translation | Original-language transcription and literal English | Existing translation record or candidate translation unit | Provisional or reviewed linguistic interpretation; authoritative only for its recorded translation-review scope | Versioned and reviewable | Source-language and qualified human language-fidelity review | Visible text or region and primary evidence | Factory-authored English, normalization, component identity, topology, or widened scope |
+| Linguistic interpretation / translation | Original-language transcription, source-language reading, and literal English when translation is performed | Existing translation record or candidate linguistic unit | Provisional or reviewed linguistic interpretation; authoritative only for its recorded review scope | Versioned and reviewable | Source-language and qualified human language-fidelity review | Visible text or region and primary evidence | Factory-authored English, normalization, component identity, topology, or widened scope |
 | Engineering normalization | Explicit engineering terminology that retains source and literal wording | Candidate normalized wording; exact durable artifact undecided | Provisional or reviewed domain interpretation within its terminology scope | Versioned and reviewable | Terminology and applicability review | Source structure, reviewed translation, and separately identified terminology evidence | Silent qualifier removal, equivalence, or graph facts |
 | Graph extraction / candidate claims | Candidate entities, relationships, applicability, evidence roles, and claim-specific ambiguity | Candidate artifact; exact shape undecided | Candidate engineering claim, even after independent review | Versioned and reviewable; frozen by revision during review | Extraction and independent graph review | Primary evidence, structure, translation aid, normalization, applicability evidence, and dependencies | Acceptance, factory-authored English, or unsupported topology |
 | Accepted knowledge graph | Explicitly accepted nodes, edges, facts, provenance, applicability, and supersession | Canonical graph JSON; schema undecided | Accepted canonical repository knowledge: authoritative for governed repository queries within explicit scope | Governed canonical state; meaning changes through explicit supersession or qualification | Human-controlled canonical acceptance after independent review | Exact reviewed candidates and retained provenance | Silent mutation, unreviewed inference, universal scope, or view authority |
@@ -215,13 +233,16 @@ history remain recoverable.
 - **Mutability:** reviewable derived work unless a later decision defines a
   canonical structural artifact.
 
-## 3. Linguistic translation
+## 3. Linguistic interpretation and translation
 
-- **Purpose:** preserve visible original-language text and provide the closest
-  supportable English wording without importing engineering normalization.
-- **Owns:** Japanese source transcription, literal English, translation-unit
-  coverage, language and grammar questions, and separate source-reading and
-  literal-translation review states.
+- **Purpose:** preserve a reviewable linguistic representation of visible text
+  and, when translation is needed, provide the closest supportable target-
+  language wording without importing engineering normalization.
+- **Owns:** exact source transcription, source-language reading, literal
+  translation, translation-unit coverage, language and grammar questions,
+  multilingual interpretation artifacts, and separate source-reading and
+  literal-translation review states. Accepted terminology mappings belong only
+  where the later engineering-normalization layer assigns them.
 - **Does not own:** page geometry except through a structural binding;
   normalized Toyota terminology; canonical identifiers; engineering entities;
   connectivity; or graph acceptance.
@@ -375,8 +396,8 @@ history remain recoverable.
 | Artifact fingerprint | Factory evidence | Binds downstream locations to reviewed evidence |
 | PDF and printed page coordinates | Factory evidence | Structure references but does not redefine the mapping |
 | Source-visible region identity | Source-visible structure | Artifact form and canonical status remain open |
-| Japanese transcription | Linguistic translation | Bound to visible text or a bounded region |
-| Literal English | Linguistic translation | Never silently normalized |
+| Japanese transcription | Linguistic interpretation / translation | Bound to visible text or a bounded region |
+| Literal English | Linguistic interpretation / translation | Never silently normalized |
 | Normalized Toyota terminology | Engineering normalization | Requires scoped evidence and review |
 | Page layout and hierarchy | Source-visible structure | Issue #27 defines decomposition details |
 | Symbols and visible label attachment | Source-visible structure | Translation owns wording; extraction owns engineering claims |
