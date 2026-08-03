@@ -167,12 +167,16 @@ pilot-grounded, page-scoped candidate vocabulary in
 the [Source Page Object Taxonomy](../SOURCE_PAGE_OBJECT_TAXONOMY.md); it remains
 subject to broader publication-family validation in Issue #31. Both completed
 investigations establish publication representation below translation. Issue
-#27's candidate [Page Decomposition](../PAGE_DECOMPOSITION.md) design is also
-complete. The current work is Issue #29's in-progress
-[Publication Identifier Taxonomy](../PUBLICATION_IDENTIFIER_TAXONOMY.md), which
-defines identifier roles, scope, preservation, stability, and collision rules
-without selecting syntax or schema. Issues #30, #31, and #32 remain separate,
-open investigations.
+#27's candidate [Page Decomposition](../PAGE_DECOMPOSITION.md) design and Issue
+#29's [Publication Identifier Taxonomy](../PUBLICATION_IDENTIFIER_TAXONOMY.md)
+are also complete. Issue #30's in-progress
+[Page-to-Translation Binding Model](../PAGE_TRANSLATION_BINDING_MODEL.md) defines
+how linguistic artifacts may reference stable source-visible occurrences or
+declared regions without owning publication structure. Issues #31 and #32
+remain separate, open investigations.
+
+Current Epic #26 status: #27, #28, #29, and #34 complete; #30 in progress; #31
+and #32 open.
 
 Completing publication representation will unblock production translation and
 translation binding, and will establish shared inputs for structured search,

@@ -22,7 +22,10 @@ not imply automatic promotion. See the [architecture overview](docs/ARCHITECTURE
 [semantic-layer contract](docs/TRANSLATION_SEMANTIC_LAYERS.md), and
 [source page-object taxonomy](docs/SOURCE_PAGE_OBJECT_TAXONOMY.md). The
 candidate [page-decomposition model](docs/PAGE_DECOMPOSITION.md) describes how
-those source-visible occurrences may be organized for review.
+those source-visible occurrences may be organized for review, and the
+[page-to-translation binding model](docs/PAGE_TRANSLATION_BINDING_MODEL.md)
+defines how linguistic artifacts may reference that structure without owning
+it.
 
 ## Current Status
 

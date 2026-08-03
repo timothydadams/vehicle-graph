@@ -1082,6 +1082,11 @@ canonical artifact.
 
 ## Boundaries with sibling issues
 
+Issue #30's [Page-to-Translation Binding Model](PAGE_TRANSLATION_BINDING_MODEL.md)
+references occurrences of the candidate classes defined here. A binding to a
+text label does not become a binding to the depicted object it visibly labels,
+and nonlinguistic page objects remain valid without bindings.
+
 - Issue [#28](https://github.com/timothydadams/vehicle-graph/issues/28)
   defines semantic ownership and constrains this taxonomy to Source-visible
   Structure.

@@ -186,6 +186,12 @@ belong to later work.
 
 ## Implemented Translation Records
 
+The current records use pilot-local grouped regions. The conceptual
+[Page-to-Translation Binding Model](PAGE_TRANSLATION_BINDING_MODEL.md) preserves
+those records while defining how future linguistic subjects may reference
+stable occurrences, source-supported composites, explicit occurrence sets, or
+bounded regions. It changes no current schema or record.
+
 Canonical structured translations use page-or-bounded-region JSON records
 validated by [`translation-record.schema.json`](../schemas/translation-record.schema.json).
 Each record preserves ordered content units, original-publication primary

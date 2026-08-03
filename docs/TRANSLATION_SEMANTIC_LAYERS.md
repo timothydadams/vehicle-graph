@@ -572,6 +572,12 @@ that every graphic object was decomposed or that graph coverage is complete.
 
 ## Relationship to current translation records
 
+The downstream relationship between linguistic subjects and source-visible
+structure is refined in the
+[Page-to-Translation Binding Model](PAGE_TRANSLATION_BINDING_MODEL.md). Binding
+direction expresses dependency on publication representation and does not
+transfer structural ownership or promote engineering meaning.
+
 The Milestone 7 records remain valid, unchanged, canonical for their current
 reviewed-translation artifact role, and review-ready derived interpretive
 representations. They are not source-page decompositions, graph extractions,
