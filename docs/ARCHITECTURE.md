@@ -95,6 +95,12 @@ storage, nor hierarchy; does not promote a page object into an engineering
 entity or graph fact; and remains subject to validation across other
 publication families.
 
+The candidate [Page Decomposition](PAGE_DECOMPOSITION.md) model organizes
+instances of that vocabulary within a verified page or declared page boundary.
+It recommends a containment hierarchy for page organization plus explicit
+non-hierarchical structural relationships for visible associations. The model
+is conceptual: it defines no canonical artifact or engineering topology.
+
 ## Architectural principles
 
 - **Language-independent foundation.** A publication can be structurally
@@ -118,10 +124,10 @@ publication families.
 These principles were discovered through successful vertical pilots. One
 Diagram tested a direct evidence-to-graph slice; the Japanese translation
 feature then exposed page-organization limits. Milestone 7 validated translation
-records, and Issues #28 and #34 defined the shared semantic boundaries and
-page-object vocabulary. Issue #27 will deliberately investigate page
-decomposition next. This evolution does not invalidate One Diagram or the
-Milestone 7 results.
+records, Issues #28 and #34 defined the shared semantic boundaries and page-
+object vocabulary, and Issue #27 now investigates their candidate page-level
+composition. This evolution does not invalidate One Diagram or the Milestone 7
+results.
 
 ## Canonical state
 

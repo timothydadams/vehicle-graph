@@ -59,10 +59,10 @@ where it leads and what persists across pages is separate work. A multi-page
 engineering object must not be forced into unrelated page-local identities
 before that relationship is designed.
 
-Issue #27 owns canonical decomposition, page hierarchy, overlap, geometry,
-stable identity, and reading order. Whether it also fully owns publication-level
-hierarchy, or whether later evidence requires a dedicated publication-structure
-investigation, remains open.
+Issue #27 owns page-decomposition design, page hierarchy, overlap, geometry,
+stable structural identity, reading order, and related structural organization
+questions. Whether a later investigation must own publication-level hierarchy
+remains open.
 
 ## What a page object is not
 
@@ -104,9 +104,9 @@ Every type below uses the same conceptual template:
 - **Open questions** defer unresolved classification or decomposition choices.
 
 “May contain” and “may be contained by” are vocabulary constraints only. They
-do not answer Issue #27's questions about canonical hierarchy, overlap,
-nesting, reading order, or stable decomposition identity. “Owns” describes
-meaning, not storage.
+do not answer Issue #27's questions about page hierarchy, overlap, nesting,
+reading order, or stable structural identity. “Owns” describes meaning, not
+storage.
 
 ## Candidate-class status
 
@@ -1075,9 +1075,10 @@ authority merely because a page has been decomposed precisely.
 This pilot-grounded vocabulary supplies candidate primitive types for a future
 decomposition.
 It does not determine whether every occurrence is represented, whether objects
-nest or overlap, how regions are bounded, whether reading order is captured,
-which identities are stable, or whether the resulting artifact is canonical.
-Those decisions belong to Issue #27 and require their own evidence and review.
+nest or overlap, how regions are bounded, whether reading order is captured, or
+which identities are stable. Issue #27 addresses those page-decomposition
+design questions with its own evidence and review; it does not declare a
+canonical artifact.
 
 ## Boundaries with sibling issues
 

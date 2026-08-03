@@ -167,8 +167,10 @@ pilot-grounded, page-scoped candidate vocabulary in
 the [Source Page Object Taxonomy](../SOURCE_PAGE_OBJECT_TAXONOMY.md); it remains
 subject to broader publication-family validation in Issue #31. Both completed
 investigations establish publication representation below translation. The
-current next work is Issue #27's page-decomposition design. Issues #27, #29,
-#30, #31, and #32 remain separate, open investigations.
+current work is Issue #27's in-progress candidate
+[Page Decomposition](../PAGE_DECOMPOSITION.md) design. Issue #27 remains open
+until that design is reviewed and merged; Issues #29, #30, #31, and #32 remain
+separate, open investigations.
 
 Completing publication representation will unblock production translation and
 translation binding, and will establish shared inputs for structured search,
