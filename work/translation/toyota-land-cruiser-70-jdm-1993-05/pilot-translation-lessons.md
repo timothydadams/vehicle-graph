@@ -44,18 +44,22 @@ a literal-translation disposition for entirely nonlinguistic units;
 No validation rule was weakened, and the schema was not redesigned to hide
 this friction.
 
-## Recommendation after more experience
+## Architectural discovery
 
-Keep the current schema for independent review of these records. After more
-diagram pages have been authored and reviewed, evaluate whether a small,
-diagram-specific content kind or explicit source-structure binding is justified.
-Any proposal should be based on repeated review failures or lost provenance,
-not authoring convenience alone. Normalized terminology should likewise wait
-for evidenced terminology promotion rather than being inferred from plausible
-English.
+The records work as intended for linguistic content, provenance, uncertainty,
+and review state. The pilot also demonstrated that future translation should
+not use translation-unit categories as the only representation of source-page
+organization. A language-independent page decomposition model should be
+investigated before additional production pages are translated.
 
-The model appears scalable to hundreds of pages for provenance, status, review,
-and textual content. Diagram-heavy scaling will be labor-intensive, and its
-practical limit should be reassessed after independent reviewers test whether
-the grouped graphical notation can be reconstructed reliably from the cited
-page and dependency locations.
+Keep the current schema and records unchanged while independent review proceeds.
+Epic [#26](https://github.com/timothydadams/vehicle-graph/issues/26) will examine
+stable page regions, structural and linguistic ownership, identifier taxonomy,
+page-to-translation relationships, publication-type coverage, and the contract
+with graph extraction. Any later schema or ADR proposal must follow that
+investigation rather than treating this discovery as a Milestone 7 defect.
+
+The current model remains practical for provenance, status, review, and textual
+content. Scaling to hundreds of pages is intentionally paused until the
+intermediate structural representation is designed, so future tooling and
+translation campaigns do not encode a flattened organization prematurely.
