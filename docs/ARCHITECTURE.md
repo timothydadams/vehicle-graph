@@ -40,10 +40,12 @@ rule that higher layers augment rather than replace lower-layer evidence. They
 are a semantic contract, not a claim that every layer has a separate schema.
 
 Within the Source-visible Structure layer, the
-[Source Page Object Taxonomy](SOURCE_PAGE_OBJECT_TAXONOMY.md) defines the
-language-independent vocabulary for visible page occurrences. It defines
-neither storage nor hierarchy and does not promote a page object into an
-engineering entity or graph fact.
+[Source Page Object Taxonomy](SOURCE_PAGE_OBJECT_TAXONOMY.md) defines a
+pilot-grounded, language-independent candidate vocabulary for visible,
+page-scoped occurrences. It defines neither publication-wide structure,
+storage, nor hierarchy; does not promote a page object into an engineering
+entity or graph fact; and remains subject to validation across other
+publication families.
 
 ## Canonical state
 

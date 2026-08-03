@@ -2,34 +2,67 @@
 
 ## Purpose and status
 
-This document defines a language-independent vocabulary for objects visibly
-present on engineering-publication pages. It implements the design
+This document defines a pilot-grounded, language-independent **candidate
+taxonomy** for source-visible objects on engineering-publication pages. It is
+initially supported by the diagram-heavy Milestone 7 Toyota EWD pages `2-3`,
+`2-7`, and `3-2` and provides a stable starting vocabulary for the design
 investigation in Issue
 [#34](https://github.com/timothydadams/vehicle-graph/issues/34) and is limited
 to the **Source-visible Structure** layer defined by
 [Translation Semantic Layers and Artifact Ownership](TRANSLATION_SEMANTIC_LAYERS.md).
 
-This is a conceptual taxonomy, not a schema. It does not choose JSON fields,
-identifiers, geometry, containment rules, reading order, decomposition
-artifacts, translation bindings, or graph transformations.
+Broader adequacy across publication families is unproven. Issue
+[#31](https://github.com/timothydadams/vehicle-graph/issues/31) owns that
+evaluation. Later evidence may add, refine, merge, or retire classes; no class
+becomes canonical merely by appearing here. This is a conceptual vocabulary,
+not a schema. It does not choose JSON fields, identifiers, geometry,
+containment rules, reading order, decomposition artifacts, translation
+bindings, or graph transformations.
 
 ## Governing test
 
-> A source page object is a bounded occurrence of visible content or visible
-> organization that a reviewer can point to on the identified publication
-> page without first deciding what engineering entity or graph fact it means.
+> A source page object is a locatable occurrence of visible content or visible
+> organization that a reviewer can identify on the controlling publication
+> evidence without first deciding what engineering entity or graph fact it
+> means.
 
-An occurrence may be text-bearing, graphical, or organizational. Exact
-boundaries may remain open. A type belongs here only if its instances can be
-located in the original publication artifact. Publication-defined guidance may
-be needed to name a visible form precisely, but the guidance must not be used
-to promote that form into an engineering identity or relationship.
+An occurrence may be text-bearing, graphical, or organizational. It may have
+fuzzy or overlapping extents, distributed or linked visible parts, no explicit
+enclosure, or a long course across several regions. It qualifies when a
+reviewer can point to its visible parts and association in traceable evidence.
+Locatable does not mean OCR-detected, automatically segmented, or already
+assigned a bounding box. Issue #27 owns any future boundaries, geometry, or
+extents. Publication-defined guidance may be needed to name a visible form
+precisely, but the guidance must not promote that form into an engineering
+identity or relationship.
 
 The page itself is the outer source-visible surface. A publication is evidence
 context, not a page object: no single page occurrence is the publication.
 Likewise, a section is represented here only by a visible section indicator,
 heading, boundary, or other page occurrence; an inferred document hierarchy is
 deferred to Issue #27.
+
+## Page scope and publication-level structure
+
+This candidate taxonomy covers occurrences locatable on one publication page
+or visible page surface. Publication identity remains Factory Evidence context,
+not a page object. A page-local heading, section indicator, printed page number,
+or continuation marker may be a page object because a reviewer can locate it
+on that page; the publication hierarchy or resolved cross-page relationship it
+suggests is not defined here.
+
+The taxonomy does not define a publication, volume, chapter, section hierarchy,
+appendix structure, multi-page table, multi-page figure, foldout, spread,
+document-wide motif identity, cross-page reading order, resolved continuation,
+or cross-page object identity. A continuation marker is a page object; resolving
+where it leads and what persists across pages is separate work. A multi-page
+engineering object must not be forced into unrelated page-local identities
+before that relationship is designed.
+
+Issue #27 owns canonical decomposition, page hierarchy, overlap, geometry,
+stable identity, and reading order. Whether it also fully owns publication-level
+hierarchy, or whether later evidence requires a dedicated publication-structure
+investigation, remains open.
 
 ## What a page object is not
 
@@ -59,7 +92,8 @@ Every type below uses the same conceptual template:
 - **Purpose** explains why the visible type is distinguished.
 - **Observable characteristics** describe how a reviewer can locate it without
   asserting engineering meaning.
-- **Typical examples** are publication-agnostic visible forms.
+- **Typical examples** illustrate the candidate concept without claiming that
+  it is sufficient across publication families.
 - **May contain / May be contained by** record possible visual organization,
   not a decided hierarchy.
 - **Owns / Does not own** state semantic responsibility.
@@ -73,6 +107,21 @@ Every type below uses the same conceptual template:
 do not answer Issue #27's questions about canonical hierarchy, overlap,
 nesting, reading order, or stable decomposition identity. “Owns” describes
 meaning, not storage.
+
+## Candidate-class status
+
+Classes have evidence status, not schema status:
+
+| Status | Meaning | Examples in this document |
+| --- | --- | --- |
+| Pilot-supported | Directly visible on at least one of the three pilot pages | page grid, legend key, text label, connector depiction, path depiction, junction dot |
+| Publication-guidance-supported | Classification also depends on reviewed guidance from the same Toyota publication | harness-path depiction, circuit-path depiction, connector cavity, terminal mark |
+| Provisional candidate | Plausible vocabulary retained without direct support from the three pilot pages | paragraph, warning, inset |
+| Retained for future-family validation | A cautious class whose adequacy or distinctness requires Issue #31 evidence | table subdivisions, continuation reference, splice depiction |
+
+These descriptions are review aids, not implemented status fields. A
+pilot-supported class is supported only for the observed pilot forms; it is not
+automatically sufficient for another publication family.
 
 ## Document objects
 
@@ -603,48 +652,89 @@ meaning, not storage.
   fuses, batteries, alternator, meter, and lower connector drawings on `3-2`.
 - **Open questions:** identifier class and scope belong to Issue #29.
 
-### Conductor path
+### Path depiction
 
-- **Purpose:** preserve an extended line visibly used as part of an engineering
-  depiction without asserting what it connects.
-- **Observable characteristics:** continuous or intentionally interrupted line,
-  possibly with bends, labels, dots, or boundary intersections.
-- **Typical examples:** circuit line or colored harness route.
-- **May contain:** wire segments, junction dots, labels, and continuation marks.
+- **Purpose:** preserve a visible continuous or segmented line-like route
+  without deciding what kind of thing, if any, it depicts.
+- **Observable characteristics:** locatable course with styling, color, width,
+  bends, interruptions, labels, dots, or boundary intersections.
+- **Typical examples:** colored routed form on a layout page or linework in a
+  circuit diagram.
+- **May contain:** path segments, junction dots, labels, and continuation marks.
   **May be contained by:** diagram, block, or visual group.
-- **Owns:** visible course and line treatment. **Does not own:** conductor
-  identity, electrical continuity, endpoints, or graph topology.
+- **Owns:** source-visible geometry, styling, color, and extent. **Does not own:**
+  a physical conductor, harness, fluid line, data flow, continuity, endpoints,
+  or graph topology.
 - **May reference:** visibly intersected or attached marks.
-- **Must not imply:** conductor path = graph edge.
-- **Pilot examples:** colored harness routes on `2-3` and `2-7`; circuit lines
-  across `3-2`.
-- **Open questions:** when one path is split into wire segments.
+- **Must not imply:** path depiction = graph edge or physical route.
+- **Pilot examples:** the target-specific harness-path depictions on `2-3` and
+  `2-7`; circuit-path depictions on `3-2`.
+- **Open questions:** which source-supported roles remain useful across the
+  publication families evaluated by Issue #31.
 
-### Wire segment
+### Harness-path depiction
 
-- **Purpose:** name a visually bounded portion of a conductor path without
-  asserting electrical segmentation.
-- **Observable characteristics:** portion between visible bends, joins, labels,
-  symbols, boundaries, or other segmentation cues.
-- **Typical examples:** one straight or curved line portion.
-- **May contain:** label or inline mark. **May be contained by:** conductor path
+- **Purpose:** specialize a path depiction when same-publication guidance and
+  a target-local legend support its visible harness-layout role.
+- **Observable characteristics:** colored routed form visibly associated with a
+  named harness legend entry and color swatch under the reviewed convention.
+- **Typical examples:** one colored route-like form on a harness-layout page.
+- **May contain:** path segments or visible inline marks. **May be contained by:**
+  harness-layout diagram or visual group.
+- **Owns:** visible route-like form and target-local legend association. **Does
+  not own:** an accepted harness entity, individual conductor, physical routing,
+  attachment, continuity, or topology.
+- **May reference:** its legend entry under the reviewed page convention.
+- **Must not imply:** that the depiction is one conductor or proves a physical
+  harness route.
+- **Pilot examples:** colored harness-layout path depictions on `2-3` and
+  instrument-panel harness-layout path depictions on `2-7`.
+- **Open questions:** whether later decomposition records one colored form, a
+  grouped route, or smaller visual parts.
+
+### Circuit-path depiction
+
+- **Purpose:** specialize a path depiction that occurs in a circuit-diagram
+  context without accepting electrical connectivity.
+- **Observable characteristics:** circuit linework with visible course, labels,
+  intersections, dots, terminal marks, or symbol contacts.
+- **Typical examples:** line-like path across the circuit field on `3-2`.
+- **May contain:** path segments, junction dots, labels, and terminal marks.
+  **May be contained by:** circuit diagram or block.
+- **Owns:** visible circuit-path form and its source-defined presentation. **Does
+  not own:** one wire, a conductor entity, accepted continuity, or graph edge.
+- **May reference:** visibly associated dots, symbols, labels, and terminals.
+- **Must not imply:** that visibly connected linework is already an accepted
+  connectivity claim.
+- **Pilot examples:** the circuit-path depictions across `3-2`.
+- **Open questions:** Issue #32 will determine how these observations may
+  support candidate connectivity extraction.
+
+### Path segment
+
+- **Purpose:** retain a candidate visual subdivision of a path depiction
+  without asserting electrical or physical segmentation.
+- **Observable characteristics:** a locatable path portion between bends, joins,
+  labels, symbols, boundaries, or other possible visual cues.
+- **Typical examples:** one straight or curved portion of circuit linework.
+- **May contain:** label or inline mark. **May be contained by:** path depiction
   or block.
-- **Owns:** visible local geometry. **Does not own:** wire identity, continuity,
-  gauge, color meaning, or graph edge.
+- **Owns:** visible local geometry. **Does not own:** wire identity, conductor
+  identity, continuity, gauge, color meaning, or graph edge.
 - **May reference:** adjacent visible marks.
-- **Must not imply:** an independently meaningful conductor or edge.
-- **Pilot examples:** visually separable line portions between dots, symbols,
-  and block boundaries on `3-2`.
-- **Open questions:** whether segmentation is useful before Issue #32 defines
-  candidate extraction needs.
+- **Must not imply:** an independently meaningful conductor or electrical edge.
+- **Pilot examples:** possible visual subdivisions between dots, symbols, and
+  block boundaries on `3-2`; no segment-level representation is selected.
+- **Open questions:** Issues #27 and #32 will determine whether segment-level
+  representation is useful.
 
 ### Leader line
 
 - **Purpose:** distinguish a line that visibly associates a callout or label
-  with another occurrence from a depicted conductor path.
+  with another occurrence from a path depiction.
 - **Observable characteristics:** thin association line terminating at a label,
   drawing, or callout, without being colored or styled like the depicted
-  harness paths on the same page.
+  harness-path depictions on the same page.
 - **Typical examples:** connector-to-location association line.
 - **May contain:** no required child. **May be contained by:** callout, diagram,
   or page region.
@@ -664,7 +754,7 @@ meaning, not storage.
 - **Observable characteristics:** filled or outlined point aligned with two or
   more path portions.
 - **Typical examples:** black dot at a T or crossing.
-- **May contain:** no required child. **May be contained by:** conductor path,
+- **May contain:** no required child. **May be contained by:** path depiction,
   block, or diagram.
 - **Owns:** dot shape and exact visible placement. **Does not own:** accepted
   electrical join, splice entity, or graph branching.
@@ -681,8 +771,8 @@ meaning, not storage.
 - **Observable characteristics:** publication-defined mark at or around path
   portions.
 - **Typical examples:** splice mark distinct from an ordinary junction dot.
-- **May contain:** label or terminal-like mark. **May be contained by:**
-  conductor path or diagram.
+- **May contain:** label or terminal-like mark. **May be contained by:** path
+  depiction or diagram.
 - **Owns:** visible form and source-defined classification. **Does not own:**
   splice entity, electrical equivalence, or topology.
 - **May reference:** associated visible paths or labels.
@@ -902,20 +992,24 @@ in those two roles must not be conflated.
 
 Around the perimeter, text labels, connector depictions, cavity drawings,
 brackets, and leader lines form callouts. The central engine-compartment drawing
-is a graphical background or subject depiction; the colored harness paths are
-conductor-path depictions laid over it. Their colors and proximity are visible,
-but neither establishes harness identity, attachment, routing fact, or graph
-topology. The footer combines factory publication marks with a non-factory
-capture watermark, which remain distinct object types despite sharing an area.
+is a graphical background or subject depiction. The colored forms laid over it
+are harness-layout path depictions: the target-local legend and reviewed
+publication convention visibly associate their colors with named harness
+entries. They do not thereby become accepted harness entities, individual
+conductors, physical routing or attachment facts, or graph edges. The page grid
+remains distinct from the case-sensitive legend keys. The footer combines
+factory publication marks with a non-factory capture watermark, which remain
+distinct object types despite sharing an area.
 
 ### Printed page 2-7
 
-The instrument-panel illustration, colored harness paths, perimeter callouts,
-connector groups, and leader lines are distinct graphical and structural
-occurrences. The right-side harness legend contains uppercase and lowercase
-keys, text labels, and color swatches. `H`, `J`, `K`, `k`, `p`, and `q` retain
-their exact case and occurrence context; their identifier taxonomy is not
-decided here.
+The instrument-panel illustration, colored instrument-panel harness-layout path
+depictions, perimeter callouts, connector groups, and leader lines are distinct
+graphical and structural occurrences. The right-side harness legend contains
+uppercase and lowercase keys, text labels, and color swatches. `H`, `J`, `K`,
+`k`, `p`, and `q` retain their exact case and occurrence context; their
+identifier taxonomy is not decided here. Route-like presentation does not
+establish accepted physical routing, attachment, continuity, or topology.
 
 The page heading includes engine and side qualifiers. Individual connector
 callouts also display production qualifiers such as `(~'95.1)` and `('95.1~)`.
@@ -927,17 +1021,21 @@ system for future decomposition.
 
 The page visibly contains block boundaries labeled `R/B NO.1` and `F/B NO.1`,
 component-like symbols, an ignition-switch depiction, battery and alternator
-depictions, conductor paths, wire-color labels, junction dots, fuse-like forms,
+depictions, circuit-path depictions, wire-color labels, junction dots,
+fuse-like forms,
 connector depictions, cavity drawings, and terminal marks. The right-side
-combination-meter label is a text label adjacent to a bounded depiction; the
-label does not create a component entity.
+combination-meter label is a text label adjacent to a visibly enclosed
+depiction; the label does not create a component entity.
 
-The paths, intersections, dots, terminals, and symbol boundaries can all be
-recorded as source-visible forms. This taxonomy does not assert that a path is
-a conductor entity, that a dot is accepted electrical connectivity, that a
-terminal mark is an endpoint, or that a labeled block is a physical assembly.
-The circle/square production legend, its entries, and matching page marks are
-visible correspondences; applicability conclusions remain downstream.
+The circuit-path depictions, path portions, junction dots, symbols, terminal
+marks, and symbol boundaries can all be recorded as source-visible structure.
+Later extraction may propose connectivity claims from this evidence, but no
+claim is accepted merely because the page visibly connects lines. This taxonomy
+does not assert that a circuit path is one wire or conductor entity, that a dot
+is accepted electrical connectivity, that a terminal mark is an endpoint, or
+that a labeled block is a physical assembly. The circle/square production
+legend, its entries, and matching page marks are visible correspondences;
+applicability conclusions remain downstream.
 
 ## Required distinctions
 
@@ -945,7 +1043,7 @@ visible correspondences; applicability conclusions remain downstream.
 | --- | --- | --- |
 | Text label | Engineering component | Wording and its visible association do not establish identity |
 | Connector depiction | Connector entity | A drawn view does not establish canonical identity, mating, or applicability |
-| Conductor path or wire segment | Graph edge | Visible linework is not accepted connectivity or topology |
+| Path depiction or path segment | Graph edge | Visible linework is not accepted connectivity or topology |
 | Legend key | Page-grid coordinate | Role and occurrence context differ even when glyphs match |
 | Page region | Graph subgraph | Visual extent is not an engineering boundary |
 | Graphical proximity | Engineering relationship | Nearness is observation, not a claim |
@@ -974,7 +1072,8 @@ authority merely because a page has been decomposed precisely.
 
 ## Relationship to future page decomposition
 
-This vocabulary supplies candidate primitive types for a future decomposition.
+This pilot-grounded vocabulary supplies candidate primitive types for a future
+decomposition.
 It does not determine whether every occurrence is represented, whether objects
 nest or overlap, how regions are bounded, whether reading order is captured,
 which identities are stable, or whether the resulting artifact is canonical.
@@ -994,8 +1093,33 @@ Those decisions belong to Issue #27 and require their own evidence and review.
   classify identifiers, values, labels, references, scope, and namespaces.
 - Issue [#30](https://github.com/timothydadams/vehicle-graph/issues/30) will
   define how translation records bind to page objects or regions.
+- Issue [#31](https://github.com/timothydadams/vehicle-graph/issues/31) will
+  evaluate these candidates across other publication families and determine
+  where they require extension or revision.
 - Issue [#32](https://github.com/timothydadams/vehicle-graph/issues/32) will
   define how reviewed upstream material supports candidate graph claims.
+
+## Publication families not yet validated
+
+The diagram-heavy pilot does not validate the taxonomy for the following
+coverage candidates:
+
+| Unvalidated family | Candidate forms requiring evidence |
+| --- | --- |
+| Photographs | image areas, captions, overlays, scales, and callouts |
+| Charts and plots | axes, scales, series, data points, and chart legends |
+| Numbered prose structure | sections, subsections, lists, and list items |
+| Mathematics | equations, formula blocks, variables, and equation labels |
+| Procedures | ordered steps, prerequisites, outcomes, cautions, and branching |
+| Exploded views | part depictions, balloons, leader lines, and parts lists |
+| Maps and spatial diagrams | mapped regions, scales, keys, and spatial legends |
+| Multi-page structures | tables, figures, foldouts, spreads, continuations, and repeated motifs |
+| Engineering change material | revision clouds, strikeouts, stamps, and change markup |
+
+These are coverage candidates, not object classes defined by this document.
+Issue #31 will test whether the current primitives describe them or whether the
+taxonomy needs additions, refinements, mergers, or retirements. This PR does not
+invent unreviewed classes to simulate completeness.
 
 ## Non-goals
 

@@ -24,8 +24,9 @@ decisions, and working constraints.
     ownership, dependency, authority-level, mutability, and promotion boundaries
     from factory evidence through translation, graph acceptance, and publishing.
 11. [SOURCE_PAGE_OBJECT_TAXONOMY.md](SOURCE_PAGE_OBJECT_TAXONOMY.md) —
-    Language-independent vocabulary for source-visible objects on engineering
-    publication pages, without engineering or graph promotion.
+    Pilot-grounded, language-independent candidate vocabulary for page-scoped
+    source-visible objects, without engineering or graph promotion; broader
+    publication-family validation remains deferred.
 12. [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) — How a fresh reviewer tests
     the evidence-to-claim transformation before canonical acceptance.
 13. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas

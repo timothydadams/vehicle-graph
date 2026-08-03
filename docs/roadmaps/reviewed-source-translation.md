@@ -64,7 +64,7 @@ GitHub PR numbers. Milestone names are the durable references.
 | Pilot evidence preparation | Complete | Artifact and frozen mappings merged in PR #23 | Preserve frozen evidence boundary |
 | Source-language review | Complete | All targets and dependencies reviewed; dispositions merged in PR #24 | Preserve the reviewed boundary and dispositions |
 | Pilot translation | Complete | Three review-ready records merged in PR #25; schema, provenance, review separation, and dependency handling validated | Independently review the pilot records |
-| Page decomposition architecture | In progress | Semantic-layer boundaries from Issue #28 are merged; the source-page object vocabulary from Issue #34 is under review | Complete Epic #26 investigations before expanding production translation |
+| Page decomposition architecture | In progress | Semantic-layer boundaries from Issue #28 are merged; the pilot-grounded candidate source-page vocabulary from Issue #34 is under review | Validate candidate concepts across publication families and complete Epic #26 before expanding production translation |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
 | Terminology promotion | Planned | Provisional ledger seeded | Promote proven recurring terms |
 | Publishing | Planned | Derived-view role defined | Build renderer, indexes, and companion PDF |
@@ -155,10 +155,11 @@ Issue [#28](https://github.com/timothydadams/vehicle-graph/issues/28) defined
 semantic layers and artifact ownership in
 [Translation Semantic Layers and Artifact Ownership](../TRANSLATION_SEMANTIC_LAYERS.md).
 Issue [#34](https://github.com/timothydadams/vehicle-graph/issues/34) is in
-progress and defines the source-visible vocabulary in the
-[Source Page Object Taxonomy](../SOURCE_PAGE_OBJECT_TAXONOMY.md); it remains
-incomplete until its implementation merges. Issues #27, #29, #30, #31, and #32
-remain separate, open investigations.
+progress and defines the pilot-grounded, page-scoped candidate vocabulary in
+the [Source Page Object Taxonomy](../SOURCE_PAGE_OBJECT_TAXONOMY.md); it remains
+incomplete until its implementation merges. Broader publication-family
+validation belongs to Issue #31. Issues #27, #29, #30, #31, and #32 remain
+separate, open investigations.
 
 ### Milestone 8 — Independent-review preparation ([issue](https://github.com/timothydadams/vehicle-graph/issues/12))
 
