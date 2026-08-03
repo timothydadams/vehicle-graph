@@ -172,8 +172,9 @@ investigations establish publication representation below translation. Issue
 are also complete. Issue #30's in-progress
 [Page-to-Translation Binding Model](../PAGE_TRANSLATION_BINDING_MODEL.md) defines
 how linguistic artifacts may reference stable source-visible occurrences or
-declared regions without owning publication structure. Issues #31 and #32
-remain separate, open investigations.
+declared regions without owning publication structure; implementation is under
+review in [draft PR #40](https://github.com/timothydadams/vehicle-graph/pull/40).
+Issues #31 and #32 remain separate, open investigations.
 
 Current Epic #26 status: #27, #28, #29, and #34 complete; #30 in progress; #31
 and #32 open.
