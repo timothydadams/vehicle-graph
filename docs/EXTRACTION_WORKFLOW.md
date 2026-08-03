@@ -83,7 +83,8 @@ Translation acceptance and graph-candidate acceptance are separate review
 gates. An accepted translation may support candidate extraction, but each graph
 candidate still follows this workflow, cites the original source location, and
 requires independent review and canonical acceptance. See the
-[reviewed source translation workflow](TRANSLATION_WORKFLOW.md).
+[reviewed source translation workflow](TRANSLATION_WORKFLOW.md) and the
+[translation semantic-layer contract](TRANSLATION_SEMANTIC_LAYERS.md).
 
 Use this decision test:
 
