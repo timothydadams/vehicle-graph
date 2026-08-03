@@ -63,12 +63,13 @@ GitHub PR numbers. Milestone names are the durable references.
 | Record model | Complete | Translation record schema, supplemental validator, synthetic fixtures, and tests merged in PR #7 | Prepare and freeze pilot evidence |
 | Pilot evidence preparation | Complete | Artifact and frozen mappings merged in PR #23 | Preserve frozen evidence boundary |
 | Source-language review | Complete | All targets and dependencies reviewed; dispositions merged in PR #24 | Preserve the reviewed boundary and dispositions |
-| Pilot translation | In progress | Review-ready records created for the three targets cleared without material ambiguity | Independently review the pilot records |
+| Pilot translation | Complete | Three review-ready records merged in PR #25; schema, provenance, review separation, and dependency handling validated | Independently review the pilot records |
+| Page decomposition architecture | Planned | Milestone 7 revealed a need for language-independent source-page structure | Complete the investigation in Epic #26 before expanding production translation |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
 | Terminology promotion | Planned | Provisional ledger seeded | Promote proven recurring terms |
 | Publishing | Planned | Derived-view role defined | Build renderer, indexes, and companion PDF |
-| Batch translation | Planned | Bounded-work principle defined | Add preparation tools and reviewed campaigns |
-| Graph integration | Planned | Provenance roles defined | Integrate only after accepted workflow |
+| Batch translation | Blocked | Bounded-work principle defined | Wait for the page-decomposition investigation before adding production-scale tooling or campaigns |
+| Graph integration | Planned | Provenance roles defined | Define the page-decomposition-to-extraction contract before implementation |
 
 ## 5. Completed Milestones
 
@@ -110,29 +111,45 @@ Complete, merged in [PR #23](https://github.com/timothydadams/vehicle-graph/pull
 The artifact fingerprint, mappings, targets, dependencies, and evidence
 boundary are frozen.
 
-## 6. Planned Milestones
-
 ### Milestone 6 — Pilot source-language review ([issue](https://github.com/timothydadams/vehicle-graph/issues/10))
 
-Status: Complete. The machine-assisted review package assigns every frozen
-target a disposition, reviews all five active dependencies, and was merged in
-PR #24.
-
-Review the publication conventions required by the pilot: chapter organization,
-pagination, table reading, identifiers, grid references, legends, color
-meaning, abbreviations, diagram and continuation notation, state/contact tables
-where applicable, qualifiers, and applicability marks. The outcome must be
-clearance, boundary narrowing, or documented blockage. Milestone 7 may begin
-after merge only for boundaries cleared by the review matrix; the prose-heavy
-target remains blocked pending human language review.
+Completed by [PR #24](https://github.com/timothydadams/vehicle-graph/pull/24).
+The machine-assisted review assigned every frozen target a disposition and
+reviewed all five active dependencies. The prose-heavy target remains blocked
+pending qualified human language review; documented blockage was a valid
+review outcome, not an incomplete convention inventory.
 
 ### Milestone 7 — Pilot translation records ([issue](https://github.com/timothydadams/vehicle-graph/issues/11))
 
-Create structured records for a representative set: title/applicability page,
-manual-organization page, printed pages `5-2`, `2-6`, and `2-3`, one
-instrument-panel harness layout, one prose-heavy explanatory page, and one
-system circuit diagram. Initial records remain draft or review-ready until
-separately reviewed.
+Completed by [PR #25](https://github.com/timothydadams/vehicle-graph/pull/25).
+The three targets cleared without material ambiguity—printed pages `2-3`,
+`2-7`, and `3-2`—now have canonical, review-ready JSON records. The pilot
+validated the translation-record schema, provenance model, independent review
+dimensions, interpretive-dependency handling, and separation of provisional
+literal English from engineering terminology. It did not accept translations,
+normalize Toyota terminology, or extract graph facts.
+
+## 6. Planned Milestones
+
+### Milestone 7A — Page decomposition architecture ([epic](https://github.com/timothydadams/vehicle-graph/issues/26))
+
+Investigate an intermediate, language-independent representation of the source
+publication's visual and semantic page structure. Review of the three pilot
+records demonstrated that linguistic fidelity and provenance are practical,
+while headings, legends, blocks, connector illustrations, harness drawings,
+tables, identifiers, and graphical notation need clearer structural ownership
+before translation expands.
+
+This milestone is a successful architectural discovery from Milestone 7, not a
+correction to it. It changes no schema, translation record, validator, or graph
+model. Its seven investigations will define proposed semantic layers and
+artifact ownership, a source page-object taxonomy, page decomposition and
+hierarchy, identifier taxonomy, page-object or region bindings to translation,
+coverage across publication families, and the downstream graph-extraction
+contract. These are investigations and design recommendations, not authorization
+for a schema or implementation decision. Further production-page translation
+and batch campaigns are gated on their completion; independent review of the
+existing pilot records may continue.
 
 ### Milestone 8 — Independent-review preparation ([issue](https://github.com/timothydadams/vehicle-graph/issues/12))
 
@@ -178,13 +195,15 @@ page correlation and provenance over visual imitation.
 Add local tools for page rendering, draft-record initialization, text-layer
 extraction where available, repeated-string detection, terminology suggestions,
 batch validation, and unreadable-region reporting. No tool may automatically
-accept translation work.
+accept translation work. Production-scale tooling must follow the page
+decomposition architecture rather than hard-code the pilot's grouped units.
 
 ### Milestone 15 — Full-publication translation campaign ([issue](https://github.com/timothydadams/vehicle-graph/issues/19))
 
 Translate the publication in bounded, reviewable batches. This is not one PR;
 use chapter- or page-type-oriented campaigns as evidence and review capacity
-support.
+support. Do not begin the campaign until the page decomposition investigation
+defines the canonical intermediate structure.
 
 ### Milestone 16 — Translation-aware graph extraction ([issue](https://github.com/timothydadams/vehicle-graph/issues/20))
 
@@ -200,10 +219,14 @@ remains independent.
 - Fingerprint and map the local PDF before reproducible page work.
 - Review required source-language conventions before translating affected
   pages.
+- Complete the page decomposition architecture investigation before expanding
+  production translation beyond the current pilot records.
 - Require successful pilot review before full-publication scaling.
 - Promote terminology only after repeated real usage demonstrates the need.
 - Begin renderer and publishing work after translation records stabilize.
-- Begin graph integration only after the translation workflow is accepted.
+- Define the page-decomposition-to-graph-extraction contract before graph
+  integration and begin implementation only after the translation workflow is
+  accepted.
 
 These are gates, not artificial serialization: local artifact preparation may
 proceed independently where it does not require record binding, and other safe
