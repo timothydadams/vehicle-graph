@@ -39,7 +39,7 @@ graph-extraction contract in Issue #32.
 8. **Review dimensions remain separate.** Structural target, binding
    correctness, source transcription, literal translation, engineering
    terminology, and graph extraction have distinct review gates.
-9. **Use the narrowest practical reviewed binding.** Precision is preferred,
+9. **Use the narrowest practical reviewable binding.** Precision is preferred,
    but source-supported composites, explicit occurrence sets, and bounded
    regions are allowed when atomic binding would lose meaning or impair review.
 10. **No binding silently retargets itself.** Material changes to target
@@ -50,10 +50,26 @@ graph-extraction contract in Issue #32.
 
 ### Binding
 
-A **binding** is a reviewed relationship connecting a linguistic artifact or
-translation unit to one or more source-visible occurrences or a declared
-region. The binding owns the relationship, its declared scope, uncertainty,
-and binding-review state. It owns neither endpoint.
+A **binding** is a proposed or reviewed, independently reviewable relationship
+connecting a linguistic artifact or translation unit to one or more
+source-visible occurrences or a declared region. The binding owns the proposed
+correspondence, declared scope, uncertainty, membership where applicable, and
+its own lifecycle and review state. It owns neither endpoint.
+
+### Binding lifecycle
+
+A proposed binding exists before binding-correctness review. The conceptual
+lifecycle must distinguish relationships that are proposed, under review,
+reviewed or accepted for their binding role, rejected, stale, or superseded.
+These descriptions are lifecycle needs, not required status names or transition
+rules.
+
+Acceptance applies only to the subject-target correspondence, membership, and
+declared binding scope. It does not accept source transcription, literal
+translation, engineering terminology, or any graph fact. Rejection deletes
+neither endpoint. Stale and superseded bindings remain recoverable through Git
+and future lifecycle artifacts. Exact status vocabulary and transition
+mechanics remain deferred.
 
 ### Structural binding target
 
@@ -77,7 +93,7 @@ separate stored binding for every subject type.
 A **binding role** states why the subject relates to the target. Candidate
 conceptual roles include `transcribes`, `literally translates`, `groups for
 translation`, `preserves untranslated notation`, `records language ambiguity`,
-`records a recorded omission disposition`, `records translation-not-applicable
+`records explicit omission disposition`, `records translation-not-applicable
 treatment`, and `supplies reviewed linguistic interpretation`. The vocabulary
 remains provisional. It must not include engineering relationships.
 
@@ -103,9 +119,9 @@ interpretive artifacts.
 occurrences or declared regions have an explicit linguistic treatment. A
 treatment may be transcription, translation, ambiguity, preserve-verbatim,
 translation-not-applicable, or a recorded omission disposition. Accounting for
-an occurrence does not mean it was successfully translated. This dimension is
-also distinct from whether structure was completely decomposed or terminology
-was normalized.
+an occurrence does not mean that a literal-translation proposal exists or that
+language-fidelity review is complete. This dimension is also distinct from
+whether structure was completely decomposed or terminology was normalized.
 
 ### Recorded omission disposition
 
@@ -113,9 +129,10 @@ A **recorded omission disposition** is an explicit, reviewable linguistic
 artifact stating that known source content was omitted from translation. It
 references a known occurrence, occurrence set, composite, or region; records a
 reason and review state; and remains visible in coverage reports. It counts as
-explicit binding treatment but not as successfully translated content. It does
-not silently satisfy a claim that the publication was translated. Depending on
-scope and reason, it may be intentional, provisional, or blocking.
+explicit binding treatment but satisfies neither literal-translation proposal
+coverage nor reviewed literal-translation coverage. It does not silently
+satisfy a claim that the publication was translated. Depending on scope and
+reason, it may be intentional, provisional, or blocking.
 
 ### Unbound linguistic occurrence
 
@@ -129,11 +146,12 @@ reflect incomplete work, an unresolved decision, or reviewer oversight.
 
 An **undetected omission** is source content absent from the translation
 workflow because it was not detected, decomposed, or recognized as linguistic
-content. It satisfies neither binding-accounting nor successfully translated
-coverage and may reveal structural-coverage, detection, or review failure. It
-cannot be converted automatically into a recorded omission disposition. A
-decomposition cannot account for content it never detected, so every
-completeness claim remains bounded to reviewed evidence.
+content. It satisfies neither binding-accounting, literal-translation proposal,
+nor reviewed literal-translation coverage and may reveal structural-coverage,
+detection, or review failure. It cannot be converted automatically into a
+recorded omission disposition. A decomposition cannot account for content it
+never detected, so every completeness claim remains bounded to reviewed
+evidence.
 
 ### Intentional exclusion
 
@@ -164,7 +182,8 @@ linguistic artifact or translation unit
               └── references ──► source-visible occurrence or region
 ```
 
-This direction expresses dependency and authority, not a storage layout:
+This direction expresses semantic dependency and reference direction, not a
+storage layout:
 
 - linguistic interpretation depends on publication representation;
 - publication representation does not depend on translation;
@@ -174,12 +193,15 @@ This direction expresses dependency and authority, not a storage layout:
 - an index may provide inverse navigation from structure to translations
   without reversing semantic ownership.
 
-The original publication controls what is visible. Publication representation
-owns the reviewed structural account and stable occurrence identity. A binding
-owns only its correspondence and review state. Linguistic interpretation owns
-its proposed reading and wording. Engineering normalization and graph
-extraction own later interpretations and claims. No endpoint gains the other's
-authority through association.
+The linguistic artifact references and depends on source-visible structure.
+The source publication's evidentiary authority comes from the repository's
+provenance model, not from arrow direction. Publication representation owns the
+reviewed structural account and stable occurrence identity. A binding owns only
+its proposed correspondence, scope, membership, uncertainty, and lifecycle
+state. Linguistic interpretation owns its proposed reading and wording.
+Engineering normalization and graph extraction own later interpretations and
+claims. No endpoint gains the other's authority through association. Inverse
+indexes remain permitted without reversing dependency or ownership.
 
 ## Binding subjects and targets
 
@@ -430,7 +452,8 @@ Independent coverage questions precede graph extraction:
 | --- | --- | --- |
 | Structural coverage | Which visible objects and relationships are represented inside the decomposition boundary? | Publication representation |
 | Binding-accounting coverage | Which represented linguistic occurrences have transcription, translation, ambiguity, preserve-verbatim, translation-not-applicable, or recorded omission treatment? | Binding/review workflow |
-| Successfully translated coverage | Which applicable bound content has a provisional or reviewed literal translation according to its declared status? | Linguistic interpretation |
+| Literal-translation proposal coverage | Which applicable bound source content has a proposed literal translation with its current review state explicitly recorded? | Linguistic interpretation |
+| Reviewed literal-translation coverage | Which applicable bound source content has passed the repository's required literal-translation or language-fidelity review gate for its stated purpose? | Linguistic interpretation and qualified review |
 | Unbound coverage gap | Which represented linguistic occurrences lack any treatment? | Binding/review workflow |
 | Undetected-content risk | What content may be absent because decomposition or linguistic detection was incomplete? | Publication representation and review workflow within their boundaries |
 | Engineering-normalization coverage | Which translated concepts have reviewed normalized terminology? | Engineering normalization |
@@ -439,8 +462,9 @@ Therefore:
 
 ```text
 complete decomposition
-!= complete binding
-!= complete translation
+!= complete binding accounting
+!= complete translation proposals
+!= reviewed translation completion
 != complete normalization
 != complete graph extraction
 ```
@@ -450,24 +474,42 @@ Also:
 ```text
 recorded omission disposition
 = accounted-for binding treatment
-!= successful translation
+!= literal-translation proposal
+!= reviewed translation completion
+```
+
+And:
+
+```text
+translation-not-applicable disposition
+= accounted-for linguistic treatment
+!= omission
+!= English translation
 ```
 
 A campaign may account for every expected represented occurrence while still
-reporting incomplete successfully translated coverage because one or more
-occurrences have recorded omission dispositions. Intentional exclusions remain
-visible at boundary or campaign level but are not omissions inside the accepted
-boundary. Translation-not-applicable dispositions count as explicit treatment,
-not omission or successful translation. Unreadable content and recorded
-omission dispositions remain visible with their states and reasons. Unbound
-occurrences remain coverage gaps. Undetected content remains a risk bounded by
-the reviewed evidence and cannot be claimed as accounted for.
+having incomplete literal-translation proposal coverage. It may have proposals
+for every applicable occurrence while reviewed literal-translation coverage
+remains incomplete. Recorded omission dispositions satisfy neither dimension.
+Intentional exclusions remain visible at boundary or campaign level but are not
+omissions inside the accepted boundary. Translation-not-applicable dispositions
+count as explicit treatment, not omission or English translation. Unreadable
+content and recorded omission dispositions remain visible with their states and
+reasons. Unbound occurrences remain coverage gaps. Undetected content remains a
+risk bounded by the reviewed evidence and cannot be claimed as accounted for.
+Every provisional English proposal retains its review status. Machine
+cross-checking, qualified human language verification, engineering review, and
+overall translation disposition remain distinct under the existing translation
+review model. Which existing status is sufficient for reviewed completion
+remains unresolved; this issue does not invent that policy. Visual polish or
+rendering cannot promote a proposal into reviewed translation.
 
 A grouped subject cannot claim complete page coverage merely because a broad
 region was translated. It must declare target occurrences, identify recorded
 omission dispositions, and expose occurrences inside its boundary that have no
 treatment. No coverage claim may rely on a recorded omission disposition as
-proof of successful translation.
+proof of either a literal-translation proposal or reviewed translation
+completion.
 
 Binding review should support both directions: structure-to-binding detects
 unbound linguistic occurrences, while binding-to-structure detects missing,
@@ -481,7 +523,8 @@ Record uncertainty at the narrowest level that could materially change the
 relationship. Distinguish uncertainty in target occurrence, target boundary,
 group membership, binding role, source reading, linguistic order, literal
 meaning, qualifier scope, recorded-omission reason or status, and engineering
-normalization.
+normalization. Binding lifecycle uncertainty remains separate from uncertainty
+about either endpoint or the linguistic content itself.
 
 Examples include a subject that may correspond to either of two labels; two
 readings of one label; a qualifier that may attach to one entry or a group; a
@@ -504,7 +547,10 @@ score:
    structural identity stable and its evidence location correct?
 2. **Binding-correctness review:** Does the subject address the claimed target?
    Are membership, role, scope, order, qualifiers, punctuation, and any
-   recorded omission or translation-not-applicable dispositions correct?
+   recorded omission or translation-not-applicable dispositions correct? Review
+   evaluates a proposed binding and may accept the correspondence for its
+   declared role and scope, reject it, narrow it, request correction, or leave
+   it unresolved. These outcomes do not select exact workflow states.
 3. **Source-transcription review:** Were source text, case, punctuation,
    identifiers, and qualifiers read and preserved correctly?
 4. **Literal-translation review:** Is the target-language wording faithful?
@@ -630,8 +676,9 @@ The production legend may use a grouped subject for `○` and `□` explanations
 plus explicit structural references to each distant mark. This records how the
 legend is read without resolving applicability or electrical meaning. A group
 must expose any missing distant mark and preserve the association between mark
-and legend entry. Translation coverage does not imply circuit-topology
-coverage. Toyota-normalized terminology remains separate from literal wording.
+and legend entry. Literal-translation proposal or reviewed coverage does not
+imply circuit-topology coverage. Toyota-normalized terminology remains separate
+from literal wording.
 
 ## Compatibility with existing Milestone 7 records
 
@@ -644,7 +691,7 @@ subject and associate structural references externally or through a later
 schema revision. Grouped units need not be split merely to gain precise
 bindings; their future binding can enumerate occurrences while preserving the
 group as a review unit. Current review states carry forward and do not imply
-binding approval.
+binding-correctness acceptance.
 
 Current `source_region_id` values and names such as `page-heading`,
 `harness-legend`, and `diagram-notation` are pilot-local source references.
@@ -695,7 +742,7 @@ prescribe their conclusions.
 ## Unresolved questions
 
 - Must every translatable text occurrence receive an explicit binding?
-- Can any region-level binding satisfy complete translation review?
+- Can any region-level binding support reviewed literal-translation completion?
 - When should repeated text share one linguistic subject?
 - Does transcription require finer granularity than literal translation?
 - Are substring or span bindings necessary, and how should they be located?
