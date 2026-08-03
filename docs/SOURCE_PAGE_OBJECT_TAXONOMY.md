@@ -760,7 +760,8 @@ automatically sufficient for another publication family.
   electrical join, splice entity, or graph branching.
 - **May reference:** intersecting visible path portions.
 - **Must not imply:** accepted connectivity.
-- **Pilot examples:** filled junction dots along the circuit paths on `3-2`.
+- **Pilot examples:** filled junction dots along the circuit-path depictions on
+  `3-2`.
 - **Open questions:** how a dot differs from a splice symbol under each
   publication's definitions.
 

@@ -389,7 +389,7 @@ composition includes:
 - relay and fuse symbols visibly contained in those blocks;
 - ignition-switch, battery, alternator, and combination-meter depictions;
 - combination-meter and charge-indicator labels;
-- wire-color labels, circuit paths, junction dots, terminal marks, connector
+- wire-color labels, circuit-path depictions, junction dots, terminal marks, connector
   depictions, cavities, and source-local identifiers;
 - aligned lower connector strip; and
 - factory marks plus the visible non-factory watermark.

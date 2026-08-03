@@ -67,26 +67,27 @@ displayed content such as `H8`, `A`, or `2-3` as a supposedly unique key.
 
 A **linguistic binding subject** is the linguistic artifact related to source
 structure. It may be an exact transcription, literal translation, grouped
-translation unit, language ambiguity, omission or not-applicable disposition,
-or a future accepted language representation. This list describes conceptual
-roles; it does not require a separate stored binding for every subject type.
+translation unit, language ambiguity, recorded omission disposition,
+translation-not-applicable disposition, or a future accepted language
+representation. This list describes conceptual roles; it does not require a
+separate stored binding for every subject type.
 
 ### Binding role
 
 A **binding role** states why the subject relates to the target. Candidate
 conceptual roles include `transcribes`, `literally translates`, `groups for
 translation`, `preserves untranslated notation`, `records language ambiguity`,
-`records omission`, `records not-applicable linguistic treatment`, and
-`supplies reviewed linguistic interpretation`. The vocabulary remains
-provisional. It must not include engineering relationships.
+`records a recorded omission disposition`, `records translation-not-applicable
+treatment`, and `supplies reviewed linguistic interpretation`. The vocabulary
+remains provisional. It must not include engineering relationships.
 
 ### Binding scope
 
 **Binding scope** is the declared structural and linguistic boundary covered by
 the relationship: for example, an exact text occurrence, a complete legend
 entry, an enumerated set of repeated labels, a table row, a page-heading region,
-or a bounded group of callouts. Scope identifies both inclusion and intentional
-exclusion where a target contains nonlinguistic structure.
+or a bounded group of callouts. Scope identifies both included linguistic
+content and nonlinguistic constituents that the treatment does not address.
 
 ### Binding evidence
 
@@ -96,12 +97,62 @@ page remains the evidentiary anchor. Page decomposition is a derived reviewed
 structural representation; the binding and translation are derived
 interpretive artifacts.
 
-### Binding coverage
+### Binding-accounting coverage
 
-**Binding coverage** records which represented linguistic occurrences or
-declared regions have an explicit linguistic treatment. It is distinct from
-whether the structure was completely decomposed and whether a translation or
-normalization was completed.
+**Binding-accounting coverage** records which represented linguistic
+occurrences or declared regions have an explicit linguistic treatment. A
+treatment may be transcription, translation, ambiguity, preserve-verbatim,
+translation-not-applicable, or a recorded omission disposition. Accounting for
+an occurrence does not mean it was successfully translated. This dimension is
+also distinct from whether structure was completely decomposed or terminology
+was normalized.
+
+### Recorded omission disposition
+
+A **recorded omission disposition** is an explicit, reviewable linguistic
+artifact stating that known source content was omitted from translation. It
+references a known occurrence, occurrence set, composite, or region; records a
+reason and review state; and remains visible in coverage reports. It counts as
+explicit binding treatment but not as successfully translated content. It does
+not silently satisfy a claim that the publication was translated. Depending on
+scope and reason, it may be intentional, provisional, or blocking.
+
+### Unbound linguistic occurrence
+
+An **unbound linguistic occurrence** is a represented source-visible linguistic
+occurrence with no binding or linguistic treatment. It fails
+binding-accounting coverage and remains discoverable through
+structure-to-binding review. It is not a recorded omission disposition; it may
+reflect incomplete work, an unresolved decision, or reviewer oversight.
+
+### Undetected omission
+
+An **undetected omission** is source content absent from the translation
+workflow because it was not detected, decomposed, or recognized as linguistic
+content. It satisfies neither binding-accounting nor successfully translated
+coverage and may reveal structural-coverage, detection, or review failure. It
+cannot be converted automatically into a recorded omission disposition. A
+decomposition cannot account for content it never detected, so every
+completeness claim remains bounded to reviewed evidence.
+
+### Intentional exclusion
+
+An **intentional exclusion** is content explicitly outside the declared
+translation boundary or campaign scope. It is recorded at boundary or campaign
+level and is not a translation binding unless a later design explicitly
+requires a bound exclusion disposition. It is not omitted content inside the
+accepted boundary, remains visible in overall publication coverage, and is not
+translation-not-applicable treatment.
+
+### Translation-not-applicable disposition
+
+A **translation-not-applicable disposition** is a reviewable linguistic
+treatment for an occurrence whose source value or notation is retained rather
+than translated, such as a grid coordinate, connector identifier, cavity
+number, or legend key. It counts as explicit binding treatment and may satisfy
+linguistic disposition coverage for that occurrence. It is not an omission,
+does not erase the source value, and creates neither English translation nor
+engineering interpretation.
 
 ## Ownership, authority, and direction
 
@@ -133,9 +184,9 @@ authority through association.
 ## Binding subjects and targets
 
 The same structural target may support transcription, translation, ambiguity,
-and a not-applicable disposition without requiring those concepts to be
-collapsed into one artifact. Conversely, one linguistic subject may address
-several explicitly enumerated targets when grouping is justified.
+and a translation-not-applicable disposition without requiring those concepts
+to be collapsed into one artifact. Conversely, one linguistic subject may
+address several explicitly enumerated targets when grouping is justified.
 
 Target kinds are conceptual:
 
@@ -145,7 +196,7 @@ Target kinds are conceptual:
 | Partial occurrence | A mixed occurrence or independently reviewable portion | Declare the covered portion; do not select offset syntax here |
 | Composite occurrence | One source-supported legend entry, callout, table cell, or heading with qualifier | Identify which constituent text is linguistic and preserve internal ambiguity |
 | Explicit occurrence set | Repeated wording or a reviewed translation group | Enumerate every member and state grouping rationale and order |
-| Declared region | Bounded prose or a legacy grouped unit lacking finer reviewed decomposition | State boundary, covered content, omissions, and limitations |
+| Declared region | Bounded prose or a legacy grouped unit lacking finer reviewed decomposition | State boundary, covered content, recorded omission dispositions, unbound gaps, and limitations |
 
 A target may contain or visibly attach to graphical objects. That does not make
 those objects linguistic targets unless they independently require a linguistic
@@ -177,9 +228,10 @@ overwrite one another without history.
 ### Many-to-many
 
 Unrestricted many-to-many binding is not recommended. It obscures which
-subject covers which occurrence and makes omission and revision review
-ambiguous. Where pilot evidence appears many-to-many, use an explicit grouping
-subject or occurrence-set target with declared membership and simpler bindings.
+subject covers which occurrence and makes recorded-disposition, unbound-gap,
+and revision review ambiguous. Where pilot evidence appears many-to-many, use
+an explicit grouping subject or occurrence-set target with declared membership
+and simpler bindings.
 If future evidence requires many-to-many directly, Issue #31 must define its
 boundary, membership, ordering, and review semantics before adoption.
 
@@ -187,9 +239,9 @@ boundary, membership, ordering, and review semantics before adoption.
 
 ### One binding per text occurrence
 
-This gives precise provenance, omission detection, ambiguity attachment, and
-review. It can also fragment phrases and create poor ergonomics for tables,
-legends, and text distributed across visual forms.
+This gives precise provenance, detection of unbound occurrences, ambiguity
+attachment, and review. It can also fragment phrases and create poor
+ergonomics for tables, legends, and text distributed across visual forms.
 
 ### Composite-object binding
 
@@ -202,7 +254,8 @@ non-text constituents are translated.
 
 A declared region is practical for bounded prose and compatible with current
 grouped records. It is too coarse for dense diagrams when used alone: it weakens
-field-level provenance, ambiguity attachment, and omission detection.
+field-level provenance, ambiguity attachment, and detection of unbound
+occurrences.
 
 ### Grouped occurrence binding
 
@@ -223,17 +276,22 @@ while making every departure from occurrence-level binding explicit.
 ## Source transcription alignment
 
 ```text
-source-visible text occurrence
+exact source transcription ── binding ──► source-visible text occurrence
           │
-          ├── binding ──► exact source transcription
-          └── binding ──► literal translation
+          └── supports ──► literal translation
                                   │
-                                  └── later engineering normalization
+                                  └── may support ──► engineering normalization
 ```
 
-The page object owns the visible occurrence and location; it need not contain
-accepted Japanese transcription. The linguistic artifact owns its proposed
-reading. A binding associates the reading with the occurrence.
+The arrows express semantic dependency and reference direction, not storage
+layout. The source-visible occurrence remains primary evidence even though the
+binding arrow points from the derived linguistic artifact toward it. The page
+object owns the visible occurrence and location; it need not contain accepted
+Japanese transcription. Transcription and translation are derived linguistic
+artifacts, and linguistic interpretation owns each proposed reading. A binding
+associates that reading with the occurrence. Inverse indexes may navigate from
+structure to linguistic artifacts for lookup and review, but inverse navigation
+does not reverse binding direction or transfer ownership.
 
 Transcription and literal translation normally reference the same structural
 target, but their granularity may differ. Exact transcription can remain
@@ -278,7 +336,7 @@ subject must:
 - state why the content is grouped;
 - preserve target-local qualifiers, punctuation, case, and ordering;
 - distinguish source-supported reading order from translator-selected order;
-- expose omissions and unreadable members;
+- expose recorded omission dispositions, unbound gaps, and unreadable members;
 - avoid claiming identity among repeated occurrences; and
 - narrow or become stale when membership changes materially.
 
@@ -314,15 +372,18 @@ marks, block designations, and cross-references retain the roles and scopes in
 the [Publication Identifier Taxonomy](PUBLICATION_IDENTIFIER_TAXONOMY.md).
 
 Their linguistic treatment may be preserve verbatim, transcription only,
-translation not applicable, explanatory annotation, or translated surrounding
-wording with the identifier retained. A not-applicable disposition is still
-reviewable linguistic coverage; it does not erase the occurrence. Displayed
-values never become binding keys.
+translation-not-applicable, explanatory annotation, or translated surrounding
+wording with the identifier retained. A translation-not-applicable disposition
+is explicit binding treatment, not an omission. It preserves the source value
+and may satisfy linguistic disposition coverage, but it creates neither an
+English translation nor an engineering interpretation. Displayed values never
+become binding keys.
 
 Mixed content must remain separable. For example, a legend key can be preserved
 while its adjacent Japanese harness name is translated. A wire-color label may
 be literally translated under a same-publication color convention, while the
-nearby path remains a graphical occurrence with no translation binding.
+nearby path depiction remains a graphical occurrence with no translation
+binding.
 
 ## Reading and traversal order
 
@@ -363,13 +424,15 @@ to the subject-target correspondence or source reading.
 
 ## Completeness and omission handling
 
-Four independent coverage questions precede graph extraction:
+Independent coverage questions precede graph extraction:
 
 | Coverage dimension | Question | Owner |
 | --- | --- | --- |
 | Structural coverage | Which visible objects and relationships are represented inside the decomposition boundary? | Publication representation |
-| Binding coverage | Which represented linguistic occurrences or regions have an explicit treatment? | Binding/review workflow |
-| Translation coverage | Which bound content has transcription, literal translation, ambiguity, omission, unreadable status, or not-applicable treatment? | Linguistic interpretation |
+| Binding-accounting coverage | Which represented linguistic occurrences have transcription, translation, ambiguity, preserve-verbatim, translation-not-applicable, or recorded omission treatment? | Binding/review workflow |
+| Successfully translated coverage | Which applicable bound content has a provisional or reviewed literal translation according to its declared status? | Linguistic interpretation |
+| Unbound coverage gap | Which represented linguistic occurrences lack any treatment? | Binding/review workflow |
+| Undetected-content risk | What content may be absent because decomposition or linguistic detection was incomplete? | Publication representation and review workflow within their boundaries |
 | Engineering-normalization coverage | Which translated concepts have reviewed normalized terminology? | Engineering normalization |
 
 Therefore:
@@ -382,28 +445,49 @@ complete decomposition
 != complete graph extraction
 ```
 
-Excluded, intentionally untranslated, unreadable, omitted, and not-applicable
-content remains visible in coverage accounting. A grouped subject cannot claim
-complete page coverage merely because a broad region was translated. It must
-declare target occurrences and account for linguistic occurrences inside its
-boundary that are not members.
+Also:
+
+```text
+recorded omission disposition
+= accounted-for binding treatment
+!= successful translation
+```
+
+A campaign may account for every expected represented occurrence while still
+reporting incomplete successfully translated coverage because one or more
+occurrences have recorded omission dispositions. Intentional exclusions remain
+visible at boundary or campaign level but are not omissions inside the accepted
+boundary. Translation-not-applicable dispositions count as explicit treatment,
+not omission or successful translation. Unreadable content and recorded
+omission dispositions remain visible with their states and reasons. Unbound
+occurrences remain coverage gaps. Undetected content remains a risk bounded by
+the reviewed evidence and cannot be claimed as accounted for.
+
+A grouped subject cannot claim complete page coverage merely because a broad
+region was translated. It must declare target occurrences, identify recorded
+omission dispositions, and expose occurrences inside its boundary that have no
+treatment. No coverage claim may rely on a recorded omission disposition as
+proof of successful translation.
 
 Binding review should support both directions: structure-to-binding detects
-untreated linguistic occurrences, while binding-to-structure detects missing,
-incorrect, or overbroad targets. Fidelity takes priority over superficial
-completeness.
+unbound linguistic occurrences, while binding-to-structure detects missing,
+incorrect, or overbroad targets and dispositions. Separate evidence review is
+needed to expose undetected omissions that never entered the represented set.
+Fidelity takes priority over superficial completeness.
 
 ## Uncertainty and failure states
 
 Record uncertainty at the narrowest level that could materially change the
 relationship. Distinguish uncertainty in target occurrence, target boundary,
 group membership, binding role, source reading, linguistic order, literal
-meaning, qualifier scope, omission status, and engineering normalization.
+meaning, qualifier scope, recorded-omission reason or status, and engineering
+normalization.
 
 Examples include a subject that may correspond to either of two labels; two
 readings of one label; a qualifier that may attach to one entry or a group; a
-grouped subject that omits a footnote; repeated text that differs by case; or a
-target changed after structural review.
+grouped subject with an unbound or undetected footnote; uncertainty about
+whether a known exclusion belongs inside the boundary; repeated text that
+differs by case; or a target changed after structural review.
 
 A higher-level translation cannot suppress structural ambiguity. Structural
 ambiguity blocks binding only where it prevents identifying the target,
@@ -419,7 +503,8 @@ score:
 1. **Structural-target review:** Does the occurrence or region exist? Is its
    structural identity stable and its evidence location correct?
 2. **Binding-correctness review:** Does the subject address the claimed target?
-   Are membership, role, scope, order, qualifiers, and punctuation correct?
+   Are membership, role, scope, order, qualifiers, punctuation, and any
+   recorded omission or translation-not-applicable dispositions correct?
 3. **Source-transcription review:** Were source text, case, punctuation,
    identifiers, and qualifiers read and preserved correctly?
 4. **Literal-translation review:** Is the target-language wording faithful?
@@ -442,7 +527,7 @@ their qualifications. They cannot claim qualified human language verification.
 | Geometry correction | Re-review only if target correspondence or boundary changes materially |
 | Occurrence split | Review every binding; explicitly supersede or replace coverage with bindings to resulting occurrences |
 | Occurrence merge | Review every binding; preserve former identities and explicit supersession rather than silently coalescing |
-| Region-boundary change | Re-evaluate inclusion, omission, and coverage claims |
+| Region-boundary change | Re-evaluate inclusion, intentional exclusion, recorded omission dispositions, unbound gaps, and coverage claims |
 | Page mapping or evidence artifact changes | Revalidate provenance and target correspondence |
 | Group member added or removed | Invalidate or narrow the former membership and coverage claim; unaffected occurrence bindings may remain |
 
@@ -477,17 +562,20 @@ The legend key `A` is not grid row `A`, even though the displayed values match.
 
 The `layout-identifiers` subject currently accounts for grid markers, connector
 identifiers, cavity numbers, production qualifiers, shapes, and colors as a
-grouped not-applicable treatment. Future binding can narrow this into explicit
-preserve-verbatim or not-applicable dispositions for identifier occurrences.
+grouped translation-not-applicable treatment. Future binding can narrow this
+into explicit preserve-verbatim or translation-not-applicable dispositions for
+identifier occurrences.
 Connector identifiers remain source-local and do not create connector identity.
 Production qualifiers preserve their visible association without accepting
 applicability.
 
 The printed page, publication date/part mark, and factory content remain
-distinct from the non-factory donor watermark. A capture mark can receive an
-explicit exclusion or non-factory disposition but must not be grouped into a
-factory translation. Current region names such as `harness-legend` remain
-pilot-local references, not proof that canonical regions already exist.
+distinct from the non-factory donor watermark. A capture mark outside the
+factory-translation boundary can receive an intentional-exclusion or
+non-factory disposition at boundary level; that is not a recorded omission or
+translation-not-applicable binding. Current region names such as
+`harness-legend` remain pilot-local references, not proof that canonical
+regions already exist.
 
 Conceptually:
 
@@ -496,7 +584,7 @@ heading translation              -> heading text occurrence
 engine-qualifier disposition      -> qualifier occurrence
 grouped legend translation        -> enumerated legend-entry text occurrences
 identifier-preservation treatment -> legend-key occurrence
-not-applicable treatment          -> grid-marker occurrence
+translation-not-applicable treatment -> grid-marker occurrence
 ```
 
 ### Printed page `2-7`
@@ -527,12 +615,16 @@ literal translations. Their association with depictions is structural context,
 not component identity or topology.
 
 Terminal marks, connector identifiers, cavity labels, and block designations
-generally receive preserve-verbatim, transcription-only, or not-applicable
-treatment. Wire-color labels can receive literal translations under the
-same-publication two-color convention, but nearby circuit paths do not thereby
-receive bindings. Circuit symbols, conductor paths, joins, relay contacts, and
-block boundaries have no translation binding merely because neighboring text
-does.
+generally receive preserve-verbatim, transcription-only, or
+translation-not-applicable treatment. Wire-color labels can receive literal
+translations under the
+same-publication two-color convention, but nearby circuit-path depictions do not
+thereby receive bindings. Circuit symbols, circuit-path depictions, junction
+dots, visible path meetings, relay contacts, and block boundaries remain
+source-visible graphical objects and have no translation binding merely because
+neighboring text does. Those structural observations do not establish
+conductors, electrical connectivity, or graph edges; topology remains owned by
+later graph extraction.
 
 The production legend may use a grouped subject for `○` and `□` explanations
 plus explicit structural references to each distant mark. This records how the
@@ -569,7 +661,7 @@ this investigation.
 - **Displayed text or source identifier value as binding key — rejected.**
   Values repeat, collide across roles, and change under correction.
 - **Page-level binding only — rejected.** It cannot support precise provenance,
-  qualifier scope, omission detection, or independent review.
+  qualifier scope, detection of unbound occurrences, or independent review.
 - **Atomic occurrence binding only — not adopted universally.** It is precise
   but fragments source-supported phrases, legends, tables, and distributed
   text.
