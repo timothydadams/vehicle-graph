@@ -35,8 +35,9 @@ rendered from accepted translation material is a derived view.
 
 The finer ownership boundaries within that path are defined in
 [Translation Semantic Layers and Artifact Ownership](TRANSLATION_SEMANTIC_LAYERS.md).
-They are a semantic contract, not a claim that every layer has a separate
-implemented schema.
+They define dependency edges, contextual authority levels, mutability, and the
+rule that higher layers augment rather than replace lower-layer evidence. They
+are a semantic contract, not a claim that every layer has a separate schema.
 
 ## Canonical state
 

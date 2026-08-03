@@ -21,8 +21,8 @@ decisions, and working constraints.
 9. [EXTRACTION_WORKFLOW.md](EXTRACTION_WORKFLOW.md) — The process for converting
    source material into accepted graph knowledge.
 10. [TRANSLATION_SEMANTIC_LAYERS.md](TRANSLATION_SEMANTIC_LAYERS.md) — Semantic
-    ownership and promotion boundaries from factory evidence through
-    translation, graph acceptance, and publishing.
+    ownership, dependency, authority-level, mutability, and promotion boundaries
+    from factory evidence through translation, graph acceptance, and publishing.
 11. [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) — How a fresh reviewer tests
    the evidence-to-claim transformation before canonical acceptance.
 12. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas

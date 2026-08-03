@@ -41,17 +41,115 @@ They do not mean automatic promotion, acceptance, or replacement. Graph
 extraction may consult source structure, translation, and normalization
 directly. Every derived layer retains provenance to original evidence.
 
+**Higher semantic layers augment lower layers; they do not replace them.**
+
+## Dependency diagram
+
+The linear diagram shows the normal semantic promotion order. The following
+diagram instead shows which layers may supply reviewed inputs or retained
+provenance to other layers:
+
+```text
+Factory evidence ───────────────────────────────────────────────┐
+        │                                                       │
+        ▼                                                       │
+Source-visible structure ─────────► Linguistic translation      │
+        │                              │                        │
+        ├──────────────────────────────┼──► Engineering         │
+        │                              │    normalization       │
+        │                              │           │            │
+        └──────────────────────────────┴───────────┼────────┐   │
+                                                  ▼        │   │
+Applicability evidence ─────────────────► Graph extraction ◄───┘
+                                                  │
+                                     reviewed candidates
+                                     + retained provenance
+                                                  │
+                                                  ▼
+                                      Accepted knowledge graph
+                                                  │
+                           ┌──────────────────────┴───────────┐
+                           ▼                                  ▼
+              Derived publishing views                Search / APIs
+
+Reviewed or visibly provisional upstream layers ─────► Publishing views
+Publishing views and Search / APIs ──X──► upstream truth or acceptance
+```
+
+Dependency edges are permissions to reference an upstream artifact in its
+actual evidence role, not automatic transformations. Review and acceptance
+gates still control semantic promotion. A derivation may produce a useful new
+representation without increasing its evidentiary authority. Translation is
+therefore neither the sole input to graph extraction nor a substitute for
+primary evidence, and publishing may consume more than accepted graph facts
+when the upstream review state is disclosed.
+
+## Semantic invariants
+
+These rules constrain every future artifact and transformation:
+
+- **Evidence preservation:** Every derived artifact MUST retain traceable
+  provenance to its controlling lower-layer evidence.
+- **Non-replacement:** A higher layer MAY augment, interpret, or organize a
+  lower layer, but MUST NOT overwrite, erase, or silently replace it.
+- **No silent promotion:** An observation, transcription, translation,
+  normalization, or candidate claim MUST NOT become an accepted graph fact
+  without its required review and acceptance gates.
+- **Authority does not flow from presentation:** English wording, visual polish,
+  indexing, rendering, or publication format MUST NOT increase evidentiary
+  authority.
+- **Ambiguity propagation:** A higher layer MUST preserve unresolved lower-layer
+  ambiguity unless an authorized review process explicitly resolves it. The
+  resolution and its evidence MUST remain reviewable.
+- **Applicability preservation:** Model, market, production-date, equipment, and
+  other applicability qualifiers MUST survive every semantic promotion.
+- **Identity discipline:** Repeated labels, similar symbols, shared identifiers,
+  or visual proximity MUST NOT establish cross-page or cross-publication
+  engineering identity.
+- **Regenerability:** Derived publishing artifacts SHOULD be reproducible from
+  reviewed upstream artifacts and MUST NOT become primary factory evidence.
+- **Layer ownership:** Each claim MUST have one semantic owner even when several
+  downstream artifacts reference it.
+
+In practice, normalized English does not replace source transcription; graph
+entities do not replace source-page objects; accepted graph facts do not
+replace their candidate claims or evidence; and rendered English pages do not
+replace the source PDF. When a higher-layer interpretation is corrected, the
+historical reviewed artifact and its provenance remain recoverable, and the
+new interpretation explains its correction or supersession.
+
 ## Primary audit view
 
-| Layer | Owns | Artifact and evidence status | Review gate | May reference | Must not assert |
-| --- | --- | --- | --- | --- | --- |
-| Factory evidence | Publication artifact, page image, fingerprint, publication and page coordinates | Preserved evidence plus committed identity and inventory | Artifact and source-location verification | Publication metadata and capture context | Translation, engineering identity, or topology |
-| Source-visible structure | Regions, text objects, symbols, labels, layout, paths, depicted joins, and source-local notation | Candidate decomposition; implementation undecided; direct source observation | Location and publication-convention review | Factory evidence and material interpretive dependencies | Canonical entities, inferred connectivity, or identifier equivalence |
-| Linguistic translation | Original-language transcription and literal English | Existing translation record or candidate translation unit; derived interpretation | Source-language and qualified human language-fidelity review | Visible text or region and primary evidence | Normalization, component identity, topology, or widened scope |
-| Engineering normalization | Explicit engineering terminology that retains source and literal wording | Candidate normalized wording; derived interpretation | Terminology and applicability review | Reviewed translation and separately identified terminology evidence | Silent qualifier removal, equivalence, or graph facts |
-| Graph extraction / candidate claims | Candidate entities, relationships, applicability, evidence roles, and claim-specific ambiguity | Candidate artifact; exact shape undecided | Extraction and independent graph review | Evidence, structure, translation aid, normalization, and dependencies | Acceptance, factory-authored English, or unsupported topology |
-| Accepted knowledge graph | Explicitly accepted nodes, edges, facts, provenance, applicability, and supersession | Canonical graph JSON; schema undecided | Human-controlled canonical acceptance after independent review | Exact reviewed candidates and retained evidence | Silent mutation, unreviewed inference, or view authority |
-| Derived presentation and publishing | Rendered pages, PDFs, diagrams, indexes, search structures, and disclosures | Generated noncanonical output | Publishing QA | Accepted upstream artifacts and disclosed provisional material | Factory evidence, factory authorship, canonical state, or new facts |
+Authority is expressed as a contextual level, not a yes/no property. The
+artifact column uses candidate wording wherever the repository has not chosen
+a canonical representation.
+
+| Layer | Owns | Candidate or canonical artifact | Authority level | Mutability | Review gate | May reference | Must not assert |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Factory evidence | Publication artifact, page image, fingerprint, publication and page coordinates | Preserved evidence plus committed identity and inventory | Primary factory evidence: authoritative for what the identified publication visibly contains | Immutable artifact after fingerprinting; identity corrections are versioned | Artifact and source-location verification | Publication metadata and capture context | Translation, engineering identity, or topology |
+| Source-visible structure | Regions, text objects, symbols, labels, layout, paths, depicted joins, and source-local notation | Candidate decomposition; implementation undecided | Direct derived observation tied to primary evidence | Versioned and reviewable | Location and publication-convention review | Factory evidence and material interpretive dependencies | Factory authorship, canonical entities, inferred connectivity, or identifier equivalence |
+| Linguistic translation | Original-language transcription and literal English | Existing translation record or candidate translation unit | Provisional or reviewed linguistic interpretation; authoritative only for its recorded translation-review scope | Versioned and reviewable | Source-language and qualified human language-fidelity review | Visible text or region and primary evidence | Factory-authored English, normalization, component identity, topology, or widened scope |
+| Engineering normalization | Explicit engineering terminology that retains source and literal wording | Candidate normalized wording; exact durable artifact undecided | Provisional or reviewed domain interpretation within its terminology scope | Versioned and reviewable | Terminology and applicability review | Source structure, reviewed translation, and separately identified terminology evidence | Silent qualifier removal, equivalence, or graph facts |
+| Graph extraction / candidate claims | Candidate entities, relationships, applicability, evidence roles, and claim-specific ambiguity | Candidate artifact; exact shape undecided | Candidate engineering claim, even after independent review | Versioned and reviewable; frozen by revision during review | Extraction and independent graph review | Primary evidence, structure, translation aid, normalization, applicability evidence, and dependencies | Acceptance, factory-authored English, or unsupported topology |
+| Accepted knowledge graph | Explicitly accepted nodes, edges, facts, provenance, applicability, and supersession | Canonical graph JSON; schema undecided | Accepted canonical repository knowledge: authoritative for governed repository queries within explicit scope | Governed canonical state; meaning changes through explicit supersession or qualification | Human-controlled canonical acceptance after independent review | Exact reviewed candidates and retained provenance | Silent mutation, unreviewed inference, universal scope, or view authority |
+| Derived presentation and publishing | Rendered pages, PDFs, diagrams, indexes, search structures, and disclosures | Generated noncanonical output | Derived presentation carrying upstream authority only | Regenerable output | Publishing QA | Accepted artifacts and disclosed reviewable upstream material | Factory evidence, factory authorship, canonical state, or new facts |
+
+### Authority and immutability are separate
+
+Authority is contextual. Factory evidence is authoritative for what the
+identified publication visibly contains. Accepted graph facts are authoritative
+canonical repository knowledge for governed queries within their explicit
+applicability. These are different kinds of truth, not adjacent values on a
+single scale.
+
+A translation may be accepted for language fidelity without becoming
+factory-authored English or accepted engineering knowledge. Immutability is a
+separate dimension: immutable evidence may still require source-language
+interpretation before it supports an engineering claim, while governed
+canonical graph knowledge may remain authoritative within the repository even
+though later evidence can qualify or supersede it. Versioned derived records
+may be revised through normal review, but their prior provenance and review
+history remain recoverable.
 
 ## 1. Factory evidence
 
@@ -404,8 +502,10 @@ with visible provisional labeling.
   identities and relationships.
 - **Publishing:** a disclosed English legend or annotated page.
 
-A legend key is not automatically a harness entity ID. A drawn path is not
-automatically a graph edge.
+The English harness legend augments the preserved Japanese labels; it does not
+replace them. Legend keys remain case-sensitive source-visible identifiers, not
+automatic harness entity IDs. A drawn path remains source structure, not an
+automatic graph edge.
 
 ### Printed page 2-7 — instrument-panel harness layout
 
@@ -420,6 +520,11 @@ callout prefixes, or other source-local marks. Case and occurrence context must
 survive. Issue #34 defines page-object types and Issue #29 identifier classes;
 this document decides neither. Translation establishes neither connector
 identity nor applicability beyond the source qualifier.
+
+The production qualifiers survive translation and every later extraction
+claim they scope. Case-sensitive keys and connector labels remain preserved in
+source structure; later normalization MUST NOT erase `LH`, `RH`, engine, side,
+or production-date constraints.
 
 ### Printed page 3-2 — power circuit diagram
 
@@ -436,10 +541,13 @@ identity nor applicability beyond the source qualifier.
 - **Accepted graph:** independently reviewed and explicitly accepted topology.
 - **Publishing:** a disclosed English rendering or searchable view.
 
-A translated label is not a component entity. A drawn line is source structure;
-connectivity is an extraction claim. `complete_bounded` means the declared
-translation boundary is reconciled, not that every graphic object was
-decomposed or that graph coverage is complete.
+The preserved `コンビネーションメーター` remains alongside provisional
+“Combination meter”; the English does not replace the Japanese or establish a
+canonical component identity. Conductor paths and junction dots support
+candidate connectivity claims but are not accepted graph relationships by
+themselves. A rendered English circuit page remains a derived view.
+`complete_bounded` means the declared translation boundary is reconciled, not
+that every graphic object was decomposed or that graph coverage is complete.
 
 ## Relationship to current translation records
 
