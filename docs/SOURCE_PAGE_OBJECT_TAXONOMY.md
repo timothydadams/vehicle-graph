@@ -1032,10 +1032,10 @@ The circuit-path depictions, path portions, junction dots, symbols, terminal
 marks, and symbol boundaries can all be recorded as source-visible structure.
 Later extraction may propose connectivity claims from this evidence, but no
 claim is accepted merely because the page visibly connects lines. This taxonomy
-does not assert that a circuit path is one wire or conductor entity, that a dot
-is accepted electrical connectivity, that a terminal mark is an endpoint, or
-that a labeled block is a physical assembly. The circle/square production
-legend, its entries, and matching page marks are visible correspondences;
+does not assert that a circuit-path depiction is one wire or conductor entity,
+that a dot is accepted electrical connectivity, that a terminal mark is an
+endpoint, or that a labeled block is a physical assembly. The circle/square
+production legend, its entries, and matching page marks are visible correspondences;
 applicability conclusions remain downstream.
 
 ## Required distinctions
