@@ -38,19 +38,22 @@ decisions, and working constraints.
 14. [PAGE_TRANSLATION_BINDING_MODEL.md](PAGE_TRANSLATION_BINDING_MODEL.md) —
     Conceptual relationships by which linguistic artifacts reference stable
     source-visible occurrences or declared regions without owning structure.
-15. [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) — How a fresh reviewer tests
+15. [PUBLICATION_FAMILY_EVALUATION.md](PUBLICATION_FAMILY_EVALUATION.md) —
+    Evidence-bounded stress test across the seven publication families required
+    by Issue #31, including demonstrated limits and Issue #32 readiness.
+16. [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) — How a fresh reviewer tests
     the evidence-to-claim transformation before canonical acceptance.
-16. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas
+17. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas
     must satisfy.
-17. [NON_GOALS.md](NON_GOALS.md) — What the project intentionally avoids.
-18. [ONE_DIAGRAM.md](ONE_DIAGRAM.md) — Scope and completion criteria for the
+18. [NON_GOALS.md](NON_GOALS.md) — What the project intentionally avoids.
+19. [ONE_DIAGRAM.md](ONE_DIAGRAM.md) — Scope and completion criteria for the
     current milestone.
-19. [One Diagram working material](../work/one-diagram/README.md) —
+20. [One Diagram working material](../work/one-diagram/README.md) —
     Pre-canonical inventories, candidates, boundaries, and unresolved questions
     for the current milestone.
-20. [Independent review working material](../work/independent-review/README.md) —
+21. [Independent review working material](../work/independent-review/README.md) —
     Reusable pre-canonical review-package convention and preparation command.
-21. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
+22. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
     intentionally deferred.
 
 Publication representation provides the language-independent foundation that

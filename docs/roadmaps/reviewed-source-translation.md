@@ -169,15 +169,18 @@ subject to broader publication-family validation in Issue #31. Both completed
 investigations establish publication representation below translation. Issue
 #27's candidate [Page Decomposition](../PAGE_DECOMPOSITION.md) design and Issue
 #29's [Publication Identifier Taxonomy](../PUBLICATION_IDENTIFIER_TAXONOMY.md)
-are also complete. Issue #30's in-progress
+are also complete. Issue #30's completed
 [Page-to-Translation Binding Model](../PAGE_TRANSLATION_BINDING_MODEL.md) defines
 how linguistic artifacts may reference stable source-visible occurrences or
-declared regions without owning publication structure; implementation is under
-review in [draft PR #40](https://github.com/timothydadams/vehicle-graph/pull/40).
-Issues #31 and #32 remain separate, open investigations.
+declared regions without owning publication structure and was delivered by
+[PR #40](https://github.com/timothydadams/vehicle-graph/pull/40). Issue #31's
+[Publication Family Evaluation](../PUBLICATION_FAMILY_EVALUATION.md) now
+stress-tests those completed concepts against all seven required families. It
+recommends that Issue #32 may proceed after review with documented evidence
+limitations; Issue #32 remains a separate, open, unstarted investigation.
 
-Current Epic #26 status: #27, #28, #29, and #34 complete; #30 in progress; #31
-and #32 open.
+Current Epic #26 status: #27, #28, #29, #30, and #34 complete; #31 under review;
+#32 open and unstarted.
 
 Completing publication representation will unblock production translation and
 translation binding, and will establish shared inputs for structured search,
