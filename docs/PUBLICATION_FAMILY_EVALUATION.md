@@ -88,8 +88,8 @@ The same questions governed every family:
   engineering entity it means?
 - **Composition:** can primitives and composites preserve material organization
   without a family-specific schema?
-- **Relationships:** can containment, attachment, alignment, ordering,
-  continuation, reference, overlap, and association be recorded without
+- **Relationships:** can containment, visible attachment, grouping, adjacency,
+  overlap, alignment, reference, sequence, and continuation be recorded without
   asserting engineering topology?
 - **Identity:** can structural occurrence identity remain separate from printed,
   engineering, and graph identity?
@@ -121,21 +121,26 @@ symbols, circuit-path depictions and segments, junction dots, terminal marks,
 wire-color text labels, fuse and relay depictions, connector depictions, notes,
 qualifiers, grid-like location marks, and references. The EWD168F spread also
 shows visually continued horizontal paths across several labeled system regions
-and lower references associated with paths.
+and lower visible references to paths.
 
 **Composition and identity.** A page or declared spread region contains diagram
-regions, blocks, symbols, labels, and path depictions. Explicit attachment,
-association, continuation, crossing, and ordering relationships preserve what
-is visible. A path may have distributed segments and crossings; a block may be
+regions, blocks, symbols, labels, and path depictions. Containment, visible
+attachment, grouping, overlap, reference, sequence where visibly supported,
+and continuation preserve the material structure. Two path extents may visibly
+cross; their recorded extents and overlap preserve that geometry without adding
+a `crossing` relationship. A path may have distributed segments; a block may be
 composite. Printed labels and codes remain identifier occurrences with page- or
 publication-local scope. Similar labels across the two publications do not
 establish shared engineering identity.
 
 **Language and bindings.** Graphical decomposition is useful before Japanese
 translation. Text labels, notes, wire-color occurrences, and qualifiers can be
-binding subjects later. Translation is required for reviewed linguistic or
-engineering interpretation, not for recognizing the occurrences or their
-visible associations.
+binding subjects later. Linguistic understanding may be required for reviewed
+source-language or engineering interpretation, but English translation is not
+required. Translation is one optional, reviewable linguistic representation
+that may support downstream interpretation. Source transcription, direct
+source-language understanding, literal translation, engineering normalization,
+engineering interpretation, and graph extraction remain distinct.
 
 **Limitations.** The EWD168F foldout-like spread demonstrates fuzzy page-versus-
 spread boundaries and paths that cross regions. The current model can preserve
@@ -164,9 +169,9 @@ lowercase forms are visibly distinct and are preserved exactly.
 
 **Composition and identity.** The subject illustration, route-like paths, and
 callouts are overlapping composites rather than one tree. Paths cross grid and
-region boundaries; callouts associate labels or connector depictions with
-locations through leader lines. Legend keys, grid coordinates, connector codes,
-and structural occurrence IDs require distinct roles even where characters
+region boundaries; leader lines visibly attach callouts containing labels or
+connector depictions to locations. Legend keys, grid coordinates, connector
+codes, and structural occurrence IDs require distinct roles even where characters
 collide. `LH`, `RH`, engine, model, and production text must remain source-
 visible qualifiers until interpreted and accepted downstream.
 
@@ -174,11 +179,11 @@ visible qualifiers until interpreted and accepted downstream.
 connector motifs remain decomposable before translation. The publication's own
 `1-3` explanation is necessary before assigning meanings to those marks; unknown
 meaning does not erase their visible form. Translation may bind to headings,
-legends, and labels without owning their placement or association.
+legends, and labels without owning their placement or visible attachment.
 
 **Limitations.** The paired `2-6` list and `2-7` layout demonstrate a publication-
 level correspondence that page-local proximity cannot resolve. The pages can be
-represented independently, but a durable cross-page association requires later
+represented independently, but a durable cross-page reference requires later
 publication-level design and source-language review.
 
 **Outcome:** `supported with a publication-specific composition`, with the
@@ -204,12 +209,14 @@ also visible. Japanese pages show repeated connector-body and cavity motifs in
 different compositions.
 
 **Composition and identity.** A connector depiction is a composite containing a
-body outline, cavities, terminal or cavity marks, and associated labels. It may
-sit within a table cell or callout. Decomposition is preferable where a mark's
-extent and independent review matter; the composite remains useful as a parent.
-Cavity numbers are visible text/identifier occurrences associated with cavity
-depictions. Their later role as terminal or cavity engineering identifiers is
-not decided here. View orientation must be represented only when an orientation
+body outline, cavities, terminal or cavity marks, and visibly attached labels.
+It may sit within a table cell or callout. Decomposition is preferable where a
+mark's extent and independent review matter; the composite remains useful as a
+parent.
+Cavity numbers are visible text/identifier occurrences contained by or visibly
+attached to cavity depictions. Their later role as terminal or cavity
+engineering identifiers is not decided here. View orientation must be
+represented only when an orientation
 mark or qualifier is visible; geometry alone cannot supply it.
 
 **Language and bindings.** Body geometry, cavity partitions, and repeated motifs
@@ -240,31 +247,36 @@ drawings embedded in cells, and multilingual reference rows. Geometric reading
 order is not always sufficient: the Japanese `5-2` page has two major vertical
 groups, while the connector tables repeat composite entries down columns.
 
-**Composition and identity.** Existing table, row, column, and cell objects can
-preserve the visible units. Containment records cells inside the table, and
-ordering can record review traversal. Printed codes and references remain
-identifier occurrences rather than row identity or engineering identity.
-Visible ditto or inheritance marks, if encountered, would be text occurrences
-and associations; none was relied on in these inspected examples.
+**Concrete composition test.** On Japanese printed `5-2`, one body cell in the
+left major column group can be recorded as a stable table-cell occurrence with
+its own visible extent. The table, horizontal row occurrence, vertical column
+occurrence, and cell occurrence are separately typed and locatable. The cell is
+document-structurally contained by the table; grouping and alignment relate it
+to the typed row and column occurrences; and sequence preserves the visibly
+supported order of rows and columns. The same cell may participate in both
+groups because Issue #27 expressly permits multiple group participation. A
+printed code or page reference inside the cell remains a separate contained
+identifier occurrence rather than row identity or engineering identity.
 
-**Demonstrated gap.** The taxonomy groups table, row, column, and cell classes,
-but the Page Decomposition structural-relationship vocabulary does not
-explicitly name row membership, column membership, or header scope. Containment
-alone cannot faithfully express that one cell participates in both a row and a
-column without multiple organizational parents, and generic association loses
-the visible role. This is a **decomposition vocabulary gap**, not proof that a
-publication-specific table schema is needed. A narrow role-qualified
-relationship vocabulary should be decided before implementation. It does not
-block Issue #32 because graph extraction can still treat a bounded table as
-source-visible input without converting its rows into facts.
+This composition preserves the visible row and column roles through typed
+relationship endpoints without new `row-membership` or `column-membership`
+relationship types. Exact representation and cardinality remain implementation
+questions. A future schema may add convenience relations without making them
+architectural prerequisites. Header scope remains provisional: the inspected
+examples support header-cell occurrences, alignment, grouping, and sequence,
+but do not demonstrate that every apparent spanning or inherited header has a
+reliably source-visible scope beyond those cues. Visible ditto or inheritance
+marks, if encountered, would remain text occurrences with only the grouping,
+alignment, reference, or sequence supported by the source; none was relied on
+in these examples.
 
 **Language and bindings.** Cell boundaries and order can be represented before
 translation. Text may bind per occurrence or at a declared group where the
 binding model's coverage rules are satisfied. Blank cells remain visible
 structure, not missing translations.
 
-**Outcome:** `architecture gap demonstrated` for explicit row/column/header
-membership; otherwise `supported provisionally`.
+**Outcome:** `supported with a publication-specific composition`; header scope
+remains `supported provisionally` where the visible cue is incomplete.
 
 Visible tabular organization, an interpreted record structure, and extracted
 engineering facts are three separate stages. A row is not automatically a
@@ -283,15 +295,18 @@ exceptions, footnotes, repeated measurement patterns, or multi-page
 specification continuation as a specification family.
 
 **Unproven conclusion.** It remains unproven that separate value and unit
-occurrences, visible association without property normalization, conditions,
-and prose-versus-table specification compositions are sufficient across real
-specification pages. Existing text, qualifier, table, and association concepts
+occurrences, visible grouping or attachment without property normalization,
+conditions, and prose-versus-table specification compositions are sufficient across real
+specification pages. Existing text, qualifier, table, and relationship concepts
 are plausible candidates, not validation.
 
 **Outcome:** `insufficient evidence`.
 
-Issue #32 may proceed because the current graph-extraction boundary is grounded
-in circuit evidence, provided it does not claim specification-family coverage.
+Issue #32 may proceed with limited demonstrated coverage. Its contract may
+define general evidence-preservation and review invariants, but it must keep
+those separate from family-specific inputs demonstrated only by the inspected
+circuit, harness-layout, connector-view, and table pages. Specifications remain
+unvalidated, and no extraction capability for them is authorized.
 A future bounded factory specification page with values, units, ranges,
 tolerances, conditions, variants, and footnotes would be useful.
 
@@ -306,16 +321,20 @@ steps, prerequisites, warnings scoped across steps, tool and part references,
 figures, acceptance criteria, branches, optional instructions, or procedure-
 level continuation.
 
-**Unproven conclusion.** Page-local sequence and text-to-figure association are
-conceptually representable, but procedure-level scope, shared warnings, and
-branching remain unvalidated publication-level questions.
+**Unproven conclusion.** Page-local sequence and text-to-figure reference or
+visible attachment are conceptually representable, but procedure-level scope,
+shared warnings, and branching remain unvalidated publication-level questions.
 
 **Outcome:** `insufficient evidence`.
 
-Issue #32 may proceed with an explicit limitation because it does not define a
-procedure execution model. Future evidence should include a bounded, authorized
-factory procedure with at least one warning, ordered steps, a referenced figure,
-and a conditional or continued step.
+Issue #32 may proceed with limited demonstrated coverage, but maintenance
+procedures remain unvalidated and no extraction capability for them is
+authorized. Its general contract must distinguish evidence-role and review
+invariants from untested procedure inputs. Issue #32 does not define a procedure
+execution model, but that fact does not narrow its architectural ownership to
+circuits. Future evidence should include a bounded, authorized factory
+procedure with at least one warning, ordered steps, a referenced figure, and a
+conditional or continued step.
 
 ### 7. Exploded diagrams
 
@@ -328,16 +347,17 @@ balloons, item numbers, leaders, quantity tables, assembly grouping, insets,
 variants, or repeated views.
 
 **Unproven conclusion.** Existing illustration, leader, label, table, group, and
-association concepts are plausible, but balloon-to-depiction association and
-parts-table composition have not been validated. Spatial separation must not be
-presumed to encode assembly relationships.
+relationship concepts are plausible, but balloon-to-depiction visible
+attachment or reference and parts-table composition have not been validated.
+Spatial separation must not be presumed to encode assembly relationships.
 
 **Outcome:** `insufficient evidence`.
 
-Issue #32 may proceed because depicted-part extraction is outside its immediate
-circuit boundary, provided no universal claim is made. Future bounded evidence
-should pair an exploded illustration with balloons, leaders, and its parts
-table.
+Issue #32 may proceed with limited demonstrated coverage, but exploded diagrams
+remain unvalidated and no extraction capability for them is authorized. Its
+general contract must distinguish evidence-role and review invariants from
+untested exploded-diagram inputs. Future bounded evidence should pair an
+exploded illustration with balloons, leaders, and its parts table.
 
 ## Cross-family findings
 
@@ -346,10 +366,11 @@ table.
 Inspected evidence supports reuse of page or declared boundary, region,
 heading, text occurrence, label, qualifier, note, legend and entry, table and
 cell, graphical depiction, path depiction and segment, leader line, visible
-boundary, visible attachment or association, source reference, publication or
+boundary, visible attachment, grouping, and reference, publication or
 capture mark, and printed identifier occurrence. Stable repository structural
-identity and locatable evidence extents remain useful across all four inspected
-families.
+identity and locatable evidence extents are supported across four inspected
+page families within two Toyota EWD publications in one broad electrical-wiring
+publication domain.
 
 These are reusable because reviewers can point to them before deciding their
 engineering meaning. Reuse does not imply identical downstream semantics.
@@ -363,8 +384,8 @@ engineering meaning. Reuse does not imply identical downstream semantics.
   depiction whose engineering identity remains downstream;
 - page grid and legend key: distinct navigation roles despite visual similarity
   to other short codes;
-- table header/body roles and row/column membership: visible organizational
-  roles requiring a narrow decomposition-vocabulary decision;
+- table header/body, row, column, and cell roles: visible organizational roles
+  preserved through typed occurrences, grouping, alignment, and sequence;
 - specification value, procedure step, and parts balloon: proposed specialized
   roles that remain unsupported until evidence exists.
 
@@ -376,9 +397,9 @@ a specialized role. Engineering meaning belongs downstream.
 | Prior concept | Finding |
 | --- | --- |
 | Semantic ownership (#28) | Supported: source-visible structure remained useful in Japanese and English without promotion into engineering identity, translation, or graph facts. |
-| Page-object vocabulary (#34) | Supported for four inspected families; proposed specification, procedure, and exploded-view roles remain unvalidated. |
-| Composition and hierarchy (#27) | Supported by mixed containment and explicit relationships; tables demonstrate a missing role-qualified membership distinction. |
-| Structural relationships (#27) | Visible attachment, association, continuation, crossing, overlap, and ordering were useful; row/column/header membership is the demonstrated gap. |
+| Page-object vocabulary (#34) | Supported across four inspected page families within two Toyota EWD publications; proposed specification, procedure, and exploded-view roles remain unvalidated. |
+| Composition and hierarchy (#27) | Supported by containment plus explicit relationships; a table cell can participate in typed row and column groups without requiring a strict tree. |
+| Structural relationships (#27) | Containment, visible attachment, grouping, adjacency, overlap, alignment, reference, sequence, and continuation are sufficient for the inspected examples. Geometric path crossings are preserved by extents and overlap, not a new relationship type. |
 | Structural identity (#27) | Supported: repeated motifs and identical printed values still require distinct occurrence identity. |
 | Identifier classification (#29) | Supported: grid coordinates, legend keys, parts codes, cavity marks, page references, and structural IDs remain distinct. |
 | Translation bindings (#30) | Supported: linguistic occurrences can bind without owning diagrams, tables, or graphical objects; blank cells and graphical marks need no translation. |
@@ -388,8 +409,9 @@ a specialized role. Engineering meaning belongs downstream.
 
 No inspected finding contradicts the semantic layers, identifier separation, or
 translation-binding direction. Foundational documents are therefore not
-rewritten in this evaluation PR. The table-membership gap is recorded for a
-focused later design decision rather than silently expanded into a schema.
+rewritten in this evaluation PR. Table convenience relations, exact
+cardinalities, and incompletely cued header scope remain implementation or
+provisional questions rather than demonstrated architecture gaps.
 
 ## Hard cases
 
@@ -423,10 +445,10 @@ must not be cited as supported outcomes.
 
 | Family | Available | Missing | Unproven conclusion | Issue #32 impact | Useful future bounded evidence |
 | --- | --- | --- | --- | --- | --- |
-| Specifications | diagram labels and general tables only | controlling specification page and conventions | value/unit/condition/tolerance and prose/table compositions | may proceed with limitation | one specification table plus prose specification with variants and footnotes |
-| Maintenance procedures | explanatory prose, not a procedure | steps, warnings, figures, branches, continuation | sequence, shared scope, and procedure-level structure | may proceed; do not claim procedure support | one bounded procedure with warning, figure, branch, and acceptance criterion |
-| Exploded diagrams | illustrations and connector drawings, not exploded views | balloons, parts table, quantities, assembly groups | depiction/balloon/table composition and scope | may proceed; do not claim parts support | one exploded figure and its paired parts table |
-| Multi-page structures generally | one paired list/layout and wide circuit material | a fully reviewed continuation or spanning table | publication-level identity, ordering, and completeness | defer contract details not needed by selected boundary | one bounded continued diagram or table with publication-defined continuation rules |
+| Specifications | diagram labels and general tables only | controlling specification page and conventions | value/unit/condition/tolerance and prose/table compositions | may proceed with general invariants separated from unvalidated inputs; no capability authorized | one specification table plus prose specification with variants and footnotes |
+| Maintenance procedures | explanatory prose, not a procedure | steps, warnings, figures, branches, continuation | sequence, shared scope, and procedure-level structure | may proceed with general invariants separated from unvalidated inputs; no capability authorized | one bounded procedure with warning, figure, branch, and acceptance criterion |
+| Exploded diagrams | illustrations and connector drawings, not exploded views | balloons, parts table, quantities, assembly groups | depiction/balloon/table composition and scope | may proceed with general invariants separated from unvalidated inputs; no capability authorized | one exploded figure and its paired parts table |
+| Multi-page structures generally | one paired list/layout and wide circuit material | a fully reviewed continuation or spanning table | publication-level identity, sequence, and completeness | distinguish general invariants from untested inputs | one bounded continued diagram or table with publication-defined continuation rules |
 
 ## Implications for the architecture
 
@@ -437,10 +459,12 @@ plus relationship model handles diagrams and layouts better than either a strict
 tree or a flat list. The identifier taxonomy prevents repeated short codes from
 collapsing into identity. Translation bindings remain optional and directional.
 
-One focused correction is needed before canonical decomposition implementation:
-define role-qualified table membership sufficient to preserve row, column, and
-header participation without making a row an engineering record. This report
-does not choose exact terms, cardinality, fields, or storage.
+The concrete table retest demonstrates no missing structural relationship.
+Typed row, column, and cell occurrences plus containment, grouping, alignment,
+and sequence preserve the inspected organization. Exact cardinalities,
+convenience relations, fields, and storage remain implementation questions;
+header scope remains provisional when no reliable source-visible cue establishes
+it.
 
 Publication-level composition remains a design boundary, not a demonstrated
 failure of page decomposition. Paired pages and wide spreads can be represented
@@ -451,15 +475,20 @@ unresolved.
 
 **Recommendation: ready with documented limitations.**
 
-Issue #32 may begin after this evaluation is reviewed because the inspected
-circuit, harness, connector, and table evidence supports a coherent source-
-visible handoff. The table-membership vocabulary gap does not make the graph-
-extraction boundary unsafe: extraction can retain the controlling table extent
-and avoid treating rows as accepted facts while the representation vocabulary
-is refined before implementation.
+Issue #32 may begin after this evaluation is reviewed because the corrected
+analysis supports investigation of general evidence-role separation, provenance
+retention, optional linguistic dependencies, candidate-versus-accepted claims,
+review boundaries, applicability preservation, and ambiguity propagation. The
+table retest found no missing architectural relationship; exact representation
+and cardinality are implementation questions.
 
-Issue #32 must not claim that specifications, procedures, exploded diagrams, or
-general multi-page structures are validated. It must preserve distinct primary
+Issue #32 remains a general downstream-contract investigation, not a circuit-
+only investigation. Its demonstrated family coverage is limited to four page
+families within two Toyota EWD publications. It must distinguish general
+architectural invariants, demonstrated family-specific inputs, and untested
+future inputs; must not claim that specifications, procedures, exploded
+diagrams, or general multi-page structures are validated; and authorizes no
+extraction capability for those families. It must preserve distinct primary
 evidence, interpretive dependencies, optional linguistic artifacts,
 applicability evidence, and candidate engineering interpretation. It remains
 responsible for defining the handoff; this report defines no inputs, graph
@@ -474,7 +503,8 @@ or incoherent.
 
 ### Recommended before implementation
 
-- define narrow role-qualified table row, column, and header membership;
+- decide implementation representation and cardinality for table compositions
+  without treating convenience relations as architectural prerequisites;
 - decide how publication-level compositions reference page-local occurrences
   without replacing their structural identity;
 - require evidence-bound declarations for spread/foldout boundaries and
@@ -500,12 +530,12 @@ or incoherent.
 
 ## Deferred questions
 
-- What is the smallest role-qualified relationship vocabulary that preserves
-  table membership without introducing a table-record model?
+- Should a future schema add convenience relations for table composition, or
+  use typed row/column endpoints with grouping and alignment directly?
 - What publication-level object, if any, should connect page-local occurrences
   across a spread, continuation, or paired list and layout?
-- When a visible label applies to several depictions, is one distributed
-  association sufficient, or is an explicit scoped group required?
+- When a visible label applies to several depictions, are multiple visible
+  attachments sufficient, or is an explicit scoped group required?
 - Which orientation concepts are source-visible across connector publication
   families rather than conventions inferred by a reader?
 - What completeness declaration is adequate for extremely dense or partially
@@ -514,9 +544,9 @@ or incoherent.
 ## ADR recommendation
 
 Defer any new ADR until Issue #32 defines the downstream extraction contract and
-the epic's combined findings can be evaluated together. The table-membership
-gap is concrete but does not independently change a project invariant or require
-an ADR before the extraction-boundary investigation.
+the epic's combined findings can be evaluated together. The table retest found
+no independent decision that changes a project invariant or requires an ADR
+before the extraction-boundary investigation.
 
 ## Explicit non-goals
 
