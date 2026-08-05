@@ -16,6 +16,10 @@ information from more than one layer while preserving these distinctions.
 Later investigations may propose artifacts and bindings, but must not collapse
 the meanings defined here.
 
+[ADR 0007](../adr/0007-publication-representation-and-candidate-first-extraction.md)
+governs the shared publication-representation foundation and the separate
+candidate-first graph-extraction boundary built on this semantic contract.
+
 This contract specializes the repository's broader source, extraction,
 accepted-knowledge, and derived-view boundaries. It is demonstrated with the
 Milestone 7 records for printed pages `2-3`, `2-7`, and `3-2`. Those records

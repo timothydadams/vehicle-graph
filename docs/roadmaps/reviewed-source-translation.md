@@ -71,12 +71,12 @@ GitHub PR numbers. Milestone names are the durable references.
 | Pilot evidence preparation | Complete | Artifact and frozen mappings merged in PR #23 | Preserve frozen evidence boundary |
 | Source-language review | Complete | All targets and dependencies reviewed; dispositions merged in PR #24 | Preserve the reviewed boundary and dispositions |
 | Pilot translation | Complete | Three review-ready records merged in PR #25; schema, provenance, review separation, and dependency handling validated | Independently review the pilot records |
-| Publication representation architecture | In progress | Semantic-layer and artifact ownership from Issue #28 and the pilot-grounded candidate source-page vocabulary from Issue #34 are complete | Design page decomposition in Issue #27, then complete the remaining Epic #26 investigations before expanding production translation |
+| Publication representation architecture | Complete; ADR under review | Epic #26 and Issues #27–#32 and #34 completed by merged PRs #35–#42 | Merge ADR 0007 before bounded implementation-pilot planning |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
 | Terminology promotion | Planned | Provisional ledger seeded | Promote proven recurring terms |
 | Publishing | Planned | Derived-view role defined | Build renderer, indexes, and companion PDF |
-| Batch translation | Blocked | Bounded-work principle defined | Wait for the page-decomposition investigation before adding production-scale tooling or campaigns |
-| Graph integration | Planned | Provenance roles defined | Define the page-decomposition-to-extraction contract before implementation |
+| Batch translation | Blocked | Bounded-work principle defined | Wait for ADR 0007 and later bounded implementation evidence before adding production-scale tooling or campaigns |
+| Graph integration | Planned | Candidate-first extraction and acceptance boundaries defined | Plan a bounded implementation pilot only after ADR 0007 merges |
 
 ## 5. Completed Milestones
 
@@ -179,12 +179,14 @@ stress-tested those completed concepts against all seven required families and
 authorized Issue #32 to proceed with documented limitations. Issue #32's
 [Publication-to-Graph Extraction Contract](../PUBLICATION_GRAPH_EXTRACTION_CONTRACT.md)
 now defines the conceptual handoff into candidate engineering claims,
-independent review, and explicit canonical acceptance; it remains under review
-and authorizes no implementation.
+independent review, and explicit canonical acceptance. It is complete and
+authorizes no implementation.
 
-Current Epic #26 status: #27, #28, #29, #30, #31, and #34 complete; #32 open and
-under review. The epic remains open until #32 merges and final tracking is
-updated.
+Epic #26 is complete: Issues #27–#32 and #34 are closed, and their design work
+was delivered by merged PRs #35–#42. The focused
+[ADR 0007](../../adr/0007-publication-representation-and-candidate-first-extraction.md)
+is under review. No implementation pilot has started, and the ADR must merge
+before bounded pilot planning begins.
 
 Completing publication representation will unblock production translation and
 translation binding, and will establish shared inputs for structured search,
