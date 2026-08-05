@@ -71,12 +71,13 @@ GitHub PR numbers. Milestone names are the durable references.
 | Pilot evidence preparation | Complete | Artifact and frozen mappings merged in PR #23 | Preserve frozen evidence boundary |
 | Source-language review | Complete | All targets and dependencies reviewed; dispositions merged in PR #24 | Preserve the reviewed boundary and dispositions |
 | Pilot translation | Complete | Three review-ready records merged in PR #25; schema, provenance, review separation, and dependency handling validated | Independently review the pilot records |
-| Publication representation architecture | Complete; ADR under review | Epic #26 and Issues #27–#32 and #34 completed by merged PRs #35–#42 | Merge ADR 0007 before bounded implementation-pilot planning |
+| Publication representation architecture | Complete; ADR accepted | Epic #26 and Issues #27–#32 and #34 completed by merged PRs #35–#42; ADR 0007 merged in PR #43 | Preserve the accepted boundaries during the bounded implementation pilot |
+| Bounded publication-to-graph pilot | Planned | One page and one candidate scoped in Issue #44 | Implement and review the bounded pilot before production translation or graph integration |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
 | Terminology promotion | Planned | Provisional ledger seeded | Promote proven recurring terms |
 | Publishing | Planned | Derived-view role defined | Build renderer, indexes, and companion PDF |
-| Batch translation | Blocked | Bounded-work principle defined | Wait for ADR 0007 and later bounded implementation evidence before adding production-scale tooling or campaigns |
-| Graph integration | Planned | Candidate-first extraction and acceptance boundaries defined | Plan a bounded implementation pilot only after ADR 0007 merges |
+| Batch translation | Blocked | Bounded-work principle defined | Wait for reviewed evidence from Issue #44 before adding production-scale tooling or campaigns |
+| Graph integration | Blocked | Candidate-first extraction and acceptance boundaries defined | Wait for reviewed evidence from Issue #44 before generalized graph integration |
 
 ## 5. Completed Milestones
 
@@ -185,8 +186,10 @@ authorizes no implementation.
 Epic #26 is complete: Issues #27–#32 and #34 are closed, and their design work
 was delivered by merged PRs #35–#42. The focused
 [ADR 0007](../../adr/0007-publication-representation-and-candidate-first-extraction.md)
-is under review. No implementation pilot has started, and the ADR must merge
-before bounded pilot planning begins.
+is accepted and was merged in PR #43. The next step is the bounded
+publication-to-graph implementation pilot planned in
+[Issue #44](https://github.com/timothydadams/vehicle-graph/issues/44). No pilot
+implementation has yet been merged.
 
 The completed publication-representation architecture establishes the design
 prerequisites for translation binding, structured search, future publishing,
@@ -194,6 +197,21 @@ and graph extraction. It does not implement canonical artifacts, schemas, or
 tools, and production translation and graph integration remain gated by
 reviewed bounded implementation evidence. This roadmap does not claim that all
 of those consumers will be implemented on `feature/translation`.
+
+### Milestone 7B — Bounded publication-to-graph implementation pilot ([issue](https://github.com/timothydadams/vehicle-graph/issues/44))
+
+Planned. Exercise ADR 0007 through one verified Toyota EWD circuit page, one
+minimal engineering candidate, independent extraction review, separate
+graph-acceptance eligibility review, and explicit acceptance or deliberate
+rejection by an approved canonical-disposition authority. The pilot is an
+experimental implementation intended to discover the minimum artifact
+boundaries, provenance, lifecycle controls, and review gates; it does not begin
+bulk translation, production graph extraction, or support for unsupported
+publication families.
+
+Epic #26 is complete and ADR 0007 is accepted. Production translation and
+generalized graph integration remain blocked on reviewed evidence from this
+pilot. No pilot implementation has yet been merged.
 
 ### Milestone 8 — Independent-review preparation ([issue](https://github.com/timothydadams/vehicle-graph/issues/12))
 
