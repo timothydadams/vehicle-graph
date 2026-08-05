@@ -1,5 +1,9 @@
 # Extraction Workflow
 
+This workflow operates within the candidate-first extraction and explicit
+canonical-acceptance boundary established by
+[ADR 0007](../adr/0007-publication-representation-and-candidate-first-extraction.md).
+
 Extraction is an evidence-preserving engineering activity. It is not bulk text
 conversion and it is not an invitation to infer undocumented facts.
 

@@ -14,6 +14,9 @@ syntax, identifiers, cardinalities, or implementation. Demonstrated family
 coverage is limited to circuit diagrams, harness layouts, connector views, and
 tables inspected in two Toyota EWD publications.
 
+Its durable architectural decisions are recorded by
+[ADR 0007](../adr/0007-publication-representation-and-candidate-first-extraction.md).
+
 ## Scope and governing principles
 
 The contract governs extraction that may consume controlling factory evidence,

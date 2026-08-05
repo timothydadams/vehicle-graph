@@ -120,6 +120,11 @@ from independent canonical acceptance. Translation is optional, applicability
 and ambiguity propagate, and accepted knowledge retains an audit chain to
 verified factory evidence.
 
+[ADR 0007](../adr/0007-publication-representation-and-candidate-first-extraction.md)
+records publication representation as the shared language-independent
+foundation and candidate-first extraction as a separately reviewed
+transformation that cannot bypass explicit canonical acceptance.
+
 ## Architectural principles
 
 - **Language-independent foundation.** A publication can be structurally
@@ -143,9 +148,10 @@ verified factory evidence.
 These principles were discovered through successful vertical pilots. One
 Diagram tested a direct evidence-to-graph slice; the Japanese translation
 feature then exposed page-organization limits. Milestone 7 validated translation
-records, Issues #28 and #34 defined the shared semantic boundaries and page-
-object vocabulary, and Issue #27 now investigates their candidate page-level
-composition. This evolution does not invalidate One Diagram or the Milestone 7
+records, and completed Epic #26 established the shared semantic boundaries,
+page-object vocabulary, page decomposition, identifier and translation-binding
+models, demonstrated publication-family limits, and candidate-first extraction
+contract. This evolution does not invalidate One Diagram or the Milestone 7
 results.
 
 ## Canonical state
