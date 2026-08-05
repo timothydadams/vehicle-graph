@@ -203,10 +203,11 @@ of those consumers will be implemented on `feature/translation`.
 Planned. Exercise ADR 0007 through one verified Toyota EWD circuit page, one
 minimal engineering candidate, independent extraction review, separate
 graph-acceptance eligibility review, and explicit acceptance or deliberate
-rejection. The pilot is an experimental implementation intended to discover
-the minimum artifact boundaries, provenance, lifecycle controls, and review
-gates; it does not begin bulk translation, production graph extraction, or
-support for unsupported publication families.
+rejection by an approved canonical-disposition authority. The pilot is an
+experimental implementation intended to discover the minimum artifact
+boundaries, provenance, lifecycle controls, and review gates; it does not begin
+bulk translation, production graph extraction, or support for unsupported
+publication families.
 
 Epic #26 is complete and ADR 0007 is accepted. Production translation and
 generalized graph integration remain blocked on reviewed evidence from this
