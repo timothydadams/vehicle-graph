@@ -113,6 +113,13 @@ identity, candidate engineering identity, and accepted graph identity. Matching
 spelling never promotes identity or equivalence, and exact source form remains
 preserved.
 
+The [Publication-to-Graph Extraction Contract](PUBLICATION_GRAPH_EXTRACTION_CONTRACT.md)
+defines the downstream handoff. Extraction consumes each reviewed input in its
+declared evidence role, emits candidate engineering claims, and remains separate
+from independent canonical acceptance. Translation is optional, applicability
+and ambiguity propagate, and accepted knowledge retains an audit chain to
+verified factory evidence.
+
 ## Architectural principles
 
 - **Language-independent foundation.** A publication can be structurally

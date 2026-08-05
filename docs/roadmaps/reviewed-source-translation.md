@@ -174,13 +174,17 @@ are also complete. Issue #30's completed
 how linguistic artifacts may reference stable source-visible occurrences or
 declared regions without owning publication structure and was delivered by
 [PR #40](https://github.com/timothydadams/vehicle-graph/pull/40). Issue #31's
-[Publication Family Evaluation](../PUBLICATION_FAMILY_EVALUATION.md) now
-stress-tests those completed concepts against all seven required families. It
-recommends that Issue #32 may proceed after review with documented evidence
-limitations; Issue #32 remains a separate, open, unstarted investigation.
+[Publication Family Evaluation](../PUBLICATION_FAMILY_EVALUATION.md)
+stress-tested those completed concepts against all seven required families and
+authorized Issue #32 to proceed with documented limitations. Issue #32's
+[Publication-to-Graph Extraction Contract](../PUBLICATION_GRAPH_EXTRACTION_CONTRACT.md)
+now defines the conceptual handoff into candidate engineering claims,
+independent review, and explicit canonical acceptance; it remains under review
+and authorizes no implementation.
 
-Current Epic #26 status: #27, #28, #29, #30, and #34 complete; #31 under review;
-#32 open and unstarted.
+Current Epic #26 status: #27, #28, #29, #30, #31, and #34 complete; #32 open and
+under review. The epic remains open until #32 merges and final tracking is
+updated.
 
 Completing publication representation will unblock production translation and
 translation binding, and will establish shared inputs for structured search,

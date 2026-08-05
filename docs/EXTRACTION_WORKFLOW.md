@@ -8,7 +8,8 @@ factory evidence, source-visible publication representation, linguistic
 interpretation, engineering normalization, applicability evidence, and
 same-publication interpretive dependencies. Translation is optional and is
 never the sole route from a publication to candidate graph knowledge. See
-[Publication representation](ARCHITECTURE.md#publication-representation).
+[Publication representation](ARCHITECTURE.md#publication-representation) and
+the [Publication-to-Graph Extraction Contract](PUBLICATION_GRAPH_EXTRACTION_CONTRACT.md).
 
 ## Ordered Workflow
 
@@ -57,9 +58,15 @@ never the sole route from a publication to candidate graph knowledge. See
    condition exists. Repeat the ambiguity-attachment review sequence and reject
    any attachment that cannot identify a candidate field or assertion that
    could change. A reviewer must reject unsupported completion or interpretation.
-9. **Canonical acceptance.** Accept reviewed claims through the repository's
-   documented process and commit the reviewable change through Git. Only
-   accepted knowledge may supply derived views.
+9. **Independent graph-acceptance review.** Confirm that the exact candidate,
+   controlling evidence, evidence roles, material interpretation,
+   applicability, ambiguity, conflicts, and required prior gates satisfy the
+   extraction contract. Favorable review does not itself write canonical
+   knowledge.
+10. **Canonical acceptance.** Record a separate, explicit acceptance decision
+    through the repository's documented process and commit the reviewable
+    change through Git. Only accepted knowledge may supply authoritative graph
+    facts to derived views.
 
 Candidate extraction must not begin until stages 1 through 5 establish all hard
 preconditions for the selected boundary. Soft preconditions are recorded and
