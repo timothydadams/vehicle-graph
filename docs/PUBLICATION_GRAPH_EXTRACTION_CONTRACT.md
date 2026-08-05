@@ -21,6 +21,13 @@ reviewed publication representation, optional linguistic interpretation,
 engineering normalization where needed, applicability evidence, material
 interpretive dependencies, and limited contextual accepted knowledge.
 
+Graph extraction consumes lower-layer observations and structural
+relationships; it does not duplicate them as graph candidates. Its output is
+the smallest independently reviewable engineering assertion derived from those
+inputs. Transcription remains linguistic or direct-observation work,
+structural relationships remain publication representation, normalization
+remains terminology work, and canonical acceptance remains separate.
+
 1. **Primary evidence remains primary.** The controlling factory publication
    location is the evidentiary anchor. Decomposition, transcription,
    translation, normalization, extraction, and rendering are derived artifacts
@@ -39,7 +46,10 @@ interpretive dependencies, and limited contextual accepted knowledge.
    explicit.
 6. **Applicability survives every transformation.** Material model, market,
    production-date, engine, equipment, option, destination, and other
-   qualifiers remain attached. Extraction may narrow but not broaden scope.
+   qualifiers remain attached. Applicability composition follows the
+   evidentiary relationship: conjunctive support generally narrows to a
+   supported intersection, independent variant claims remain separate, and a
+   union requires an explicit reviewed derivation.
 7. **Ambiguity propagates narrowly.** Unresolved uncertainty remains on every
    candidate it could materially change unless authorized review resolves it.
    Association or proximity alone is not propagation.
@@ -102,6 +112,13 @@ and review state. It is a reviewed structural aid, not graph truth. A connector
 depiction is not a connector entity; a path is not a graph edge; a leader is not
 membership; a structural identity is not an engineering identity.
 
+A canonical decomposition record is not a universal prerequisite for
+extraction. Direct, precise source-location provenance remains valid where no
+canonical decomposition exists. When an engineering candidate materially
+relies on a structural occurrence or relationship, however, that support must
+be preserved and reviewed; future implementation should prefer stable
+structural references when available.
+
 ### Linguistic interpretation
 
 Linguistic inputs may include transcription, source-language reading, literal
@@ -159,33 +176,48 @@ cannot cite itself, its rendering, or a downstream index as support.
 | Corroborating factory evidence | Independent agreement or complementary support | Replacement of controlling evidence | Sometimes jointly | Separate verified source, location, and role |
 | Conflicting factory evidence | Material incompatible content | Silent selection | Yes as an acceptance constraint | Separate conflict, scope, and disposition |
 | Contextual accepted knowledge | Matching help and conflict detection | Primary support for a new direct claim | No | Accepted fact and original provenance |
-| Derived-claim dependency | An explicit derivation | A direct factory-observation claim | For the derivation only | Upstream facts, assumptions, applicability intersection |
-| Publishing or review aid | Navigation, comparison, presentation | Evidence, review passage, acceptance | No | Generating inputs and disclosed status |
+| Derived-claim dependency | An explicit derivation | A direct factory-observation claim | For the derivation only | Upstream facts, assumptions, and relationship-specific applicability composition |
+| Publishing or review aid | Navigation, comparison, inspection, and presentation of disclosed upstream state | Primary evidence, satisfaction of a required review gate, or canonical acceptance | No | Generating inputs, disclosed upstream state, and underlying recorded decisions |
 
 For example, EWD168F may support Toyota English terminology for a Japanese
 publication without proving that identically numbered connectors are
 equivalent.
+
+A review aid may help a reviewer navigate or compare material, but does not
+prove that review occurred and cannot substitute for primary evidence. Visual
+polish never promotes a candidate. A generated report may document a decision,
+but its authority comes from the underlying recorded decision and provenance,
+not its presentation.
 
 ## Claim-support profiles
 
 There is no universal minimum input bundle. Required evidence and review depend
 on what a candidate asserts.
 
-### Direct source-observation candidate
+### Engineering candidate primarily supported by direct source observation
 
-Example: a label occurrence visibly reads `H8`. Minimum support normally
-includes a verified artifact, exact location, reviewed transcription,
-identifier role and narrowest supported scope where claimed, applicable
-qualifiers, uncertainty, and review state. It does not establish the physical
-connector represented by `H8`.
+Example: candidate connector X retains source-local identifier `H8` in
+publication A. The direct observation that the page visibly contains `H8`
+remains owned by source transcription or publication representation; the
+engineering candidate references it and explicitly proposes how that
+designation relates to candidate X. Minimum support normally includes a
+verified artifact, exact location, reviewed observation or transcription,
+identifier role and narrowest supported scope, applicable qualifiers,
+uncertainty, and review state. Retaining the source-local designation neither
+converts `H8` into repository identity nor establishes physical connector
+identity or equivalence with another source's `H8`.
 
-### Source-structural candidate
+### Engineering candidate primarily supported by source-visible structure
 
-Example: a connector depiction is visibly attached by a leader to a harness-
-layout location. Minimum support normally includes primary evidence, locatable
-occurrences, a reviewed visible relationship and extent, qualifiers, coverage
-context, and structural ambiguity. It does not establish harness ownership,
-physical placement, or connector identity.
+Example: candidate connector X is proposed at candidate vehicle location Y
+based on a reviewed callout attachment. The visible leader attachment remains
+owned by publication representation. Extraction must state the engineering
+interpretation it proposes and, when available, cite the exact structural
+occurrences and relationship. Minimum support normally includes primary
+evidence, a precise source location, the reviewed visible relationship and
+extent, qualifiers, coverage context, and structural ambiguity. Visible
+attachment does not itself establish vehicle location, physical mounting,
+harness ownership or membership, routing, or connector identity.
 
 ### Linguistically dependent engineering candidate
 
@@ -193,7 +225,10 @@ Example: the source labels an item “Glow Plug Relay (Main).” Minimum support
 normally includes the factory location, source occurrence, reviewed
 transcription or durable source-language interpretation, translation when used,
 separate terminology evidence when normalized wording is claimed, qualifiers,
-ambiguity, and actual language and terminology review states.
+ambiguity, and actual language and terminology review states. The graph
+candidate must add an engineering interpretation, such as proposing that the
+source-labeled occurrence designates candidate relay X; transcription and
+normalization remain lower-layer assertions rather than graph candidates.
 
 ### Topology or behavior candidate
 
@@ -218,17 +253,19 @@ attribute, automatic rule, or numeric score establishes equivalence.
 
 Example: a conclusion follows from several accepted facts. Minimum support
 includes an explicit derivation, every upstream accepted fact, retained original
-provenance, assumptions, and the justified applicability intersection. A
-derived claim is identified as derived and revalidated when a dependency
-changes. It cannot masquerade as a direct factory fact.
+provenance, assumptions, and applicability composed according to the
+dependencies' relationship. Conjunctive dependencies constrain the result to
+their supported intersection; an applicability union requires a separately
+justified aggregation. A derived claim is identified as derived and revalidated
+when a dependency changes. It cannot masquerade as a direct factory fact.
 
 ## Extraction and candidate responsibilities
 
 Extraction may propose engineering entities and relationships; interpret
 reviewed structure using publication guidance; use optional linguistic
-artifacts; normalize wording where supported; combine several sources while
-preserving roles; retain variants; record conflicts; narrow applicability; and
-state explicit derivations.
+artifacts and separately supported normalized wording; combine several sources
+while preserving roles; retain variants; record conflicts; narrow
+applicability; and state explicit derivations.
 
 It must declare its boundary and omissions; cite primary evidence; preserve
 publication identity and source-local identifiers; retain qualifiers and
@@ -236,6 +273,12 @@ material dependencies; distinguish observation, interpretation,
 normalization, corroboration, conflict, and derivation; attach ambiguity only
 to the narrowest candidate it could change; retain incompatible variants; and
 emit independently reviewable candidates.
+
+Extraction consumes accurate lower-layer observations and relationships rather
+than re-emitting them as graph candidates. Every output candidate must state the
+engineering interpretation added to its support. Source observation,
+structural relationship, linguistic interpretation, and normalized terminology
+remain independently reviewable assertions in their owning layers.
 
 It must not mutate evidence; replace original wording; treat translation as
 factory-authored English; promote page identity into engineering identity;
@@ -251,12 +294,36 @@ linguistic and normalization artifacts, applicability, evidence roles,
 dependencies, assumptions, ambiguity, conflicts, derivation, extraction
 boundary, review state, and staleness or supersession history.
 
-A candidate is reviewable, not canonical. One candidate may use several items
-in different roles; several candidates may interpret one occurrence; and one
-occurrence may support several claims. Rejected and superseded candidates may
-remain valuable history. Polished English does not increase authority. Output
-must remain separable from evidence, representation, translation, and accepted
-knowledge so an interpretation can change without rewriting them.
+A source observation or structural relationship may be independently reviewed
+without becoming a graph candidate. A graph candidate adds an explicit
+engineering interpretation and keeps it distinguishable from every supporting
+lower-layer assertion. Rejecting that interpretation does not invalidate an
+accurate transcription or structural relationship. Correcting a lower-layer
+input may stale or supersede its dependent candidates without changing
+unrelated work.
+
+```text
+Source observation:
+The page visibly contains H8.
+
+Structural observation:
+A leader visibly attaches the H8 callout to a depicted location.
+
+Engineering candidate:
+The source-labeled connector H8 is proposed to be located at candidate vehicle
+location X.
+
+Accepted graph fact:
+Only after independent review and explicit acceptance.
+```
+
+This example is conceptual and defines no record syntax. A candidate is
+reviewable, not canonical. One candidate may use several items in different
+roles; several candidates may interpret one occurrence; and one occurrence may
+support several claims. Rejected and superseded candidates may remain valuable
+history. Polished English does not increase authority. Output must remain
+separable from evidence, representation, translation, and accepted knowledge
+so an interpretation can change without rewriting them.
 
 ## Provenance preservation
 
@@ -267,17 +334,34 @@ accepted extraction candidate and acceptance decision
     ↓
 candidate engineering interpretation
     ↓
-source-visible occurrences and structural relationships
+supporting reviewed artifacts used by the candidate
+    ├── source-visible occurrences and structural relationships, when
+    │   available or relied upon
+    ├── linguistic interpretation, when relied upon
+    ├── terminology or notation guidance, when relied upon
+    ├── applicability evidence
+    └── other declared dependencies
     ↓
-factory publication location
+exact controlling factory publication location
     ↓
 verified source artifact
 ```
 
+Every candidate reaches exact primary factory evidence. A canonical page-
+decomposition record is not universally required at this architecture stage:
+direct source-location provenance may support a candidate where no canonical
+decomposition exists. This does not authorize vague page-only provenance; the
+location must be precise enough for independent review. When extraction relies
+on a structural occurrence or relationship, that support must be preserved and
+reviewed even before canonical decomposition storage exists. Future
+implementation should prefer stable structural references where available.
+
 Translation, terminology, notation guidance, applicability, and corroborating
-or conflicting publications branch from this chain in their actual roles.
-Provenance explains both where support appears and how it was interpreted. It
-never stops at a translation, English rendering, search result, or graph record.
+or conflicting publications participate in their actual roles. Provenance
+explains both where support appears and how it was interpreted. It never stops
+at a translation, English rendering, search result, or graph record. This
+compatibility rule preserves, rather than weakens, publication representation
+as the preferred language-independent foundation.
 
 Several pages may jointly support one candidate when each role is declared. One
 page may support several separately scoped candidates. Agreeing publications
@@ -297,9 +381,32 @@ reevaluated.
 Extraction evaluates applicability from publication-level scope through page,
 region, item, and claim qualifiers. Engine, model, market, destination,
 equipment, option, production-date, and operating conditions remain explicit.
-Uncertainty stays attached where it could change scope. Combining evidence
-normally requires the supported intersection, not union, of scopes. Conflict
-may create variant-specific or narrower candidates or block acceptance.
+Uncertainty stays attached where it could change scope. Applicability
+composition follows the evidentiary relationship:
+
+- **Conjunctive or complementary support.** When a candidate depends on several
+  evidence items simultaneously, it cannot exceed their justified
+  intersection. Conceptually, topology evidence scoped to `1PZ` plus a
+  connector view scoped to `1993-on JDM` supports only their demonstrated
+  intersection; this is not a claim about the user's vehicle.
+- **Independent corroboration over the same scope.** Overlap may strengthen
+  support without automatically broadening the candidate.
+- **Independent variant-specific support.** Equivalent-looking assertions from
+  different variants remain separate candidates rather than being merged.
+- **Explicit derived aggregation.** A union is permitted only as a reviewed
+  derivation from independently accepted variant facts when equivalence of the
+  asserted relationship is justified, union boundaries and exceptions are
+  explicit, conflicts remain visible, and provenance reaches every constituent
+  fact and original source.
+- **Terminology-only or notation-only support.** These sources do not change
+  applicability unless they independently provide controlling applicability
+  evidence used in that role.
+- **Conflicting applicability.** Conflict may narrow a candidate, preserve
+  alternatives, remain unresolved, block acceptance, or require more evidence;
+  scopes are neither averaged nor silently united.
+- **Supersession.** A later publication changes applicability only when an
+  explicit revision or supersession relationship and its scope are supported,
+  never from publication date alone.
 
 A source outside the target vehicle's range may be a terminology or
 interpretive aid but cannot establish target applicability. The January 1995
@@ -347,7 +454,10 @@ higher layer never suppresses unresolved lower-layer uncertainty.
 Sources may provide independent agreement, complementary support,
 terminology-only support, notation-only support, a variant difference,
 unresolved conflict, explicitly established supersession, or unrelated
-similarity. The relationship is claim-specific.
+similarity. The relationship is claim-specific and controls how applicability
+is composed. Conjunctive evidence narrows to supported overlap; independently
+supported variants remain separate; and any union is an explicit derived claim
+rather than the default result of citing several sources.
 
 Extraction must not silently select the cleaner diagram, combine incompatible
 variants, average conflicts, merge source-local identifiers, presume a later
@@ -389,7 +499,8 @@ available; its location is independently reviewable; its assertion is explicit;
 evidence roles, material interpretation, and assumptions are documented;
 source-local identifiers remain preserved; applicability is explicit; material
 ambiguities are resolved or retained under documented policy; conflicts are
-disclosed; required gates passed; an independent acceptance decision is
+disclosed; applicability composition is justified for the declared evidence
+relationship; required gates passed; an independent acceptance decision is
 recorded; and the accepted fact remains traceable to the exact candidate and
 evidence.
 
@@ -435,14 +546,27 @@ qualifiers constrain the candidate.
 ### B. Harness layout — printed pages `2-3` and `2-7`
 
 Representation may preserve page grids, legend keys, harness paths, connector
-callouts, leaders, qualifiers, and paired list/layout references. Candidates
-may concern a source-labeled harness, depicted connector location, visible
-callout association, or proposed harness boundary.
+callouts, leaders, qualifiers, and paired list/layout references. Extraction may
+use those lower-layer assertions to propose that a candidate engineering
+harness carries a source-local designation, that a candidate connector is at a
+candidate vehicle location, or that a depicted context supports a candidate
+harness boundary.
 
 Depicted route is not accepted physical routing; attachment is not harness
 ownership; grid position is not vehicle geometry; and identifiers remain
 source-local. The publication-level paired-page relationship remains unresolved
 where prior design left it open.
+
+```text
+structural observation
+→ a leader visibly attaches a callout to a depicted location
+
+engineering candidate
+→ connector X is proposed at candidate vehicle location Y
+
+not established
+→ physical mounting, harness ownership, or accepted location
+```
 
 ### C. Connector view
 
@@ -474,6 +598,34 @@ pin count, wire colors, harness, location, or mating context may contribute to
 an equivalence candidate, but no single match proves identity. No actual `H8`
 equivalence is asserted here.
 
+The lower-layer and engineering boundaries are:
+
+```text
+source observation
+→ source-local identifier occurrence H8
+
+engineering candidate
+→ candidate connector X retains source-local identifier H8
+
+not established
+→ physical connector identity or equivalence with another publication's H8
+```
+
+Applicability composition likewise depends on the evidence relationship:
+
+```text
+conjunctive support
+→ candidate limited to the demonstrated intersection
+
+independent support for variant A and variant B
+→ separate variant-specific candidates
+
+explicit derived aggregation after independent acceptance and equivalence review
+→ a stated union with boundaries, exceptions, conflicts, and all provenance
+```
+
+These are conceptual variants and establish no actual vehicle claim.
+
 ## Compatibility with One Diagram
 
 One Diagram was a successful vertical pilot that exposed the missing shared
@@ -482,11 +634,16 @@ record, candidate ledger, ambiguity records, and direct provenance remain valid
 for their reviewed artifact roles. They are not invalid because canonical
 decomposition does not yet exist.
 
-Future extraction may add structural-occurrence references, but no migration is
-authorized here and existing canonical graph facts, if any, are not
-automatically reopened. Implementation must later decide whether and how legacy
-candidates acquire such references while preserving original evidence and
-review history.
+An existing One Diagram engineering candidate remains reviewable through its
+exact page and region provenance even before a canonical decomposition record
+exists. Future structural references may enrich that provenance, but the
+contract neither retroactively invalidates existing candidates nor authorizes a
+migration. Implementation must decide when decomposition is required for new
+claims and whether or how legacy candidates gain references while preserving
+original evidence and review history. A candidate that materially relies on a
+visual relationship must preserve that relationship in reviewable form even
+before canonical decomposition storage exists. Existing canonical graph facts,
+if any, are not automatically reopened.
 
 ## Unsupported-family limitations
 

@@ -33,7 +33,11 @@ the [Publication-to-Graph Extraction Contract](PUBLICATION_GRAPH_EXTRACTION_CONT
    being extracted and distinguish primary evidence, interpretive dependencies,
    related-system references, applicability support, and exclusions.
 6. **Candidate extraction.** Record the smallest independently meaningful
-   source claims. Each candidate records primary evidence; material interpretive
+   engineering claims derived from lower-layer source observations and
+   structural relationships. Do not duplicate a transcription or visible
+   structural relationship as a graph candidate; state the engineering
+   interpretation being proposed. Each candidate records primary evidence;
+   material interpretive
    dependencies when needed; supporting evidence when used; applicability;
    ambiguity IDs that directly affect the claim; and status or confidence. Keep
    transcription, normalization, interpretation, and derivation distinct.
@@ -106,6 +110,19 @@ Linguistic interpretation or engineering normalization is required only where
 the candidate depends on meaning those inputs establish. No source-visible
 object or structural association is promoted directly into an engineering
 entity, topology claim, or accepted fact.
+
+Every candidate must reach an exact factory publication location precise enough
+for independent review. A canonical page-decomposition record is not a universal
+precondition: direct source-location provenance remains valid where none exists.
+When a candidate materially relies on a structural occurrence or relationship,
+that support must be preserved and reviewed, with stable structural references
+preferred when available.
+
+Applicability composition follows the evidence relationship. Evidence required
+together constrains a candidate to supported overlap; independently supported
+variants remain separate; and a union requires an explicit reviewed derivation
+from independently accepted facts. Terminology or notation aids do not change
+scope unless they provide controlling applicability evidence in that role.
 
 Use this decision test:
 
