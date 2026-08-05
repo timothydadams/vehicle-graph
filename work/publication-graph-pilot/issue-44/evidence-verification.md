@@ -16,7 +16,8 @@
 - Inspection date: 2026-08-05
 - Contributor: Codex (OpenAI), acting as an assisted repository contributor
 - Tool assistance: `shasum`, `stat`, Poppler `pdfinfo` and `pdftoppm`,
-  ImageMagick crop preparation, direct high-resolution visual inspection, and
+  Poppler `pdftotext`, ImageMagick contact-sheet and crop preparation, direct
+  high-resolution visual inspection, repository-wide text search, and
   comparison with the committed inventory, source-language review, ambiguity
   ledger, and review-ready translation record
 
@@ -55,6 +56,88 @@ The `.evidence/` boundary and every working-render path were verified with
 and no parent rule re-includes it. Before and after inspection, Git reported no
 tracked or staged private evidence. The full page was inspected before a
 private battery-region crop was made for closer review.
+
+## Publication-wide production-convention search
+
+### Search boundary and methods
+
+The search used the reverified artifact identified above and included all 90
+PDF pages. No page was excluded. Working text, renders, thumbnails, contact
+sheets, and crops remained under the verified gitignored `.evidence/` boundary.
+
+The following complementary methods were used:
+
+1. `pdftotext -layout` attempted a complete text-layer extraction. The result
+   contained 91 lines / 3,961 bytes and only the repeated donor watermark, so
+   the artifact has no usable factory-text layer for this search.
+2. `rg` searched that extraction and committed repository material for `○`,
+   `□`, `○:`, `□:`, `～'95.1`, `'95.1～`, `95.1`, `○印`, `□印`, `無印`,
+   `印のない`, `記号`, `生産`, `適用`, `変更`, and the English navigation
+   terms `production` and `unmarked`. Repository hits were used only for
+   navigation and were checked against the verified PDF where material.
+3. `pdftoppm` rendered all pages at navigation resolution. Six ordered contact
+   sheets covering PDF pages 1–90 were visually reviewed for explanatory
+   pages, repeated legends, notes, headers, footers, marked diagrams, and
+   direct production qualifiers.
+4. Chapter 1 and the opening material at PDF pages 2–10 were rendered and
+   reviewed at higher resolution. This included publication scope and revision
+   material, contents, all “how to read” pages, and the active diagram
+   dependencies.
+5. The system-circuit chapter at PDF pages 39–69 was reviewed page by page.
+   PDF pages 40–69 were rerendered at higher resolution, and their header and
+   legend regions were compared. Potential production/date hits and unrelated
+   uses of similar glyphs were then inspected directly.
+6. The direct parenthetical date qualifiers on representative layout pages 15
+   / `2-3` and 19 / `2-7` were rerendered at high resolution and compared with
+   their committed machine transcriptions.
+
+The visual pass covered page surfaces, margins, headers, footers, legends,
+footnotes, and the Chapter 1 explanatory material. It can establish the
+completed search boundary and the inspected results, but it is not a
+mathematical proof that no faint or unrecognized wording exists. Scan wear,
+the absent factory-text layer, and the absence of installed Japanese OCR meant
+that visual inspection, rather than OCR term matching, controlled the result.
+
+### Relevant and potentially relevant occurrences
+
+| PDF page(s) | Printed page(s) | Region and minimal visible content | Evaluation for this candidate |
+| --- | --- | --- | --- |
+| 2 | none visible | Opening applicability includes `1993-5～` with the listed model families. | Defines the publication-wide production start already recorded in the repository. It does not define `○`, `□`, their attachment, or unmarked circuit material. |
+| 15, 19 | `2-3`, `2-7` | Individual layout callouts carry direct parenthetical date strings such as `(95.1～)` and `(～95.1)`. | Demonstrates occurrence-local date qualifiers without a circle/square legend. It supplies no default or unmarked-material rule for system circuits. |
+| 40, 41, 44–47, 50 | `3-2`, `3-3`, `3-6`–`3-9`, `3-12` | Page legends pair `○` with `～'95.1` and `□` with `'95.1～`. | Directly defines those two marks' date strings on each page. None of the legends states the meaning or scope of unmarked material. PDF page 40 remains the primary occurrence for the proposed candidate. |
+| 42 | `3-4` | A page-specific legend combines square variants with body/date scope and circle/triangle marks with engine scope. | Confirms that glyph meaning can be page-specific and composite. It does not define unmarked content or govern page `3-2`. |
+| 49 | `3-11` | Two different square forms are paired with the two January 1995 ranges. | A page-specific production legend, but neither a general rule nor an explanation of unmarked content. It does not govern page `3-2`. |
+| 51 | `3-13` | Open and filled square forms are paired with body/date scope. | Page-specific mark definitions only; no unmarked-material rule and no material relationship to the selected page-40 region. |
+| 55 | `3-17` | A single `○` entry is paired with `～'95.1`. | Defines only the visible mark on that page. It does not say what the absence of that mark means. |
+| 58, 59, 66, 67 | `3-20`, `3-21`, `3-28`, `3-29` | Composite legends combine circles, squares, divided or filled forms, and other glyphs with engine, body, equipment, and date scopes. | Inconclusive for the candidate. They show that each page's legend must be read locally, but none visibly supplies a general default or unmarked-material convention for page `3-2`. |
+| 63, 68 | `3-25`, `3-30` | Circle/triangle entries identify engine categories without defining the January 1995 pair. | False positives for a production-date-rule search. Same glyph family, unrelated local role. |
+
+Circled connector-reference letters, ground-point symbols, circular diagram
+geometry, table marks, and body/engine glyphs elsewhere in the publication were
+also false positives unless their local legend explicitly gave them a
+production role. No such unrelated occurrence was promoted into candidate
+support.
+
+### Search result and dependency assessment
+
+Search completed across all 90 pages using text-layer extraction, exact and
+likely-term searches, committed-record navigation, complete visual contact
+sheets, page-by-page system-circuit review, and high-resolution inspection of
+every potentially explanatory location listed above.
+
+No inspected occurrence explicitly defined the applicability of unmarked
+circuit material, stated that absence of `○` or `□` means common to both date
+ranges, established a default scope, or defined how a nearby mark expands to an
+otherwise unmarked component, path, branch, block, or page region. The repeated
+legends define visible glyphs and, on several pages, visibly demonstrate
+page-local composite meanings; repetition alone cannot supply the missing
+rule.
+
+The search discovered no new material interpretive dependency for this
+candidate. PDF pages 41, 42, 44–47, 49–51, 55, 58, 59, 66, and 67 are
+comparison occurrences only. They neither define unmarked content nor govern
+page `3-2`, so attaching them downstream would obscure provenance. The frozen
+Milestone 7 dependency inventory therefore remains unchanged.
 
 ## Source-visible findings
 
@@ -164,7 +247,9 @@ wire-color conventions. They do not define whether unmarked material on this
 page is common to both legend ranges, belongs to one range, or has another
 production scope. The target-local legend defines the two marks' ranges but
 does not visibly state the meaning of absence of a mark. Inferring “common to
-both” from layout would exceed the reviewed source-language evidence.
+both” from layout would exceed the reviewed source-language evidence. The
+publication-wide search documented above found repeated page-local legends but
+no explicit same-publication rule that closes this gap.
 
 The publication-wide title material separately bounds listed `KZJ7#`, `PZJ7#`,
 and `HZJ7#` series from May 1993 onward. That boundary cannot supply the missing
@@ -238,18 +323,27 @@ broaden the candidate to the user's 1990 PZJ70.
 - Exact effect: the production-scope property of the proposed engineering
   candidate and whether the observed structure supports pre-January-1995,
   January-1995-onward, both, or another scope.
-- Classification: hard for candidate creation.
+- Classification: hard gate for engineering-candidate creation under Issue
+  #44's exact-applicability requirement; not a hard blocker for transcription
+  of the visible source structure.
 - `AGENTS.md` test: Test E applies. Resolving the ambiguity could select
-  materially different production scopes. The uncertainty forces a choice
-  between different candidate transcriptions even though the visible path can
-  itself be copied faithfully.
+  materially different candidate production scopes. The label, depiction,
+  lower `1 (D)`, two path branches, two ground-symbol occurrences, and visible
+  absence of a nearby production mark can all be transcribed faithfully and do
+  not change with this ambiguity.
 - Candidate effect: blocks Phase 2 candidate creation; attaching a broad soft
   ambiguity would not satisfy Issue 44's exact production-scope gate.
-- Resolution: locate and review a same-publication convention that explicitly
-  defines the production applicability of unmarked circuit material, or obtain
-  an approved planning revision that changes the gate while preserving the
-  unresolved candidate scope. A convention from EWD168F or another publication
-  cannot resolve this ambiguity.
+- Search result: the complete bounded publication search found visible absence
+  of a mark at the selected region and repeated definitions of visible marks,
+  but no explicit rule defining the meaning of that absence. Absence of a mark,
+  failure to find a rule for absence, and a prohibited inference that absence
+  means “both” remain distinct.
+- Resolution: the legitimate next options are explicit replanning of Issue #44
+  while preserving the unresolved scope, or later user-approved planning of a
+  different candidate. If qualified source-language review identifies wording
+  overlooked in the completed visual boundary, that exact location must be
+  reviewed before use. No candidate may be created under the current gate, and
+  EWD168F or another publication cannot supply the missing convention.
 
 ## Applicability conclusion
 
@@ -264,7 +358,9 @@ The source visibly supports only the following without further interpretation:
 
 The evidence does not presently establish whether the proposed candidate is
 pre-January-1995 only, January-1995-onward only, or common to both. It does not
-support applicability to the user's 1990 PZJ70.
+support applicability to the user's 1990 PZJ70. This conclusion remains after
+the complete bounded 90-page search; it does not convert failure to find an
+explicit unmarked-material rule into evidence for any one scope.
 
 ## Candidate disposition for the next phase
 
@@ -272,8 +368,9 @@ Remain blocked.
 
 The evidence supports planning a narrower terminal and ground endpoint, but an
 engineering-candidate record must not be created until the production scope of
-unmarked material is established or Issue 44 is explicitly replanned. No
-replacement candidate was selected.
+unmarked material is established or Issue 44 is explicitly replanned. The
+publication-wide search did not establish that scope. No replacement candidate
+was selected.
 
 ## Recommended candidate wording
 
@@ -329,4 +426,6 @@ This report does not represent or decide:
 
 No factory page image, crop, screenshot, OCR derivative, or other private
 factory-content bytes were committed. Working full-page renders and the
-battery-region crop remain under the verified gitignored `.evidence/` boundary.
+battery-region crop, extracted watermark-only text, all-page thumbnails,
+contact sheets, and production-legend crops remain under the verified
+gitignored `.evidence/` boundary.
