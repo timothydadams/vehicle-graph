@@ -41,19 +41,23 @@ decisions, and working constraints.
 15. [PUBLICATION_FAMILY_EVALUATION.md](PUBLICATION_FAMILY_EVALUATION.md) —
     Evidence-bounded stress test across the seven publication families required
     by Issue #31, including demonstrated limits and Issue #32 readiness.
-16. [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) — How a fresh reviewer tests
+16. [PUBLICATION_GRAPH_EXTRACTION_CONTRACT.md](PUBLICATION_GRAPH_EXTRACTION_CONTRACT.md)
+    — Conceptual handoff from publication evidence and representation through
+    candidate engineering claims, independent review, and explicit canonical
+    acceptance.
+17. [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) — How a fresh reviewer tests
     the evidence-to-claim transformation before canonical acceptance.
-17. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas
+18. [SCHEMA_PRINCIPLES.md](SCHEMA_PRINCIPLES.md) — Constraints that future schemas
     must satisfy.
-18. [NON_GOALS.md](NON_GOALS.md) — What the project intentionally avoids.
-19. [ONE_DIAGRAM.md](ONE_DIAGRAM.md) — Scope and completion criteria for the
+19. [NON_GOALS.md](NON_GOALS.md) — What the project intentionally avoids.
+20. [ONE_DIAGRAM.md](ONE_DIAGRAM.md) — Scope and completion criteria for the
     current milestone.
-20. [One Diagram working material](../work/one-diagram/README.md) —
+21. [One Diagram working material](../work/one-diagram/README.md) —
     Pre-canonical inventories, candidates, boundaries, and unresolved questions
     for the current milestone.
-21. [Independent review working material](../work/independent-review/README.md) —
+22. [Independent review working material](../work/independent-review/README.md) —
     Reusable pre-canonical review-package convention and preparation command.
-22. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
+23. [FUTURE_IDEAS.md](FUTURE_IDEAS.md) — Parking lot for ideas that are
     intentionally deferred.
 
 Publication representation provides the language-independent foundation that

@@ -8,7 +8,8 @@ factory evidence, source-visible publication representation, linguistic
 interpretation, engineering normalization, applicability evidence, and
 same-publication interpretive dependencies. Translation is optional and is
 never the sole route from a publication to candidate graph knowledge. See
-[Publication representation](ARCHITECTURE.md#publication-representation).
+[Publication representation](ARCHITECTURE.md#publication-representation) and
+the [Publication-to-Graph Extraction Contract](PUBLICATION_GRAPH_EXTRACTION_CONTRACT.md).
 
 ## Ordered Workflow
 
@@ -32,7 +33,11 @@ never the sole route from a publication to candidate graph knowledge. See
    being extracted and distinguish primary evidence, interpretive dependencies,
    related-system references, applicability support, and exclusions.
 6. **Candidate extraction.** Record the smallest independently meaningful
-   source claims. Each candidate records primary evidence; material interpretive
+   engineering claims derived from lower-layer source observations and
+   structural relationships. Do not duplicate a transcription or visible
+   structural relationship as a graph candidate; state the engineering
+   interpretation being proposed. Each candidate records primary evidence;
+   material interpretive
    dependencies when needed; supporting evidence when used; applicability;
    ambiguity IDs that directly affect the claim; and status or confidence. Keep
    transcription, normalization, interpretation, and derivation distinct.
@@ -57,9 +62,15 @@ never the sole route from a publication to candidate graph knowledge. See
    condition exists. Repeat the ambiguity-attachment review sequence and reject
    any attachment that cannot identify a candidate field or assertion that
    could change. A reviewer must reject unsupported completion or interpretation.
-9. **Canonical acceptance.** Accept reviewed claims through the repository's
-   documented process and commit the reviewable change through Git. Only
-   accepted knowledge may supply derived views.
+9. **Independent graph-acceptance review.** Confirm that the exact candidate,
+   controlling evidence, evidence roles, material interpretation,
+   applicability, ambiguity, conflicts, and required prior gates satisfy the
+   extraction contract. Favorable review does not itself write canonical
+   knowledge.
+10. **Canonical acceptance.** Record a separate, explicit acceptance decision
+    through the repository's documented process and commit the reviewable
+    change through Git. Only accepted knowledge may supply authoritative graph
+    facts to derived views.
 
 Candidate extraction must not begin until stages 1 through 5 establish all hard
 preconditions for the selected boundary. Soft preconditions are recorded and
@@ -99,6 +110,19 @@ Linguistic interpretation or engineering normalization is required only where
 the candidate depends on meaning those inputs establish. No source-visible
 object or structural association is promoted directly into an engineering
 entity, topology claim, or accepted fact.
+
+Every candidate must reach an exact factory publication location precise enough
+for independent review. A canonical page-decomposition record is not a universal
+precondition: direct source-location provenance remains valid where none exists.
+When a candidate materially relies on a structural occurrence or relationship,
+that support must be preserved and reviewed, with stable structural references
+preferred when available.
+
+Applicability composition follows the evidence relationship. Evidence required
+together constrains a candidate to supported overlap; independently supported
+variants remain separate; and a union requires an explicit reviewed derivation
+from independently accepted facts. Terminology or notation aids do not change
+scope unless they provide controlling applicability evidence in that role.
 
 Use this decision test:
 
