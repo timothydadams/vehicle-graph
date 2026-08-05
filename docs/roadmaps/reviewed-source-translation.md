@@ -140,23 +140,23 @@ normalize Toyota terminology, or extract graph facts.
 
 ### Milestone 7A — Publication representation architecture ([epic](https://github.com/timothydadams/vehicle-graph/issues/26))
 
-Investigate a shared, language-independent representation of the source
-publication's visual and semantic page structure. Review of the three pilot
-records demonstrated that linguistic fidelity and provenance are practical,
-while headings, legends, blocks, connector illustrations, harness drawings,
-tables, identifiers, and graphical notation need clearer structural ownership
-before translation expands.
+Completed. Epic #26 established a shared, language-independent representation
+of the source publication's visible page content and organization. Review of
+the three pilot records demonstrated that linguistic fidelity and provenance
+are practical and exposed the shared structural ownership needed for headings,
+legends, blocks, connector illustrations, harness drawings, tables,
+identifiers, and graphical notation.
 
 This milestone is a successful architectural discovery from the One Diagram
 vertical slice and Milestone 7 translation pilot, not a correction to either.
-It changes no schema, translation record, validator, or graph model. Its seven
-investigations will define proposed semantic layers and
+It changed no schema, translation record, validator, or graph model. Its seven
+investigations defined proposed semantic layers and
 artifact ownership, a source page-object taxonomy, page decomposition and
 hierarchy, identifier taxonomy, page-object or region bindings to translation,
 coverage across publication families, and the downstream graph-extraction
-contract. These are investigations and design recommendations, not authorization
-for a schema or implementation decision. Further production-page translation
-and batch campaigns are gated on their completion; independent review of the
+contract. These are design recommendations, not implemented canonical artifacts,
+schemas, or tools. Further production-page translation and batch campaigns are
+gated on reviewed bounded implementation evidence; independent review of the
 existing pilot records may continue.
 
 Issue [#28](https://github.com/timothydadams/vehicle-graph/issues/28) defined
@@ -188,9 +188,11 @@ was delivered by merged PRs #35–#42. The focused
 is under review. No implementation pilot has started, and the ADR must merge
 before bounded pilot planning begins.
 
-Completing publication representation will unblock production translation and
-translation binding, and will establish shared inputs for structured search,
-future publishing, and graph extraction. This roadmap does not claim that all
+The completed publication-representation architecture establishes the design
+prerequisites for translation binding, structured search, future publishing,
+and graph extraction. It does not implement canonical artifacts, schemas, or
+tools, and production translation and graph integration remain gated by
+reviewed bounded implementation evidence. This roadmap does not claim that all
 of those consumers will be implemented on `feature/translation`.
 
 ### Milestone 8 — Independent-review preparation ([issue](https://github.com/timothydadams/vehicle-graph/issues/12))
@@ -244,8 +246,16 @@ decomposition architecture rather than hard-code the pilot's grouped units.
 
 Translate the publication in bounded, reviewable batches. This is not one PR;
 use chapter- or page-type-oriented campaigns as evidence and review capacity
-support. Do not begin the campaign until the page decomposition investigation
-defines the canonical intermediate structure.
+support. Do not begin the campaign until a bounded implementation pilot
+establishes a reviewed publication-representation artifact, stable
+source-visible identity, translation bindings where applicable, exact primary
+publication provenance and verified artifact identity, ambiguity propagation,
+applicability preservation, staleness and supersession behavior, independent
+review, and explicit acceptance or deliberate rejection. Where the pilot relies
+materially on page or declared-boundary
+structure, that decomposition and structural support must remain preserved and
+reviewable. The pilot need not establish a universal schema for unsupported
+publication families.
 
 ### Milestone 16 — Translation-aware graph extraction ([issue](https://github.com/timothydadams/vehicle-graph/issues/20))
 
@@ -261,14 +271,14 @@ remains independent.
 - Fingerprint and map the local PDF before reproducible page work.
 - Review required source-language conventions before translating affected
   pages.
-- Complete the publication representation architecture investigation before expanding
-  production translation beyond the current pilot records.
+- Require reviewed bounded implementation evidence before expanding production
+  translation beyond the current pilot records.
 - Require successful pilot review before full-publication scaling.
 - Promote terminology only after repeated real usage demonstrates the need.
 - Begin renderer and publishing work after translation records stabilize.
-- Define the page-decomposition-to-graph-extraction contract before graph
-  integration and begin implementation only after the translation workflow is
-  accepted.
+- Use the completed publication-to-graph extraction contract and require the
+  bounded implementation pilot before graph integration; translation workflow
+  acceptance remains independently required where translation is used.
 
 These are gates, not artificial serialization: local artifact preparation may
 proceed independently where it does not require record binding, and other safe

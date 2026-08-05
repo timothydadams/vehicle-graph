@@ -32,12 +32,18 @@ abstraction. Detailed operational rules remain in the
 Original factory publication evidence is authoritative for what a publication
 visibly contains. After verification and fingerprinting it remains immutable,
 private and gitignored where repository policy requires, distinct from every
-derived representation, and the ultimate evidentiary anchor.
+derived representation, and the ultimate evidentiary anchor for claims derived
+from that publication.
 
 Publication representation, transcription, translation, normalization, graph
 candidates, accepted graph knowledge, and publishing views do not replace
-factory evidence. Every accepted graph fact remains traceable to an exact
-controlling factory location and verified artifact.
+factory publication evidence. Every accepted graph fact derived from a factory
+publication remains traceable to its exact controlling publication location and
+verified artifact.
+
+Accepted knowledge may use other evidence classes under their own governance;
+vehicle observations and overlays retain their own controlling evidence and do
+not silently exchange authority with factory publications.
 
 ### Publication representation is language-independent
 
@@ -157,13 +163,14 @@ one page-level number, silently suppress alternatives, resolve conflicts
 without a record, retarget claims after source changes, or end provenance at an
 English translation or rendered page.
 
-An accepted graph fact retains a chain to its accepted candidate, acceptance
-decision, engineering interpretation, material supporting artifacts, exact
-factory publication location, and verified source artifact. Canonical page
-decomposition is not yet a universal prerequisite: direct, precise
-source-location provenance remains valid where canonical decomposition does
-not exist. When a candidate materially relies on a structural occurrence or
-relationship, that support must be preserved and reviewed.
+A publication-derived accepted graph fact retains a chain to its accepted
+candidate, acceptance decision, engineering interpretation, material supporting
+artifacts, exact controlling publication location, and verified source
+artifact. Canonical page decomposition is not yet a universal prerequisite:
+direct, precise source-location provenance remains valid where canonical
+decomposition does not exist. When a candidate materially relies on a
+structural occurrence or relationship, that support must be preserved and
+reviewed.
 
 ### Demonstrated coverage remains limited
 
@@ -259,6 +266,10 @@ no validator, extraction, acceptance automation, downstream consumer, or
 bounded pilot; translates no page; asserts no `H8` equivalence; broadens no
 applicability; and authorizes neither production-scale translation nor bulk
 extraction.
+
+This ADR governs extraction from engineering publications; it does not redefine
+the evidence rules for direct vehicle observations, measurements, service
+records, photographs, or vehicle overlays.
 
 After acceptance it authorizes planning one bounded architecture pilot, not
 production extraction. The recommended pilot uses one demonstrated Toyota EWD
