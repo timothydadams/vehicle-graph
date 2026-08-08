@@ -76,9 +76,15 @@ def validate(package=DEFAULT):
     lifecycle_path = package / "lifecycle-test.json"
     if lifecycle_path.exists():
         lifecycle = load(package, "lifecycle-test.json")
+        synthetic = load(package, "lifecycle-relationship-v2.json")
         if lifecycle.get("factory_evidence_changed") is not False or lifecycle.get("prior_versions_preserved") is not True: errors.append("lifecycle test must preserve evidence and prior versions")
         expected = {"candidate": "stale", "extraction_review": "review_required", "eligibility": "review_required", "disposition_reference": "review_required"}
         if lifecycle.get("dependent_states") != expected: errors.append("lifecycle staleness did not propagate to every required dependent")
+        old = candidate.get("relationship", {}).get("source_structure_dependency")
+        new = synthetic.get("synthetic_relationship", {}).get("relationship_id")
+        if old == new or synthetic.get("supersedes_relationship_id") != old: errors.append("synthetic lifecycle relationship must explicitly supersede, not retarget, the candidate dependency")
+        if synthetic.get("factory_evidence") != "unchanged" or synthetic.get("active_representation_changed") is not False: errors.append("synthetic lifecycle input may not change factory evidence or the active representation")
+        if lifecycle.get("restored_active_dependency") != old or lifecycle.get("active_artifacts_restored_after_test") is not True: errors.append("lifecycle test must support explicit restoration")
 
     tracked = subprocess.run(["git", "ls-files", ".evidence"], cwd=ROOT, text=True, capture_output=True, check=False).stdout.strip()
     if tracked: errors.append("private evidence is tracked")

@@ -47,6 +47,19 @@ class PublicationGraphPilotTests(unittest.TestCase):
     def test_rejects_candidate_source_identity_collision(self):
         self.assertIn("separate from source identities", self.mutated("candidate.json", lambda record: record.update(candidate_id="I44-SO-TERMINAL-1-D-001")))
 
+    def test_ineligible_remains_distinct_from_rejection(self):
+        self.assertIn("ineligible is not rejected", self.mutated("eligibility.json", lambda record: record.update(rejected=True)))
+
+    def test_lifecycle_change_propagates_every_required_state(self):
+        def mutate(record):
+            record["dependent_states"]["extraction_review"] = "fresh"
+        self.assertIn("staleness did not propagate", self.mutated("lifecycle-test.json", mutate))
+
+    def test_lifecycle_prevents_silent_retargeting(self):
+        def mutate(record):
+            record["synthetic_relationship"]["relationship_id"] = "I44-SR-PATH-CONTINUITY-001-v1"
+        self.assertIn("supersede, not retarget", self.mutated("lifecycle-relationship-v2.json", mutate))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,9 +1,9 @@
 {
   "review_id": "I44-IR-001",
   "review_type": "independent_extraction_review",
-  "status": "prepared",
+  "status": "complete",
   "candidate_id": "I44-CAND-CONNECTIVITY-001-v1",
-  "frozen_commit": "TO_BE_SET_AFTER_CANDIDATE_COMMIT",
+  "frozen_commit": "4dd5cb5191efec5c22141c9a7306c121a615f548",
   "publication_id": "toyota-land-cruiser-70-jdm-1993-05",
   "artifact_fingerprint": "sha256:1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6",
   "private_artifact_path": ".evidence/toyota/land-cruiser-70-jdm-1993-05/original.pdf",
