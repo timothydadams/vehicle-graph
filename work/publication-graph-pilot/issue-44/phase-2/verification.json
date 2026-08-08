@@ -1,0 +1,27 @@
+{
+  "record_id": "I44-P2-VERIFY-001",
+  "record_type": "phase_2_input_verification",
+  "status": "passed",
+  "verified_on": "2026-08-08",
+  "publication_id": "toyota-land-cruiser-70-jdm-1993-05",
+  "artifact_fingerprint": "sha256:1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6",
+  "artifact_size_bytes": 101456077,
+  "artifact_page_count": 90,
+  "source_location": {"pdf_page": 40, "printed_page": "3-2", "region_id": "PILOT-TGT-008"},
+  "checks": {
+    "private_artifact_exists": true,
+    "fingerprint_matches": true,
+    "page_mapping_matches": true,
+    "phase_1_readings_unchanged": true,
+    "private_evidence_gitignored": true,
+    "lower_terminal_1_D_locatable": true,
+    "directly_below_ground_locatable": true,
+    "right_branch_ground_locatable": true,
+    "material_path_readable": true,
+    "candidate_region_has_visible_production_mark": false,
+    "same_publication_unmarked_rule_discovered": false
+  },
+  "method": ["shasum SHA-256", "pdfinfo", "fresh 200 DPI full-page render", "direct full-page visual inspection", "git check-ignore"],
+  "phase_1_report_modified": false,
+  "gate": "candidate_creation_may_proceed_with_material_applicability_ambiguity"
+}

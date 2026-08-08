@@ -1,0 +1,37 @@
+{
+  "record_id": "I44-P2-REP-001-v1",
+  "record_type": "experimental_publication_representation",
+  "status": "review_ready",
+  "experimental": true,
+  "pilot_boundary": "Issue 44; PILOT-TGT-008; one candidate support only",
+  "version": 1,
+  "publication_id": "toyota-land-cruiser-70-jdm-1993-05",
+  "artifact_fingerprint": "sha256:1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6",
+  "source_location": {"pdf_page": 40, "printed_page": "3-2", "region_id": "PILOT-TGT-008", "region_description": "lower-left Battery No. 1 depiction and directly-below ground path, plus page title and upper-right production legend"},
+  "occurrences": [
+    {"occurrence_id": "I44-SO-LABEL-BATTERY-NO1-001", "kind": "visible_text", "source_value": "バッテリーNO.1", "location": "vertical label immediately right of the right-hand battery depiction"},
+    {"occurrence_id": "I44-SO-DEPICTION-BATTERY-NO1-001", "kind": "component_depiction", "location": "right-hand of the two battery depictions in the lower-left circuit region"},
+    {"occurrence_id": "I44-SO-TERMINAL-1-D-001", "kind": "terminal_mark_occurrence", "source_values": {"terminal_number": "1", "circled_letter": "D", "connector_strip_value": "F1"}, "location": "lower endpoint of the Battery No. 1 depiction"},
+    {"occurrence_id": "I44-SO-GROUND-DIRECT-001", "kind": "ground_symbol_occurrence", "location": "earth-point symbol directly below lower terminal occurrence 1 (D)"},
+    {"occurrence_id": "I44-SO-GROUND-RIGHT-001", "kind": "ground_symbol_occurrence", "location": "earth-point symbol at the end of the distinct down-and-right branch from lower terminal 1 (D)", "candidate_role": "explicitly_not_selected"},
+    {"occurrence_id": "I44-SO-PATH-DIRECT-001", "kind": "circuit_path_portion", "location": "straight path portion from lower terminal 1 (D) to the directly-below ground symbol"},
+    {"occurrence_id": "I44-SO-TITLE-QUALIFIER-001", "kind": "page_title_qualifier", "source_value": "電源(1HZ,1PZ)", "location": "centered page heading"},
+    {"occurrence_id": "I44-SO-PRODUCTION-LEGEND-001", "kind": "page_local_legend", "source_value": "○: ～'95.1 / □: '95.1～", "location": "upper-right page legend"},
+    {"occurrence_id": "I44-SO-PRODUCTION-ABSENCE-001", "kind": "visible_absence_observation", "source_value": "no ○ or □ visibly associated with the candidate region", "location": "label, depiction, terminal, selected path, and selected ground region"}
+  ],
+  "relationships": [
+    {"relationship_id": "I44-SR-LABEL-ASSOCIATION-001-v1", "kind": "visible_label_association", "from": "I44-SO-LABEL-BATTERY-NO1-001", "to": "I44-SO-DEPICTION-BATTERY-NO1-001", "basis": "close adjacency and matching placement; no leader or enclosure"},
+    {"relationship_id": "I44-SR-TERMINAL-ATTACHMENT-001-v1", "kind": "visible_attachment", "from": "I44-SO-TERMINAL-1-D-001", "to": "I44-SO-PATH-DIRECT-001"},
+    {"relationship_id": "I44-SR-PATH-CONTINUITY-001-v1", "kind": "visible_continuity", "from": "I44-SO-TERMINAL-1-D-001", "via": "I44-SO-PATH-DIRECT-001", "to": "I44-SO-GROUND-DIRECT-001", "junctions": [], "interruptions": []}
+  ],
+  "selected_ground_occurrence_id": "I44-SO-GROUND-DIRECT-001",
+  "selection_rationale": "The selected occurrence is reached by the straight path proceeding directly downward from lower terminal 1 (D), making it the most faithful reading of the directly-below material visible path.",
+  "excluded_ground_rationale": "I44-SO-GROUND-RIGHT-001 terminates a distinct down-and-right branch. Including it would create a second candidate relationship outside the frozen one-candidate boundary.",
+  "selection_uncertainty": "Both ground symbols visibly share the terminal endpoint, but their path portions and locations are distinct; the selected endpoint itself is legible.",
+  "interpretive_dependencies": [
+    {"dependency_id": "PILOT-DEP-003", "role": "notation_interpretation", "material_use": "identifies the selected symbol category as an earth point", "source_location": {"pdf_page": 7, "printed_page": "1-4"}},
+    {"dependency_id": "PILOT-DEP-004", "role": "source_structure_support", "material_use": "reads terminal number and circled connector occurrence and preserves path/endpoint structure", "source_location": {"pdf_page": 8, "printed_page": "1-5"}}
+  ],
+  "coverage": {"included": ["listed occurrences and three listed structural relationships"], "omitted": ["upper terminal 1 (C)", "right-hand branch path relationship", "all unrelated page circuit material", "wire colors", "canonical engineering identities"]},
+  "prohibitions": ["not an accepted conductor", "not a wire entity", "not electrical connectivity", "not a graph edge", "not canonical knowledge"]
+}

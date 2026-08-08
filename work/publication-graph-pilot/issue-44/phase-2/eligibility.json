@@ -1,0 +1,37 @@
+{
+  "eligibility_id": "I44-ELIG-001-v1",
+  "record_type": "graph_acceptance_eligibility_review",
+  "status": "complete",
+  "reviewed_candidate_id": "I44-CAND-CONNECTIVITY-001-v1",
+  "extraction_review_id": "I44-IR-001",
+  "extraction_review_outcome": "supported_as_proposed",
+  "question": "Does the reviewed candidate satisfy the documented prerequisites for possible canonical acceptance?",
+  "checks": {
+    "provenance_complete": true,
+    "source_object_identity_separate": true,
+    "applicability_complete": false,
+    "material_ambiguity_resolved": false,
+    "dependencies_fresh_at_review": true,
+    "independent_extraction_review_complete": true,
+    "evidence_roles_separate": true,
+    "approved_disposition_authority_exists": false,
+    "silent_scope_transfer": false,
+    "scope_broadening": false
+  },
+  "decision": "ineligible",
+  "rationale": "Candidate-specific January 1995 production applicability is material and remains unresolved. A favorable extraction review establishes faithful support for the proposed interpretation but cannot supply the missing scope or change eligibility.",
+  "canonical_acceptance_allowed": false,
+  "rejected": false,
+  "ineligibility_is_not_rejection": true,
+  "performs_canonical_disposition": false,
+  "canonical_disposition": "blocked_pending_approved_authority",
+  "canonical_data_changed": false,
+  "canonical_graph_write": false,
+  "dependency_fingerprints": {
+    "candidate": "I44-CAND-CONNECTIVITY-001-v1",
+    "representation": "I44-P2-REP-001-v1",
+    "path_relationship": "I44-SR-PATH-CONTINUITY-001-v1",
+    "applicability": "I44-P2-APP-001-v1",
+    "extraction_review": "I44-IR-001"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "review_id": "I44-IR-001",
+  "review_type": "independent_extraction_review",
+  "status": "complete",
+  "outcome": "supported_as_proposed",
+  "candidate_id": "I44-CAND-CONNECTIVITY-001-v1",
+  "frozen_commit": "4dd5cb5191efec5c22141c9a7306c121a615f548",
+  "publication_id": "toyota-land-cruiser-70-jdm-1993-05",
+  "artifact_fingerprint_reviewed": "sha256:1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6",
+    "reviewer": {
+        "identity": "Codex (OpenAI), independent extraction-review session",
+        "role": "independent_extraction_reviewer",
+        "independent_from_proposal": true,
+    "independence_statement": "I did not participate in creating the frozen extraction under review. I received operational context identifying the repository, package, frozen commit, and required outputs, but no extractor conclusion, suspected defect, or requested outcome. I independently inspected the bound source before comparing the candidate and did not optimize for approval.",
+    "limitations": [
+      "This is not qualified human Japanese-language fidelity review.",
+      "The Stage 1 publication-representation file necessarily exposed proposed source-occurrence identities, three source-visible relationships, endpoint selection, and selection rationale before candidate comparison. This exposure was declared by the manifest; it reduced blindness but did not prevent an independent direct inspection of the PDF or require a fresh source account."
+    ]
+  },
+  "stage_order": [
+    {
+      "stage": 1,
+      "name": "independent_source_account",
+      "completed_at": "2026-08-08T18:16:14Z",
+      "actions": [
+        "Verified the private PDF SHA-256 against the manifest.",
+        "Read only governing and Stage 1 repository material.",
+        "Inspected PDF pages 7, 8, 9, and 40 directly at high resolution, including a close crop of the candidate region.",
+        "Saved independent-source-account.md before opening Stage 2 or Stage 3 material."
+      ],
+      "premature_delayed_disclosure": false,
+      "declared_unavoidable_stage_1_exposure": true
+    },
+    {
+      "stage": 2,
+      "name": "candidate_comparison",
+      "completed_at": "2026-08-08T18:17:01Z",
+      "actions": [
+        "Opened only translation-binding.json and candidate.json after the source account was saved.",
+        "Completed source-to-candidate and candidate-to-source comparison.",
+        "Recorded the production-scope uncertainty and evidence-role checks as review-significant determinations before opening Stage 3."
+      ]
+    },
+    {
+      "stage": 3,
+      "name": "ambiguity_and_rationale_check",
+      "completed_at": "2026-08-08T18:17:16Z",
+      "actions": [
+        "Opened applicability.json and replanning-after-verification.md only after Stage 2 comparison.",
+        "Checked the candidate-specific applicability ambiguity under AGENTS.md Test E.",
+        "Confirmed that rationale did not supply evidence for the connectivity claim or resolve the open production scope."
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "check": "package_identity_and_freeze",
+      "result": "pass",
+      "finding": "The repository HEAD equals the frozen commit; every disclosed repository input resolves there. The ignored PDF exists, is 90 pages, and its SHA-256 matches the manifest.",
+      "resolution": "No remediation required."
+    },
+    {
+      "check": "source_to_candidate_completeness",
+      "result": "pass",
+      "finding": "The candidate preserves the independently meaningful in-boundary relationship from lower terminal 1 (D), through the selected uninterrupted vertical path, to the directly-below earth-point symbol. The second diagonal/right branch is explicitly represented and excluded by the frozen one-candidate boundary rather than silently denied.",
+      "resolution": "No omitted in-boundary claim or boundary revision required."
+    },
+    {
+      "check": "natural_claim_boundary",
+      "result": "pass",
+      "finding": "One endpoint-to-endpoint relationship is independently reviewable and is not combined with the adjacent branch, upper terminal, other battery, or surrounding power circuit.",
+      "resolution": "No remediation required."
+    },
+    {
+      "check": "primary_evidence_and_reconstruction",
+      "result": "pass",
+      "finding": "PDF page 40 / printed page 3-2 visibly shows バッテリーNO.1, lower terminal 1 with circled D, the straight selected path, and the directly-below earth symbol. The claim can be reconstructed without extractor rationale.",
+      "resolution": "No remediation required."
+    },
+    {
+      "check": "transformation_classification",
+      "result": "pass",
+      "finding": "The candidate labels the graph-shaped assertion as proposed electrical connectivity and separately depends on a neutral source-visible continuity relationship. It does not mislabel the interpretation as literal transcription or canonical fact.",
+      "resolution": "No remediation required."
+    },
+    {
+      "check": "evidence_roles",
+      "result": "pass",
+      "finding": "Page 40 is primary evidence. The publication representation supplies direct occurrences and source structure; the linguistic binding is limited to source-label identification and expressly does not establish topology; applicability support remains separate. No rationale document is used as evidence for connectivity.",
+      "resolution": "No evidence-role correction required."
+    },
+    {
+      "check": "interpretive_dependencies",
+      "result": "pass",
+      "finding": "PILOT-DEP-003 materially identifies the earth-point symbol category and PILOT-DEP-004 materially defines system-circuit, terminal, connector-mark, path, and earth presentation. PILOT-DEP-005 is correctly not attached because its block and wire-to-wire conventions are unnecessary for this claim.",
+      "resolution": "No missing or irrelevant interpretive dependency found."
+    },
+    {
+      "check": "source_language_discipline",
+      "result": "pass",
+      "finding": "The candidate preserves the source string バッテリーNO.1 and source-local marks 1 (D); the provisional English binding remains explicitly incomplete and is not treated as accepted Toyota terminology.",
+      "resolution": "No normalization correction required."
+    },
+    {
+      "check": "applicability",
+      "result": "pass",
+      "finding": "The candidate records only the visible 1HZ,1PZ engine context and leaves candidate-specific January 1995 production scope unresolved. It does not substitute the publication envelope, infer an unmarked default, transfer another publication's scope, or claim applicability to a 1990 PZJ70.",
+      "resolution": "Retain unresolved production scope; canonical acceptance remains prohibited unless reviewed evidence resolves it."
+    },
+    {
+      "check": "ambiguity_completeness_and_attachment",
+      "result": "pass",
+      "finding": "I44-AMB-PRODUCTION-001 names the exact unresolved question and is attached because its resolution would change candidate-specific production applicability and acceptance eligibility. It passes AGENTS.md Test E and does not need attachment to the stable structural endpoint or path fields.",
+      "resolution": "Ambiguity is properly unresolved and narrowly attached; no new ambiguity is required."
+    },
+    {
+      "check": "canonical_boundary",
+      "result": "pass",
+      "finding": "The candidate and supporting records consistently prohibit canonical acceptance and state canonical_graph_write false. This review assesses support only and makes no canonical disposition.",
+      "resolution": "No canonical action taken."
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "I44-IR-001-F01",
+      "class": "candidate_supported_by_extraction_review",
+      "severity": "informational",
+      "determination": "The proposed electrical-connectivity candidate is reconstructable from the cited factory page using the publication-defined system-circuit and earth-point conventions.",
+      "resolution": "Supported as proposed for completion of independent extraction review; this is not canonical acceptance and does not establish eligibility."
+    },
+    {
+      "finding_id": "I44-IR-001-F02",
+      "class": "properly_unresolved_claim",
+      "severity": "material_nonblocking_for_extraction_review",
+      "determination": "No circle or square production mark is visibly associated with the candidate region and no disclosed same-publication rule supplies an unmarked default. Candidate-specific production scope therefore remains unresolved.",
+      "resolution": "Keep I44-AMB-PRODUCTION-001 open and attached to candidate applicability; preserve the canonical-acceptance blocker."
+    }
+  ],
+  "summary": "The frozen candidate is faithfully supported as a proposed electrical-connectivity interpretation of the selected source path. Its engine context is narrowly stated, its production scope is properly unresolved, and the material ambiguity is accurately attached. Independent extraction review is complete, but the candidate remains ineligible for canonical acceptance while that ambiguity is open.",
+  "canonical_graph_write": false
+}

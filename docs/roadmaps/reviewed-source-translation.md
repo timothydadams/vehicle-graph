@@ -72,7 +72,7 @@ GitHub PR numbers. Milestone names are the durable references.
 | Source-language review | Complete | All targets and dependencies reviewed; dispositions merged in PR #24 | Preserve the reviewed boundary and dispositions |
 | Pilot translation | Complete | Three review-ready records merged in PR #25; schema, provenance, review separation, and dependency handling validated | Independently review the pilot records |
 | Publication representation architecture | Complete; ADR accepted | Epic #26 and Issues #27–#32 and #34 completed by merged PRs #35–#42; ADR 0007 merged in PR #43 | Preserve the accepted boundaries during the bounded implementation pilot |
-| Bounded publication-to-graph pilot | Replanning after Phase 1 | Phase 1 completed in PR #46; its exact-applicability gate blocked candidate creation | Merge Issue #44 replanning before any candidate implementation |
+| Bounded publication-to-graph pilot | Phase 2 implementation under review | Phase 1 completed in PR #46; replanning completed in PR #47; draft PR #48 implements the bounded candidate, independent review, ineligible eligibility result, and lifecycle test | Review PR #48; keep production work blocked and canonical disposition pending approved authority |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
 | Terminology promotion | Planned | Provisional ledger seeded | Promote proven recurring terms |
 | Publishing | Planned | Derived-view role defined | Build renderer, indexes, and companion PDF |
@@ -200,25 +200,26 @@ of those consumers will be implemented on `feature/translation`.
 
 ### Milestone 7B — Bounded publication-to-graph implementation pilot ([issue](https://github.com/timothydadams/vehicle-graph/issues/44))
 
-Replanning after Phase 1. PR #46 completed evidence verification and found that
-the original exact-applicability gate blocked candidate creation: the selected
-region is unmarked and the publication-wide search found no rule for unmarked
-material. No candidate implementation has begun.
+Phase 1 and replanning are complete. PR #46 completed evidence verification and
+found that the original exact-applicability gate blocked candidate creation:
+the selected region is unmarked and the publication-wide search found no rule
+for unmarked material. PR #47 completed the controlled replanning. Draft PR
+#48 now carries the one bounded candidate through independent extraction review,
+an ineligible eligibility result, and a controlled lifecycle test.
 
 The replanned pilot carries one candidate with explicitly unresolved production
-applicability through genuine extraction review, an expected ineligible
-eligibility result, and a separate governed deliberate rejection by an
-approved authority. Acceptance remains prohibited while that ambiguity is
+applicability through genuine extraction review and a separate ineligible
+eligibility result. Draft PR #48 stops at that governance boundary: it records
+neither acceptance nor rejection. Canonical disposition remains pending an
+approved authority, and acceptance remains prohibited while the ambiguity is
 materially unresolved. This does not infer a production scope or relax the
-applicability required for accepted knowledge. The pilot remains an
-experimental implementation intended to discover the minimum artifact
-boundaries, provenance, lifecycle controls, and review gates; it does not begin
-bulk translation, production graph extraction, or support for unsupported
-publication families.
+applicability required for accepted knowledge. The pilot remains experimental;
+bulk translation, production graph extraction, and unsupported publication
+families remain blocked.
 
 Epic #26 is complete and ADR 0007 is accepted. Production translation and
 generalized graph integration remain blocked on reviewed evidence from this
-pilot. No pilot implementation has yet been merged.
+pilot. Phase 2 is under review and no pilot implementation has yet been merged.
 
 ### Milestone 8 — Independent-review preparation ([issue](https://github.com/timothydadams/vehicle-graph/issues/12))
 

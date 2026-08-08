@@ -1,0 +1,24 @@
+{
+  "test_id": "I44-LIFECYCLE-001",
+  "record_type": "controlled_synthetic_lifecycle_test",
+  "status": "passed",
+  "baseline_active_relationship": "I44-SR-PATH-CONTINUITY-001-v1",
+  "test_input": "I44-SR-PATH-CONTINUITY-001-v2-synthetic",
+  "superseded_test_dependency": "I44-SR-PATH-CONTINUITY-001-v1",
+  "change_kind": "synthetic_versioned_source_structure_clarification",
+  "factory_evidence_changed": false,
+  "prior_versions_preserved": true,
+  "dependency_chain_preserved": true,
+  "review_history_preserved": true,
+  "silent_retargeting_prevented": true,
+  "transitions": [
+    {"step": "baseline", "active_relationship": "I44-SR-PATH-CONTINUITY-001-v1", "expected_states": {"candidate": "fresh", "extraction_review": "fresh", "eligibility": "fresh", "disposition_reference": "fresh"}},
+    {"step": "activate_synthetic_v2", "active_relationship": "I44-SR-PATH-CONTINUITY-001-v2-synthetic", "expected_states": {"candidate": "stale", "extraction_review": "review_required", "eligibility": "review_required", "disposition_reference": "review_required"}},
+    {"step": "restore_v1", "active_relationship": "I44-SR-PATH-CONTINUITY-001-v1", "expected_states": {"candidate": "fresh", "extraction_review": "fresh", "eligibility": "fresh", "disposition_reference": "fresh"}}
+  ],
+  "active_artifacts_restored_after_test": true,
+  "restored_active_dependency": "I44-SR-PATH-CONTINUITY-001-v1",
+  "staleness_reason": "Every dependent names relationship version v1. The synthetic v2 test input is a distinct identity and cannot silently replace it, even though the endpoints and visible meaning remain unchanged.",
+  "supersession_behavior": "If v2 were activated through review, a candidate must be versioned or explicitly reaffirmed against it; prior candidate, review, and eligibility records remain recoverable.",
+  "canonical_data_changed": false
+}
