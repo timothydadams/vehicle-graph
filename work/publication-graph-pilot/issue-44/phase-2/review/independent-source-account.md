@@ -81,4 +81,3 @@ not mistaken for the only path leaving the terminal.
 - The Japanese short labels and source marks are legible. This review does not
   claim qualified human Japanese-language fidelity or establish normalized
   English component terminology.
-
