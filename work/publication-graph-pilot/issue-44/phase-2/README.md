@@ -18,6 +18,11 @@ The records deliberately remain separate:
 7. `eligibility.json` records a non-dispositive eligibility decision; and
 8. `lifecycle-test.json` records the controlled synthetic staleness exercise.
 
+The candidate is an immutable proposal, so its intrinsic lifecycle state stays
+`proposed`. Review completion and eligibility are derived from the separately
+versioned review and eligibility artifacts; they do not mutate or silently
+retarget the candidate.
+
 The source artifact and all renders remain below `.evidence/` and are ignored.
 Run `python3 scripts/validate-publication-graph-pilot.py` to validate the
 package. The validator is intentionally specific to this experiment; it is not

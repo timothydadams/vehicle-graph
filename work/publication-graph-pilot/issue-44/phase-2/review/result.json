@@ -123,7 +123,7 @@
   "findings": [
     {
       "finding_id": "I44-IR-001-F01",
-      "class": "acceptance_ready_candidate",
+      "class": "candidate_supported_by_extraction_review",
       "severity": "informational",
       "determination": "The proposed electrical-connectivity candidate is reconstructable from the cited factory page using the publication-defined system-circuit and earth-point conventions.",
       "resolution": "Supported as proposed for completion of independent extraction review; this is not canonical acceptance and does not establish eligibility."

@@ -3,6 +3,7 @@
   "record_type": "synthetic_lifecycle_test_input",
   "test_only": true,
   "factory_evidence": "unchanged",
+  "factory_artifact_fingerprint": "sha256:1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6",
   "supersedes_relationship_id": "I44-SR-PATH-CONTINUITY-001-v1",
   "synthetic_relationship": {
     "relationship_id": "I44-SR-PATH-CONTINUITY-001-v2-synthetic",
@@ -16,6 +17,6 @@
   },
   "meaning_changed": false,
   "source_occurrences_changed": false,
-  "active_representation_changed": false,
-  "purpose": "Exercise strict version dependencies and prevent silent retargeting; this record is not a correction to factory evidence or an active publication representation."
+  "committed_active_representation_changed": false,
+  "purpose": "Exercise strict version dependencies in an isolated package state and prevent silent retargeting; this record is not a correction to factory evidence or a committed active publication representation."
 }
