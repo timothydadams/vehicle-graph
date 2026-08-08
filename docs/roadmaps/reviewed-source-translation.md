@@ -72,7 +72,7 @@ GitHub PR numbers. Milestone names are the durable references.
 | Source-language review | Complete | All targets and dependencies reviewed; dispositions merged in PR #24 | Preserve the reviewed boundary and dispositions |
 | Pilot translation | Complete | Three review-ready records merged in PR #25; schema, provenance, review separation, and dependency handling validated | Independently review the pilot records |
 | Publication representation architecture | Complete; ADR accepted | Epic #26 and Issues #27–#32 and #34 completed by merged PRs #35–#42; ADR 0007 merged in PR #43 | Preserve the accepted boundaries during the bounded implementation pilot |
-| Bounded publication-to-graph pilot | Planned | One page and one candidate scoped in Issue #44 | Implement and review the bounded pilot before production translation or graph integration |
+| Bounded publication-to-graph pilot | Replanning after Phase 1 | Phase 1 completed in PR #46; its exact-applicability gate blocked candidate creation | Merge Issue #44 replanning before any candidate implementation |
 | Independent review | Planned | Review dimensions defined | Prepare and run reproducible review |
 | Terminology promotion | Planned | Provisional ledger seeded | Promote proven recurring terms |
 | Publishing | Planned | Derived-view role defined | Build renderer, indexes, and companion PDF |
@@ -200,10 +200,16 @@ of those consumers will be implemented on `feature/translation`.
 
 ### Milestone 7B — Bounded publication-to-graph implementation pilot ([issue](https://github.com/timothydadams/vehicle-graph/issues/44))
 
-Planned. Exercise ADR 0007 through one verified Toyota EWD circuit page, one
-minimal engineering candidate, independent extraction review, separate
-graph-acceptance eligibility review, and explicit acceptance or deliberate
-rejection by an approved canonical-disposition authority. The pilot is an
+Replanning after Phase 1. PR #46 completed evidence verification and found that
+the original exact-applicability gate blocked candidate creation: the selected
+region is unmarked and the publication-wide search found no rule for unmarked
+material. No candidate implementation has begun.
+
+Issue #44 is being revised to preserve the one-page, one-candidate boundary
+while testing explicitly unresolved production applicability through genuine
+independent extraction review, an ineligible graph-acceptance result, and
+governed deliberate rejection. This does not infer a production scope or relax
+the applicability required for accepted knowledge. The pilot remains an
 experimental implementation intended to discover the minimum artifact
 boundaries, provenance, lifecycle controls, and review gates; it does not begin
 bulk translation, production graph extraction, or support for unsupported
