@@ -1,0 +1,15 @@
+{
+  "record_id": "I44-P2-APP-001-v1",
+  "record_type": "experimental_candidate_applicability",
+  "status": "unresolved_material",
+  "publication_envelope": {"model_families": ["KZJ7#", "PZJ7#", "HZJ7#"], "production_start": "1993-05", "candidate_scope_substitute": false},
+  "page_visible_engine_context": {"source_value": "1HZ,1PZ", "review_status": "machine_assisted_source_convention_review"},
+  "page_local_production_legend": {"source_value": "○: ～'95.1 / □: '95.1～", "visible_mark_ranges": [{"mark": "○", "range": "～'95.1"}, {"mark": "□", "range": "'95.1～"}]},
+  "candidate_region_mark_observation": "no ○ or □ visibly associated",
+  "publication_wide_search": {"source": "PR #46 / Issue 44 Phase 1 evidence-verification report", "boundary": "all 90 PDF pages", "result": "no discovered rule defining applicability of unmarked material"},
+  "ambiguity": {"ambiguity_id": "I44-AMB-PRODUCTION-001", "question": "Does the unmarked selected candidate region apply before January 1995, from January 1995 onward, both, or another production scope?", "material_effect": "changes candidate-specific production applicability and canonical-acceptance eligibility", "review_state": "open", "attachment_test": "AGENTS.md Test E"},
+  "candidate_specific_production_scope": null,
+  "prohibited_derivations": ["synthetic mark", "mark-to-region association", "default scope", "union of visible ranges", "common to both", "EWD168F transfer", "1990 PZJ70 applicability", "publication envelope substitution"],
+  "canonical_acceptance_prohibited": true,
+  "downstream_behavior": "candidate, extraction review, eligibility, and any disposition reference depend on this version and become review-required when it changes"
+}

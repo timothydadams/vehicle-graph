@@ -1,0 +1,27 @@
+{
+  "candidate_id": "I44-CAND-CONNECTIVITY-001-v1",
+  "record_type": "experimental_engineering_candidate",
+  "version": 1,
+  "lifecycle_state": "proposed_for_independent_review",
+  "claim_kind": "proposed_electrical_connectivity",
+  "claim": "Lower terminal occurrence 1 (D) on the depiction associated with バッテリーNO.1 is proposed as electrically connected through the selected circuit-path depiction to the directly-below ground-symbol occurrence.",
+  "endpoints": [
+    {"role": "from", "source_occurrence_id": "I44-SO-TERMINAL-1-D-001"},
+    {"role": "to", "source_occurrence_id": "I44-SO-GROUND-DIRECT-001"}
+  ],
+  "relationship": {"kind": "electrically_connected_to", "source_structure_dependency": "I44-SR-PATH-CONTINUITY-001-v1"},
+  "primary_evidence": {"role": "primary_factory_evidence", "publication_id": "toyota-land-cruiser-70-jdm-1993-05", "artifact_fingerprint": "sha256:1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6", "source_location": {"pdf_page": 40, "printed_page": "3-2", "region_id": "PILOT-TGT-008", "region_description": "Battery No. 1 lower terminal and directly-below ground path"}},
+  "evidence_roles": [
+    {"role": "direct_source_observation", "record_id": "I44-P2-REP-001-v1", "occurrence_ids": ["I44-SO-TERMINAL-1-D-001", "I44-SO-GROUND-DIRECT-001"]},
+    {"role": "source_structure_support", "record_id": "I44-P2-REP-001-v1", "relationship_ids": ["I44-SR-LABEL-ASSOCIATION-001-v1", "I44-SR-TERMINAL-ATTACHMENT-001-v1", "I44-SR-PATH-CONTINUITY-001-v1"]},
+    {"role": "linguistic_interpretation", "record_id": "I44-P2-BIND-001-v1"},
+    {"role": "applicability_support", "record_id": "I44-P2-APP-001-v1"},
+    {"role": "notation_interpretation", "dependency_ids": ["PILOT-DEP-003", "PILOT-DEP-004"]}
+  ],
+  "applicability": {"engine_context": "1HZ,1PZ", "engine_context_review_state": "machine_assisted_source_convention_review", "candidate_specific_production_scope": "unresolved", "ambiguity_id": "I44-AMB-PRODUCTION-001"},
+  "proposal_authority": {"actor": "Codex (OpenAI)", "role": "assisted_repository_contributor", "authority": "proposal_only"},
+  "dependency_fingerprints": {"representation": "I44-P2-REP-001-v1", "linguistic_binding": "I44-P2-BIND-001-v1", "applicability": "I44-P2-APP-001-v1", "factory_artifact": "sha256:1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6"},
+  "canonical_acceptance_prohibited": true,
+  "acceptance_blocker": "candidate-specific January 1995 production applicability is materially unresolved",
+  "canonical_graph_write": false
+}

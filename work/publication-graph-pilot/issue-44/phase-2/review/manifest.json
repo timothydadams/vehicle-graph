@@ -1,0 +1,16 @@
+{
+  "review_id": "I44-IR-001",
+  "review_type": "independent_extraction_review",
+  "status": "prepared",
+  "candidate_id": "I44-CAND-CONNECTIVITY-001-v1",
+  "frozen_commit": "TO_BE_SET_AFTER_CANDIDATE_COMMIT",
+  "publication_id": "toyota-land-cruiser-70-jdm-1993-05",
+  "artifact_fingerprint": "sha256:1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6",
+  "private_artifact_path": ".evidence/toyota/land-cruiser-70-jdm-1993-05/original.pdf",
+  "stage_1_initial_disclosure": ["README.md", "AGENTS.md", "docs/INDEPENDENT_REVIEW.md", "docs/PROVENANCE.md", "docs/SOURCE_LANGUAGE.md", "docs/PUBLICATION_GRAPH_EXTRACTION_CONTRACT.md", "sources/toyota/land-cruiser-70-jdm-1993-05/metadata.json", "work/translation/toyota-land-cruiser-70-jdm-1993-05/evidence-manifest.md", "work/translation/toyota-land-cruiser-70-jdm-1993-05/source-language.md", "work/translation/toyota-land-cruiser-70-jdm-1993-05/source-language-review-results.md", "work/publication-graph-pilot/issue-44/phase-2/verification.json", "work/publication-graph-pilot/issue-44/phase-2/publication-representation.json"],
+  "stage_2_disclosure": ["work/publication-graph-pilot/issue-44/phase-2/translation-binding.json", "work/publication-graph-pilot/issue-44/phase-2/candidate.json"],
+  "stage_3_disclosure": ["work/publication-graph-pilot/issue-44/phase-2/applicability.json", "work/publication-graph-pilot/issue-44/replanning-after-verification.md"],
+  "outputs": ["work/publication-graph-pilot/issue-44/phase-2/review/independent-source-account.md", "work/publication-graph-pilot/issue-44/phase-2/review/result.json"],
+  "permitted_outcomes": ["supported_as_proposed", "correction_required", "unsupported", "blocked"],
+  "canonical_graph_write": false
+}

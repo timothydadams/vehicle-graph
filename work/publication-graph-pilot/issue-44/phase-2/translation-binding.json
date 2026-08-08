@@ -1,0 +1,17 @@
+{
+  "record_id": "I44-P2-BIND-001-v1",
+  "record_type": "experimental_linguistic_binding",
+  "status": "review_ready",
+  "source_occurrence_id": "I44-SO-LABEL-BATTERY-NO1-001",
+  "translation_record_id": "toyota-land-cruiser-70-jdm-1993-05:3-2",
+  "translation_unit_id": "tgt008-circuit-labels",
+  "source_transcription": "バッテリーNO.1",
+  "provisional_literal_english": "Battery No. 1",
+  "language_review": "incomplete",
+  "engineering_terminology_review": "incomplete",
+  "accepted_toyota_normalization": null,
+  "primary_factory_provenance": {"publication_id": "toyota-land-cruiser-70-jdm-1993-05", "artifact_fingerprint": "sha256:1345fc0bd9601411b7b7f3b43c477d5119fd08d0c2b2672ca835ff55061627c6", "source_location": {"pdf_page": 40, "printed_page": "3-2", "region_id": "PILOT-TGT-008"}},
+  "role": "linguistic_identification_only",
+  "is_primary_evidence": false,
+  "prohibitions": ["does not establish topology", "does not accept translation", "does not resolve applicability", "does not create engineering identity"]
+}
