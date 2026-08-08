@@ -43,10 +43,20 @@ the pilot's candidate-creation gate so the repository can test ambiguity
 propagation, ineligibility, preservation, and deliberate rejection.
 
 ```text
-candidate creation
-!= eligibility
-!= canonical acceptance
+engineering candidate
+→ independent extraction review
+→ graph-acceptance eligibility review
+→ approved canonical-disposition authority
+    ├── may accept only if eligible
+    └── may deliberately reject whether eligible or ineligible
 ```
+
+Extraction review determines evidentiary support. Eligibility review determines
+whether acceptance prerequisites are satisfied. The approved authority makes
+the explicit, attributable disposition. No earlier gate mutates canonical
+data, an `ineligible` result is not itself a rejection, and PR merge is not a
+canonical disposition unless repository governance separately designates and
+approves it as such.
 
 ## Scope separation
 
@@ -109,11 +119,21 @@ eligibility.
 ## Unresolved-applicability requirements
 
 The candidate may record known dimensions alongside the unresolved production
-dimension. It must preserve the publication envelope, page-visible engine
-scope, unknown candidate-specific January 1995 production scope, the exact
-reason the scope is unknown, the candidate-specific ambiguity, and the hard
-eligibility blocker. Translation cannot resolve or broaden the scope, and
-EWD168F or general Toyota convention cannot transfer applicability.
+dimension. The required unresolved-applicability record must preserve the
+visible absence of `○` or `□` association with the selected region; the exact
+page-local legend occurrence and ranges it defines for visible marks; PR #46's
+complete bounded publication-wide search result; the publication envelope;
+the page-visible `1HZ,1PZ` context; the unresolved candidate-specific January
+1995 production dimension and reason it remains unresolved; the applicability
+ambiguity identifier or later stable reference; its review state; the hard
+prohibition on canonical acceptance; and downstream dependency and staleness
+behavior. Translation cannot resolve or broaden the scope, and EWD168F or
+general Toyota convention cannot transfer applicability.
+
+The record must describe absence and uncertainty. It must not create a
+synthetic mark, inferred mark attachment, default scope, “common to both”
+scope, transferred applicability, or a candidate-specific legend relationship
+that Phase 1 did not observe.
 
 The Phase 1 negative finding remains historical evidence. New evidence may be
 added through normal provenance and review, but it cannot silently mutate the
@@ -152,11 +172,14 @@ disposition.
 
 ## Governed rejection
 
-An approved canonical-disposition authority may deliberately reject the
-ineligible candidate. The existing Issue #44 authority gate remains unchanged:
-the authority must be proposed, explicitly approved by a human maintainer, and
-the attributable decision, inputs, rationale, separate disposition, conflicts
-or recusals, and preserved history must be recorded.
+An approved canonical-disposition authority may accept only an eligible
+candidate and may deliberately reject a reviewed candidate whether eligible or
+ineligible. The existing Issue #44 authority gate remains unchanged: the
+authority must be proposed, explicitly approved by a human maintainer, and the
+attributable decision, inputs, rationale, separate disposition, conflicts or
+recusals, and preserved history must be recorded. Eligibility review does not
+automatically reject a candidate; deliberate rejection is a separate governed
+disposition.
 
 The rejection must explain that the electrical interpretation may be
 structurally supportable, but candidate-specific production applicability is

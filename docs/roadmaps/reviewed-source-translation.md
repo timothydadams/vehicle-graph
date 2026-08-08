@@ -205,11 +205,12 @@ the original exact-applicability gate blocked candidate creation: the selected
 region is unmarked and the publication-wide search found no rule for unmarked
 material. No candidate implementation has begun.
 
-Issue #44 is being revised to preserve the one-page, one-candidate boundary
-while testing explicitly unresolved production applicability through genuine
-independent extraction review, an ineligible graph-acceptance result, and
-governed deliberate rejection. This does not infer a production scope or relax
-the applicability required for accepted knowledge. The pilot remains an
+The replanned pilot carries one candidate with explicitly unresolved production
+applicability through genuine extraction review, an expected ineligible
+eligibility result, and a separate governed deliberate rejection by an
+approved authority. Acceptance remains prohibited while that ambiguity is
+materially unresolved. This does not infer a production scope or relax the
+applicability required for accepted knowledge. The pilot remains an
 experimental implementation intended to discover the minimum artifact
 boundaries, provenance, lifecycle controls, and review gates; it does not begin
 bulk translation, production graph extraction, or support for unsupported
